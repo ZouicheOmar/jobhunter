@@ -1,0 +1,18 @@
+### 
+
+@base = http://localhost:8080
+
+
+### city GET
+
+GET {{base}}/city HTTP/1.1
+
+
+### website GET
+
+GET {{base}}/website HTTP/1.1
+
+
+### route to call file parser
+
+GET {{base}}/candid/handleFile HTTP/1.1

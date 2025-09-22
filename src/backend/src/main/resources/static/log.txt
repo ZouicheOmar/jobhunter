@@ -1,0 +1,109 @@
+company              city              position                  contract        unsolicited        tech                                date                   answer             website
+capgemini            cherbourg         fullstack                 alternance      no                 java, angular                       11/03/2025             no                 wttj
+citalid              paris             fullstack                 alternance      no                 python, django                      11/03/2025             no                 wttj
+mindflow             paris             fullstack                 alternance      no                 javascript, typescript              11/03/2025             no                 wttj
+natixis(etreso)      paris             fullstack                 alternance      no                 /                                   11/03/2025             no                 wttj
+natixis(summit)      paris             fullstack                 alternance      no                 /                                   11/03/2025             no                 wttj
+atos                 clermont-f        fullstack                 alternance      no                 /                                   11/03/2025             no                 wttj
+meogroup             lyon              fullstack                 alternance      no                 /                                   11/03/2025             no                 wttj
+atos                 toulouse          fullstack                 alternance      no                 /                                   12/03/2025             no                 hellowork
+kicklox              toulouse          fullstack                 alternance      no                 /                                   12/03/2025             no                 kicklox
+apave                toulouse          fullstack                 alternance      no                 /                                   12/03/2025             no                 hellowork
+noous                toulouse          fullstack                 alternance      no                 /                                   13/03/2025             /                  la bonne alternance
+noveo                toulouse          fullstack                 alternance      no                 /                                   13/03/2025             no                 talent
+sopra steria         paris             fullstack                 alternance      no                 /                                   13/03/2025             no                 wttj
+bpce tech            paris             fullstack                 alternance      no                 /                                   15/03/2025             /                  wttj
+super u tech         nantes            fullstack                 alternance      no                 /                                   15/03/2025             /                  wttj
+Nexa                 bordeaux          fullstack                 alternance      no                 /                                   18/03/2025             /                  bloom
+AG2R la mond.        paris             fullstack                 alternance      no                 /                                   18/03/2025             /                  jobs makesens
+AG2R la mond.        paris             fullstack                 alternance      no                 /                                   18/03/2025             /                  jobs makesens
+airbus               toulouse          front                     alternance      no                 /                                   26/03/2025             no                 site via linkedin 
+kicklox/entr         montpellier       fullstack                 alternance      no                 /                                   26/03/2025             /                  site via linkedin
+ANSSI                paris             fullstack                 alternance      no                 /                                   07/05/2025             /                  wttj
+decasoft             TLS/PRS           fullstack                 alternance      no                 /                                   12/06/2025             no                 linkedin
+sogeti               toulouse          fullstack                 alternance      no                 /                                   13/06/2025             /                  linkedin
+berger-levraut       toulouse          fullstack                 alternance      no                 /                                   13/06/2025             no                 site via linkedin
+eurecia              toulouse          fullstack                 alternance      no                 /                                   13/06/2025             no                 site via linkedin
+lundi matin          montpellier       fullstack                 alternance      no                 php                                 13/06/2025             /                  indeed
+Lynx business        paris             fullstack                 alternance      no                 php, laravel                        13/06/2025             /                  indeed
+capgemini            toulouse          fullstack                 alternance      no                 /                                   13/06/2025             /                  site via linkedin
+SAP                  paris             fullstack                 alternance      no                 /                                   13/06/2025             /                  indeed
+groupe progress      paris             fullstack                 alternance      no                 php, laravel                        13/06/2025             /                  indeed
+decapost             belfort           fullstack                 alternance      no                 c++, python                         13/07/2025             /                  indeed
+the quant fact       paris             fullstack                 alternance      no                 /                                   13/06/2025             /                  indeed
+groupe BA            rilleux la pipe   fullstack                 alternance      no                 /                                   13/06/2025             /                  indeed
+acenture             toulouse          consultant plm/digital    alternance      no                 /                                   23/06/2025             /                  linkedin
+alten                toulouse          fullstack                 cdi             no                 /                                   23/06/2025             /                  linkedin
+clayverest           toulouse          frontend                  cdi             no                 /                                   23/06/2025             /                  linkedin
+aviwell              toulouse          fullstack                 cdi             no                 /                                   23/06/2025             /                  linkedin
+ADP                  toulouse          fullstack                 alternance      no                 /                                   23/06/2025             /                  linkedin
+meritis              paris             frontend                  cdi             no                 /                                   23/06/2025             /                  linkedin
+katchme              paris             fullstack                 cdi             no                 python, react                       23/06/2025             /                  linkedin
+la centrale          paris             frontend                  cdi             no                 /                                   23/06/2025             /                  linkedin
+sander               paris             fullstack                 cdi             no                 /                                   23/06/2025             /                  linkedin
+free                 paris             frontend                  cdi             no                 /                                   23/06/2025             /                  linkedin
+lalachante           toulouse          fullstack                 alternance      no                 /                                   25/08/2025             /                  meteojob
+galadrim             paris             fullstack                 cdi             no                 python, react                       25/08/2025             /                  wttj    
+diggers fact.        paris             fullstack                 cdi             no                 python, react                       25/08/2025             /                  wttj    
+notys sol.           lyon              fullstack                 alternance      no                 /                                   27/08/2025             no                 la bonne alternance
+ancenis res. s.      nantes/ancenis    fullstack                 alternance      no                 /                                   27/08/2025             /                  la bonne alternance
+issig                chambery          fullstack                 alternance      no                 /                                   27/08/2025             /                  la bonne alternance
+koremi               nice              fullstack                 alternance      no                 /                                   27/08/2025             /                  la bonne alternance
+xefi                 lyon              fullstack                 alternance      no                 /                                   27/08/2025             no                 la bonne alternance
+yeswehack            rennes            fullstack                 alternance      no                 vue, django, drm                    27/08/2025             no                 la bonne alternance
+centralpay           tours             react                     alternance      no                 react, php                          28/08/2025             no                 la bonne alternance
+groupe belmont       monteux           fullstack                 alternance      no                 symfony                             28/08/2025             no                 hellowork          
+ak recrutement       sursense 92       fullstack                 cdi             no                 react, php                          28/08/2025             no                 hellowork          
+air support          pujaudran         informatique              alternance      no                 powerbi, microsoft access, sql      01/09/2025             no                 la bonne alternance  
+dawan                toulouse          fullstack                 alternance      no                 java                                01/09/2025             /                  hellowork          
+com6 interactive     st jean           fullstack                 alternance      no                 /                                   01/09/2025             /                  hellowork          
+capcir sarl          toulouse          fullstack                 alternance      no                 /                                   01/09/2025             /                  hellowork          
+isi2u                léguevin          fullstack                 alternance      no                 /                                   01/09/2025             /                  hellowork          
+informaclic-31       st jean           fullstack                 alternance      yes                /                                   01/09/2025             /                  linkedin        
+digitanie            saverdun          fullstack                 alternance      no                 /                                   01/09/2025             /                  la bonne alternance          
+sigma informatique   france            fullstack                 alternance      no                 /                                   01/09/2025             /                  sigma.com                  
+immegris             grabels           fullstack                 alternance      no                 /                                   01/09/2025             /                  la bonne alternance
+sarl rd services     laglande          fullstack                 alternance      no                 /                                   01/09/2025             /                  la bonne alternance
+xefi                 lyon              fullstack                 alternance      no                 /                                   02/09/2025             no                 la bonne alternance
+net strategy         feyzin            fullstack                 alternance      no                 php, python                         02/09/2025             /                  la bonne alternance
+SII                  toulouse          fullstack                 alternance      yes                                                    02/09/2025             /                  la bonne boite
+sopra steria         toulouse          fullstack                 alternance      yes                /                                   02/09/2025             /                  la bonne boite
+berget levraut       toulouse          fullstack                 alternance      yes                /                                   02/09/2025             /                  la bonne boite
+dailyweb             toulouse          fullstack                 alternance      yes                /                                   02/09/2025             /                  la bonne boite
+dynas+               toulouse          fullstack                 alternance      yes                /                                   02/09/2025             /                  la bonne boite
+saceo                toulouse          fullstack                 alternance      yes                /                                   02/09/2025             /                  la bonne boite
+easymile             toulouse          fullstack                 alternance      yes                /                                   02/09/2025             /                  la bonne boite
+ze-watt              toulouse          fullstack                 alternance      yes                /                                   02/09/2025             /                  la bonne boite
+menaps               toulouse          fullstack                 alternance      yes                /                                   02/09/2025             /                  menaps
+pixpay               paris             fullstack                 alternance      no                 next, nest                          02/09/2025             no                 wttj
+the quantic factory  paris             fullstack                 alternance      no                 front, data                         06/09/2025             /                  wttj
+perfero territoire   marseille         fullstack                 alternance      no                 /                                   06/09/2025             /                  la bonne alternance
+ONaCVG               paris             fullstack                 alternance      no                 /                                   06/09/2025             /                  pass               
+avancial             st denis          fullstack                 alternance      no                 java (angular surement)             06/09/2025             appel(fait)        jeunes d'avenirs recrut
+mewo campus          metz              fullstack                 alternance      no                 /                                   06/09/2025             /                  hellowork              
+absup                lyon              fullstack                 alternance      no                 /                                   06/09/2025             appel(fait)        hellowork              
+yahade               paris             fullstack                 alternance      no                 /                                   06/09/2025             /                  la bonne alternance    
+koremi               nice              fullstack                 alternance      no                 /                                   06/09/2025             /                  la bonne alternance    
+manpower             st etienne        fullstack                 alternance      no                 python, javascript                  06/09/2025             /                  la bonne alternance    
+jobposting           lyon              fullstack                 alternance      no                 php, node                           15/09/2025             /                  hellowork              
+martin brower        lisses            fullstack                 alternance      no                 java, php                           15/09/2025             /                  hellowork              
+internet factory     paris             fullstack                 alternance      no                 /                                   15/09/2025             /                  hellowork              
+engie                paris             fullstack                 alternance      no                 C# (de preference)                  15/09/2025             /                  linkedin               
+afnor group          st denis          fullstack                 alternance      no                 php (plugins wordpress)             15/09/2025             /                  linkedin               
+cagnot               paris             fullstack                 alternance      no                 php (plugins wordpress)             15/09/2025             /                  linkedin               
+innov'atm            cugnaux           fullstack                 alternance      no                 /                                   15/09/2025             /                  linkedin               
+skeepers             rennes            fullstack                 alternance      no                 /                                   15/09/2025             /                  linkedin               
+ginger               toulouse          fullstack                 alternance      no                 /                                   15/09/2025             /                  linkedin               
+dawan                toulouse          fullstack                 alternance      no                 /                                   15/09/2025             /                  linkedin               
+shippingbo           toulouse          fullstack                 alternance      no                 ruby, rails, js                     15/09/2025             /                  linkedin               
+mondial tv           paris             fullstack                 alternance      no                 /                                   15/09/2025             /                  linkedin               
+lws                  nancy             fullstack                 alternance      no                 php                                 15/09/2025             /                  email                  
+ciril group          lyon              fullstack                 alternance      no                 /                                   15/09/2025             /                  apec                  
+h3 hitema (ecole)    st ouen           fullstack                 alternance      no                 /                                   15/09/2025             /                  apec                  
+chambres d'agric.    toulouse          fullstack                 cdd 1an         no                 next, react                         15/09/2025             /                  indeed                
+infosys              toulouse          fullstack                 cdi             no                 java, angular                       15/09/2025             /                  indeed                
+wiifor               toulouse          fullstack                 cdi             no                 java, angular                       15/09/2025             /                  email                
+favikon              paris             fullstack                 alternance      no                 react, node, redux                  16/09/2025             /                  wttj               
+iportego             marseille         fullstack                 cdi             no                 react, node, redux, osint           16/09/2025             /                  linkedin           
+ciril group          toulouse          fullstack                 alternance      no                 react, php                          16/09/2025             /                  linkedin              
+wrodline             louches           fullstack                 alternance      no                 java, spring, angular               17/09/2025             /                  linkedin              

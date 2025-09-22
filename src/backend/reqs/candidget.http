@@ -1,0 +1,28 @@
+### 
+
+@base = http://localhost:8080
+
+
+### candid GET all
+
+GET {{base}}/candid HTTP/1.1
+
+
+### candid GET single by id
+
+GET {{base}}/candid/2 HTTP/1.1
+
+
+### filter by city
+
+GET {{base}}/candid?city_name=paris HTTP/1.1
+
+
+### filter by website
+
+GET {{base}}/candid?website_name=linkedin HTTP/1.1
+
+
+### filter by website & city
+
+GET {{base}}/candid?website_name=linkedin&city_name=paris HTTP/1.1

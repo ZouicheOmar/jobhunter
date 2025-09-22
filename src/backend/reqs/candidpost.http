@@ -1,0 +1,23 @@
+### 
+
+@base = http://localhost:8080
+
+
+### candid post
+
+POST {{base}}/candid HTTP/1.1
+Content-Type: application/json
+
+{
+  "answer": true,
+  "cityId": 6,
+  "contractId": 1,
+  "stack": [
+    "vue",
+    "spring"
+  ],
+  "title": "Fullstackeuh DeveloperrrrRRRAAAAH",
+  "unsolicited": true,
+  "url": "http://hellowork/offers/123Dfapozjef1",
+  "websiteId": 1
+}

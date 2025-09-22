@@ -1,0 +1,33 @@
+### 
+
+@base = http://localhost:8080
+
+
+### city
+
+POST {{base}}/city HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "tokyo"
+}
+
+
+### contract
+
+POST {{base}}/contract HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "cdi"
+}
+
+
+### website
+
+POST {{base}}/website HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "hellowork"
+}
