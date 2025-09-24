@@ -4,8 +4,6 @@ import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.CandidDto;
 import com.jobhunter.backend.model.Candid;
-import com.jobhunter.backend.model.City;
-import com.jobhunter.backend.model.Website;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -13,8 +11,18 @@ import jakarta.persistence.PersistenceContext;
 @Service
 public class CandidMapper {
 
+  private final CityMapper cityMapper;
+  private final WebsiteMapper websiteMapper;
+  private final TechMapper techMapper;
+
   @PersistenceContext
   private EntityManager em;
+
+  public CandidMapper(CityMapper cityMapper, WebsiteMapper websiteMapper, TechMapper techMapper) {
+    this.cityMapper = cityMapper;
+    this.websiteMapper = websiteMapper;
+    this.techMapper = techMapper;
+  }
 
   public Candid toEntity(CandidDto dto) {
     var candid = new Candid();
@@ -23,25 +31,26 @@ public class CandidMapper {
     candid.setUrl(dto.url());
     candid.setUnsolicited(dto.unsolicited());
     candid.setAnswer(dto.answer());
-    candid.setStack(dto.stack());
-
-    var city = em.find(City.class, dto.cityId());
-    candid.setCity(city);
-
-    var website = em.find(Website.class, dto.websiteId());
-    candid.setWebsite(website);
+    candid.setStack(techMapper.toAllEntity(dto.stack()));
+    candid.setCity(cityMapper.toEntity(dto.cityDto()));
+    candid.setWebsite(websiteMapper.toEntity(dto.websiteDto()));
+    candid.setCompany(dto.company());
+    candid.setAddDate(dto.addDate());
 
     return candid;
   }
 
   public CandidDto toDto(Candid candid) {
     return new CandidDto(
+        candid.getId(),
         candid.getTitle(),
-        candid.getCity().getId(),
-        candid.getWebsite().getId(),
-        candid.getUrl().toString(),
+        cityMapper.toDto(candid.getCity()),
+        websiteMapper.toDto(candid.getWebsite()),
+        candid.getUrl(),
+        candid.getCompany(),
+        techMapper.toAllDto(candid.getStack()),
         candid.getUnsolicited(),
-        candid.getUnsolicited(),
-        candid.getStack());
+        candid.getAnswer(),
+        candid.getAddDate());
   }
 }

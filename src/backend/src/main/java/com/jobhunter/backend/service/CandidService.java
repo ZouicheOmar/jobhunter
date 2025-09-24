@@ -63,9 +63,18 @@ public class CandidService {
     return candidMapper.toDto(candid);
   }
 
+  public Candid save(Candid candid) {
+    return candidRepository.save(candid);
+  }
+
   public String saveAll(ArrayList<Candid> candids) {
     candidRepository.saveAll(candids);
     return "probably saved";
+  }
+
+  public void deletebyId(Integer id) {
+    candidRepository.deleteById(id);
+    return;
   }
 
 }

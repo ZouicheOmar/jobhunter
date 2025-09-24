@@ -1,9 +1,11 @@
 package com.jobhunter.backend.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.jobhunter.backend.dto.CityDto;
 import com.jobhunter.backend.model.City;
 import com.jobhunter.backend.repository.CityRepository;
 
@@ -11,18 +13,19 @@ import com.jobhunter.backend.repository.CityRepository;
 public class CityService {
 
   private final CityRepository cityRepository;
+  private final CityMapper cityMapper;
 
-  public CityService(CityRepository cityRepository) {
+  public CityService(CityRepository cityRepository, CityMapper cityMapper) {
     this.cityRepository = cityRepository;
+    this.cityMapper = cityMapper;
   }
 
-  public String save(City city) {
-    cityRepository.save(city);
-    return "city saved";
+  public CityDto save(City city) {
+    return cityMapper.toDto(cityRepository.save(city));
   }
 
-  public List<City> findAll() {
-    return cityRepository.findAll();
+  public List<CityDto> findAll() {
+    return cityRepository.findAll().stream().map(city -> cityMapper.toDto(city)).collect(Collectors.toList());
   }
 
   public City findOrCreateByName(String name) {

@@ -1,13 +1,17 @@
 package com.jobhunter.backend.dto;
 
-// je peux avoir city en id vu que je vais la mapper côté front
+import java.time.LocalDate;
+import java.util.Set;
+
 public record CandidDto(
+    Integer id,
     String title,
-    Integer cityId,
-    Integer websiteId,
-    String[] stack,
+    CityDto cityDto,
+    WebsiteDto websiteDto,
     String url,
     String company,
+    Set<TechDto> stack,
     Boolean unsolicited,
-    Boolean answer) {
+    Boolean answer,
+    LocalDate addDate) {
 }

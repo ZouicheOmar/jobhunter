@@ -2,6 +2,8 @@ package com.jobhunter.backend.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,7 @@ import com.jobhunter.backend.service.LogFileHandlerService;
 
 @RestController
 @RequestMapping("/candid")
+@CrossOrigin
 public class CandidController {
 
   private final CandidService candidService;
@@ -41,10 +44,17 @@ public class CandidController {
       return candidService.findAll();
   }
 
-  @GetMapping("/{candidId}")
+  @DeleteMapping("/{id}")
+  public Integer deleteById(
+      @PathVariable Integer id) {
+    candidService.deletebyId(id);
+    return id;
+  }
+
+  @GetMapping("/{id}")
   public CandidDto findById(
-      @PathVariable Integer candidId) {
-    return candidService.findById(candidId);
+      @PathVariable Integer id) {
+    return candidService.findById(id);
   }
 
   @PostMapping

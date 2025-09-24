@@ -16,3 +16,8 @@ GET {{base}}/website HTTP/1.1
 ### route to call file parser
 
 GET {{base}}/candid/handleFile HTTP/1.1
+
+
+### route to call file parser
+
+GET {{base}}/contract HTTP/1.1

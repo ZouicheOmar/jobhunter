@@ -12,5 +12,5 @@ spring:
     properties:
       hibernate:
         format-sql: true;
-    show-sql: true
+    show-sql: false
     database: postgresql

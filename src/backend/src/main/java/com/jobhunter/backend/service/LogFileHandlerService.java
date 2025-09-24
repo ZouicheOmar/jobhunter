@@ -1,30 +1,23 @@
 package com.jobhunter.backend.service;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
+import java.util.Set;
 
-import org.hibernate.type.descriptor.java.LocalDateTimeJavaType;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.enums.ContractType;
 import com.jobhunter.backend.model.Candid;
 import com.jobhunter.backend.model.City;
+import com.jobhunter.backend.model.Tech;
 import com.jobhunter.backend.model.Website;
-import com.jobhunter.backend.repository.CityRepository;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 
 @Service
@@ -32,27 +25,41 @@ public class LogFileHandlerService {
 
   @PersistenceContext
   private EntityManager em;
+
   CityService cityService;
   WebsiteService websiteService;
   CandidService candidService;
+  TechService techService;
 
   public LogFileHandlerService(EntityManager em, CityService cityService, WebsiteService websiteService,
-      CandidService candidService) {
+      CandidService candidService, TechService techService) {
     this.em = em;
     this.cityService = cityService;
     this.websiteService = websiteService;
     this.candidService = candidService;
+    this.techService = techService;
   }
 
   String fd = "static/log.txt";
   ArrayList<Integer> indexes = new ArrayList<Integer>();
   ArrayList<String> lines = new ArrayList<String>();
   ArrayList<Candid> candids = new ArrayList<Candid>();
+  ArrayList<String> stackLines = new ArrayList<String>();
 
   public void handleFile() {
     makeIndexesAndLines();
     extractCandid();
-    candidService.saveAll(candids);
+  }
+
+  public void handleCandidStack() {
+    List<Tech> techs = techService.findAllEntities();
+    for (Tech tech : techs) {
+      for (Candid candid : tech.getCandids()) {
+        candid.addTech(tech);
+        candidService.save(candid);
+      }
+    }
+
   }
 
   public void openFile() {
@@ -120,17 +127,6 @@ public class LogFileHandlerService {
     return true;
   }
 
-  private String[] resolveStack(String stackString) {
-    String nostack = "/";
-    String[] res = { "" };
-
-    if (!stackString.equals(nostack)) {
-      return stackString.split(",");
-    }
-
-    return res;
-  }
-
   private Boolean resolveUnsolicited(String s) {
     return s.contains("no") ? false : true;
   }
@@ -142,13 +138,13 @@ public class LogFileHandlerService {
   }
 
   private void handleLine(String line) {
-    Candid c = new Candid();
+    Candid candid = new Candid();
 
     String company = removeSpace(line, indexes.get(0), indexes.get(1));
     String title = removeSpace(line, indexes.get(2), indexes.get(3)); // position
     String contract = removeSpace(line, indexes.get(3), indexes.get(4));
     String answer = line.substring(indexes.get(7), indexes.get(8));
-    String stackString = removeSpace(line, indexes.get(5), indexes.get(6));
+    String s = removeSpace(line, indexes.get(5), indexes.get(6));
     String dateString = removeSpace(line, indexes.get(6), indexes.get(7));
 
     String unsolicited = removeSpace(line, indexes.get(4), indexes.get(5));
@@ -159,18 +155,35 @@ public class LogFileHandlerService {
     String websiteName = removeSpace(line, indexes.get(8), line.length());
     Website website = websiteService.findOrCreateByName(websiteName);
 
-    c.setTitle(title);
-    c.setCity(city);
-    c.setWebsite(website);
-    c.setCompany(company);
-    c.setContractType(resolveContractType(contract));
-    c.setAnswer(resolveAnswer(answer));
-    c.setStack(resolveStack(stackString));
-    c.setAddDate(resolveDate(dateString));
-    c.setUnsolicited(resolveUnsolicited(unsolicited));
-    c.setUrl("");
+    candid.setTitle(title);
+    candid.setCity(city);
+    candid.setWebsite(website);
+    candid.setCompany(company);
+    candid.setContractType(resolveContractType(contract));
+    candid.setAnswer(resolveAnswer(answer));
+    candid.setAddDate(resolveDate(dateString));
+    candid.setUnsolicited(resolveUnsolicited(unsolicited));
+    candid.setUrl("");
 
-    candids.add(c);
+    candidService.save(candid);
+
+    if (s.equals("/")) {
+      stackLines.add("non specified");
+      Tech tech = techService.findOrCreateByName("unspecified");
+      tech.addCandid(candid);
+      techService.save(tech);
+      candid.addTech(tech);
+    } else {
+      String[] stackSplit = s.split(",");
+      for (String stack : stackSplit) {
+        Tech tech = techService.findOrCreateByName(stack);
+        tech.addCandid(candid);
+        techService.save(tech);
+        candid.addTech(tech);
+      }
+    }
+
+    candidService.save(candid);
   }
 
   private void extractCandid() {
