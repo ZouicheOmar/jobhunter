@@ -1,0 +1,13 @@
+title='Développeur(euse) Full Stack Java/Angular F/H'
+city='Paris'
+tech_stack=['Java',
+'JavaScript',
+'Angular',
+'Spring',
+'Hibernate',
+'Oracle',
+'SQL',
+'PostgreSQL',
+'Git',
+'CI/CD']
+null

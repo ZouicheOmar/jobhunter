@@ -1,6 +1,7 @@
 ### 
 
 @base = http://localhost:8080
+@flask = http://localhost:5000
 
 
 ### city GET
@@ -21,3 +22,18 @@ GET {{base}}/candid/handleFile HTTP/1.1
 ### route to call file parser
 
 GET {{base}}/contract HTTP/1.1
+
+
+### testing flask
+
+GET {{flask}}/test/ HTTP/1.1
+
+
+### testing flask post
+
+POST {{flask}}/handle_scrap_url/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "url": "https://cgi.njoyn.com/corp/xweb/XWeb.asp?page=jobdetails&clid=21001&JobID=J0125-0411&BRID=1199099&sbdid=936&lang=2&xpse=SoDM6_I3t7QRTHgMB70LbzkdCdPP&xfps=99568702-dc4a-43f3-b8fc-763ac0bc0575"
+}

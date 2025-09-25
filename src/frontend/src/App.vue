@@ -11,7 +11,7 @@ getAllCandids();
 </script>
 
 <template>
-  <h1>Jobhunter</h1>
+  <h1>The Job Hunter</h1>
   <Controls />
   <Candids />
   <UILogger />

@@ -15,7 +15,7 @@ export const useStore = defineStore('store', () => {
     loading.value = false;
     if (!req.ok) error.value = true;
     const json = await req.json();
-    console.log(json)
+    // console.log(json)
     candids.value = json;
   }
 

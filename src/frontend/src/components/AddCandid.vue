@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import LookupUrl from './LookupUrl.vue';
+
 import { useAddCandidStore } from '@/addCandidStore';
 import { storeToRefs } from 'pinia';
 const addCandidStore = useAddCandidStore();
@@ -38,10 +40,14 @@ const { cities, techs, contractTypes, url, title, company, city, stack, contract
         <option v-for="c in contractTypes" :value="c"></option>
       </datalist>
     </div>
-    <div class="section">
-      <label> url : </label>
-      <input type="text" placeholder="url" name="url" v-model="url" />
-    </div>
+
+    <LookupUrl />
+
+    <!-- <div class="section"> -->
+    <!--   <label> url : </label> -->
+    <!--   <input type="text" placeholder="url" name="url" v-model="url" /> -->
+    <!--   <button> look up </button> -->
+    <!-- </div> -->
     <div class="section">
       <button> submit </button>
       <button> reset </button>
@@ -73,6 +79,10 @@ button {
 
 .section {
   display: flex;
-  flex-direction: column;
+  align-items: baseline;
+
+  input {
+    margin-left: 4px;
+  }
 }
 </style>
