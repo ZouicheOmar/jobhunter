@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.CandidDto;
+import com.jobhunter.backend.mapper.CandidMapper;
 import com.jobhunter.backend.model.Candid;
+import com.jobhunter.backend.model.City;
 import com.jobhunter.backend.repository.CandidRepository;
 
 @Service
@@ -16,9 +18,17 @@ public class CandidService {
   private final CandidMapper candidMapper;
   private final CandidRepository candidRepository;
 
-  public CandidService(CandidMapper candidMapper, CandidRepository candidRepository) {
+  private final CityService cityService;
+  private final TechService techService;
+  private final WebsiteService websiteService;
+
+  public CandidService(CandidMapper candidMapper, CandidRepository candidRepository, CityService cityService,
+      TechService techService, WebsiteService websiteService) {
     this.candidMapper = candidMapper;
     this.candidRepository = candidRepository;
+    this.cityService = cityService;
+    this.techService = techService;
+    this.websiteService = websiteService;
   }
 
   public List<CandidDto> findAll() {
@@ -59,8 +69,13 @@ public class CandidService {
 
   public CandidDto save(CandidDto dto) {
     var candid = candidMapper.toEntity(dto);
+
+    City city = cityService.findOrCreateByName(dto.cityDto().name());
+    candid.setCity(city);
+
     candidRepository.save(candid);
-    return candidMapper.toDto(candid);
+    return dto; // pourquoi ???
+    // return candidMapper.toDto(candid);
   }
 
   public Candid save(Candid candid) {

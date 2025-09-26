@@ -50,6 +50,17 @@ const { handleDelete } = store;
   justify-content: space-between;
 }
 
+p {
+  /* overflow-wrap: break-word; */
+}
+
+.left {
+  max-width: 80%;
+  text-wrap: wrap;
+  /* overflow-wrap: break-word; */
+  overflow: hidden;
+}
+
 .unit-controls {
   display: flex;
   flex-direction: column;

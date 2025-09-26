@@ -1,4 +1,4 @@
-package com.jobhunter.backend.service;
+package com.jobhunter.backend.mapper;
 
 import java.util.Set;
 import java.util.stream.Collectors;

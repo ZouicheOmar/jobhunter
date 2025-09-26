@@ -1,4 +1,4 @@
-package com.jobhunter.backend.service;
+package com.jobhunter.backend.mapper;
 
 import org.springframework.stereotype.Service;
 

@@ -11,7 +11,7 @@ getAllCandids();
 </script>
 
 <template>
-  <h1>The Job Hunter</h1>
+  <h1>The JobHunter</h1>
   <Controls />
   <Candids />
   <UILogger />
@@ -28,22 +28,21 @@ p {
   padding: 0;
 }
 
+body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 button {
   width: fit-content;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   margin-left: 0.1rem;
-  font-size: 80%;
-}
-
-body {
-  /* position: relative; */
-  max-width: 600px;
-  margin: 0 auto;
+  font-size: 90%;
 }
 
 #app {
-  margin-top: 1rem;
+  margin: 1rem auto;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;

@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.CityDto;
+import com.jobhunter.backend.mapper.CityMapper;
 import com.jobhunter.backend.model.City;
 import com.jobhunter.backend.repository.CityRepository;
 

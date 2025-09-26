@@ -37,6 +37,7 @@ class JobOfferData(BaseModel):
     faut que ça soit un language de programmation, un framework, un logiciel etc...
     """
   )
+  company: str = Field(description="the name of the company that is hiring")
   company_desc: str = Field(
     description="""Brève description de l'entreprise, dans quels
       domaines elle opère, quel solution elle apporte à ses clients etc.."""

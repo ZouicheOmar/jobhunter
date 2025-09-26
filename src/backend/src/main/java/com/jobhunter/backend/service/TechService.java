@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.TechDto;
-import com.jobhunter.backend.model.Candid;
+import com.jobhunter.backend.mapper.TechMapper;
 import com.jobhunter.backend.model.Tech;
 import com.jobhunter.backend.repository.TechRepository;
 

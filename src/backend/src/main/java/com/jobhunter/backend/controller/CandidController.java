@@ -14,20 +14,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jobhunter.backend.dto.CandidDto;
 import com.jobhunter.backend.model.Candid;
+import com.jobhunter.backend.model.City;
+import com.jobhunter.backend.model.Tech;
+import com.jobhunter.backend.model.Website;
 import com.jobhunter.backend.service.CandidService;
+import com.jobhunter.backend.service.CityService;
 import com.jobhunter.backend.service.LogFileHandlerService;
+import com.jobhunter.backend.service.TechService;
+import com.jobhunter.backend.service.WebsiteService;
 
 @RestController
 @RequestMapping("/candid")
 @CrossOrigin
 public class CandidController {
 
-  private final CandidService candidService;
   private final LogFileHandlerService logFileHandlerService;
+  private final CandidService candidService;
+  private final WebsiteService websiteService;
+  private final CityService cityService;
+  private final TechService techService;
 
-  public CandidController(CandidService candidService, LogFileHandlerService logFileHandlerService) {
-    this.candidService = candidService;
+  public CandidController(LogFileHandlerService logFileHandlerService, CandidService candidService,
+      WebsiteService websiteService, CityService cityService, TechService techService) {
     this.logFileHandlerService = logFileHandlerService;
+    this.candidService = candidService;
+    this.websiteService = websiteService;
+    this.cityService = cityService;
+    this.techService = techService;
   }
 
   @GetMapping
@@ -59,8 +72,36 @@ public class CandidController {
 
   @PostMapping
   public CandidDto createNewCandid(
-      @RequestBody CandidDto candid) {
-    return candidService.save(candid);
+      @RequestBody CandidDto dto) {
+
+    Candid candid = new Candid();
+
+    candid.setTitle(dto.title());
+    candid.setUrl(dto.url());
+    candid.setCompany(dto.company());
+
+    // TODO: add unsolicited on the frontend side
+    candid.setUnsolicited(dto.unsolicited());
+    candid.setAnswer(dto.answer());
+
+    City city = cityService.findOrCreateByName(dto.cityDto().name());
+    candid.setCity(city);
+
+    Website website = websiteService.findOrCreateByName(dto.websiteDto().name());
+    candid.setWebsite(website);
+
+    dto.stack().forEach(techItem -> {
+      Tech tech = techService.findOrCreateByName(techItem.name());
+      candid.addTech(tech);
+    });
+
+    candidService.save(candid);
+
+    dto.stack().forEach(techItem -> {
+      Tech tech = techService.findOrCreateByName(techItem.name());
+      tech.addCandid(candid);
+    });
+    return dto;
   }
 
   @GetMapping("/handleFile")

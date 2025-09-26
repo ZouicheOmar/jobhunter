@@ -7,7 +7,7 @@ const addCandidStore = useAddCandidStore();
 /*
 https://cgi.njoyn.com/corp/xweb/XWeb.asp?page=jobdetails&clid=21001&JobID=J0125-0411&BRID=1199099&sbdid=936&lang=2&xpse=SoDM6_I3t7QRTHgMB70LbzkdCdPP&xfps=99568702-dc4a-43f3-b8fc-763ac0bc0575
 */
-const { url, loading } = storeToRefs(addCandidStore);
+const { url, loading, error } = storeToRefs(addCandidStore);
 const { lookupUrl } = addCandidStore;
 /**
  *
@@ -43,7 +43,8 @@ const { lookupUrl } = addCandidStore;
     <label> url : </label>
     <input type="text" placeholder="url" name="url" v-model="url" />
     <button @click="lookupUrl"> look up </button>
-    <p v-if="loading"> LOADING </p>
+    <p v-if="loading" class="loading"> LOADING </p>
+    <p v-if="error" class="error"> sorry, could not look up that url... </p>
   </div>
 </template>
 
@@ -56,5 +57,16 @@ const { lookupUrl } = addCandidStore;
   input {
     margin-left: 4px;
   }
+}
+
+.loading {
+  padding-left: 4px;
+  opacity: 0.5;
+}
+
+.error {
+  padding-left: 4px;
+  color: red;
+  opacity: 0.5;
 }
 </style>
