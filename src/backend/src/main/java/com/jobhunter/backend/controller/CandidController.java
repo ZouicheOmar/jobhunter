@@ -1,5 +1,6 @@
 package com.jobhunter.backend.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -80,7 +81,6 @@ public class CandidController {
     candid.setUrl(dto.url());
     candid.setCompany(dto.company());
 
-    // TODO: add unsolicited on the frontend side
     candid.setUnsolicited(dto.unsolicited());
     candid.setAnswer(dto.answer());
 
@@ -94,6 +94,9 @@ public class CandidController {
       Tech tech = techService.findOrCreateByName(techItem.name());
       candid.addTech(tech);
     });
+
+    LocalDate date = LocalDate.now();
+    candid.setAddDate(date);
 
     candidService.save(candid);
 

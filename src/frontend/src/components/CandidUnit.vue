@@ -12,13 +12,42 @@ const { handleDelete } = store;
 <template>
   <div class="unit">
     <div class="left">
-      <p> position : {{ props.candid.title }}</p>
-      <p> company : {{ props.candid.company || 'not specified' }}</p>
-      <p> city : {{ props.candid.cityDto.name }}</p>
-      <p> applied on : {{ props.candid.websiteDto.name }}</p>
-      <p> offer url : {{ props.candid.url || 'not specified' }}</p>
-      <p> stack :
-        <span v-for="(tech, index) in props.candid.stack" :key="index"> {{ tech.name + ' ' }} </span>
+      <p>
+        <span>
+          position :
+        </span>
+        {{ props.candid.title || 'not specified' }}
+      </p>
+      <p>
+        <span>
+          company :
+        </span>
+        {{ props.candid.company || 'not specified' }}
+      </p>
+      <p>
+        <span>
+          city :
+        </span>
+        {{ props.candid.cityDto.name }}
+      </p>
+      <p>
+        <span>
+          applied on :
+        </span>
+        {{ props.candid.websiteDto.name }}
+      </p>
+      <p>
+        <span> offer url : </span> {{ props.candid.url || 'not specified' }}
+      </p>
+      <p>
+        <span>
+          stack :
+        </span>
+      <ul>
+        <li v-for="(tech, index) in props.candid.stack" :key="index">
+          {{ tech.name + ' ' }}
+        </li>
+      </ul>
       </p>
     </div>
     <div class="right unit-controls">
@@ -29,28 +58,9 @@ const { handleDelete } = store;
   </div>
 </template>
 
-<style>
-.head {
-  display: flex;
-  justify-content: space-between;
-
-}
-
-.head-date {
-  color: #9D9D9D;
-  font-style: italic;
-  /* text-decoration: underline; */
-  font-size: 80%;
-}
-
-.unit {
-  border: 1px solid #9D9D9D;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-p {
+<style scoped>
+p>span {
+  color: rgba(0, 0, 0, 0.5);
   /* overflow-wrap: break-word; */
 }
 
@@ -70,5 +80,15 @@ p {
 .head-details {
   display: flex;
   gap: 0.5rem;
+}
+
+li {
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.3rem;
+  list-style-type: disc;
 }
 </style>

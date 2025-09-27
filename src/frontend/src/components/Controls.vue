@@ -2,24 +2,13 @@
 import { useStore } from '@/store';
 import { useAddCandidStore } from '@/addCandidStore';
 import { storeToRefs } from 'pinia';
+import { ref } from 'vue';
 
 const store = useStore();
-const { total } = storeToRefs(store)
-const { getAllCandids } = store;
+const { total, cities, techs, cityFilter, techFilter } = storeToRefs(store)
 
 const addCandidStore = useAddCandidStore();
 const { toggleShow } = addCandidStore;
-
-
-async function handleFile() {
-  const url = "http://localhost:8080/candid/handleFile";
-  const req = await fetch(url);
-  if (!req.ok) return console.log("problem handling file");
-  const text = await req.text();
-  console.log(text);
-
-  getAllCandids();
-}
 
 </script>
 
@@ -30,6 +19,14 @@ async function handleFile() {
       <button> peding </button>
       <button> first call </button>
       <button> first interview </button>
+      <select name="" v-model="cityFilter">
+        <option value="">city (all)</option>
+        <option v-for="c in cities" :value="c">{{ c }}</option>
+      </select>
+      <select name="" v-model="techFilter">
+        <option value="">tech (all)</option>
+        <option v-for="t in techs" :value="t">{{ t }}</option>
+      </select>
     </div>
     <!-- <button @click="handleFile()"> parse file </button> -->
     <div>
@@ -39,15 +36,27 @@ async function handleFile() {
 </template>
 
 <style scoped>
-.controls {
+.controls,
+.controls div {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
+  gap: 2px;
+
 }
 
 span {
   color: #9D9D9D;
   font-style: italic;
   font-size: 90%;
+}
+
+button {
+  height: 1.5rem;
+}
+
+select {
+  width: 5rem;
+  height: 1.5rem;
 }
 </style>

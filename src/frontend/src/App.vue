@@ -5,16 +5,18 @@ import UILogger from './components/UILogger.vue';
 import { useStore } from './store';
 
 const store = useStore();
-const { getAllCandids } = store;
+const { getAllCandids, getFilters } = store;
 
 getAllCandids();
+getFilters();
+
 </script>
 
 <template>
   <h1>The JobHunter</h1>
   <Controls />
   <Candids />
-  <UILogger />
+  <!-- <UILogger /> -->
 </template>
 
 <style>
@@ -54,5 +56,25 @@ h1 {
   font-family: Junicode;
   text-decoration: underline;
   color: #274AB3;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.head-date {
+  color: #9D9D9D;
+  font-style: italic;
+  /* text-decoration: underline; */
+  font-size: 80%;
+}
+
+.unit {
+  border: 1px solid #9D9D9D;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

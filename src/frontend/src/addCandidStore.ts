@@ -1,21 +1,23 @@
 import { ref, computed, watch } from 'vue'
-import { defineStore } from 'pinia'
+import { defineStore, storeToRefs } from 'pinia'
+import { useStore } from './store';
 
 const defaultContractTypes = ["CDI", "CDD", "ALTERNANCE", "STAGE"];
 
 export const useAddCandidStore = defineStore('addCandid', () => {
-  const show = ref(true)
+  const store = useStore();
+  const { candids } = storeToRefs(store);
+
+  const show = ref(false)
 
   const loading = ref(false)
   const error = ref(false)
 
   const cities = ref([]);
   const techs = ref([]);
-  // const contractTypes = ref([]);
   const contractTypes = ref(defaultContractTypes);
 
-  const capgeminiurl = "https://www.capgemini.com/fr-fr/jobs/206178-fr_FR+sap_btp/";
-  const url = ref("https://cgi.njoyn.com/corp/xweb/XWeb.asp?page=jobdetails&clid=21001&JobID=J0125-0411&BRID=1199099&sbdid=936&lang=2&xpse=SoDM6_I3t7QRTHgMB70LbzkdCdPP&xfps=99568702-dc4a-43f3-b8fc-763ac0bc0575");
+  const url = ref("");
   const title = ref("");
   const position = ref("");
   const company = ref("");
@@ -25,17 +27,8 @@ export const useAddCandidStore = defineStore('addCandid', () => {
   const contract = ref("");
   const website = ref("");
 
-  // const title = ref("développeur fullstack");
-  // const position = ref("fullstack");
-  // const company = ref("cgi");
-  // const city = ref("berlin");
-  // const stack = ref(["javascript", "vue", "python"]);
-  // const contract = ref("CDI");
-  // const website = ref("cgi");
-
 
   async function lookupUrl() {
-    console.log("exec lookup url");
     loading.value = true;
     const scapperurl = "http://localhost:5000/handle_scrap_url/"
 
@@ -55,11 +48,7 @@ export const useAddCandidStore = defineStore('addCandid', () => {
       return;
     }
 
-    // const json = await req.json();
-    // const data = JSON.parse(json);
-
     const data = await req.json();
-    console.log(data);
 
     const { city: dataCity,
       company_desc,
@@ -110,9 +99,12 @@ export const useAddCandidStore = defineStore('addCandid', () => {
       body: JSON.stringify(candid)
 
     })
+
     if (!req.ok) return console.log("probleme posting candid");
     const json = await req.json();
-    console.log("apparently posted successffully", json)
+    candids.value.push(json);
+
+    $reset()
   }
 
   async function getCities() {
@@ -120,7 +112,6 @@ export const useAddCandidStore = defineStore('addCandid', () => {
     const req = await fetch(url);
     if (!req.ok) console.log("N'A PAS PÛ DÉFINIR LES VILLES")
     const json = await req.json();
-    // console.log("cities", json);
     cities.value = json;
   }
 
@@ -129,7 +120,6 @@ export const useAddCandidStore = defineStore('addCandid', () => {
     const req = await fetch(url);
     if (!req.ok) console.log("N'A PAS PÛ DÉFINIR LES TECHS")
     const json = await req.json();
-    console.log("techs", json);
     techs.value = json;
   }
 
@@ -138,7 +128,6 @@ export const useAddCandidStore = defineStore('addCandid', () => {
     const req = await fetch(url);
     if (!req.ok) console.log("N'A PAS PÛ DÉFINIR LES TYPES DE CONTRAT")
     const json = await req.json();
-    // console.log("contract", json);
     contractTypes.value = json;
   }
 
@@ -157,6 +146,7 @@ export const useAddCandidStore = defineStore('addCandid', () => {
     url.value = "";
     title.value = "";
     company.value = "";
+    position.value = "";
     city.value = "";
     stack.value = [];
     contract.value = "";
