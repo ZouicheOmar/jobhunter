@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useStore } from '@/store';
-import { onMounted, defineProps } from 'vue';
+import { defineProps } from 'vue';
 
 const props = defineProps(['candid'])
 const store = useStore();

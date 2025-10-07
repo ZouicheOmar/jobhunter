@@ -1,0 +1,4 @@
+=====DOC MD=========
+None
+====================
+title='Offre Emploi Alternance ai Full-Stack Developer Villeurbanne (69) - Recrutement par Worldline | Hellowork' city='Villeurbanne (69)' tech_stack=[] company='Worldline' company_desc='' website='https://www.hellowork.com/fr-fr/emplois/69214003.html' position=<PositionType.fullstack: 'FULLSTACK'> main_tasks=['développer des applications web de haute qualité', "collaborer avec l'équipe de développement pour améliorer les fonctionnalités de l'application"] contract=<ContractType.alternance: 'ALTERNANCE'> startDate=datetime.date(2024, 1, 1)

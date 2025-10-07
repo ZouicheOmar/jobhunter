@@ -22,7 +22,7 @@ export const useAddCandidStore = defineStore('addCandid', () => {
   const position = ref("");
   const company = ref("");
   const city = ref("");
-  const tech = ref(""); // TODO: tech goes to v-model
+  const tech = ref(""); // todo: tech goes to v-model
   const stack = ref([]);
   const contract = ref("");
   const website = ref("");

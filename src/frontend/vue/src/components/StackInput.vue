@@ -18,7 +18,6 @@ function handleInput(e: InputEvent) {
 
 function handleKeydown(e: KeyboardEvent) {
   const k = e.key
-  console.log(tech.value);
   if (k == "Enter") {
     e.preventDefault()
     stack.value.push(tech.value);

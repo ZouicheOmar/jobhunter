@@ -1,8 +1,11 @@
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.document_loaders import FireCrawlLoader
 from langchain_ollama.embeddings import OllamaEmbeddings
 from langchain_ollama import ChatOllama
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+from firecrawl import Firecrawl
 
 from pydantic import BaseModel, Field
 from typing import List, Optional, Type
@@ -17,7 +20,7 @@ class Scrapper:
     schema: Optional[Type[BaseModel]] = JobOfferData,
     model: str = "llama3.2",
     embedding_model: str = "nomic-embed-text",
-    question: str = "extract job offer information",
+    question: str = "extract job offer information from the following document",
   ):
     self.question = question
     self.embeddings = OllamaEmbeddings(model=embedding_model)
@@ -29,22 +32,38 @@ class Scrapper:
     )
 
   def _handle_url(self, url: str):
-    loader = WebBaseLoader(url)
-    docs = loader.load()
-    splits = self.splitter.split_documents(docs)
-    vectorstore = Chroma.from_documents(
-      documents=splits, embedding=self.embeddings
+    # loader = FireCrawlLoader(
+    #   url=url,
+    #   api_url="http://localhost:3002/",
+    #   api_key="someapikey",
+    #   mode="scrape",
+    #   params={
+    #     "formats": ["markdown"],
+    #   },
+    # )
+
+    firecrawl = Firecrawl(
+      api_url="http://localhost:3002/",
+      api_key="someapikey",
     )
 
-    retriever = vectorstore.as_retriever(
-      search_type="similarity", search_kwargs={"k": 3}
+    doc = firecrawl.scrape(
+      url=url,
+      formats=[{"type": "json", "schema": JobOfferData}],
     )
 
-    retrieved_docs = retriever.invoke(self.question)
-    self.context = " ".join([doc.page_content for doc in retrieved_docs])
+    print("=====DOC MD=========")
+    print(doc)
+    print(doc.json)
+    print("====================")
+
+    self.context = doc
+
+    # splits = self.splitter.split_documents(docs)
+    # self.context = splits
 
   def _prompt(self):
-    return f"""Answer the question according to the context given very briefly:
+    return f"""Answer the question according to the context given:
               Question: {self.question}.
               Context: {self.context}
     """

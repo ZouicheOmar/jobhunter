@@ -33,11 +33,11 @@ class JobOfferData(BaseModel):
   )
   tech_stack: List[str] = Field(
     description="""
-    Toute les technologies utilisées dans ce poste, les compétences techniques,
-    faut que ça soit un language de programmation, un framework, un logiciel etc...
+    Les technologies (language de programmation, base de données logiciel) utilisée
+    dans ce job
     """
   )
-  company: str = Field(description="the name of the company that is hiring")
+  company: str = Field(description="Le nom de l'entreprise")
   company_desc: str = Field(
     description="""Brève description de l'entreprise, dans quels
       domaines elle opère, quel solution elle apporte à ses clients etc.."""
