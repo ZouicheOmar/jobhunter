@@ -9,7 +9,7 @@ export const makeStore = () => {
     reducer: {
       candids: candidsReducer
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([candidsApi.middleware]),
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([candidsApi.middleware]),
   })
 }
 

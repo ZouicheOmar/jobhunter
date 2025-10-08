@@ -3,24 +3,22 @@
 import { Controls } from "./Controls";
 import { CandidList } from "./CandidList";
 import { Title } from "./Title";
+import { AddCandid } from "./AddCandid";
+import { useAddCandidStore } from "@/stores/useAddCandid";
 import { useEffect } from "react";
-import { useGetCityQuery, useGetTechQuery } from "@/lib/candidsApi";
+import { Paginator } from "./Paginator";
 
 
 
 export const CandidWrapper = () => {
-  const { data, error } = useGetCityQuery();
-  const techs = useGetTechQuery();
-
-  useEffect(() => {
-    console.log(techs)
-  }, [techs])
-
+  const showAddCandid = useAddCandidStore((state) => state.show);
   return <>
-    <div className="w-full">
+    <div className="w-full flex flex-col gap-4">
       <Title />
       <Controls />
+      {showAddCandid && <AddCandid />}
       <CandidList />
+      <Paginator />
     </div>
   </>
 }

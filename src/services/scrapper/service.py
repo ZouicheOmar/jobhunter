@@ -1,4 +1,4 @@
-from script import Scrapper
+from scrapper import Scrapper
 from models import TestModel
 from flask import jsonify
 

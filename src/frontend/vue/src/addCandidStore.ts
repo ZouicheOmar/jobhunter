@@ -23,7 +23,9 @@ export const useAddCandidStore = defineStore('addCandid', () => {
   const company = ref("");
   const city = ref("");
   const tech = ref(""); // todo: tech goes to v-model
+
   const stack = ref([]);
+
   const contract = ref("");
   const website = ref("");
 
@@ -31,7 +33,6 @@ export const useAddCandidStore = defineStore('addCandid', () => {
   async function lookupUrl() {
     loading.value = true;
     const scapperurl = "http://localhost:5000/handle_scrap_url/"
-
     const req = await fetch(scapperurl,
       {
         method: 'POST',

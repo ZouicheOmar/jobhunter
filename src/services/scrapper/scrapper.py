@@ -5,7 +5,7 @@ from langchain_ollama.embeddings import OllamaEmbeddings
 from langchain_ollama import ChatOllama
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from firecrawl import Firecrawl
+from firecrawl import FirecrawlApp
 
 from pydantic import BaseModel, Field
 from typing import List, Optional, Type
@@ -42,20 +42,20 @@ class Scrapper:
     #   },
     # )
 
-    firecrawl = Firecrawl(
+    firecrawl = FirecrawlApp(
       api_url="http://localhost:3002/",
       api_key="someapikey",
     )
 
-    doc = firecrawl.scrape(
+    doc = firecrawl.scrape_url(
       url=url,
-      formats=[{"type": "json", "schema": JobOfferData}],
+      # formats=[{"type": "json", "schema": JobOfferData}],
     )
 
-    print("=====DOC MD=========")
-    print(doc)
-    print(doc.json)
-    print("====================")
+    # print("=====DOC MD=========")
+    # print(doc)
+    # print(doc.json)
+    # print("====================")
 
     self.context = doc
 

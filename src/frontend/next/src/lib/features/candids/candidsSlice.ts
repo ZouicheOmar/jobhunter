@@ -1,8 +1,8 @@
-import { CandidType } from "@/types/CandidType";
+import { Candid } from "@/types/CandidType";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 type CandidSliceType = {
-  list: CandidType[];
+  list: Candid[];
   loading: Boolean;
   error: Boolean
 }
@@ -23,26 +23,26 @@ const candidsSlice = createSlice({
       })
     },
     del: (state, action) => {
-      state.list.splice(state.list.findIndex((candid: CandidType) => candid.id === action.payload.id), 1)
+      state.list.splice(state.list.findIndex((candid: Candid) => candid.id === action.payload.id), 1)
     },
     toNewest: state => {
       state.list = state.list.reverse()
     },
   },
-  // extraReducers: builder => {
-  //   builder
-  //     .addCase(fetchAllCandids.pending, state => {
-  //       state.loading = true;
-  //     })
-  //     .addCase(fetchAllCandids.fulfilled, (state, action) => {
-  //       state.loading = false;
-  //       state.list = action.payload;
-  //     })
-  //     .addCase(fetchAllCandids.rejected, state => {
-  //       state.loading = false;
-  //       state.error = true;
-  //     })
-  // },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchAllCandids.pending, state => {
+        state.loading = true;
+      })
+      .addCase(fetchAllCandids.fulfilled, (state, action) => {
+        state.loading = false;
+        state.list = action.payload;
+      })
+      .addCase(fetchAllCandids.rejected, state => {
+        state.loading = false;
+        state.error = true;
+      })
+  },
 })
 
 

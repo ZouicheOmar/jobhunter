@@ -2,22 +2,19 @@ import { createStore } from "zustand";
 
 import type { Candid } from "@/types/CandidType";
 
-export type CandidsState = {
+export type MainState = {
   list: Candid[];
 }
-
-export type CandidsActions = {
+export type MainActions = {
   getAll: () => void;
   deleteById: (id: number) => void;
   filter: () => void;
 }
-
-export type CandidsStore = CandidsState & CandidsActions;
-
-export const defaultInitialState: CandidsState = {
+export type MainStore = MainState & MainActions;
+export const defaultInitialState: MainState = {
   list: []
 };
-export const initCandidSlice = (): CandidsState => {
+export const initMainStore = (): MainState => {
   return {
     list: [
       {
@@ -74,14 +71,12 @@ export const initCandidSlice = (): CandidsState => {
     ]
   }
 }
-
-export const createCandidsSlice = (
-  initState: CandidsState = defaultInitialState,
+export const createMainStore = (
+  initState: MainState = defaultInitialState,
 ) => {
-
-  return createStore<CandidsStore>((set) => ({
+  return createStore<MainStore>((set) => ({
     ...initState,
-    getAll: () => set((state) => ({ list: ["ha", "ha"] })),
+    getAll: () => (state: MainState) => state.list,
     deleteById: (id: number) => set((state) => ({ list: [] })),
     filter: () => console.log("hello should fetch now")
   }))

@@ -8,7 +8,7 @@ export type TechDto = {
   name: string;
 }
 
-export type CandidType = {
+export type Candid = {
   addDate: string;
   answer: boolean;
   cityDto: CityDto;

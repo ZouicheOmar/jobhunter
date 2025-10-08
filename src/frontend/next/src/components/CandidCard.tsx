@@ -1,26 +1,22 @@
-'use client'
 import { useDispatch } from "react-redux"
-import { del } from "@/lib/features/candids/candidsSlice";
-import { CandidType } from "@/types/CandidType";
+import { Candid } from "@/types/CandidType";
 import {
   Card,
   CardHeader,
-  CardFooter,
   CardTitle,
   CardAction,
   CardDescription,
   CardContent,
 } from "./schadcn/Card";
 import { Button } from "./schadcn/Button";
-import { useMemo } from "react";
 
 
 const Section = ({ children }) => <span className="text-muted-foreground">{children} : </span>
 
 export const CandidCard = (
-  { candid }: { candid: CandidType }
+  { candid }: { candid: Candid }
 ) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { id,
     title,
     answer,
@@ -47,7 +43,7 @@ export const CandidCard = (
         </CardDescription>
         <CardAction>
           <Button
-            onClick={() => dispatch(del({ id: id }))}
+            // onClick={() => dispatch(del({ id: id }))}
             variant="outline"
             size="sm"
           >
