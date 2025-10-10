@@ -55,7 +55,7 @@ const list = [
   }
 ];
 
-export type DummyState = {
+export type CandidsStore = {
   list: Candid[]
 
   cities: CityDto[],
@@ -64,7 +64,7 @@ export type DummyState = {
   loading: boolean;
   error: boolean;
 }
-export type DummyActions = {
+export type CandidsActions = {
   getCandids: () => void;
   getCities: () => void;
   getTechs: () => void;
@@ -72,7 +72,7 @@ export type DummyActions = {
   handleParseFile: () => void;
 }
 
-export const useDummyStore = create<DummyState & DummyAction>((set, get) => ({
+export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => ({
   list: [],
   filteredList: [],
 
@@ -171,13 +171,18 @@ export const useDummyStore = create<DummyState & DummyAction>((set, get) => ({
       throw new Error("probleme fetching cities or techs");
     }
 
-    useActionsStore.getState().updatePagination(jsonCandids.length);
+    jsonCandids.reverse()
+
+    console.log("candid ", jsonCandids[0])
 
     set({ list: jsonCandids });
     set({ filteredList: jsonCandids });
     set({ cities: jsonCities });
     set({ techs: jsonTechs });
     set({ contracts: jsonContracts });
+
+    useActionsStore.getState().updatePagination(jsonCandids.length);
+
   },
 
   addCandid: (candid) => set((state) => ({

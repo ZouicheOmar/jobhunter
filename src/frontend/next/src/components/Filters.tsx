@@ -12,12 +12,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./schadcn/Select"
-import { useDummyStore } from "@/stores/dummyStore"
+import { useCandidsStore } from "@/stores/useCandidsStore"
 import { useEffect } from "react"
 
 export const Filters = () => {
-  const cities = useDummyStore((state) => state.cities)
-  const techs = useDummyStore((state) => state.techs)
+  const cities = useCandidsStore((state) => state.cities)
+  const techs = useCandidsStore((state) => state.techs)
 
   const cityFilter = useActionsStore((state) => state.cityFilter)
   const techFilter = useActionsStore((state) => state.techFilter)

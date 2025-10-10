@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { useDummyStore } from "./dummyStore";
+import { useCandidsStore } from "./useCandidsStore";
 
 export const useActionsStore = create((set, get, store) => ({
   cityFilter: "default",
@@ -23,14 +23,14 @@ export const useActionsStore = create((set, get, store) => ({
 
   updateCityFilter: (city) => {
     set({ cityFilter: city })
-    useDummyStore.getState().filterList({ city: city, tech: get().techFilter })
-    get().updatePagination(useDummyStore.getState().filterList);
+    useCandidsStore.getState().filterList({ city: city, tech: get().techFilter })
+    get().updatePagination(useCandidsStore.getState().filterList);
   },
 
   updateTechFilter: (tech) => {
     set({ techFilter: tech })
-    useDummyStore.getState().filterList({ city: get().cityFilter, tech: tech })
-    get().updatePagination(useDummyStore.getState().filterList);
+    useCandidsStore.getState().filterList({ city: get().cityFilter, tech: tech })
+    get().updatePagination(useCandidsStore.getState().filterList);
   },
 
   updateCurrentPage: (n: number) => set({ currentPage: n }),
@@ -54,6 +54,6 @@ export const useActionsStore = create((set, get, store) => ({
 
   reset: () => {
     set(store.getInitialState())
-    useDummyStore.getState().filterList({ city: "default", tech: "default" })
+    useCandidsStore.getState().filterList({ city: "default", tech: "default" })
   }
 }))

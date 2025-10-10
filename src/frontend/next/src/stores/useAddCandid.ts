@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { useDummyStore } from "./dummyStore";
+import { useCandidsStore } from "./useCandidsStore";
 
 export type AddCandidState = {
   show: boolean;
@@ -158,7 +158,7 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
     const json = await req.json();
 
     set(store.getInitialState());
-    useDummyStore.getInitialState().addCandid(json);
+    useCandidsStore.getInitialState().addCandid(json);
   }
 
 

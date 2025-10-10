@@ -4,7 +4,7 @@ export const Title = () => {
   const goFirstPage = useActionsStore((state) => state.goFirstPage)
 
   return (
-    < div className="border h-[120px] p-0 overflow-hidden relative rounded-md shadow-md flex align-middle " >
+    < div className="border h-[120px] p-0 overflow-hidden relative rounded shadow-md flex align-middle " >
       <div className="z-0 w-full h-full absolute bg-[url(/shibuya.jpg)] bg-center mask-l-from-10% mask-l-to-70%">
       </div>
       <div

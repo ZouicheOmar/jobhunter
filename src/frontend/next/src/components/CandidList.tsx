@@ -1,5 +1,5 @@
 import { CandidCard } from "./CandidCard";
-import { useDummyStore } from "@/stores/dummyStore";
+import { useCandidsStore } from "@/stores/useCandidsStore";
 import { useEffect } from "react";
 import { Button } from "./schadcn/Button";
 
@@ -14,9 +14,9 @@ import {
 import { useActionsStore } from "@/stores/useActions";
 
 export const CandidList = () => {
-  const list = useDummyStore((state) => state.list);
-  const filteredList = useDummyStore((state) => state.filteredList);
-  const getAll = useDummyStore((state) => state.getAll);
+  const list = useCandidsStore((state) => state.list);
+  const filteredList = useCandidsStore((state) => state.filteredList);
+  const getAll = useCandidsStore((state) => state.getAll);
 
   const currentPage = useActionsStore((state) => state.currentPage);
   const perPage = useActionsStore((state) => state.perPage);

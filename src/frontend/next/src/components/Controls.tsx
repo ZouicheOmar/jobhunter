@@ -1,11 +1,11 @@
-import { useDummyStore } from "@/stores/dummyStore";
+import { useCandidsStore } from "@/stores/useCandidsStore";
 import { Button } from "./schadcn/Button";
 import { useAddCandidStore } from "@/stores/useAddCandid";
 import { Filters } from "./Filters";
 
 export const Controls = () => {
   const toggle = useAddCandidStore((state) => state.toggle);
-  const handleParseFile = useDummyStore((state) => state.handleParseFile)
+  const handleParseFile = useCandidsStore((state) => state.handleParseFile)
 
   return <>
     <div
@@ -18,13 +18,6 @@ export const Controls = () => {
           onClick={() => toggle()}
         >
           add
-        </Button>
-
-        <Button
-          className="text-xs px-2 py-0 rounded-bl-sm"
-        // onClick={"reverse filtered"}
-        >
-          newest
         </Button>
 
         <Button

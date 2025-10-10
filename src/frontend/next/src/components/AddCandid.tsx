@@ -1,7 +1,7 @@
 'use client'
 import { Button } from "./schadcn/Button";
 import { useAddCandidStore } from "@/stores/useAddCandid";
-import { useDummyStore } from "@/stores/dummyStore";
+import { useCandidsStore } from "@/stores/useCandidsStore";
 import { useEffect } from "react";
 import { useShallow } from "zustand/shallow";
 import { Badge } from "./Badge";
@@ -20,7 +20,7 @@ import {
 
 export function AddCandid() {
 
-  const contracts = useDummyStore(useShallow((state) => state.contracts));
+  const contracts = useCandidsStore(useShallow((state) => state.contracts));
 
   const loading = useAddCandidStore(useShallow((state) => state.loading));
 
@@ -170,7 +170,7 @@ export function AddCandid() {
           </Button>
         </div>
         {stack?.length > 0 && (
-          <div className="flex gap-1 p-1 py-2">
+          <div className="flex gap-1 flex-wrap p-1 py-2">
             {stack.map((item, key) => (<Badge key={key} >{item}
               {<span
                 onClick={() => removeTech(item)}
