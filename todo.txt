@@ -1,0 +1,24 @@
+API:
+  * Le type de contrat n'est pas envoyer quand POST candid.
+  * le site web est confondu avec l'url, je veux juste extraire le nom de domaine.
+  * add status to a certain candid
+  * add an update candid route
+
+UI / NEXT:
+* ajouter un button cancel lors du fetch
+* ajouter un tag IT ou Non IT
+* ajouter une forme pour update une cadid
+* add a toaster
+* afficher le nb de candids effectuées quotidiennement
+* notify success or error with toaster on candid add, delete and update
+* dark mode
+* animations, en terme d'ux, l'ui n'exprime pas ce qui se passe lorsqu'on post
+  une annonce. rajouter un notifier
+DONE:
+* ajouter des icones, radix icons devrait le faire
+* overflow sur les badge de la stack
+
+APP:
+* combiner makefile docker compose
+
+

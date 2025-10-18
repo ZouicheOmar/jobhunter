@@ -31,10 +31,17 @@ export type AddCandidActions = {
   reset: () => void;
 };
 
+
+const today = () => {
+  const d = new Date();
+  const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+  return date;
+}
+
 export type AddCandidStore = AddCandidState & AddCandidActions;
 
 export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
-  show: false,
+  show: true,
   loading: false,
   error: false,
 
@@ -44,10 +51,13 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   company: '',
   website: '',
 
+  companyDesc: null,
   contract: '',
 
   tech: '',
   stack: [],
+
+  addDate: today(),
 
   updateStack: () => {
     const prevStack = get().stack;
@@ -71,8 +81,8 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   updateTech: (tech) => set(() => ({ tech: tech })),
   updateUrl: (url) => set(() => ({ url: url })),
   updateContract: (contract) => set(() => ({ contract: contract })),
+  updateAddDate: (date) => set(() => ({ addDate: date })),
 
-  companyDesc: null,
 
   updateTitle: (title) => set(() => ({ title: title })),
   updateCity: (city) => set(() => ({ city: city })),
@@ -160,8 +170,6 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
     set(store.getInitialState());
     useCandidsStore.getInitialState().addCandid(json);
   }
-
-
 
 
 }))

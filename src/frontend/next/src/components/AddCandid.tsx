@@ -30,6 +30,7 @@ export function AddCandid() {
   const company = useAddCandidStore(useShallow((state) => state.company));
   const website = useAddCandidStore(useShallow((state) => state.website));
   const companyDesc = useAddCandidStore(useShallow((state) => state.companyDesc));
+  const addDate = useAddCandidStore(useShallow((state) => state.addDate));
 
   const contract = useAddCandidStore(useShallow((state) => state.contract));
   const updateContract = useAddCandidStore(useShallow((state) => state.updateContract));
@@ -45,6 +46,8 @@ export function AddCandid() {
   const updateCompanyDesc = useAddCandidStore((state) => state.updateCompanyDesc);
   const updateTech = useAddCandidStore((state) => state.updateTech);
   const updateStack = useAddCandidStore((state) => state.updateStack);
+  const updateAddDate = useAddCandidStore((state) => state.updateAddDate);
+
   const removeTech = useAddCandidStore((state) => state.removeTech);
   const postCandid = useAddCandidStore((state) => state.postCandid);
 
@@ -56,7 +59,7 @@ export function AddCandid() {
     <div className={`${loading && "animate-pulse"} p-4 pb-6 border rounded shadow-sm flex flex-col gap-2`}>
       <div className="">
         <label htmlFor="url" className="pl-1"> url </label>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
           <input id="url"
             type="text"
             placeholder="url of the offer"
@@ -64,11 +67,30 @@ export function AddCandid() {
             onChange={(e) => updateUrl(e.target.value)}
             value={url}
           />
-          <Button
-            onClick={() => lookupUrl()}
-          >
+          <Button onClick={() => lookupUrl()} >
             look up offer
           </Button>
+        </div>
+
+      </div>
+
+      <div className="mt-2 flex gap-2">
+        {/*TODO: add to state*/}
+        <div className="flex items-center gap-2 border px-2">
+          <input
+            id="isCandidTech"
+            type="checkbox"
+          />
+          <label htmlFor="isCandidTech" className="pr-1"> tech offer ? </label>
+        </div>
+
+        {/*TODO: add to state by default if url provided it has to be a response to an offer */}
+        <div className="flex items-center gap-2 border px-2">
+          <input
+            id="unsolicited"
+            type="checkbox"
+          />
+          <label htmlFor="unsolicited" > unsolicited ? </label>
         </div>
       </div>
 
@@ -147,8 +169,17 @@ export function AddCandid() {
               </SelectContent>
             </Select>
           </div>
-        )
-        }
+        )}
+
+        <div>
+          <label htmlFor="addDate" className="pl-1"> add date </label>
+          <input id="addDate"
+            type="date"
+            className="w-full p-1 block bg-gray-100 rounded"
+            value={addDate}
+            onChange={(e) => updateAddDate(e.target.value)}
+          />
+        </div>
 
       </div>
 

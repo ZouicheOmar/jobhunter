@@ -39,9 +39,10 @@ export const CandidList = () => {
           .slice(
             currentPage * perPage,
             Math.min((currentPage + 1) * perPage, filteredList.length))
-          .map(candid =>
+          .map((candid, key) =>
             <CandidCard
-              key={candid.id}
+              // key={candid.id}
+              key={key}
               candid={candid}
             />
           ))

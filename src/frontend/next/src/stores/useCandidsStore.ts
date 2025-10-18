@@ -2,59 +2,6 @@ import { CityDto, TechDto, type Candid } from "@/types/CandidType";
 import { create } from "zustand";
 import { useActionsStore } from "./useActions";
 
-const list = [
-  {
-    addDate: "string",
-    answer: false,
-    cityDto: { name: "paris" },
-    company: "string",
-    id: 1,
-    stack: [
-      { name: "react" },
-      { name: "redux" },
-      { name: "software engineer" }
-    ],
-    title: "string",
-    unsolicited: false,
-    url: "string",
-    websiteDto: { name: "linkedin" }
-  },
-
-  {
-    addDate: "string",
-    answer: false,
-    cityDto: { name: "paris" },
-    company: "string",
-    id: 2,
-    stack: [
-      { name: "react" },
-      { name: "redux" },
-      { name: "tanstack query" }
-    ],
-    title: "developper fullstack",
-    unsolicited: true,
-    url: "string",
-    websiteDto: { name: "linkedin" }
-  },
-
-  {
-    addDate: "string",
-    answer: false,
-    cityDto: { name: "paris" },
-    company: "string",
-    id: 3,
-    stack: [
-      { name: "react" },
-      { name: "redux" },
-      { name: "tanstack query" }
-    ],
-    title: "frontend engineer",
-    unsolicited: true,
-    url: "string",
-    websiteDto: { name: "linkedin" }
-  }
-];
-
 export type CandidsStore = {
   list: Candid[]
 
@@ -103,47 +50,9 @@ export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => 
     })
   },
 
-  getCandids: async () => {
-    const url = "http://localhost:8080/candid";
-    const req = await fetch(url)
-
-    set({ loading: false })
-    if (!req.ok) {
-      set({ error: true })
-      console.log("error fetching candids")
-    }
-    const json = await req.json();
-    set({ list: json })
-    set({ filteredList: json })
-  },
-  getCities: async () => {
-    const url = "http://localhost:8080/city";
-    const req = await fetch(url)
-
-    set({ loading: false })
-    if (!req.ok) {
-      set({ error: true })
-      console.log("error fetching candids")
-    }
-    const json = await req.json();
-    set({ cities: json })
-  },
-  getTechs: async () => {
-    const url = "http://localhost:8080/tech";
-    const req = await fetch(url)
-
-    set({ loading: false })
-    if (!req.ok) {
-      set({ error: true })
-      console.log("error fetching candids")
-    }
-    const json = await req.json();
-    set({ techs: json })
-  },
   getAll: async () => {
     const [reqCandids, reqCities, reqTechs, reqContracts] = await Promise.all(
       [
-
         fetch("http://localhost:8080/candid"),
         fetch('http://localhost:8080/city'),
         fetch('http://localhost:8080/tech'),
@@ -173,8 +82,6 @@ export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => 
 
     jsonCandids.reverse()
 
-    console.log("candid ", jsonCandids[0])
-
     set({ list: jsonCandids });
     set({ filteredList: jsonCandids });
     set({ cities: jsonCities });
@@ -189,6 +96,27 @@ export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => 
     list: [candid, ...state.list],
     filteredList: [candid, ...state.filteredList]
   })),
+
+  delCandid: async (id) => {
+    const url = "http://localhost:8080/candid/" + id;
+    const req = await fetch(url, {
+      method: "DELETE"
+    });
+    if (!req.ok) throw new Error('probleme deleting candid');
+    // should add a taoster here
+    console.log("deleted successfully");
+
+    // update the array here
+    // let prevCandids = 
+    // let index = 0;
+    // candids.value.forEach((candid, i) => {
+    //   if (candid.id == id) {
+    //     index = i;
+    //     return;
+    //   }
+    // })
+    // candids.value.splice(index, 1);
+  },
 
   postCandid: async (payload: Candid) => {
     const date = new Date();

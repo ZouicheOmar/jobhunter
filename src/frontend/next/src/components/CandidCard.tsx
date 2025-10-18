@@ -19,7 +19,6 @@ const Section = ({ children }) => <span className="text-muted-foreground">{child
 export const CandidCard = (
   { candid }: { candid: Candid }
 ) => {
-  // const dispatch = useDispatch();
   const { id,
     title,
     answer,
@@ -71,12 +70,14 @@ export const CandidCard = (
           <Button
             variant="outline"
             size="icon-sm"
+            onClick={() => console.log("delete")}
           >
             <TrashIcon />
           </Button>
           <Button
             variant="outline"
             size="icon-sm"
+            onClick={() => console.log("add api to update candid")}
           >
             <Pencil1Icon />
           </Button>
