@@ -1,9 +1,0 @@
-title="Offre d'emploi : Développeur Full Stack pour une entreprise leader dans
-le domaine du logiciel" city='Paris' tech_stack=['JavaScript', 'React',
-'Node.js'] company='Acme Inc.' company_desc='Acme Inc. est une entreprise
-leader dans le domaine du logiciel qui développe des solutions de gestion de
-projet et de planification pour les entreprises.'
-website='https://www.acmi.com/' position=<PositionType.fullstack: 'FULLSTACK'>
-main_tasks=['Conception et développement de applications web', 'Mise en œuvre
-de bases de données', "Développement de systèmes d'exploitation"]
-contract=<ContractType.cdd: 'CDD'> startDate=datetime.date(2022, 1, 1)

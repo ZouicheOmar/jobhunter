@@ -5,10 +5,35 @@ from typing import List, Optional, Type
 from enum import Enum
 
 
-class TestModel(BaseModel):
-  first: str
-  last: str
-  message: str
+class Diplome(BaseModel):
+  """Information sur un diplôme"""
+
+  niveau: int = Field(description="Niveau du diplôme")
+  domaine: str = Field(description="Domaine du diplôme")
+
+
+class JobOffer(BaseModel):
+  """Information about the job offer"""
+
+  titre: str = Field(description="Titre de l'offre")
+  nom_entreprise: str = Field(
+    description="Nom de l'entreprise, hiring organisation"
+  )
+  ville: str = Field(description="Nom de la ville")
+  diplome: Optional[Diplome] = Field(
+    description="Diplôme mentionné ou requis"
+  )
+  description_entreprise: str = Field(
+    description="""
+    Le text qui décrit l'entreprise, ses valeurs, objectifs et ambitions, les
+    domaines où elle opère
+      """
+  )
+  employmentType: str = Field(description="Le type de contract")
+  main_tasks: List[str] = Field(description="Les missions de cet emploi")
+  startDate: Optional[date] = Field(
+    description="Si mentionnée, The date at which the job starts"
+  )
 
 
 class ContractType(str, Enum):

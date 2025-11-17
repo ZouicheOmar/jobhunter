@@ -41,7 +41,7 @@ const today = () => {
 export type AddCandidStore = AddCandidState & AddCandidActions;
 
 export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
-  show: true,
+  show: false,
   loading: false,
   error: false,
 
@@ -96,8 +96,7 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
 
   lookupUrl: async () => {
     set({ loading: true });
-    const reqUrl = "http://localhost:5000/handle_scrap_url/"
-    const req = await fetch(reqUrl,
+    const req = await fetch("http://localhost:5000/scrap/",
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

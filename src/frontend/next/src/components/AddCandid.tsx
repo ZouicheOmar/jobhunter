@@ -20,7 +20,7 @@ import {
 
 export function AddCandid() {
 
-  const contracts = useCandidsStore(useShallow((state) => state.contracts));
+  // const contracts = useCandidsStore(useShallow((state) => state.contracts));
 
   const loading = useAddCandidStore(useShallow((state) => state.loading));
 

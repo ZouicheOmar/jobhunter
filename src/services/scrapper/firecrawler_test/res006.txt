@@ -1,9 +1,0 @@
-title='Développeur Full Stack - Alternance - Villeurbanne' city='Villeurbanne'
-tech_stack=['HTML/CSS', 'JavaScript', 'React', 'Node.js', 'Express']
-company='Entreprise du secteur financier' company_desc="L'entreprise est
-spécialisée dans la gestion de données financières pour les particuliers et les
-entreprises." website='' position=<PositionType.frontend: 'FRONTEND'>
-main_tasks=['Responsable des interactions utilisateur web', 'Mise à jour
-régulière du code source pour améliorer la performance et la sécurité',
-'Développement de nouvelles fonctionnalités'] contract=<ContractType.cdi:
-'CDI'> startDate=datetime.date(2023, 4, 1)

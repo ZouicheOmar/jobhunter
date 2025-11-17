@@ -1,7 +1,8 @@
 from flask import Flask, request
-from service import UrlService
+from service import JobhunterUrlService, UrlService
 
 app = Flask(__name__)
+jhser = JobhunterUrlService()
 
 
 @app.after_request
@@ -21,13 +22,13 @@ def application():
   return "hello app\n"
 
 
-@app.post("/handle_scrap_url/")
+@app.post("/scrap/")
 def handle_scrap_url():
-  url_service = UrlService()
   json = request.get_json()
   url = json.get("url")
-  res = url_service.handle(url)
-  return res
+
+  r = jhser.handle(url)
+  return r
 
 
 if __name__ == "__main__":
