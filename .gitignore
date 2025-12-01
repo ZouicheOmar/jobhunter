@@ -1,4 +1,7 @@
 todo.md
-./src/backend/reqs/*
-./src/services/scrapper/reqs/*
-./src/services/scrapper/bak/*
+./src/services/scrapper/reqs/
+./src/services/scrapper/bak/
+./src/services/scrapper/testing/
+./src/services/scrapper/reqs/**
+./src/services/scrapper/bak/**
+./src/services/scrapper/testing/**

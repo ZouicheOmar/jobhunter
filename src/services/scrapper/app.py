@@ -1,5 +1,5 @@
 from flask import Flask, request
-from service import JobhunterUrlService, UrlService
+from service import JobhunterUrlService
 
 app = Flask(__name__)
 jhser = JobhunterUrlService()
@@ -8,12 +8,8 @@ jhser = JobhunterUrlService()
 @app.after_request
 def add_headers(response):
   response.headers["Access-Control-Allow-Origin"] = "*"
-  response.headers["Access-Control-Allow-Headers"] = (
-    "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
-  )
-  response.headers["Access-Control-Allow-Methods"] = (
-    "POST, GET, PUT, DELETE, OPTIONS"
-  )
+  response.headers["Access-Control-Allow-Headers"] = "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+  response.headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS"
   return response
 
 
@@ -26,9 +22,8 @@ def application():
 def handle_scrap_url():
   json = request.get_json()
   url = json.get("url")
-
-  r = jhser.handle(url)
-  return r
+  res = jhser.handle(url)
+  return res
 
 
 if __name__ == "__main__":

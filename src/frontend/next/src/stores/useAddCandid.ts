@@ -9,12 +9,12 @@ export type AddCandidState = {
   url: string;
   title: string;
   city: string;
-  company: string;
+  companyName: string;
+  contract: string;
   website: string;
   companyDesc: string | null;
 
   stack: string[],
-
 };
 
 export type AddCandidActions = {
@@ -22,7 +22,7 @@ export type AddCandidActions = {
   updateUrl: () => void;
   updateTitle: () => void;
   updateCity: () => void;
-  updateCompany: () => void;
+  updateCompanyName: () => void;
   updateCompanyDesc: () => void;
   updateWebsite: () => void;
   updateStack: () => void;
@@ -45,10 +45,11 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   loading: false,
   error: false,
 
-  url: '',
+  // url: '',
+  url: 'https://www.hellowork.com/fr-fr/emplois/68113582.html',
   title: '',
   city: '',
-  company: '',
+  companyName: '',
   website: '',
 
   companyDesc: null,
@@ -86,7 +87,7 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
 
   updateTitle: (title) => set(() => ({ title: title })),
   updateCity: (city) => set(() => ({ city: city })),
-  updateCompany: (company) => set(() => ({ company: company })),
+  updateCompanyName: (company) => set(() => ({ companyName: company })),
   updateWebsite: (website) => set(() => ({ website: website })),
 
   reset: () => set(store.getInitialState()),
@@ -96,48 +97,45 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
 
   lookupUrl: async () => {
     set({ loading: true });
-    const req = await fetch("http://localhost:5000/scrap/",
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          url: get().url
-        })
-      }
-    );
+    try {
+      const req = await fetch("http://localhost:5000/scrap/",
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            url: get().url
+          })
+        }
+      );
 
-    set({ loading: false });
+      set({ loading: false });
 
-    if (!req.ok) {
-      set({ error: true });
-      console.log("ERROR SCRAPPING")
-      return;
+      const json = await req.json();
+      console.log("LOG: data \n", json);
+
+
+      const {
+        title,
+        company_name,
+        location,
+        contract_type
+      } = json;
+
+      set({
+        title: title,
+        companyName: company_name,
+        city: location,
+        contract: contract_type,
+      })
+
+    } catch (e) {
+      set({ error: true, loading: false });
+      console.log("ERROR SCRAPPING", e)
     }
 
-    const json = await req.json();
-    console.log("DATA", json);
-
-    const { city: dataCity,
-      company_desc,
-      company: dataCompany,
-      contract: dataContract,
-      position: dataPosition,
-      startDate: dataStartDate,
-      tech_stack,
-      title: dataTitle,
-      website: dataWebsite } = json;
-
-    set({
-      city: dataCity,
-      title: dataPosition,
-      company: dataCompany,
-      website: dataWebsite,
-      companyDesc: company_desc,
-      contract: dataContract,
-      stack: [...tech_stack],
-    })
-
   },
+
+
 
   postCandid: async () => {
     const date = new Date();

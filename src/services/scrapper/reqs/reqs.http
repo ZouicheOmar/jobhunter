@@ -9,5 +9,10 @@ POST {{base}}/scrap/ HTTP/1.1
 Content-Type: application/json
 
 {
-  "url": "https://www.hellowork.com/fr-fr/emplois/68058246.html"
+  "url": "https://www.hellowork.com/fr-fr/emplois/70605544.html"
 }
+
+
+### 
+
+GET {{base}}/test/llm/ HTTP/1.1

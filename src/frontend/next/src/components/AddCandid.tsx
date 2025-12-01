@@ -20,14 +20,14 @@ import {
 
 export function AddCandid() {
 
-  // const contracts = useCandidsStore(useShallow((state) => state.contracts));
+  const contracts = useCandidsStore(useShallow((state) => state.contracts));
 
   const loading = useAddCandidStore(useShallow((state) => state.loading));
 
   const url = useAddCandidStore(useShallow((state) => state.url));
   const title = useAddCandidStore(useShallow((state) => state.title));
   const city = useAddCandidStore(useShallow((state) => state.city));
-  const company = useAddCandidStore(useShallow((state) => state.company));
+  const companyName = useAddCandidStore(useShallow((state) => state.companyName));
   const website = useAddCandidStore(useShallow((state) => state.website));
   const companyDesc = useAddCandidStore(useShallow((state) => state.companyDesc));
   const addDate = useAddCandidStore(useShallow((state) => state.addDate));
@@ -41,7 +41,7 @@ export function AddCandid() {
   const updateUrl = useAddCandidStore((state) => state.updateUrl);
   const updateTitle = useAddCandidStore((state) => state.updateTitle);
   const updateCity = useAddCandidStore((state) => state.updateCity);
-  const updateCompany = useAddCandidStore((state) => state.updateCompany);
+  const updateCompanyName = useAddCandidStore((state) => state.updateCompanyName);
   const updateWebsite = useAddCandidStore((state) => state.updateWebsite);
   const updateCompanyDesc = useAddCandidStore((state) => state.updateCompanyDesc);
   const updateTech = useAddCandidStore((state) => state.updateTech);
@@ -110,10 +110,10 @@ export function AddCandid() {
           <label htmlFor="company" className="pl-1"> company </label>
           <input id="company"
             type="text"
-            placeholder="company of the offer"
+            placeholder="company name"
             className="w-full p-1 block bg-gray-100 rounded"
-            value={company}
-            onChange={(e) => updateCompany(e.target.value)}
+            value={companyName}
+            onChange={(e) => updateCompanyName(e.target.value)}
           />
         </div>
 
@@ -211,12 +211,22 @@ export function AddCandid() {
         )}
       </div>
 
-      <div className="pt-2  flex justify-end">
-        <Button onClick={() => postCandid()}
-          disabled={city == '' || company == '' || title == ''}
-        >
-          submit
-        </Button>
+      <div className="flex justify-end gap-2">
+        <div className="flex justify-end">
+          <Button onClick={() => postCandid()}
+            disabled={true}
+          >
+            clear
+          </Button>
+        </div>
+
+        <div className=" flex justify-end">
+          <Button onClick={() => postCandid()}
+            disabled={city == '' || companyName == '' || title == ''}
+          >
+            submit
+          </Button>
+        </div>
       </div>
 
     </div>

@@ -1,26 +1,37 @@
+from langchain_core.language_models import LanguageModelInput
+from scrapling.core.custom_types import TextHandler
 from scrapling.engines.toolbelt.custom import Response
-from scrapling.parser import Selectors
-from models import JobOfferData
+from scrapling.parser import Selector, Selectors
+from models import JobOffer
 from flask import jsonify
 from typing import List, Optional
 from scrapling.fetchers import StealthyFetcher, StealthySession
 from urllib.parse import urlparse, parse_qs
 from langchain_ollama import ChatOllama
+from langchain.chat_models import init_chat_model
+import requests
+
+from utils import html_to_text
+from rich import print
+
+from bs4 import BeautifulSoup
+
 from pydantic import BaseModel, Field
 import json
 
 
+## todo: test on different type of ld
+# and other, it's just going to be some optionnal stuff..
+# see JobOffer(**data)
+# clean up
+## todo: create github repo and push
+## todo: add github repo link to resume
+## todo: update resume and ozdocs
+
+
 class JobhunterUrlService:
   def __init__(self):
-    print("INTIALIZING HEADLESS BROWSER & OLLAMA")
-    # self.fetcher = StealthyFetcher(
-    #   headless=True,
-    #   geoip=True,
-    #   solve_cloudflare=True,
-    # )
-    self.llm = ChatOllama(
-      model="gemma3:1b", reasoning=False, temperature=0.7, keep_alive=-1
-    ).with_structured_output(JobOfferData)
+    requests.get("http://localhost:11434")
 
   def _hdle_indeed_url(self, url):
     return "indeed url"
@@ -35,11 +46,7 @@ class JobhunterUrlService:
     elif "indeed" in url:
       url = self._hdle_indeed_url(url)
 
-    with StealthySession(
-      headless=True,
-      solve_cloudflare=True,
-      geoip=True,
-    ) as s:
+    with StealthySession(headless=True, solve_cloudflare=True, geoip=True) as s:
       page = s.fetch(url)
       self.page = page
 
@@ -47,17 +54,10 @@ class JobhunterUrlService:
     lds: Selectors = self.page.css('script[type="application/ld+json"]')
     for ld in lds:
       if "JobPosting" in ld.html_content:
-        self.data = json.dumps(ld.json())
-      # handle else
-
-  def _llm_work(self):
-    r = self.llm.invoke(self.data)
-    if not r:
-      return "ERROR: JobhunterUrlService._llm_work no result"
-    return r.model_dump_json()
+        self.data = ld.json()
 
   def handle(self, url):
     self._get_page(url)
     self._get_ld()
-    r = self._llm_work()
-    return r
+    job_offer_data = JobOffer(**self.data)
+    return job_offer_data.model_dump_json()
