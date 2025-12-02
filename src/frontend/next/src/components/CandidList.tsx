@@ -1,4 +1,5 @@
 import { CandidCard } from "./CandidCard";
+import { CandidCompactCard } from "./CandidCompactCard";
 import { useCandidsStore } from "@/stores/useCandidsStore";
 import { useEffect } from "react";
 import { Button } from "./schadcn/Button";
@@ -12,6 +13,7 @@ import {
   CardContent,
 } from "./schadcn/Card";
 import { useActionsStore } from "@/stores/useActions";
+import { useControls } from "@/stores/useControls";
 
 export const CandidList = () => {
   const list = useCandidsStore((state) => state.list);
@@ -21,14 +23,15 @@ export const CandidList = () => {
   const currentPage = useActionsStore((state) => state.currentPage);
   const perPage = useActionsStore((state) => state.perPage);
 
-  const cityFilter = useActionsStore((state) => state.cityFilter)
-  const techFilter = useActionsStore((state) => state.techFilter)
-  const reset = useActionsStore((state) => state.reset)
+  const cityFilter = useActionsStore((state) => state.cityFilter);
+  const techFilter = useActionsStore((state) => state.techFilter);
+  const reset = useActionsStore((state) => state.reset);
+
+  const compact = useControls((state) => state.compact);
 
   useEffect(() => {
     getAll();
   }, [])
-
 
   return <>
     <div
@@ -39,12 +42,15 @@ export const CandidList = () => {
           .slice(
             currentPage * perPage,
             Math.min((currentPage + 1) * perPage, filteredList.length))
-          .map((candid, key) =>
-            <CandidCard
-              // key={candid.id}
-              key={key}
+          .map((candid, key) => compact ? (
+            <CandidCompactCard
+              key={candid?.id}
               candid={candid}
-            />
+            />) :
+            (<CandidCard
+              key={candid?.id}
+              candid={candid}
+            />)
           ))
           : (<Card className="">
             <CardHeader >

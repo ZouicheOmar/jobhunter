@@ -32,12 +32,6 @@ export type AddCandidActions = {
 };
 
 
-const today = () => {
-  const d = new Date();
-  const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-  return date;
-}
-
 export type AddCandidStore = AddCandidState & AddCandidActions;
 
 export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
@@ -45,8 +39,7 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   loading: false,
   error: false,
 
-  // url: '',
-  url: 'https://www.hellowork.com/fr-fr/emplois/68113582.html',
+  url: '',
   title: '',
   city: '',
   companyName: '',
@@ -58,7 +51,7 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   tech: '',
   stack: [],
 
-  addDate: today(),
+  addDate: '',
 
   updateStack: () => {
     const prevStack = get().stack;

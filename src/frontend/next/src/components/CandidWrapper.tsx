@@ -17,7 +17,7 @@ export const CandidWrapper = () => {
     <div className="w-full flex flex-col gap-4">
       <Title />
       <Controls />
-      <TopInfo />
+      {/* <TopInfo /> */}
       {showAddCandid && <AddCandid />}
       <CandidList />
       <Paginator />

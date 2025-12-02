@@ -18,10 +18,11 @@ import {
   SelectValue,
 } from "./schadcn/Select";
 
+import { getTodayDate } from "@/lib/utils";
+
 export function AddCandid() {
 
   const contracts = useCandidsStore(useShallow((state) => state.contracts));
-
   const loading = useAddCandidStore(useShallow((state) => state.loading));
 
   const url = useAddCandidStore(useShallow((state) => state.url));
@@ -50,7 +51,6 @@ export function AddCandid() {
 
   const removeTech = useAddCandidStore((state) => state.removeTech);
   const postCandid = useAddCandidStore((state) => state.postCandid);
-
 
   const lookupUrl = useAddCandidStore((state) => state.lookupUrl);
   const reset = useAddCandidStore((state) => state.reset);
@@ -173,7 +173,8 @@ export function AddCandid() {
 
         <div>
           <label htmlFor="addDate" className="pl-1"> add date </label>
-          <input id="addDate"
+          <input
+            id="addDate"
             type="date"
             className="w-full p-1 block bg-gray-100 rounded"
             value={addDate}

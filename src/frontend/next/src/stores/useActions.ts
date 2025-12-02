@@ -9,7 +9,7 @@ export const useActionsStore = create((set, get, store) => ({
   totalPages: 0,
   totalItems: 0,
 
-  perPage: 5,
+  perPage: 7,
 
   incrCurrentPage: () => {
     if (get().currentPage + 1 < get().totalPages)

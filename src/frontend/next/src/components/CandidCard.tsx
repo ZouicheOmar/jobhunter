@@ -12,6 +12,7 @@ import { Button } from "./schadcn/Button";
 import { BackpackIcon, CalendarIcon, Link2Icon, Pencil1Icon, SewingPinFilledIcon, TrashIcon } from "@radix-ui/react-icons";
 import { Tractor } from "lucide-react";
 import { Badge } from "./Badge";
+import { useCandidsStore } from "@/stores/useCandidsStore";
 
 
 const Section = ({ children }) => <span className="text-muted-foreground">{children} : </span>
@@ -31,6 +32,8 @@ export const CandidCard = (
     company,
     addDate
   } = candid;
+
+  const deleteCandid = useCandidsStore((state) => state.deleteCandid)
 
   return <>
     <Card className="">
@@ -71,7 +74,7 @@ export const CandidCard = (
           <Button
             variant="outline"
             size="icon-sm"
-            // on
+            onClick={() => deleteCandid(id)}
           >
             <TrashIcon />
           </Button>
@@ -88,12 +91,12 @@ export const CandidCard = (
         <div className="flex justify-between w-full ">
           <div className="w-fit">
             {website.name && (<div className="w-fit">
-              <Section> applied on </Section>
+              <Section> Applied on </Section>
               {website.name}
             </div>)}
 
             {<div>
-              <Section> unsolicited </Section> {unsolicited ? "yes" : "no"}
+              <Section> Unsolicited </Section> {unsolicited ? "yes" : "no"}
             </div>}
           </div>
 
@@ -103,10 +106,6 @@ export const CandidCard = (
               <Badge key={k}> {name}</Badge>
             ))}
           </div>
-        </div>
-        <div className="">
-          <div className="border bg-black text-white border-gray-500 px-1 text-center mb-1"> relance </div>
-          <div className="border bg-black text-white border-gray-500 px-1 text-center mb-1"> it </div>
         </div>
       </CardContent>
     </Card>

@@ -30,7 +30,7 @@ export const Filters = () => {
     <div className="flex gap-2">
 
       <Select defaultValue="default" value={cityFilter} onValueChange={(v) => updateCityFilter(v)}>
-        <SelectTrigger className="max-w-[120px] text-xs">
+        <SelectTrigger className="max-w-[120px] text-xs rounded rounded-bl-md" size="sm">
           <SelectValue placeholder="city" />
         </SelectTrigger>
         <SelectContent >
@@ -40,7 +40,7 @@ export const Filters = () => {
       </Select>
 
       <Select defaultValue="default" value={techFilter} onValueChange={(v) => updateTechFilter(v)}>
-        <SelectTrigger className="w-[120px] text-xs">
+        <SelectTrigger className="w-[120px] text-xs rounded rounded-bl-md" size="sm" >
           <SelectValue placeholder="tech" />
         </SelectTrigger>
         <SelectContent >

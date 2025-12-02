@@ -97,7 +97,7 @@ export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => 
     filteredList: [candid, ...state.filteredList]
   })),
 
-  delCandid: async (id) => {
+  deleteCandid: async (id) => {
     const url = "http://localhost:8080/candid/" + id;
     const req = await fetch(url, {
       method: "DELETE"
