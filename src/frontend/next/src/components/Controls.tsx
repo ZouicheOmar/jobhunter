@@ -18,6 +18,7 @@ const ControlsLayouts = () => {
     <div
       className="flex gap-2 justify-start items-center" >
       <Toggle
+        defaultPressed
         variant="default"
         size="sm"
         className="
@@ -53,7 +54,12 @@ export const Controls = () => {
         className="flex  gap-2 justify-start items-center" >
         {/* <span className="text-muted-foreground"> Controls </span> */}
         <ControlsButton label="Add"
-          onClick={() => toggle()}
+          onClick={() => {
+            // if toggle
+            window.scrollTo({ top: 48, behavior: "smooth" })
+            toggle()
+          }
+          }
         />
 
         <ControlsButton label="Parse File"

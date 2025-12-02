@@ -20,5 +20,7 @@ DONE:
 
 APP:
 * combiner makefile docker compose
-
+* create github repo and push
+* add github repo link to resume
+* update resume and ozdocs
 

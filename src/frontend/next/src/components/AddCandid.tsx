@@ -18,11 +18,11 @@ import {
   SelectValue,
 } from "./schadcn/Select";
 
-import { getTodayDate } from "@/lib/utils";
+import { getTodayDate, getHostname } from "@/lib/utils";
+import { CONTRACT_TYPES } from "@/lib/consts";
 
 export function AddCandid() {
 
-  const contracts = useCandidsStore(useShallow((state) => state.contracts));
   const loading = useAddCandidStore(useShallow((state) => state.loading));
 
   const url = useAddCandidStore(useShallow((state) => state.url));
@@ -48,22 +48,22 @@ export function AddCandid() {
   const updateTech = useAddCandidStore((state) => state.updateTech);
   const updateStack = useAddCandidStore((state) => state.updateStack);
   const updateAddDate = useAddCandidStore((state) => state.updateAddDate);
-
   const removeTech = useAddCandidStore((state) => state.removeTech);
+
   const postCandid = useAddCandidStore((state) => state.postCandid);
-
   const lookupUrl = useAddCandidStore((state) => state.lookupUrl);
-  const reset = useAddCandidStore((state) => state.reset);
 
+  const addCandid = useCandidsStore((state) => state.addCandid);
+
+  const reset = useAddCandidStore((state) => state.reset);
   return (
-    <div className={`${loading && "animate-pulse"} p-4 pb-6 border rounded shadow-sm flex flex-col gap-2`}>
+    <div className={`${loading && "animate-pulse"} p-4 text-sm border rounded shadow-sm flex flex-col gap-2`}>
       <div className="">
-        <label htmlFor="url" className="pl-1"> url </label>
         <div className="flex items-center gap-2">
           <input id="url"
             type="text"
             placeholder="url of the offer"
-            className="w-full p-1 block bg-gray-100 rounded"
+            className="w-full p-1 px-2 block bg-gray-100 rounded"
             onChange={(e) => updateUrl(e.target.value)}
             value={url}
           />
@@ -71,112 +71,82 @@ export function AddCandid() {
             look up offer
           </Button>
         </div>
-
-      </div>
-
-      <div className="mt-2 flex gap-2">
-        {/*TODO: add to state*/}
-        <div className="flex items-center gap-2 border px-2">
-          <input
-            id="isCandidTech"
-            type="checkbox"
-          />
-          <label htmlFor="isCandidTech" className="pr-1"> tech offer ? </label>
-        </div>
-
-        {/*TODO: add to state by default if url provided it has to be a response to an offer */}
-        <div className="flex items-center gap-2 border px-2">
-          <input
-            id="unsolicited"
-            type="checkbox"
-          />
-          <label htmlFor="unsolicited" > unsolicited ? </label>
-        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-x-6 gap-y-3">
         <div className="">
-          <label htmlFor="title" className="pl-1"> title </label>
           <input id="title"
             type="text"
-            placeholder="title of the offer"
-            className="w-full p-1 block bg-gray-100 rounded"
+            placeholder="Title"
+            className="w-full p-1 px-2 block bg-gray-100 rounded"
             value={title}
             onChange={(e) => updateTitle(e.target.value)}
           />
         </div>
 
         <div className="">
-          <label htmlFor="company" className="pl-1"> company </label>
           <input id="company"
             type="text"
-            placeholder="company name"
-            className="w-full p-1 block bg-gray-100 rounded"
+            placeholder="Company Name"
+            className="w-full p-1 px-2 block bg-gray-100 rounded"
             value={companyName}
             onChange={(e) => updateCompanyName(e.target.value)}
           />
         </div>
 
         <div className="">
-          <label htmlFor="city" className="pl-1"> city </label>
           <input id="city"
             type="text"
-            placeholder="city of the offer"
-            className="w-full p-1 block bg-gray-100 rounded"
+            placeholder="City, Location"
+            className="w-full p-1 px-2 block bg-gray-100 rounded"
             value={city}
             onChange={(e) => updateCity(e.target.value)}
           />
         </div>
 
         <div className="">
-          <label htmlFor="website" className="pl-1"> website </label>
           <input id="website"
             type="text"
-            placeholder="website of the offer"
-            className="w-full p-1 block bg-gray-100 rounded"
+            placeholder="Website"
+            className="w-full p-1 px-2 block bg-gray-100 rounded"
             value={website}
             onChange={(e) => updateWebsite(e.target.value)}
           />
         </div>
 
         {companyDesc && (<div>
-          <label htmlFor="companyDesc" className="pl-1"> company description </label>
           <input id="companyDesc"
             type="text"
             placeholder="brief summary on the company"
-            className="w-full p-1 block bg-gray-100 rounded"
+            className="w-full p-1 px-2 block bg-gray-100 rounded"
             value={companyDesc}
             onChange={(e) => updateCompanyDesc(e.target.value)}
           />
         </div>)}
 
-        {contracts?.length > 0 && (
-          <div className="flex flex-col">
-            <label htmlFor="contract" className="pl-1"> contract type </label>
-            <Select
-              id="contract"
-              defaultValue="default"
-              value={contract}
-              onValueChange={(v) => updateContract(v)}
-            >
-              <SelectTrigger
-                className="w-full">
-                <SelectValue placeholder="contract type" />
-              </SelectTrigger>
-              <SelectContent >
-                <SelectItem className="text-xs" value="default">non specified</SelectItem>
-                {contracts.map((contract, key) => <SelectItem key={key} className="text-xs" value={contract}>{contract}</SelectItem>)}
-              </SelectContent>
-            </Select>
-          </div>
-        )}
+        <div className="flex flex-col">
+          <Select
+            id="contract"
+            defaultValue="default"
+            value={contract}
+            onValueChange={(v) => updateContract(v)}
+          >
+            <SelectTrigger
+              className="w-full rounded max-h-7 px-2">
+              <SelectValue placeholder="Contract Type" />
+            </SelectTrigger>
+            <SelectContent >
+              <SelectItem className="text-xs" value="default">non specified</SelectItem>
+              {CONTRACT_TYPES.map((contract, key) => <SelectItem key={key} className="text-xs" value={contract}>{contract}</SelectItem>)}
+            </SelectContent>
+          </Select>
+        </div>
 
         <div>
-          <label htmlFor="addDate" className="pl-1"> add date </label>
           <input
             id="addDate"
             type="date"
-            className="w-full p-1 block bg-gray-100 rounded"
+            className="w-full p-1 px-2 block bg-gray-100 rounded"
             value={addDate}
             onChange={(e) => updateAddDate(e.target.value)}
           />
@@ -185,12 +155,11 @@ export function AddCandid() {
       </div>
 
       <div className="pt-2">
-        <label htmlFor="tech" className="pl-1 min-w-fit"> tech stack </label>
-        <div className="flex gap-2 items-baseline">
+        <div className="flex gap-2  items-baseline">
           <input id="tech"
             type="text"
-            placeholder="techs mentionned in this offer"
-            className="w-full p-1 block bg-gray-100 rounded w-fit"
+            placeholder="Tech stack"
+            className="w-full p-1 px-2 block bg-gray-100 rounded w-fit"
             value={tech}
             onChange={(e) => updateTech(e.target.value)}
           />
@@ -212,17 +181,46 @@ export function AddCandid() {
         )}
       </div>
 
+      <div className="mt-1 flex">
+        {/*TODO: add to state*/}
+        <div className="flex items-center gap-2 px-2">
+          <input
+            id="isCandidTech"
+            type="checkbox"
+          />
+          <label htmlFor="isCandidTech" className="text-muted-foreground"> tech offer ? </label>
+        </div>
+
+        {/*TODO: add to state by default if url provided it has to be a response to an offer */}
+        <div className="flex items-center gap-2 px-2">
+          <input
+            id="unsolicited"
+            type="checkbox"
+          />
+          <label htmlFor="unsolicited" className="text-muted-foreground" > unsolicited ? </label>
+        </div>
+      </div>
+
+
       <div className="flex justify-end gap-2">
         <div className="flex justify-end">
-          <Button onClick={() => postCandid()}
-            disabled={true}
-          >
+          <Button
+            onClick={() => reset()}
+            disabled={true}>
             clear
           </Button>
         </div>
 
         <div className=" flex justify-end">
-          <Button onClick={() => postCandid()}
+          <Button
+            onClick={async () => {
+              try {
+                const candid = await postCandid()
+                addCandid(candid);
+              } catch (e) {
+                console.log("error addind candid");
+              }
+            }}
             disabled={city == '' || companyName == '' || title == ''}
           >
             submit

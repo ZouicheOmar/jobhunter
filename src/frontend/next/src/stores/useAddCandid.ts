@@ -1,5 +1,7 @@
 import { create } from "zustand";
 import { useCandidsStore } from "./useCandidsStore";
+import { getHostname, getTodayDate } from "@/lib/utils";
+import { postCandid, scrapUrl } from "@/lib/api";
 
 export type AddCandidState = {
   show: boolean;
@@ -13,8 +15,9 @@ export type AddCandidState = {
   contract: string;
   website: string;
   companyDesc: string | null;
+  addDate: string;
 
-  stack: string[],
+  stack: string[]
 };
 
 export type AddCandidActions = {
@@ -27,6 +30,7 @@ export type AddCandidActions = {
   updateWebsite: () => void;
   updateStack: () => void;
   updateTech: () => void;
+  updateAddDate: () => void;
   lookupUrl: () => void;
   reset: () => void;
 };
@@ -91,74 +95,56 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   lookupUrl: async () => {
     set({ loading: true });
     try {
-      const req = await fetch("http://localhost:5000/scrap/",
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            url: get().url
-          })
-        }
-      );
-
-      set({ loading: false });
-
-      const json = await req.json();
-      console.log("LOG: data \n", json);
-
-
       const {
         title,
         company_name,
         location,
         contract_type
-      } = json;
+      } = await scrapUrl(get().url);
+      set({ loading: true });
+
+      const date = getTodayDate();
+      const hostname = getHostname(get().url)
 
       set({
         title: title,
         companyName: company_name,
         city: location,
         contract: contract_type,
+        addDate: date,
+        website: hostname,
       })
-
     } catch (e) {
       set({ error: true, loading: false });
       console.log("ERROR SCRAPPING", e)
     }
-
   },
 
 
-
   postCandid: async () => {
-    const date = new Date();
-    const candid = {
+
+    let date = get().addDate ? new Date(get().addDate) : new Date();
+    const payload = {
       url: get().url,
       title: get().title,
       cityDto: { name: get().city, },
       websiteDto: { name: get().website },
-      url: get().url,
-      company: get().company,
+      company: get().companyName,
       stack: get().stack.map((item) => ({ name: item })),
       unsolicited: true,
       answer: false,
       addDate: date.toISOString(),
     }
-    console.log(candid);
 
-    const url = "http://localhost:8080/candid";
-    const req = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(candid)
+    try {
+      const candid = await postCandid(payload);
+      set(store.getInitialState());
+      return candid;
 
-    })
+    } catch (e) {
+      throw new Error("useAddCandid: error posting candid");
+    }
 
-    if (!req.ok) return console.log("probleme posting candid");
-    const json = await req.json();
-
-    set(store.getInitialState());
-    useCandidsStore.getInitialState().addCandid(json);
   }
 
 

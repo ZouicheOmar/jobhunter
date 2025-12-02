@@ -1,6 +1,7 @@
 import { CityDto, TechDto, type Candid } from "@/types/CandidType";
 import { create } from "zustand";
 import { useActionsStore } from "./useActions";
+import { fetchAllCandids, postCandid } from "@/lib/api";
 
 export type CandidsStore = {
   list: Candid[]
@@ -25,7 +26,6 @@ export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => 
 
   cities: [],
   techs: [],
-  contracts: [],
 
   loading: true,
   error: false,
@@ -51,45 +51,19 @@ export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => 
   },
 
   getAll: async () => {
-    const [reqCandids, reqCities, reqTechs, reqContracts] = await Promise.all(
-      [
-        fetch("http://localhost:8080/candid"),
-        fetch('http://localhost:8080/city'),
-        fetch('http://localhost:8080/tech'),
-        fetch('http://localhost:8080/contract'),
-      ]
-    )
-    const [jsonCandids,
-      jsonCities,
-      jsonTechs,
-      jsonContracts] =
-      await Promise.all(
-        [reqCandids.json(),
-        reqCities.json(),
-        reqTechs.json(),
-        reqContracts.json()
-        ])
-
-    if (!reqCandids.ok) {
+    try {
+      const { candids, cities, techs } = await fetchAllCandids();
+      set({
+        list: candids,
+        filteredList: candids,
+        cities: cities,
+        techs: techs
+      });
+      useActionsStore.getState().updatePagination(candids.length);
+    } catch (e) {
       set({ error: true });
-      throw new Error("probleme fetching candids");
+      throw new Error("Problem fetching candids or cities or techs");
     }
-
-    if (!reqCities.ok || !reqTechs.ok) {
-      set({ error: true });
-      throw new Error("probleme fetching cities or techs");
-    }
-
-    jsonCandids.reverse()
-
-    set({ list: jsonCandids });
-    set({ filteredList: jsonCandids });
-    set({ cities: jsonCities });
-    set({ techs: jsonTechs });
-    set({ contracts: jsonContracts });
-
-    useActionsStore.getState().updatePagination(jsonCandids.length);
-
   },
 
   addCandid: (candid) => set((state) => ({
@@ -105,34 +79,19 @@ export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => 
     if (!req.ok) throw new Error('probleme deleting candid');
     // should add a taoster here
     console.log("deleted successfully");
-
-    // update the array here
-    // let prevCandids = 
-    // let index = 0;
-    // candids.value.forEach((candid, i) => {
-    //   if (candid.id == id) {
-    //     index = i;
-    //     return;
-    //   }
-    // })
-    // candids.value.splice(index, 1);
   },
 
+  // this function is not used..
   postCandid: async (payload: Candid) => {
-    const date = new Date();
-    const data = { ...payload, addData: date.toISOString() }
-
-    const posturl = "http://localhost:8080/candid";
-    const req = await fetch(posturl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-
-    })
-
-    if (!req.ok) return console.log("probleme posting candid");
-    const json = await req.json();
-    set({ list: [...list, json] })
+    try {
+      // TODO: loading
+      let date = payload.addDate ? new Date(payload.addDate) : new Date();
+      const data = { ...payload, addDate: date.toISOString() }
+      const candid = await postCandid(data)
+      set((state) => ({ list: [...state.list, candid] }))
+    } catch (e) {
+      throw new Error("TODO: handle error on post candid");
+    }
   },
 
   handleParseFile: async () => {

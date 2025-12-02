@@ -4,10 +4,10 @@ import { Controls } from "./Controls";
 import { CandidList } from "./CandidList";
 import { Title } from "./Title";
 import { AddCandid } from "./AddCandid";
-import { useAddCandidStore } from "@/stores/useAddCandid";
-import { useEffect } from "react";
 import { Paginator } from "./Paginator";
 import { TopInfo } from "./TopInfo";
+
+import { useAddCandidStore } from "@/stores/useAddCandid";
 
 
 
@@ -17,7 +17,8 @@ export const CandidWrapper = () => {
     <div className="w-full flex flex-col gap-4">
       <Title />
       <Controls />
-      {/* <TopInfo /> */}
+      {/* rename to stats
+      <TopInfo /> */}
       {showAddCandid && <AddCandid />}
       <CandidList />
       <Paginator />

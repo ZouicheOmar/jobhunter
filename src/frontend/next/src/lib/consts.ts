@@ -1,0 +1,10 @@
+export const CONTRACT_TYPES = [
+  "CDI TEMPS PLEIN",
+  "CDI TEMPS PARTIEL",
+  "INTERIMAIRE",
+  "CDD",
+  "ALTERNANT",
+  "BÉNÉVOLE",
+  "FREELANCE",
+  "AUTRE",
+],

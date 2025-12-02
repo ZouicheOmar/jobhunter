@@ -20,15 +20,6 @@ from pydantic import BaseModel, Field
 import json
 
 
-## todo: test on different type of ld
-# and other, it's just going to be some optionnal stuff..
-# see JobOffer(**data)
-# clean up
-## todo: create github repo and push
-## todo: add github repo link to resume
-## todo: update resume and ozdocs
-
-
 class JobhunterUrlService:
   def __init__(self):
     requests.get("http://localhost:11434")
