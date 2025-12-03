@@ -31,11 +31,11 @@ class JobhunterUrlService:
     return "linkedin url"
 
   def _get_page(self, url):
-    if "linkedin" in url:
-      return self._hdle_linkedin_url(url)
-
-    elif "indeed" in url:
-      url = self._hdle_indeed_url(url)
+    # if "linkedin" in url:
+    #   return self._hdle_linkedin_url(url)
+    #
+    # elif "indeed" in url:
+    #   url = self._hdle_indeed_url(url)
 
     with StealthySession(headless=True, solve_cloudflare=True, geoip=True) as s:
       page = s.fetch(url)

@@ -16,6 +16,9 @@ export type AddCandidState = {
   website: string;
   companyDesc: string | null;
   addDate: string;
+  unsolicited: boolean;
+  techOffer: boolean;
+  answer: boolean;
 
   stack: string[]
 };
@@ -49,6 +52,11 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   companyName: '',
   website: '',
 
+
+  techOffer: false,
+  unsolicited: false,
+  answer: false,
+
   companyDesc: null,
   contract: '',
 
@@ -81,11 +89,14 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   updateContract: (contract) => set(() => ({ contract: contract })),
   updateAddDate: (date) => set(() => ({ addDate: date })),
 
-
-  updateTitle: (title) => set(() => ({ title: title })),
+  updateTitle: (title) => set(({ title: title })),
   updateCity: (city) => set(() => ({ city: city })),
   updateCompanyName: (company) => set(() => ({ companyName: company })),
   updateWebsite: (website) => set(() => ({ website: website })),
+
+  updateUnsolicited: (value: boolean) => set({ unsolicited: value }),
+  updateAnswer: (value: boolean) => set({ answer: value }),
+  updateTechOffer: (value: boolean) => set({ techOffer: value }),
 
   reset: () => set(store.getInitialState()),
   toggle: () => set((state) => ({ show: !state.show })),
@@ -95,13 +106,14 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   lookupUrl: async () => {
     set({ loading: true });
     try {
+      set({ loading: true });
+
       const {
         title,
         company_name,
         location,
         contract_type
       } = await scrapUrl(get().url);
-      set({ loading: true });
 
       const date = getTodayDate();
       const hostname = getHostname(get().url)
@@ -114,6 +126,8 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
         addDate: date,
         website: hostname,
       })
+
+      set({ loading: false });
     } catch (e) {
       set({ error: true, loading: false });
       console.log("ERROR SCRAPPING", e)
@@ -131,7 +145,7 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
       websiteDto: { name: get().website },
       company: get().companyName,
       stack: get().stack.map((item) => ({ name: item })),
-      unsolicited: true,
+      unsolicited: get().unsolicited,
       answer: false,
       addDate: date.toISOString(),
     }

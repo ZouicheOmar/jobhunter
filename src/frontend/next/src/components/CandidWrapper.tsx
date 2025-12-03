@@ -12,6 +12,7 @@ import { useAddCandidStore } from "@/stores/useAddCandid";
 
 
 export const CandidWrapper = () => {
+  // this goes to useUI
   const showAddCandid = useAddCandidStore((state) => state.show);
   return <>
     <div className="w-full flex flex-col gap-4">

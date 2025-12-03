@@ -33,6 +33,15 @@ export function AddCandid() {
   const companyDesc = useAddCandidStore(useShallow((state) => state.companyDesc));
   const addDate = useAddCandidStore(useShallow((state) => state.addDate));
 
+  const unsolicited = useAddCandidStore(useShallow((state) => state.unsolicited));
+  const updateUnsolicited = useAddCandidStore(useShallow((state) => state.updateUnsolicited));
+
+  const techOffer = useAddCandidStore(useShallow((state) => state.techOffer));
+  const updateTechOffer = useAddCandidStore(useShallow((state) => state.updateTechOffer));
+
+  const answer = useAddCandidStore(useShallow((state) => state.answer));
+  const updateAnswer = useAddCandidStore(useShallow((state) => state.updateAnswer));
+
   const contract = useAddCandidStore(useShallow((state) => state.contract));
   const updateContract = useAddCandidStore(useShallow((state) => state.updateContract));
 
@@ -182,20 +191,21 @@ export function AddCandid() {
       </div>
 
       <div className="mt-1 flex">
-        {/*TODO: add to state*/}
         <div className="flex items-center gap-2 px-2">
           <input
             id="isCandidTech"
             type="checkbox"
+            value={techOffer}
+            onChange={(e) => updateTechOffer(e.target.checked)}
           />
           <label htmlFor="isCandidTech" className="text-muted-foreground"> tech offer ? </label>
         </div>
 
-        {/*TODO: add to state by default if url provided it has to be a response to an offer */}
         <div className="flex items-center gap-2 px-2">
           <input
             id="unsolicited"
             type="checkbox"
+            onChange={(e) => updateUnsolicited(e.target.checked)}
           />
           <label htmlFor="unsolicited" className="text-muted-foreground" > unsolicited ? </label>
         </div>

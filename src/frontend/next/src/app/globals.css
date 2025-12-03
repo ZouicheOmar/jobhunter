@@ -2,6 +2,10 @@
 @import "tw-animate-css";
 /* @custom-variant dark (&:is(.dark *)); */
 
+@utility text-sideways-lr {
+  writing-mode: sideways-lr;
+}
+
 body {
   font-family: Acumin VF, sans-serif;
 }

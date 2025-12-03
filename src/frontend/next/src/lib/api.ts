@@ -31,6 +31,7 @@ export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
       }
     );
     const json = await req.json();
+    console.log("DATA FROM LOOKUP", json);
     return json;
   } catch (e) {
     throw e;
