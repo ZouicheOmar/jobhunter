@@ -44,7 +44,7 @@ export const CandidList = () => {
             Math.min((currentPage + 1) * perPage, filteredList.length))
           .map((candid, key) => compact ? (
             <CandidCompactCard
-              key={candid?.id}
+              key={candid?.id || key}
               candid={candid}
             />) :
             (<CandidCard
@@ -52,29 +52,35 @@ export const CandidList = () => {
               candid={candid}
             />)
           ))
-          : (<Card className="">
+          : (<Card>
             <CardHeader >
               <CardTitle >
                 no results ..
               </CardTitle>
-              <CardDescription>
-                Didn't find any results for
-                <span className="font-semibold italic">
-                  {cityFilter && ` ${cityFilter}`}
-                </span>
-                <span className="font-semibold italic">
-                  {techFilter && ` and ${techFilter}`}
-                </span>
-              </CardDescription>
-              <CardAction>
-                <Button
-                  onClick={() => reset()}
-                  variant="outline"
-                  size="sm"
-                >
-                  reset filters
-                </Button>
-              </CardAction>
+              {
+                cityFilter != "default" && techFilter !== "default" && (
+                  <>
+                    <CardDescription>
+                      Didn't find any results for
+                      <span className="font-semibold italic">
+                        {cityFilter && ` ${cityFilter}`}
+                      </span>
+                      <span className="font-semibold italic">
+                        {techFilter && ` and ${techFilter}`}
+                      </span>
+                    </CardDescription>
+                    <CardAction>
+                      <Button
+                        onClick={() => reset()}
+                        variant="outline"
+                        size="sm"
+                      >
+                        reset filters
+                      </Button>
+                    </CardAction>
+                  </>
+                )
+              }
             </CardHeader>
           </Card>)
       }

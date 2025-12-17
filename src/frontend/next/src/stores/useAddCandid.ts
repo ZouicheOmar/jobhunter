@@ -98,7 +98,7 @@ export const useAddCandidStore = create<AddCandidStore>((set, get, store) => ({
   updateAnswer: (value: boolean) => set({ answer: value }),
   updateTechOffer: (value: boolean) => set({ techOffer: value }),
 
-  reset: () => set(store.getInitialState()),
+  reset: () => set({ ...store.getInitialState(), show: true }),
   toggle: () => set((state) => ({ show: !state.show })),
 
   logall: () => console.log(get().show),

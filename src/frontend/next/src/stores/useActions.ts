@@ -9,7 +9,7 @@ export const useActionsStore = create((set, get, store) => ({
   totalPages: 0,
   totalItems: 0,
 
-  perPage: 7, // and this should be computed per card layout, 
+  perPage: 10, // and this should be computed per card layout, 
   // should have more candid when viewing with a compact card
 
   incrCurrentPage: () => {

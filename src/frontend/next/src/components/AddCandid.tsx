@@ -173,7 +173,10 @@ export function AddCandid() {
             onChange={(e) => updateTech(e.target.value)}
           />
           <Button
-            onClick={() => updateStack()}
+            onClick={(e) => {
+              updateStack();
+              e.target.previousSibling.focus();
+            }}
             disabled={tech == ''}
           >
             add
@@ -216,7 +219,7 @@ export function AddCandid() {
         <div className="flex justify-end">
           <Button
             onClick={() => reset()}
-            disabled={true}>
+          >
             clear
           </Button>
         </div>

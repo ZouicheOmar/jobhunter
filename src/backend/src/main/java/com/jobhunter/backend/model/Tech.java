@@ -25,6 +25,28 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+enum TechName {
+  JAVASCRIPT,
+  TYPESCRIPT,
+  REACT,
+  DJANGO,
+  SPRINGBOOT,
+  DOCKER,
+  GIT,
+  GITHUB,
+  GITLAB,
+  KUBERNETES,
+  ANSIBLE,
+  GO,
+  RUBY,
+  RUBY_ON_RAILS,
+  CPP,
+  C,
+  PHP,
+  LARAVEL,
+  SYMPHONY,
+}
+
 @Entity
 @Table(uniqueConstraints = {
     @UniqueConstraint(name = "unique_tech_name", columnNames = "name")

@@ -1,5 +1,6 @@
 import { Candid } from "@/types/CandidType";
-import { Building, MapPin, MoveUpRight } from "lucide-react";
+import { Link1Icon } from "@radix-ui/react-icons";
+import { Building, Link, MapPin, MoveUpRight } from "lucide-react";
 
 
 export const CandidCompactCard = (
@@ -22,17 +23,23 @@ export const CandidCompactCard = (
       <div className=" flex flex-col  w-1/2">
         {unsolicited && (
           <span
-            className="absolute text-sideways-lr bg-black/50 start-0 top-0 bottom-0
-          rounded-tl rounded-bl text-gray-100 text-center outline
-          outline-black/50"
+            className="absolute text-sideways-lr bg-[#6aa7a8] start-0 top-0 bottom-0
+          rounded-tl rounded-bl text-white text-center outline
+          outline-[#6aa7a8]"
           >  unsol. </span>
         )}
-        <span className="font-medium">
-          <a href={url} target="_blank">
+        {url ? (
+          <span className="font-medium">
+            <a href={url} target="_blank">
+              {title}
+              <Link size="0.9em" className="inline mb-[2px] ml-[6px]" />
+            </a>
+          </span>
+        ) : (
+          <span className="font-medium">
             {title}
-            <MoveUpRight size="1.1em" className="inline  mb-[4px] ml-[4px]" />
-          </a>
-        </span>
+          </span>
+        )}
 
         <div className="flex flex-col w-full text-gray-600 text-xs">
           <div className="flex w-full  gap-6 text-gray-600 text-xs">
@@ -42,9 +49,9 @@ export const CandidCompactCard = (
               {addDate}
             </span>
           </div>
-          <div className="flex w-full  italic gap-6 text-gray-600 text-xs">
+          <div className="max-w-full flex gap-2 wrap overflow-clip italic ">
             {
-              stack.length > 0 && stack.map(({ name }, k) => <span key={k} className="text-gray-400 "> {name} </span>)
+              stack.length > 0 && stack.map(({ name }, k) => <span key={k} className="text-gray-400 min-w-fit"> {name} </span>)
             }
           </div>
         </div>

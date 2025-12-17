@@ -59,7 +59,6 @@ export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => 
         cities: cities,
         techs: techs
       });
-      console.log(candids[0]);
       useActionsStore.getState().updatePagination(candids.length);
     } catch (e) {
       set({ error: true });
