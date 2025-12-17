@@ -15,6 +15,7 @@ import jakarta.persistence.PersistenceContext;
 @Service
 public class CandidMapper {
 
+  private final Mapper mapper;
   private final CityMapper cityMapper;
   private final WebsiteMapper websiteMapper;
   private final TechMapper techMapper;
@@ -52,23 +53,24 @@ public class CandidMapper {
     candid.setCity(city);
 
     candid.setWebsite(websiteMapper.toEntity(dto.websiteDto()));
+    // setCompany(new Company(dto.company()))
     candid.setCompany(dto.company());
     candid.setAddDate(dto.addDate());
 
     return candid;
   }
 
+  // should probably define multiple dtos according to use
+  // for example: CreateCandidDto
+  // getBriefCandidDto;
+  // getFullCandidDto;
+  // updateCandidDto;
   public CandidDto toDto(Candid candid) {
-    return new CandidDto(
-        candid.getId(),
-        candid.getTitle(),
-        cityMapper.toDto(candid.getCity()),
+    var comp = candid.getCompany() != null ? candid.getCompany().getName() : null;
+    return new CandidDto(candid.getId(), candid.getTitle(), candid.getUrl(), comp,
+        candid.getUnsolicited(), candid.getAnswer(), candid.getAddDate(),
         websiteMapper.toDto(candid.getWebsite()),
-        candid.getUrl(),
-        candid.getCompany(),
         techMapper.toAllDto(candid.getStack()),
-        candid.getUnsolicited(),
-        candid.getAnswer(),
-        candid.getAddDate());
+        cityMapper.toDto(candid.getCity()));
   }
 }

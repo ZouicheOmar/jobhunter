@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.jobhunter.backend.model.Candid;
 
 public interface CandidRepository extends JpaRepository<Candid, Integer> {
-  public List<Candid> findAllByCityName(String cityName);
+  public List<Candid> findAllByCityName(String cityName); // ça va automatiquement chercher candid.city.name
 
   public List<Candid> findAllByWebsiteName(String websiteName);
 
