@@ -2,6 +2,7 @@ package com.jobhunter.backend.model;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.annotations.Cascade;
@@ -20,8 +21,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -48,8 +51,29 @@ public class Candid {
   @JsonBackReference(value = "candid-city")
   private City city;
 
-  @Enumerated(EnumType.STRING)
-  private ContractType contractType;
+  // @Enumerated(EnumType.STRING)
+  // private ContractType contractType;
+
+  @OneToOne
+  @JoinColumn(name = "contract_id")
+  private Contract contract;
+
+  // @JoinTable(name = "candid_interview", joinColumns = @JoinColumn(name =
+  // "candid_id"), inverseJoinColumns = @JoinColumn(name = "interview_id"))
+  // private List<Interview> interview = new List<Interview>();
+
+  @OneToMany(mappedBy = "candid")
+  @Column(nullable = true)
+  @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
+  @JsonBackReference(value = "candid-interviews")
+  private Set<Interview> interviews;
+
+  @ManyToOne
+  @JoinColumn(name = "company_id")
+  private Company company;
+
+  @Column(nullable = true)
+  private String url;
 
   @ManyToOne
   @JoinColumn(name = "website_id")
@@ -59,25 +83,24 @@ public class Candid {
   @ManyToMany
   @Column(nullable = true)
   @JoinTable(name = "candid_stack", joinColumns = @JoinColumn(name = "candid_id"), inverseJoinColumns = @JoinColumn(name = "tech_id"))
-  @Cascade({ CascadeType.SAVE_UPDATE, CascadeType.MERGE, CascadeType.PERSIST })
+  @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
   @JsonBackReference(value = "candid-stack")
   private Set<Tech> stack = new HashSet<>();
 
-  @Column(nullable = true)
-  private String url;
-
-  @Column(nullable = true)
-  private String company;
-
-  @Column(updatable = false)
-  private Boolean unsolicited;
   @CreatedDate
   @Column(columnDefinition = "DATE")
   private LocalDate addDate;
 
   @Column(nullable = true)
-  private Boolean answer;
+  private Boolean answer = false;
 
+  @Column(updatable = false)
+  private Boolean unsolicited;
+
+  @Column(updatable = false)
+  private Boolean techOffer;
+
+  // FIX: Doesn't have anything to do in here
   public void addTech(Tech tech) {
     stack.add(tech);
   }

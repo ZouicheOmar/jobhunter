@@ -1,5 +1,6 @@
 package com.jobhunter.backend.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -16,23 +17,27 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(uniqueConstraints = {
-    @UniqueConstraint(name = "unique_website_name", columnNames = "name")
-})
+enum ContractType {
+  CDI, // no duration
+  ALTERNANCE,
+  CDD,
+  STAGE,
+  NONSPECIFIE
+}
+
+@Entity(name = "Contract")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Website {
+public class Contract {
+
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  public Integer id;
+  private Integer id;
 
-  public String name;
-
-  // does this reference the candid ids , ??
-  @OneToMany(mappedBy = "website")
-  @JsonManagedReference(value = "candid-website")
-  private List<Candid> candids;
+  private String occupation;
+  private ContractType contractType;
+  private String duration;
+  private LocalDateTime startDate;
 }

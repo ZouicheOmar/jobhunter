@@ -16,23 +16,28 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(uniqueConstraints = {
-    @UniqueConstraint(name = "unique_website_name", columnNames = "name")
-})
+// TODO: get french company types
+enum CompanySize {
+  TPE,
+  PME,
+  GE
+}
+
+@Entity(name = "Company")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Website {
+public class Company {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  public Integer id;
+  private Integer id;
 
-  public String name;
+  private String name;
+  private CompanySize size;
+  private List<String> domains;
 
-  // does this reference the candid ids , ??
-  @OneToMany(mappedBy = "website")
-  @JsonManagedReference(value = "candid-website")
+  @OneToMany(mappedBy = "company")
+  @JsonManagedReference(value = "candid-company")
   private List<Candid> candids;
 }
