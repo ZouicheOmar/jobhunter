@@ -8,9 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -39,11 +38,16 @@ public class Person {
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Integer id;
 
-  private String first;
-  private String last;
+  private String firstName;
+  private String lastName;
 
   private PersonPosition position;
   private PersonOccupation occupation;
+
+  // TODO
+  @ManyToOne
+  // @JoinColumn(mappedBy="Person", )
+  private Company company;
 
   private String mail; // optional
   private String phone;

@@ -40,9 +40,11 @@ public class Interview {
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Integer id;
 
-  private Integer order; // adding manual ?
-  private InterviewType type;
+  private Integer interviewNumber; // adding manual ?
+
+  private InterviewType interviewType;
   private Boolean remote;
+  // TODO refine relationships directions
 
   // this is the owning side;
   // no need to refernce this on the person table

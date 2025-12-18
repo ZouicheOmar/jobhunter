@@ -15,7 +15,6 @@ import jakarta.persistence.PersistenceContext;
 @Service
 public class CandidMapper {
 
-  private final Mapper mapper;
   private final CityMapper cityMapper;
   private final WebsiteMapper websiteMapper;
   private final TechMapper techMapper;
@@ -54,7 +53,7 @@ public class CandidMapper {
 
     candid.setWebsite(websiteMapper.toEntity(dto.websiteDto()));
     // setCompany(new Company(dto.company()))
-    candid.setCompany(dto.company());
+    // candid.setCompany(dto.company());
     candid.setAddDate(dto.addDate());
 
     return candid;

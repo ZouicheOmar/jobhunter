@@ -68,8 +68,10 @@ public class Candid {
   @JsonBackReference(value = "candid-interviews")
   private Set<Interview> interviews;
 
+  // So on the object side (java), it's a ref to an object
+  // but on db side it's just an id ??
   @ManyToOne
-  @JoinColumn(name = "company_id")
+  @JoinColumn(name = "company_id", nullable = true)
   private Company company;
 
   @Column(nullable = true)
@@ -94,12 +96,16 @@ public class Candid {
   @Column(nullable = true)
   private Boolean answer = false;
 
+  @Column(nullable = true)
+  private Boolean rejected = false;
+
   @Column(updatable = false)
   private Boolean unsolicited;
 
   @Column(updatable = false)
   private Boolean techOffer;
 
+  // TODO remove this
   // FIX: Doesn't have anything to do in here
   public void addTech(Tech tech) {
     stack.add(tech);

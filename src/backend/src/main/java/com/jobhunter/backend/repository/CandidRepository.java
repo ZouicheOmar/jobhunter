@@ -12,5 +12,4 @@ public interface CandidRepository extends JpaRepository<Candid, Integer> {
   public List<Candid> findAllByWebsiteName(String websiteName);
 
   public List<Candid> findAllByCityNameAndWebsiteName(String cityName, String websiteName);
-
 }

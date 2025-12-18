@@ -78,6 +78,8 @@ public class CandidService {
     // return candidMapper.toDto(candid);
   }
 
+  // Because I get a candid create dto and return a cadidDto
+  // public CandidDto save(CandidCreateDto dto) {
   public Candid save(Candid candid) {
     return candidRepository.save(candid);
   }

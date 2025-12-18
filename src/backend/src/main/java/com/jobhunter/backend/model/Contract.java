@@ -1,5 +1,7 @@
 package com.jobhunter.backend.model;
 
+import com.jobhunter.backend.enums.ContractType;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,14 +18,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-enum ContractType {
-  CDI, // no duration
-  ALTERNANCE,
-  CDD,
-  STAGE,
-  NONSPECIFIE
-}
 
 @Entity(name = "Contract")
 @Data

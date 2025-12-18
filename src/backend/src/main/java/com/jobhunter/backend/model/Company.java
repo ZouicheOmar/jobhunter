@@ -37,6 +37,9 @@ public class Company {
   private CompanySize size;
   private List<String> domains;
 
+  // ça par example je devrais pas l'avoir
+  // sauf si je veux accéder plus facilement aux candids
+  // faites chez une certaine entreprise
   @OneToMany(mappedBy = "company")
   @JsonManagedReference(value = "candid-company")
   private List<Candid> candids;
