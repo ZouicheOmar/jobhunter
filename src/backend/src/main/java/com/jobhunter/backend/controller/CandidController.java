@@ -35,8 +35,12 @@ public class CandidController {
   private final CityService cityService;
   private final TechService techService;
 
-  public CandidController(LogFileHandlerService logFileHandlerService, CandidService candidService,
-      WebsiteService websiteService, CityService cityService, TechService techService) {
+  public CandidController(
+      LogFileHandlerService logFileHandlerService,
+      CandidService candidService,
+      WebsiteService websiteService,
+      CityService cityService,
+      TechService techService) {
     this.logFileHandlerService = logFileHandlerService;
     this.candidService = candidService;
     this.websiteService = websiteService;
@@ -75,11 +79,19 @@ public class CandidController {
   public CandidDto createNewCandid(
       @RequestBody CandidDto dto) {
 
+    // it's on the service to create and handle domain logic
+    //
+    //
+    // Candid candid = candidMapper.toEntity(dto);
+    // candidDTO resultDto = candidService.save(candid); (optional)
+    // return designerDTO
+
     Candid candid = new Candid();
 
     candid.setTitle(dto.title());
     candid.setUrl(dto.url());
-    candid.setCompany(dto.company());
+    // FIX:
+    // candid.setCompany(dto.company());
 
     candid.setUnsolicited(dto.unsolicited());
     candid.setAnswer(dto.answer());
@@ -90,13 +102,14 @@ public class CandidController {
     Website website = websiteService.findOrCreateByName(dto.websiteDto().name());
     candid.setWebsite(website);
 
-    dto.stack().forEach(techItem -> {
-      Tech tech = techService.findOrCreateByName(techItem.name());
-      candid.addTech(tech);
-    });
+    // FIX:
+    // dto.stack().forEach(techItem -> {
+    // Tech tech = techService.findOrCreateByName(techItem.name());
+    // candid.addTech(tech);
+    // });
 
     LocalDate date = LocalDate.now();
-    candid.setAddDate(date);
+    candid.setDateApply(date);
 
     candidService.save(candid);
 

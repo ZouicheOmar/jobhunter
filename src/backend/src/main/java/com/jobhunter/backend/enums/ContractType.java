@@ -1,9 +1,12 @@
 package com.jobhunter.backend.enums;
 
 public enum ContractType {
-  CDI,
-  ALTERNANCE,
-  CDD,
-  STAGE,
-  NONSPECIFIE
+  FULL_TIME,
+  PART_TIME,
+  CONTRACTOR,
+  TEMPORARY,
+  INTERN,
+  VOLUNTEER,
+  PER_DIEM,
+  OTHER
 }

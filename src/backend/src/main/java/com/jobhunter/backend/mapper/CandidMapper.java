@@ -54,7 +54,7 @@ public class CandidMapper {
     candid.setWebsite(websiteMapper.toEntity(dto.websiteDto()));
     // setCompany(new Company(dto.company()))
     // candid.setCompany(dto.company());
-    candid.setAddDate(dto.addDate());
+    candid.setDateApply(dto.dateApply());
 
     return candid;
   }
@@ -67,7 +67,7 @@ public class CandidMapper {
   public CandidDto toDto(Candid candid) {
     var comp = candid.getCompany() != null ? candid.getCompany().getName() : null;
     return new CandidDto(candid.getId(), candid.getTitle(), candid.getUrl(), comp,
-        candid.getUnsolicited(), candid.getAnswer(), candid.getAddDate(),
+        candid.getUnsolicited(), candid.getAnswer(), candid.getDateApply(),
         websiteMapper.toDto(candid.getWebsite()),
         techMapper.toAllDto(candid.getStack()),
         cityMapper.toDto(candid.getCity()));

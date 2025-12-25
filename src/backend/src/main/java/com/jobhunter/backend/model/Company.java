@@ -5,6 +5,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,14 +18,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// TODO: get french company types
 enum CompanySize {
-  TPE,
-  PME,
-  GE
+  GE,
+  ETI,
+  PME
 }
 
-@Entity(name = "Company")
+@Entity
+@Table(uniqueConstraints = {
+    @UniqueConstraint(name = "unique_company_name", columnNames = "name")
+})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,12 +38,12 @@ public class Company {
   private Integer id;
 
   private String name;
+
+  @Enumerated(EnumType.STRING)
   private CompanySize size;
+
   private List<String> domains;
 
-  // ça par example je devrais pas l'avoir
-  // sauf si je veux accéder plus facilement aux candids
-  // faites chez une certaine entreprise
   @OneToMany(mappedBy = "company")
   @JsonManagedReference(value = "candid-company")
   private List<Candid> candids;

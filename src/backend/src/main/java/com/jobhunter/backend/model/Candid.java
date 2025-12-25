@@ -1,17 +1,23 @@
 package com.jobhunter.backend.model;
 
+// TODO les annotation concernant la définition de tables provient de 
+// jpa (jakarta.persistence) ou de hibernate ? ou même de spring data ?
+
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+// import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+
 import org.springframework.data.annotation.CreatedDate;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.jobhunter.backend.enums.ContractType;
 
+// import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -47,20 +53,15 @@ public class Candid {
   private String title;
 
   @ManyToOne
-  @JoinColumn(name = "city_id", nullable = false)
+  @JoinColumn(name = "city_id")
+  @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
   @JsonBackReference(value = "candid-city")
   private City city;
 
-  // @Enumerated(EnumType.STRING)
-  // private ContractType contractType;
-
   @OneToOne
-  @JoinColumn(name = "contract_id")
+  @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
+  @JoinColumn(name = "contract_id", referencedColumnName = "id")
   private Contract contract;
-
-  // @JoinTable(name = "candid_interview", joinColumns = @JoinColumn(name =
-  // "candid_id"), inverseJoinColumns = @JoinColumn(name = "interview_id"))
-  // private List<Interview> interview = new List<Interview>();
 
   @OneToMany(mappedBy = "candid")
   @Column(nullable = true)
@@ -68,8 +69,6 @@ public class Candid {
   @JsonBackReference(value = "candid-interviews")
   private Set<Interview> interviews;
 
-  // So on the object side (java), it's a ref to an object
-  // but on db side it's just an id ??
   @ManyToOne
   @JoinColumn(name = "company_id", nullable = true)
   private Company company;
@@ -87,27 +86,26 @@ public class Candid {
   @JoinTable(name = "candid_stack", joinColumns = @JoinColumn(name = "candid_id"), inverseJoinColumns = @JoinColumn(name = "tech_id"))
   @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
   @JsonBackReference(value = "candid-stack")
+  @Builder.Default
   private Set<Tech> stack = new HashSet<>();
 
   @CreatedDate
   @Column(columnDefinition = "DATE")
-  private LocalDate addDate;
+  private LocalDate dateApply;
 
-  @Column(nullable = true)
+  @Column
+  @Builder.Default
   private Boolean answer = false;
 
   @Column(nullable = true)
+  @Builder.Default
   private Boolean rejected = false;
 
   @Column(updatable = false)
-  private Boolean unsolicited;
+  @Builder.Default
+  private Boolean unsolicited = false;
 
   @Column(updatable = false)
-  private Boolean techOffer;
-
-  // TODO remove this
-  // FIX: Doesn't have anything to do in here
-  public void addTech(Tech tech) {
-    stack.add(tech);
-  }
+  @Builder.Default
+  private Boolean techOffer = true;
 }

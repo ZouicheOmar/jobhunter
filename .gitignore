@@ -1,4 +1,6 @@
 dev
+dump*
+data/
 *todo.md
 */*/todo.md
 */*/notes.*

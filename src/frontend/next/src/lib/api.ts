@@ -52,6 +52,7 @@ export async function fetchAllCandids() {
     const [jsonCandids, jsonCities, jsonTechs] =
       await Promise.all([candids.json(), cities.json(), techs.json()]);
 
+    console.log(jsonCandids);
     return {
       candids: jsonCandids.reverse(),
       cities: jsonCities,

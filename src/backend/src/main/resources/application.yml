@@ -9,11 +9,11 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format-sql: true;
-    show-sql: false
+    show-sql: true
     database: postgresql
   flyway:
     enabled: true

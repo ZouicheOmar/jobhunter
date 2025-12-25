@@ -158,10 +158,10 @@ public class LogFileHandlerService {
     candid.setTitle(title);
     candid.setCity(city);
     candid.setWebsite(website);
-    candid.setCompany(company);
-    candid.setContractType(resolveContractType(contract));
+    // candid.setCompany(company);
+    // candid.setContractType(resolveContractType(contract));
     candid.setAnswer(resolveAnswer(answer));
-    candid.setAddDate(resolveDate(dateString));
+    candid.setDateApply(resolveDate(dateString));
     candid.setUnsolicited(resolveUnsolicited(unsolicited));
     candid.setUrl("");
 
