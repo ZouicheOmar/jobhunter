@@ -3,12 +3,13 @@ package com.jobhunter.backend.mapper;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.TechDto;
 import com.jobhunter.backend.model.Tech;
 
-@Service
+@Component
 public class TechMapper {
 
   public Tech toEntity(TechDto dto) {

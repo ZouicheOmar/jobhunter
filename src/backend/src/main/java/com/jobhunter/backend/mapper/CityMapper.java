@@ -3,12 +3,13 @@ package com.jobhunter.backend.mapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.CityDto;
 import com.jobhunter.backend.model.City;
 
-@Service
+@Component
 public class CityMapper {
 
   public City toEntity(CityDto dto) {

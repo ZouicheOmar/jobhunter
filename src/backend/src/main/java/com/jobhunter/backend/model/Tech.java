@@ -67,7 +67,7 @@ public class Tech {
   @ManyToMany(mappedBy = "stack")
   @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
   @JsonManagedReference(value = "candid-stack")
-  private Set<Candid> candids = new HashSet<>();
+  private Set<Candid> candids;
 
   public void addCandid(Candid candid) {
     candids.add(candid);

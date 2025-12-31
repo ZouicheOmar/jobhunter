@@ -18,7 +18,7 @@ import jakarta.persistence.PersistenceContext;
 
 // NOTE Doesn't work when annotated as @Component
 // makes candid methods unavailable
-@Service
+@Component
 public class CandidMapper {
 
   private final CityMapper cityMapper;

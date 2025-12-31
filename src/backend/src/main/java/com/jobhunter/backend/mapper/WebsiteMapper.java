@@ -1,11 +1,12 @@
 package com.jobhunter.backend.mapper;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.WebsiteDto;
 import com.jobhunter.backend.model.Website;
 
-@Service
+@Component
 public class WebsiteMapper {
 
   public Website toEntity(WebsiteDto dto) {
