@@ -4,5 +4,4 @@ type Candid = {
   addDate: string;
   company: string;
   city: string;
-
 }

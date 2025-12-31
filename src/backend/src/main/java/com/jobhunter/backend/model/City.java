@@ -31,6 +31,14 @@ public class City {
 
   private String name;
 
+  private String label;
+
+  private Integer zipcode;
+
+  private String dep_id;
+
+  private Integer reg_id;
+
   @OneToMany(mappedBy = "city")
   @JsonManagedReference(value = "candid-city")
   private List<Candid> candids;

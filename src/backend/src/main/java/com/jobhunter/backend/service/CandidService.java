@@ -31,12 +31,16 @@ public class CandidService {
     this.websiteService = websiteService;
   }
 
-  public List<CandidDto> findAll() {
-    return candidRepository.findAll()
-        .stream()
-        .map(candid -> candidMapper.toDto(candid))
-        .collect(Collectors.toList());
+  public List<Candid> findAll() {
+    return candidRepository.findAll();
   }
+
+  // public List<CandidDto> findAll() {
+  // return candidRepository.findAll()
+  // .stream()
+  // .map(candid -> candidMapper.toDto(candid))
+  // .collect(Collectors.toList());
+  // }
 
   public CandidDto findById(Integer id) {
     Candid c = candidRepository.findById(id).get();

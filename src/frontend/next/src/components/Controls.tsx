@@ -49,7 +49,7 @@ export const Controls = () => {
 
   return <>
     <div
-      className="sticky z-50 top-4 bg-white p-2 pt-2.5 text-xs border rounded rounded-bl-md shadow-sm flex justify-start gap-6" >
+      className="sticky z-50 top-4 bg-white p-4 py-2.5 text-xs border rounded rounded-bl-md shadow-sm flex justify-start gap-6" >
       <div
         className="flex  gap-2 justify-start items-center" >
         {/* <span className="text-muted-foreground"> Controls </span> */}

@@ -6,8 +6,18 @@
   writing-mode: sideways-lr;
 }
 
+@font-face {
+	font-family : "venus", sans-serif;
+	src : url('/venus_plomb.otf') format('opentype');
+}
+
+@font-face {
+	font-family : gothica, sans-serif;
+	src : url('/gothica1_regular.ttf') format('truetype');
+}
+
 body {
-  font-family: Acumin VF, sans-serif;
+  font-family: gothica, sans-serif;
 }
 
 :root {

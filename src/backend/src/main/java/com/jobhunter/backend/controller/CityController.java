@@ -2,6 +2,7 @@ package com.jobhunter.backend.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,11 +19,8 @@ import com.jobhunter.backend.service.CityService;
 @CrossOrigin
 public class CityController {
 
-  private final CityService cityService;
-
-  public CityController(CityService cityService) {
-    this.cityService = cityService;
-  }
+  @Autowired
+  private CityService cityService;
 
   @GetMapping
   public List<CityDto> findAll() {

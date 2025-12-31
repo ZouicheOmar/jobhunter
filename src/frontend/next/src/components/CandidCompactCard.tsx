@@ -67,7 +67,7 @@ export const CandidCompactCard = (
         <div className="h-fit">
           <span className="capitalize ">
             <MapPin size="1em" className="inline mb-[4px] mr-[4px]" />
-            {city.name}
+            {city}
           </span>
         </div>
       </div>

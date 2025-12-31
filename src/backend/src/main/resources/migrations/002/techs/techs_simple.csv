@@ -1,0 +1,4819 @@
+idName,title,nOfJobs
+java,Java,85206
+javascript,JavaScript,63993
+c,C,59919
+python,Python,46976
+sql,SQL,219617
+cpp,C++,61098
+html,HTML,69531
+linux,Linux,32007
+xml,XML,42277
+php,PHP,30349
+perl,Perl,13482
+matlab,MATLAB,32228
+ruby,Ruby,11438
+csharp,C#,19747
+android,Android,9263
+mysql,MySQL,47466
+fortran,Fortran,1931
+css,CSS,45617
+r,R,14173
+json,JSON,9228
+ios,iOS,5010
+go,Go,6403
+scala,Scala,4525
+swift,Swift,3754
+ada,Ada,2184
+cobol,COBOL,2616
+rust,Rust,141
+postgresql,PostgreSQL,13084
+kotlin,Kotlin,5276
+arduino,Arduino Programming Language,598
+powershell,PowerShell,19576
+pascal,Pascal,102
+haskell,Haskell,495
+typescript,TypeScript,1542
+sas,SAS,4682
+arm,ARM,7695
+lisp,Lisp,303
+lua,Lua,1106
+julia,Julia,85
+prolog,Prolog,446
+nodejs,Node.js,6864
+http,HTTP,771996
+objective-c,Objective-C,4276
+clojure,Clojure,469
+scheme,Scheme,1174
+assembly-language,Assembly language,1329
+erlang,Erlang,308
+bash,Bash,4774
+jquery,JQuery,24780
+mathematica,Mathematica,1553
+isbn,ISBN,53
+elixir,Elixir,214
+cuda,CUDA,769
+dart,Dart,208
+emacs-editor,Emacs,0
+modula-2,Modula-2,0
+mongodb,MongoDB,3787
+visual-basic,Visual Basic,3294
+tcl,Tcl,0
+actionscript,ActionScript,88
+vba,VBA,511
+vim-editor,Vim,0
+rails,Ruby on Rails,6343
+wordpress,WordPress,14952
+basic,BASIC,0
+verilog,Verilog,246
+awk,awk,7
+delphi,Delphi,181
+solidity,Solidity,937
+ascii,ASCII,0
+aws,AWS,2512
+f-sharp,F#,0
+regex,Regular Expressions,0
+ocaml,OCaml,0
+asp,ASP,9630
+eiffel,Eiffel,0
+crystal,Crystal,0
+smalltalk,Smalltalk,0
+yacc,Yacc,17
+git,Git,7032
+modula-3,Modula-3,0
+elm,Elm,127
+racket,Racket,48
+groovy,Groovy,0
+unix,Unix,0
+d,D,0
+common-lisp,Common Lisp,24
+reason,Reason,0
+uml,UML,0
+sagemath,Sage,0
+maple,Maple,511
+unicode,Unicode,0
+coffeescript,CoffeeScript,216
+vhdl,VHDL,0
+apl,APL,0
+opencl,OpenCL,266
+mediawiki,MediaWiki,69
+azure,Microsoft Azure,1448
+yaml,YAML,61
+doi,DOI,0
+rest,REST,26215
+utf-8,UTF-8,0
+excel-app,Microsoft Excel,0
+xquery,XQuery,125
+postscript,PostScript,0
+nginx-config,Nginx,2884
+graphql,GraphQL,0
+spss,SPSS,9587
+powerpc,PowerPC,59
+eclipse-editor,Eclipse,0
+tls,TLS,0
+ftp,FTP,0
+visual-studio-editor,Visual Studio,0
+soap,SOAP,7493
+matplotlib,Matplotlib,0
+vuejs,Vue,0
+literate-coffeescript,Literate CoffeeScript,0
+rexx,Rexx,40
+x86-isa,X86,0
+tcp,TCP,0
+nim,Nim,0
+antlr,ANTLR,30
+scipy,SciPy,0
+scratch,Scratch,0
+pug,Pug,0
+lfe,LFE,0
+smali,Smali,0
+latex,LaTeX,0
+markdown,Markdown,0
+visual-basic.net,Visual Basic .NET,3447
+liquid,Liquid,325
+forth,Forth,0
+smtp,SMTP,0
+purebasic,PureBasic,0
+ml,ML,6
+solaris,Solaris,0
+haxe,Haxe,1
+vbscript,VBScript,142
+wasm,WebAssembly,5
+cil,CIL,0
+chapel,Chapel,1
+oberon,Oberon,0
+pdf,PDF,0
+labview,LabVIEW G,2012
+applescript,Applescript,6
+oz,Oz,0
+lasso,Lasso,142
+fish,fish,1
+llvmir,LLVM IR,23
+ecmascript,ECMAScript,0
+red,Red,0
+simula,Simula,0
+protobuf,Protocol Buffers,94
+idris,Idris,1
+logo,Logo,0
+sqlite,SQLite,561
+udp,UDP,35
+ampl,AMPL,3
+opengl,OpenGL,0
+sed,sed,0
+picolisp,PicoLisp,0
+visual-studio-code-editor,Visual Studio Code,0
+drupal,Drupal,1642
+freebsd,FreeBSD,0
+tex,Tex,3
+v,V,0
+bcpl,BCPL,0
+pl-sql,PL/SQL,2972
+jvm,JVM,0
+standard-ml,Standard ML,0
+dylan,Dylan,0
+rebol,REBOL,0
+maven-pom,Apache Maven,0
+unity-engine,Unity,0
+processing,Processing,0
+hack,Hack,19
+mips,MIPS architecture,12
+algol,Algol,0
+owl,OWL,0
+url,URL,0
+org,Org,0
+purescript,PureScript,0
+brainfuck,Brainfuck,0
+svg,SVG,0
+monaco,Monaco Editor,0
+fat,FAT,0
+dot,DOT,0
+flux,FLUX,0
+fantom,Fantom,0
+squirrel,Squirrel,0
+eulisp,EuLisp,0
+monkey,Monkey,0
+flex,FLEX,0
+autocad-app,AUTOCAD,0
+limbo,Limbo,0
+agda,Agda,0
+blitzbasic,BlitzBasic,0
+abap,ABAP,283
+mumps,MUMPS,0
+occam,Occam,0
+game,GAME,0
+haml,HAML,0
+emacs-lisp,Emacs Lisp,0
+rdf,RDF,0
+coldfusion,ColdFusion,0
+jinja,Jinja,0
+coq,Coq,0
+autoit,AutoIt,0
+qt,Qt,0
+x86-assembly,x86 Assembly,0
+makefile,Makefile,0
+vala,Vala,0
+j,J,0
+nearley,Nearley,0
+newlisp,NewLisp,0
+nemerle,Nemerle,0
+zig,Zig,0
+mime,MIME,1
+xaml,XAML,0
+jison,Jison,0
+moonscript,MoonScript,0
+icon,Icon,0
+terra,Terra,0
+toml,TOML,0
+scikit-learn,Scikit-learn,0
+x10,X10,0
+ballerina,Ballerina,0
+scilab,Scilab,0
+flow,Flow,0
+io,Io,0
+turing,Turing,0
+idyll,idyll,0
+ibm-rpg,RPG,0
+mercury,Mercury,0
+reverse-polish-notation,Reverse Polish notation,0
+qml,QML,0
+idl,IDL,0
+frege,Frege,0
+xbase,xBase,0
+octave,GNU Octave,0
+boo,Boo,0
+java-server-pages,JSP,0
+postcss,PostCSS,0
+tensorflow,TensorFlow,721
+object-pascal,Object Pascal,0
+slim-lang,Slim,0
+micropython,MicroPython,0
+hy,Hy,0
+highlightjs,highlight.js,0
+algol-60,ALGOL 60,0
+arc,Arc,0
+zephir,Zephir,0
+sparql,SPARQL,0
+ceylon,Ceylon,0
+redis,Redis,591
+lolcode,LOLCODE,0
+opa,Opa,0
+sparc,SPARC,0
+supercollider,SuperCollider,0
+systemverilog,SystemVerilog,0
+qbasic,QBasic,0
+clean,Clean,0
+lean,Lean,0
+snobol,SNOBOL,0
+cython,Cython,0
+rfc,RFC,0
+bison,Bison,0
+xpath,XPath,0
+webgl,WebGL,0
+inform,Inform,0
+clips,CLIPS,0
+pony,Pony,0
+restructuredtext,reStructuredText,0
+kicad,KiCad Legacy Layout,0
+vi-editor,vi,0
+robotframework,RobotFramework,0
+plpgsql,PL/pgSQL,0
+factor,Factor,0
+cmake,CMake,0
+numpy,NumPy,0
+self,Self,0
+stata,Stata,0
+muf,Multi-User Forth,0
+sublime-editor,Sublime Text,0
+nextflow,Nextflow,0
+json5,JSON5,0
+si,SI,0
+pike,Pike,0
+grep,grep,0
+deno,Deno,0
+metal,Metal,0
+edn,EDN,0
+pl-i,PL/I,0
+isabelle,Isabelle,0
+wsdl,WSDL,0
+gzip,Gzip,0
+netlogo,NetLogo,0
+d3,D3.js,0
+magit,Magit,0
+api-blueprint,API Blueprint,0
+minid,MiniD,0
+raml,RAML,0
+hcl,HCL,0
+perl-6,Perl 6,0
+elf,Extensible Linking Format,0
+ace,Ace Editor,0
+click,Click,0
+ntfs,New Technology File System,0
+ats,ATS,0
+autolisp,AutoLISP,0
+s-algol,S-algol,0
+yang,YANG,0
+ia-32,IA-32,0
+csound,Csound,0
+openrc-runscript,OpenRC runscript,0
+fstar,F*,0
+ini,Ini,0
+sass,Sass,0
+turtle,Turtle,0
+lex,Lex,0
+subversion,Subversion,0
+gnuplot,Gnuplot,0
+xojo,Xojo,0
+npm-pm,npm,0
+apollo-guidance-computer,AGC,0
+morse-code,Morse code,0
+foxpro,FoxPRO,0
+flatbuffers,FlatBuffers,0
+clojurescript,ClojureScript,0
+ioke,Ioke,0
+java-bytecode,Java Bytecode,0
+s-expressions,S-expressions,0
+intercal,INTERCAL,0
+e,E,0
+codemirror,CodeMirror,0
+wren,Wren,0
+alloy,Alloy,0
+odin,odin,0
+axiom,AXIOM,0
+livescript,LiveScript,0
+rdoc,RDoc,0
+csp,CSP,0
+modelica,Modelica,0
+gradle,Gradle,0
+ecr,Embedded Crystal,0
+ooxml,Office Open XML,0
+wavefront-object,Wavefront Object,0
+pov-ray-sdl,POV-Ray SDL,0
+microsoft-basic,Microsoft BASIC,0
+clipper,Clipper,0
+yara,YARA,0
+erb,ERB,0
+batch,Batchfile,0
+django,Django,0
+mariadb,MariaDB,0
+whitespace,Whitespace,0
+general-algebraic-modeling-system,GAMS,0
+dns,DNS,0
+symbol,SYMBOL,0
+b,B,0
+asciidoc,AsciiDoc,0
+pod,Pod,0
+bpmn,BPMN,0
+m4,M4,0
+datalog,Datalog,0
+objective-j,Objective-J,0
+marko,Marko,0
+dafny,Dafny,0
+chevrotain,chevrotain,0
+c--,C--,0
+ninja,Ninja,0
+dhall,Dhall,0
+base64,Base64,0
+wolfram,Wolfram Language,0
+oxygene,Oxygene,0
+gambas,Gambas,0
+json-ld,JSON-LD,0
+q,Q,0
+notepad-editor,Microsoft Notepad,0
+pegjs,PEG.js,0
+google-cloud,Google Cloud Platform,0
+hypertalk,HyperTalk,0
+spark,SPARK,0
+halide,halide,0
+tla,TLA,0
+befunge,Befunge,0
+gdb,GDB,0
+puppet,Puppet,0
+miranda,Miranda,0
+speedie,Speedie,0
+bicep,Bicep,0
+bourne-shell,Bourne shell,0
+c3,C3,0
+visual-foxpro,Visual FoxPro,0
+seed7,Seed7,0
+x86-64-isa,x86-64,413
+powerbuilder,PowerBuilder,0
+bibtex,BibTeX,0
+twig,Twig,0
+less,Less,0
+xs,XS,0
+ec,eC,0
+sgml,SGML,0
+coconut,Coconut,0
+simulink,Simulink,0
+oberon-2,Oberon-2,0
+g-code,G-code,0
+genie,Genie,0
+quickbasic,QuickBASIC,0
+maxima,Maxima,0
+thrift,Thrift,0
+nato-phonetic-alphabet,NATO phonetic alphabet,0
+autohotkey,AutoHotkey,0
+cool,Classroom Object Oriented Language,0
+turbo-pascal,Turbo Pascal,0
+pl-0,PL/0,0
+gw-basic,GW-BASIC,0
+homebrew-pm,Homebrew,0
+setl,SETL,0
+linq,LINQ,0
+json-schema,JSON Schema,0
+z-notation,Z notation,0
+ecl,ECL,0
+falcon,Falcon,0
+saltstack,SaltStack,0
+algol-68,ALGOL 68,0
+xbasepp,XBase++,0
+nasm,Netwide Assembler,0
+transact-sql,Transact-SQL,0
+v8,v8,0
+clu,CLU,0
+dc,Dc,0
+livecode,LiveCode,0
+comtran,COMTRAN,0
+pandas,Pandas,341
+asn-1,ASN.1,0
+hhvm,HHVM,0
+wisp,wisp,0
+ink,ink,0
+abc,ABC,0
+ext4,Ext4,0
+diagram,DIAGRAM,0
+mercurial,Mercurial,0
+k,K,0
+yasnippet,YASnippet,0
+scala-js,Scala.js,0
+rstudio-editor,RStudio,0
+capn-proto,Cap'n Proto,0
+squeak,Squeak,0
+react-native,React Native,0
+prql,PRQL,0
+hypercard,HyperCard,0
+jython,Jython,0
+nltk,Natural Language Toolkit,0
+bluespec,Bluespec,0
+croc,Croc,0
+katex,KaTeX,0
+ejs,EJS,0
+dbase,DBase,0
+s,S,0
+true-basic,True BASIC,0
+wxbasic,WxBasic,0
+markwhen,Markwhen,0
+stylus,Stylus,0
+ion,Ion,0
+urweb,UrWeb,0
+gap,GAP,0
+sather,Sather,0
+vim-script,Vim script,0
+freebasic,FreeBASIC,0
+mmx,MMX instruction set,0
+jscript,JScript,0
+pygments,Pygments,0
+parrot-vm,Parrot,0
+mathematica-editor,Wolfram Mathematica,0
+unison,unison,0
+couchdb,CouchDB,13
+pig,Pig Latin,0
+txl,TXL,0
+rmarkdown,RMarkdown,0
+graph-modeling-language,Graph Modeling Language,0
+chrysalisp,chrysaLisp,0
+cilk,CIL,0
+mbox,EML,0
+starlark,starlark,0
+fastq-format,FASTQ,0
+numba,Numba,0
+punched-tape,Punched tape,0
+latte,Latte,0
+smarty,Smarty,0
+nu,Nu,0
+multics,Multics,0
+dtd,DTD,0
+malbolge,Malbolge,0
+tiny-basic,Tiny BASIC,0
+xtend,Xtend,0
+algol-w,ALGOL W,0
+systemz,IBM System z,0
+tornado,tornado,0
+jflex,JFlex,0
+dtrace,DTrace,0
+ragel,Ragel,0
+aspectj,AspectJ,0
+caml,Caml,0
+fortress,Fortress,0
+pari-gp,PARI/GP,0
+jq,jq,0
+puredata,Pure Data,0
+trs-80-color-computer,TRS-80 Color Computer,0
+max,Max,0
+mupad,muPad,0
+hlsl,HLSL,0
+unicon,Unicon,0
+rdfa,RDFa,0
+ring,Ring,0
+hope,HOPE,0
+free-pascal,Free Pascal,0
+xslt,XSLT,0
+rpl,RPL,0
+diff,Diff,0
+nl,NL,0
+mlir,mlir,0
+gosu,Gosu,0
+openvera,OpenVera,0
+swift-il,SIL,0
+mermaid,mermaid,0
+hla,High Level Assembly,0
+commonmark,commonmark,0
+atmel-avr,Atmel AVR,0
+eve,Eve,0
+cuelang,Cue,0
+fennel,Fennel,0
+jcl,JCL,0
+ratfor,RATFOR,0
+glsl,GLSL,0
+curry,Curry,0
+musicxml,MusicXML,0
+slash,Slash,0
+enso,Enso,0
+luna,Luna,0
+golo,Golo,0
+nsis,NSIS,0
+gerber-image,Gerber Image,0
+expect,Expect,0
+beta,BETA,0
+action,Action!,0
+treesheets,TreeSheets,0
+janet,janet,0
+dxf,AutoCAD DXF,0
+ladder-logic,Ladder Logic,0
+beef,beef-lang,0
+hdf,Hierarchical Data Format,0
+inno-setup,Inno Setup,0
+dogescript,Dogescript,0
+pl-m,PL/M,0
+cg,Cg,0
+lilypond,LilyPond,0
+mps,MPS,0
+peg,PEG,0
+fasta-format,FASTA,0
+datascript,datascript,0
+shakespeare,Shakespeare,0
+qb64,QB64,0
+swi-prolog,SWI Prolog,0
+wdl,WDL,0
+korn-shell,Korn shell,0
+imba,Imba,0
+koka,Koka,0
+closure-templates,Closure Templates,0
+altair-basic,Altair BASIC,0
+eagle,Eagle,0
+igor-pro,IGOR Pro,0
+phyloxml-format,PhyloXML,0
+common-workflow-language,CWL,0
+risc-v,RISC-V,0
+unlambda,UNLAMBDA,0
+gravity,gravity,0
+abnf,Augmented Backus-Naur Form,0
+java-ee-version-history,Java EE version history,0
+ron,Ron,0
+zip-format,Zip file format,0
+ebnf,EBNF,0
+sourcepawn,SourcePawn,0
+textile,Textile,0
+java-properties,Java Properties,0
+openlisp,OpenLisp,0
+blitz3d,Blitz3D,0
+renpy,Ren'Py,0
+commodore-basic,Commodore BASIC,0
+taichi,Taichi,0
+parrot-internal-representation,PIR,0
+lpc,LPC,0
+xtext,Xtext,0
+reia,Reia,0
+carp,carp,0
+gams,GAMS,0
+cweb,CWEB,0
+dwg,.dwg,0
+euphoria,Euphoria,0
+dynamo-visual-language,dynamo-visual-language,0
+hjson,Hjson,0
+bbcode,BBCode,0
+exfat,ExFAT,0
+microsoft-small-basic,Microsoft Small Basic,0
+guile,Guile,0
+geojson,GeoJSON,0
+argdown,Argdown,0
+apache-velocity,Velocity,0
+hexagon,Qualcomm Hexagon,10
+robomind,RoboMind,0
+runoff,RUNOFF,0
+jule,Jule,0
+aith,Aith,0
+mdx,MDX,0
+imap-protocol,IMAP,0
+dockerfile,Dockerfile,0
+cfml,CFML,0
+kixtart,KiXtart,0
+pizza,Pizza,0
+newtonscript,NewtonScript,0
+ddml,DDML,0
+assemblyscript,AssemblyScript,0
+ipf,Information Presentation Facility,0
+manim,Manim,0
+velato,Velato,0
+emojicode,Emojicode,0
+rust-mir,Rust MIR,0
+plain-english,Plain English,0
+pic-microcontroller,PIC microcontroller,0
+lotusscript,LotusScript,0
+drakon,DRAKON,0
+microsoft-macro-assembler,Microsoft Macro Assembler,0
+pytorch,PyTorch,0
+keras,Keras,0
+subrip-text,SubRip Text,0
+beads-lang,beads-lang,0
+jekyll,Jekyll,0
+yii,Yes It Is,0
+lyx-editor,LyX,0
+jade,JADE,0
+pharo,Pharo,0
+flowchart-fun,flowchart.fun,0
+svelte,Svelte,0
+prometheus,PROMETHEUS,0
+glyph-bitmap-distribution-format,Glyph Bitmap Distribution Format,0
+mirah,Mirah,0
+ghostscript,Ghostscript,0
+sqlalchemy,Sqlalchemy,0
+cpl,CPL,0
+modula,Modula,0
+ffmpeg,FFmpeg,0
+asmjs,Asm.js,0
+microdata,Microdata HTML,0
+blitzplus,BlitzPlus,0
+bel,Bel,0
+act-iii,ACT-III,0
+papyrus,Papyrus,0
+clarion,Clarion,0
+gogs-editor,gogs-editor,0
+vrml,VRML,0
+tldr,tldr,0
+progsbase,progsbase,0
+csv,CSV,0
+x-pixmap,X PixMap,0
+spin,Spin,0
+xetex,XeTeX,0
+sqlpl,SQLPL,0
+thinbasic,ThinBasic,0
+readable,Readable,0
+kml,KML,0
+arexx,ARexx,0
+clos,CLOS,0
+x-bitmap,X BitMap,0
+pawn,PAWN,0
+alice,Alice,0
+emberjs-framework,emberjs-framework,0
+uno,Uno,0
+futhark,Futhark,0
+cson,CSON,0
+json-stat,JSON-stat,0
+algol-58,ALGOL 58,0
+qr-code,QR code,0
+jai,JAI,0
+nial,Nial,0
+mochajs,mochajs,0
+godot-game-engine,Godot,0
+s3,S3,0
+codeql,CodeQL,0
+yoix,Yoix,0
+vcpkg-pm,Vcpkg,0
+bazel,Bazel,0
+mgmt,mgmt,0
+vcl,Varnish Configuration Language,0
+simple-binary-encoding,Simple Binary Encoding,0
+felix,Felix,0
+ext3,Ext3,0
+kaitai,kaitai,0
+mbasic,MBASIC,0
+troff,Troff,0
+javacc,JavaCC,5
+flow-matic,FLOW-MATIC,0
+mustache,mustache,0
+roslyn-compiler,Roslyn compiler,0
+slope,Slope,0
+netlinx,NetLinx,0
+concise-encoding,Concise Encoding,0
+blockml,blockml,0
+jakt,Jakt,0
+bnf,BNF,0
+shapefile,Shapefile,0
+chatterbot,chatterbot,0
+fml,Fuzzy Markup Language,0
+jupyter-editor,Project Jupyter,0
+usb-standard,USB,0
+p4,P4,0
+nushell,Nushell,0
+figlet-font,FIGlet Font,0
+curl,Curl,0
+visual-prolog,Visual Prolog,0
+ibm-gml,GML,0
+aldor,Aldor,0
+micro-editor,micro-editor,0
+mavo,mavo,0
+mathcad,Mathcad,0
+joy,Joy,0
+qmake,QMake,0
+providex,ProvideX,0
+dgraph,dgraph,0
+xproc,XProc,0
+cobra,Cobra,0
+jasmine,jasmine,0
+onnx,onnx,0
+hdmi-standard,HDMI,0
+apache-hbase,Apache Hbase,65
+cyclone,Cyclone,0
+lisaac,Lisaac,0
+tinyc-compiler,Tiny C Compiler,0
+sympy,SymPy,0
+utc-format,UTC,0
+amqp,Advanced Message Queuing Protocol,0
+scoop-pm,Scoop,0
+pick-operating-system,Pick operating system,0
+msp430,TI MSP430,0
+pgbouncer,PgBouncer,0
+lookml,LookML,0
+asymptote,Asymptote,0
+rockstar,Rockstar,0
+minidsdb,Mindsdb,0
+jsf,JSFuck,0
+cloc,cloc,0
+angelscript,Angelscript,0
+dojo,Dojo,0
+iterm2,Iterm2,0
+apex,Apex,0
+triton,Triton,0
+pop-11,Pop-11,0
+z-shell,Z shell,0
+mql,MQL5,0
+jmp,JMP,0
+gif-format,GIF,0
+volt,Volt,0
+conll-u,CoNLL-U,0
+mal,mal,0
+bbc-basic,BBC BASIC,0
+displayport-standard,DisplayPort,0
+dm,DM,0
+karel,Karel,0
+jsoniq,JSONiq,0
+wasmer,wasmer,0
+prismjs,Prism,0
+chaiscript,chaiscript,0
+digital-command-language,DIGITAL Command Language,0
+capybara,capybara,0
+lsl,Linden Scripting Language,0
+tea,Tea,0
+kubernetes,Kubernetes,0
+ant-build-system,Ant Build System,0
+ncl,NCAR Command Language,0
+gas,GNU Assembler,0
+gridstudio-editor,gridstudio-editor,0
+jsharp,J#,0
+fay,fay,0
+gdscript,GDScript,0
+f-prime,F Prime,0
+beanshell,BeanShell,0
+futurebasic,FutureBASIC,0
+eclipse-command-language,Eclipse Command Language,0
+gold,GOLD,0
+css-doodle,CSS Doodle,0
+powerbasic,PowerBASIC,0
+pic,PIC,0
+turbo-basic,Turbo Basic,0
+kakoune-editor,Kakoune,0
+shaderlab,ShaderLab,0
+dat-protocol,dat-protocol,0
+filebench-wml,Filebench WML,0
+cloud-firestore-security-rules,Cloud Firestore Security Rules,0
+bpel,BPEL,0
+meson,Meson,0
+docopt,docopt,0
+xsv-app,xsv-app,0
+vimwiki,Vimwiki,0
+tsv,TSV,0
+nix,Nix,0
+dartmouth-basic,Dartmouth BASIC,0
+sizzle,sizzle,0
+up-arrow-notation,Up-arrow notation,0
+retdec,RetDec,0
+desmos,Desmos,0
+md5-hash-function,MD5,0
+zone,DNS Zone,0
+4g-standard,4G,0
+edgedb,edgedb,0
+ext2,Ext2,0
+gettext,Gettext Catalog,0
+metafont,METAFONT,0
+staroffice-basic,StarOffice Basic,0
+pcre,PCRE,0
+creole,Creole,0
+semver,Semantic Versioning,0
+unified-parallel-c,UPC,0
+noms-db,noms-db,0
+collada,COLLADA,0
+sha-2-hash-function,SHA-2,0
+conan-pm,Conan,0
+islisp,ISLISP,0
+htmx,htmx,0
+xl-lang,XL,0
+apt,Automatically Programmed Tool,0
+binaryen,binaryen,0
+harbour,Harbour,0
+cryptol,Cryptol,0
+sha-1-hash-function,SHA-1,0
+dvi-standard,Digital Visual Interface,0
+rholang,Rholang,13
+pyret,pyret,0
+ntp,Network Time Protocol,0
+component-pascal,COMPONENT PASCAL,0
+zephyr-asdl,zephyr-asdl,0
+sql-92,SQL-92,0
+easybuild,Easybuild,0
+refal,Refal,0
+yorick,Yorick,0
+ldap,Lightweight Directory Access Protocol,0
+maskjs,Mask,0
+omgrofl,Omgrofl,0
+carth,carth,0
+mckeeman-form,mckeeman-form,0
+bucklescript,Bucklescript,0
+telnet-protocol,Telnet,0
+chibicc,chibicc,0
+mu,Mu,0
+textmate-editor,TextMate,0
+cartocss,CartoCSS,0
+icedcoffeescript,IcedCoffeeScript,0
+bmp-format,BMP file format,0
+logica,Logica,0
+opl,OPL,0
+ravenscar-profile,Ravenscar profile,0
+wml,WML,0
+telcomp,TELCOMP,0
+carbon,Carbon,0
+jasmin,Jasmin,0
+renderscript,RenderScript,0
+literate-agda,Literate Agda,0
+tiff-format,Tagged Image File Format,0
+jovial,JOVIAL,0
+grammar,Grammar,0
+sysml,SysML,0
+motif-software,Motif,0
+zuo,Zuo,0
+thymeleaf,Thymeleaf,0
+bosque,bosque,0
+spyder-editor,Spyder,0
+contracts.coffee,contracts.coffee,0
+icd,ICD-10-CM diagnosis,0
+openscad,OpenSCAD,0
+game-maker-language,Game Maker Language,0
+sam-format,SAM file format,0
+penrose,penrose,0
+toffeescript,ToffeeScript,0
+blackcoffee,BlackCoffee,0
+heap.coffee,heap.coffee,0
+jruby,JRuby,0
+markovjunior,MarkovJunior,0
+uberscript,UberScript,0
+caffeine,Caffeine,0
+nqc,Not Quite C,0
+clist,CLIST,0
+context-diff,Context Diff,0
+tbox-lib,tbox-lib,0
+blitzmax,BlitzMax,0
+luajit,LuaJIT,0
+edje-data-collection,Edje Data Collection,0
+objective-cpp,Objective C++,0
+vyper,vyper,0
+skulpt,skulpt,0
+hasklig,hasklig,0
+speakeasy,Speakeasy,0
+codecept,codecept,0
+ooc,ooc,0
+rascal,Rascal,0
+alef,ALEF,0
+mqtt,Message Queuing Telemetry Transport,0
+neko,Neko,0
+unity,UNITY,0
+omega,omega,0
+bliss,BLISS,0
+power-bi-app,Power BI,0
+elvish,Elvish,0
+tableau-app,Tableau Software,0
+tiddlywiki,TiddlyWiki,0
+gfs,Google File System,0
+euclidean-geometry,Euclidean geometry,0
+lily,Lily,0
+streem,Streem,0
+nit,Nit,0
+m3db,m3db,0
+blender-app,Blender,0
+ox,OX,0
+alpine-abuild,Alpine Abuild,0
+slice,Slice,0
+beatnik,Beatnik,0
+clay,clay,0
+saml,Security Assertion Markup Language,0
+perl-data-language,Perl Data Language,0
+sweetjs,Sweet.js,0
+hfs-plus,HFS Plus,0
+yoptascript,YoptaScript,0
+roff,ROFF,0
+http-2,HTTP/2,0
+simcode,SimCode,0
+emberscript,EmberScript,0
+walt,walt,0
+ohm,ohm,0
+xcard,xCard,0
+binary-notation,Binary notation,0
+synchronized-multimedia-integration-language,SMIL,0
+stripe,Stripe company,0
+gleam,gleam,0
+gcc-machine-description,GCC Machine Description,0
+jupyter-notebook,Jupyter Notebook,0
+activevfp,ActiveVFP,0
+treenotation,Tree Notation,0
+ti-basic,TI-BASIC,0
+fm-standard,FM broadcasting,0
+ante,Ante,0
+atari-basic,Atari BASIC,0
+ucsd-pascal,UCSD Pascal,0
+applesoft-basic,Applesoft BASIC,0
+groff,groff,0
+cesil,Cesil,0
+praat-script,Praat Script,0
+fibonacci,Fibonacci,0
+whiley,Whiley,0
+shen,Shen,0
+netbeans-editor,netbeans-editor,0
+mvel,MVEL,0
+skip,skip,0
+asciidots,AsciiDots,0
+arkscript,ArkScript,0
+chef,chef,0
+melody,Melody,0
+sha-3-hash-function,SHA-3,0
+ucl,UCL,0
+chisel,chisel,0
+roku-brightscript,Brightscript,0
+verona,verona,0
+scss,SCSS,0
+geo-ml,Geography Markup Language,0
+mathlab,MATHLAB,0
+stan,Stan,0
+t,T,0
+ip-pascal,IP Pascal,0
+focal,Formulating On-Line Calculations in Algebraic Language,0
+epigram,Epigram,0
+sugarss,SugarSS,0
+lmdb,lmdb,0
+cell,Cell,0
+joss,JOSS,0
+colascript,ColaScript,0
+laravel-framework,Laravel,0
+xlwings-editor,xlwings-editor,0
+graph-it,GraphIt,0
+cycript,Cycript,0
+raku,Raku,0
+lammps-format,Large-scale Atomic/Molecular Massively Parallel Simulator Format,0
+tap-code,Tap code,0
+strips,Strips,0
+root-lib,ROOT,0
+pure,Pure,0
+cusip,Committee on Uniform Security Identification Procedures,0
+chuck,Ch,0
+loglan,LOGLAN,0
+netrexx,NetRexx,0
+winxed,winxed,0
+cache-basic,Caché Basic,0
+svgbob,svgbob,0
+fancy,Fancy,0
+pogoscript,PogoScript,0
+rant,rant,0
+manhood,manhood,0
+dokuwiki,DokuWiki,0
+smt,SMT,0
+ezhil,Ezhil,0
+rtp-protocol,Real-time Transport Protocol,0
+vml,VML,0
+nxc,Not eXactly C,0
+mary,Mary,0
+arabic-numerals,Hindu-Arabic numeral system,0
+zz,zz,0
+checked-c,checked-c,0
+web-idl,WebIDL,0
+compiler-compiler,Compiler-Compiler,0
+a-0-system,A-0 system,0
+logtalk,Logtalk,0
+mech-lang,Mech,0
+doml,DOML,0
+odata,Open Data Protcol,0
+storyscript,storyscript,0
+cranelift-ir,Cranelift,0
+mun-lang,mun-lang,0
+nexus-format,Nexus file,0
+snowman-decompiler,Snowman,0
+creative-basic,Creative Basic,0
+freemarker,FreeMarker,0
+ti-basic-assembly,TI Program,0
+qalb,Qalb,0
+packagist-pm,packagist-pm,0
+hyperscript,Hyperscript,0
+srecode-template,SRecode Template,0
+notepad-plus-plus-editor,Notepad++,0
+observable-lang,Observable,0
+gluon,gluon,0
+impala,Impala,0
+oil,oil,0
+jargon,Jargon,0
+maxscript,MAXScript,0
+sieve,Sieve mail filtering language,0
+coff,Common Object File Format,0
+doodle,DOODLE,0
+esterel,Esterel,0
+pl360,PL360,0
+pan,Pan,0
+loomscript,LoomScript,0
+p,P,0
+luna-1,Luna,0
+lucene-query-syntax,Apache Lucene,0
+plist,Property list,0
+pep8,Pep8,0
+invokator,invokator,0
+gfa-basic,GFA BASIC,0
+activity-pub,ActivityPub,0
+open-shading-language,Open Shading Language,0
+stencil,Stencil,0
+vigil,Vigil,0
+umple,Umple,0
+mathics,mathics,0
+basis-universal-format,Basis Codec,0
+openedge-advanced-business-language,OpenEdge ABL,0
+pandoc-app,Pandoc,0
+kitten,kitten,0
+spatial,Spatial,0
+type-language,Type Language,0
+shakespeare-programming-language,Shakespeare,0
+sql-psm,SQL/PSM,0
+flutter-framework,Flutter,0
+fp,FP,0
+please-build,Please Build,0
+desktop,desktop,0
+windows-registry-entries,Windows Registry Entries,0
+moo,MOO,0
+treelang,Treelang,0
+grass,GRASS,0
+plb,Programming Language for Business,0
+ubasic,UBASIC,0
+unified-diff,Unified Diff,0
+almquist-shell,Almquist shell,0
+avi-synth,AviSynth,0
+parrot-assembly,Parrot Assembly,0
+webp-format,WebP,0
+tiscript,TIScript,0
+hackett,Hackett,0
+kodu-game-lab,Kodu Game Lab,0
+xhtml,XHTML,0
+gopher-protocol,Gopher,0
+express,EXPRESS,0
+arden-syntax,Arden syntax,0
+stutter-lang,Stutter,0
+iswim,ISWIM,0
+arc-isa,ARC processor,0
+vga-standard,Video Graphics Array,0
+json-graph-format,json-graph-format,0
+apache-cassandra,Apache Cassandra,0
+json-with-comments,JSON with Comments,0
+jsil-compiler,jsil-compiler,0
+pop-protocol,Post Office Protocol,0
+ssharp,Script.NET,0
+jolie,Jolie,0
+bog,bog,0
+natural,NATURAL,0
+coldfusion-components,ColdFusion Components,0
+blockly,Blockly,0
+infiniband-standard,InfiniBand,0
+bun,Bun,0
+vhdl-ams,VHDL-AMS,0
+fable-lang,Fable,0
+helang,HeLang,0
+txt2tags,Txt2tags,0
+blade,Blade,0
+rpm-spec,RPM Spec,0
+pasukon,pasukon,0
+extensible-embeddable-language,Extensible Embeddable Language,0
+operational-control-language,Operational Control Language,0
+sheep-lang,Sheep,0
+math-matic,MATH-MATIC,0
+revit-app,Autodesk Revit,0
+teco,TECO,0
+handel-c,Handel-C,0
+turbo-assembler,Turbo Assembler,0
+souper,souper,0
+dexvis,dexvis,0
+m4sugar,M4Sugar,0
+llhd,llhd,0
+hurl,hurl,0
+opal,Opal,0
+egl,EGL,0
+touch,Touch,0
+fml-lang,FML,0
+c2,C2,0
+vcf-format,VCF,0
+cypher,Cypher Query Language,0
+lingo,Lingo,0
+mxml,MXML,0
+hyperscript-lang,Hyperscript,0
+bqn,BQN,0
+plot,plot,0
+asterius-compiler,asterius-compiler,0
+hl7,HL7,0
+smiles-format,Smiles,0
+acl2,ACL2,0
+object-rexx,Object Rexx,0
+locomotive-basic,Locomotive BASIC,0
+quaint,Quaint,0
+tidyverse,tidyverse,0
+odbc,Open Database Connectivity,0
+srl,SRL,0
+xblite,XBLite,0
+pearl,PEARL,0
+opam-pm,opam-pm,0
+ssi,SSI,0
+whois-protocol,WHOIS,0
+lamdu,Lamdu,0
+lamdu-editor,lamdu-editor,0
+jison-lex,Jison Lex,0
+maya,Maya Embedded Language,0
+logos,Logos,0
+carpet,Carpet,0
+molfile-format,Molfile,0
+google-apps-script,Google Apps Script,0
+erg,erg,0
+flix,Flix,0
+kaggle-app,Kaggle,0
+linotte,Linotte,0
+rpm-package-manager,Rpm,0
+i-expressions,I-expressions,0
+speedcoding,Speedcoding,0
+wasp-lang,Wasp,0
+algo,ALGO,0
+open-nn,OpenNN,0
+smallbasic,SmallBASIC,0
+bpkg-pm,bpkg-pm,0
+crush,crush,0
+spry,spry,0
+reko-decompiler,Reko,0
+query-by-example,Query by Example,0
+nesc,network embedded systems C,0
+hiveql,HiveQL,0
+dak,Dak,0
+comby,comby,0
+xc,XC,0
+x-font-directory-index,X Font Directory Index,0
+xcompose,XCompose,0
+bloop,BlooP,0
+violent-es,Violent ES,0
+yawl,YAWL,0
+roc,Roc,0
+newick-format,Newick format,0
+1620sps,IBM 1620,0
+leo-editor,leo-editor,0
+genshi,Genshi,0
+xgboost-model,Xgboost,0
+pdp-11-machine,PDP-11,0
+ella-programming-language,ELLA,0
+gwl,Guix Workflow Language,0
+tiledb,tiledb,0
+haste,haste,0
+ternary-notation,Ternary numeral system,0
+cyber,Cyber,0
+eex,EEX,0
+jsx,JSX,0
+macro-10,MACRO-10,0
+snakemake,snakemake,0
+flow9,Flow9,0
+femtolisp,femtolisp,0
+swallow,Swallow,0
+glicol,Glicol,0
+spline-font-database,Spline Font Database,0
+krl,KRL,0
+q-sharp,Q#,0
+roy,roy,0
+sweave,Sweave,0
+newspeak,Newspeak,0
+ns-basic,NS Basic,0
+astroml,astroml,0
+kona,kona,0
+lux,Lux,0
+nano-editor,GNU nano,0
+3ds,3DS,0
+cfengine,CFEngine,0
+plus,Plus,0
+exkited,exkited,0
+module-management-system,Module Management System,0
+turnstile,turnstile,0
+lobster,lobster,0
+xbl,XML Binding Language,0
+superjson,Superjson,0
+clash,clash,0
+punycode,Punycode,0
+1c-enterprise,1C Enterprise Script,0
+tht,tht,0
+monte,monte,0
+dslx,dslx,0
+plz,PLZ,0
+fetlang,fetlang,0
+gpss,General Purpose Simulation System,0
+clisp,CLISP,0
+earl-grey,Earl Grey,0
+rc,Rc,0
+f,F,0
+rason,rason,0
+berry,Berry,0
+cito,Ć,0
+xbasic,Xbasic,0
+markus,Markus,0
+mesa,Mesa,0
+doh,DNS over HTTPS,0
+tap,TAP,0
+sinclair-basic,Sinclair BASIC,0
+planner,PLANNER,0
+hp-basic-for-openvms,HP BASIC for OpenVMS,0
+superbasic,SuperBASIC,0
+asterisk,Asterisk,0
+murmur-hash-function,MurmurHash,0
+differential-datalog,Differential Datalog,0
+xpages,XPages,0
+gentoo-ebuild,Gentoo Ebuild,0
+vale-assembly,Vale,0
+mirc,MIRC scripting language,0
+hxml,HXML,0
+gentee,gentee,0
+promal,PROMAL,0
+executable-json,Executable JSON,0
+relax,relax,0
+rescript,Rescript,0
+stackless-python,Stackless Python,0
+kasaya,kasaya,0
+dex,dex,0
+masm,MASM,0
+miniml-error,miniML_error,0
+lem-editor,lem-editor,0
+harlan,harlan,0
+sile,sile,0
+focus,FOCUS,0
+asciimath,AsciiMath,0
+spider,spider,0
+xuml,XUML,0
+z-machine,Z-machine,0
+interlisp,Interlisp,0
+nestedtext,NestedText,0
+jal-compiler,JAL compiler,0
+frost,Frost,0
+cali-lang,Cali-Lang,0
+em,Em,0
+faust,FAUST,0
+template-attribute-language,Template Attribute Language,0
+glbasic,GLBasic,0
+cms-exec,EXEC,0
+zonnon,Zonnon,0
+reflex-framework,reflex-framework,0
+tea-pm,tea,0
+knitr,Knitr,0
+tl,Typed Lua,0
+hobbes,hobbes,0
+ch,Ch computer programming,0
+wireless-markup-language,WML,0
+hocon,Hocon,0
+cir,CIR,0
+parrot-basic,Parrot BASIC,0
+circle-lang,circle-lang,0
+cityhash-hash-function,cityhash-hash-function,0
+google-sheets-app,Google Sheets,0
+autocode,Autocode,0
+smartsheet-app,Smartsheet,0
+lispyscript,lispyscript,0
+unrealscript,UnrealScript,0
+grammatical-framework,Grammatical Framework,0
+parser,Parser 3,0
+bare,BARE,0
+hfs,Hierarchical File System,0
+ferret,ferret,0
+score,score,0
+isq,International System of Quantities,0
+xsd,XSD,0
+cli-assembly,Assembly CLI,0
+comal,COMAL,0
+al,AL,0
+mako,Mako,0
+rapira,Rapira,0
+salsa,Simple Actor Language System and Architecture,0
+adept,Adept,0
+frink,Frink,0
+nios,Nios II,0
+dub-pm,dub-pm,0
+atomspace,atomspace,0
+bee,bee,0
+ole-protocol,Object Linking and Embedding,0
+ngs,NGS,0
+dot-ql,.QL,0
+fo,fo,0
+bitbake,BitBake,0
+noweb,Noweb,0
+gherkin,Gherkin,0
+flagship,flagship,0
+swagger,Swagger,0
+scroll,Scroll,0
+lucid,LUCID,0
+cayenne,Cayenne,0
+fact,Fully Automated Compiling Technique,0
+schemaorg,Schema.org,0
+pyret-lang,Pyret,0
+curv,curv,0
+confluence,Confluence,0
+xbrl,XBRL,0
+mpl,mpl,0
+satysfi,SATySFi,0
+sam-coupe,Sam Coupé,0
+mond,Mond,0
+handlebars,Handlebars,0
+objdump,ObjDump,0
+apacheconf,ApacheConf,0
+tcsh,tcsh,0
+orc-lang,Orc,0
+caltech-intermediate-form,Caltech Intermediate Form,0
+recfiles,Recfiles,0
+ddfql,ddfql,0
+fhir,Fast Healthcare Interoperability Resources,0
+basic-stamp,BASIC Stamp,0
+nuget-pm,NuGet,0
+gerbil,Gerbil Scheme,0
+bc,basic calculator,0
+revolution-programming-language,Revolution,0
+generate-ninja,GN,0
+subleq,Subleq,0
+qore,Qore,0
+avail,Avail,0
+neeilang,neeilang,0
+hilvl,hilvl,0
+power-query-m,PowerQuery M,0
+ren-notation,Ren,0
+pomsky,Pomsky,0
+dale,Dale,0
+basic-programming,BASIC Programming,0
+wyvern,Wyvern,0
+connection-machine,Connection Machine,0
+ext,Extended file system,0
+hamler,hamler,0
+xodio,xodio,0
+kitlang,kitlang,0
+passerine,Passerine,0
+integer-basic,Integer BASIC,0
+amos,AMOS,0
+zpp,Z++,0
+cfscript,CFScript,0
+sdlbasic,SdlBasic,0
+csvw,CSVw,0
+yasl,Yet Another Scripting Language,0
+aheui,Aheui,0
+formatted-table,Formatted Table,0
+holyc,holyc,0
+babylonian-numerals,Babylonian numerals,0
+hashlink,hashlink,0
+redcode,Redcode,0
+javafx-script,JavaFX Script,0
+etoys,Etoys,0
+caramel,Caramel,0
+sequential-function-chart,SFC,0
+neut,neut,0
+inchi,International Chemical Identifier,0
+memex-machine,Memex,0
+vdscript,vdscript,0
+status-quo-function,SQF,0
+txr,txr,0
+zimpl,Zimpl,0
+genero,Genero Business Development Language,0
+firrtl,firrtl,0
+snap,Snap!,0
+smpl,Semantic Patch Language,0
+coral,CORAL,0
+sisal,SISAL,0
+bloom,bloom,0
+apt-pm,APT Debian,0
+djangoql,djangoql,0
+mochi,mochi,0
+gff-format,General feature format,0
+koara,koara,0
+fe,fe,0
+oxyl,Oxyl,0
+relaxng,RELAX NG,0
+cirru,Cirru,0
+nymph,Nymph,0
+ubercode,Ubercode,0
+jsonnet,Jsonnet,0
+boron,Boron,0
+ballerina-central-pm,ballerina-central-pm,0
+avr,Atmel AVR instruction set,0
+s-plus,S-PLUS,0
+tuple-space,Tuple space,0
+mad,Michigan Algorithm Decoder,0
+wddx,WDDX,0
+liberty-basic,Liberty BASIC,0
+spec-sharp,Spec Sharp,0
+cowsel,COWSEL,0
+lisp-machine-lisp,Lisp Machine Lisp,0
+muon,muon,0
+f-script,F-Script,0
+catala,Catala,0
+telos,TELOS,0
+egison,Egison,0
+lustre,Lustre,0
+gdl,GNU Data Language,0
+nesl,NESL,0
+tmlanguage,TextMate Language,0
+ocl,OCL,0
+grace,Grace,0
+adobe-font-metrics,Adobe Font Metrics,0
+crema,Crema,0
+mouse,Mouse,0
+nwscript,NWScript,0
+p4p,p4p,0
+lsif-format,Language Server Index Format,0
+hare,Hare,0
+ligo,Ligo,0
+haggis,HAGGIS,0
+bucardo,Bucardo,0
+flavors,Flavors,0
+noulith,noulith,0
+livr,Livr,0
+quakec,QuakeC,0
+amiga-e,Amiga E,0
+jql,JSON Query Language,0
+bind-app,BIND,0
+potion,Potion,0
+spiral,spiral,0
+ags-script,Adventure Game Studio Script,0
+c-shell,C shell,0
+charity,Charity,0
+mimic,MIMIC,0
+pawn-scripting-language,Pawn,0
+dlvm,dlvm,0
+epsilon,epsilon,0
+lav-format,lav-format,0
+graphql-sdl,GraphQL Schema Definition Language,0
+noisecraft,noisecraft,0
+visdown,visdown,0
+edge-side-includes,Edge Side Includes,0
+raptorjit,raptorjit,0
+marp,Marp,0
+eff,eff,0
+linda,Linda,0
+yum-pm,Yum,0
+xmi,XML Metadata Interchange,0
+cms-2,CMS-2,0
+djot,Djot,0
+ops5,OPS5,0
+scribe,Scribe,0
+humanhash-hash-function,humanhash-hash-function,0
+bioconductor-pm,Bioconductor,0
+ark-lang,ark-lang,0
+jayfor,jayfor,0
+rdf-schema,RDF Schema,0
+dax,DAX,0
+z-expressions,Z,0
+kit,Kit,0
+peoplecode,PeopleCode,0
+jspp,JS++,0
+pilot,PILOT,0
+script,SCRIPT markup,0
+yacas,Yacas,0
+q-equational-programming-language,Q,0
+kid,Kid templating language,0
+reduce,REDUCE,0
+flowgorithm,Flowgorithm,0
+pact,Pact,0
+acorn-atom,Acorn Atom,0
+sibelius-software,Sibelius,0
+vale,Vale,0
+tsquery,tsquery,0
+ink-lang,ink-lang,0
+simscript,SIMSCRIPT,0
+pop-2,POP-2,0
+nixos,NixOS,0
+sixten,sixten,0
+macro,MACRO,0
+oden,oden,0
+family-basic,Family BASIC,0
+abs,abs,0
+groovy-server-pages,Groovy Server Pages,0
+fun,Fun,0
+uxf,Uniform eXchange Format,0
+hmmm,HMMM,0
+visualworks,VisualWorks,0
+05ab1e,05AB1E,0
+plankalkul,Plankalkul,0
+watfiv,WATFIV,0
+cadence-skill,Cadence SKILL,0
+minizinc,MiniZinc,0
+parallax-propeller,Parallax Propeller,0
+jank,Jank,0
+music-sp,MUSIC/SP,0
+material-exchange-format,MXF,0
+watcom,Watcom,0
+jslt,JSLT,0
+oak,Oak,0
+berkeley-db-lib,Berkeley DB,0
+hacspec,hacspec,0
+manool,manool,0
+judoscript,Judoscript,0
+parasail,parasail,0
+archieml,ArchieML,0
+fsl,Finite State Language,0
+soy,Soy,0
+airtable-app,Airtable,0
+deb,Deb file format,0
+graphml,GraphML,0
+umka,Umka,0
+pie-lang,pie-lang,0
+go-bang,Go!,0
+starlogo,StarLogo,0
+morfik,Morfik,0
+numbers-app,Numbers,0
+astro,astro,0
+multicodec,multicodec,0
+amigabasic,AmigaBASIC,0
+xpl,XPL,0
+msx-basic,MSX BASIC,0
+facelets,Facelets,0
+toontalk,ToonTalk,0
+tom-oopl,TOM object-oriented,0
+rss,RSS,0
+note,Note,0
+chip-8,CHIP-8,0
+property-specification-language,Property Specification Language,0
+hal-s,HAL/S,0
+thue-programming-language,Thue,0
+genius-extension-language,GEL Genius,0
+silk,silk,0
+augeas,Augeas,0
+claro,Claro,0
+vely,Vely,0
+business-basic,Business Basic,0
+pbasic,PBASIC,0
+krc,KRC,0
+quel,QUEL,0
+casio-basic,Casio BASIC,0
+trac,TRAC,0
+vvvv,Vvvv,0
+structured-text,Structured text,0
+blake-hash-function,BLAKE,0
+partiql,partiql,0
+opentype-feature-file,OpenType Feature File,0
+fjolnir,Fjölnir,0
+nice,Nice,0
+z80,z80,0
+json-graph-spec,JSON Graph Spec,0
+owen-lang,owen-lang,0
+zot,Zot,0
+sublime-syntax-test,Sublime Syntax Test Lang,0
+verifpal,verifpal,0
+struql,StruQL,0
+yedalog,Yedalog,0
+coco,Coco,0
+pikelet,pikelet,0
+forest-lang,forest-lang,0
+k-framework,k-framework,0
+spir,Standard Portable Intermediate Representation,0
+scribble,scribble,0
+sketchpad,Sketchpad,0
+newsqueak,Newsqueak,0
+hazel,hazel,0
+li-chen-wang,Li-Chen Wang,0
+janus-lang,Janus,0
+nexml,NeXML format,0
+basic-256,Basic-256,0
+xotcl,XOTcl,0
+jsl,JSL,0
+x-it,[x]it!,0
+metalang99,Metalang99,0
+hodor,Hodor,0
+popr,popr,0
+wavefront-material,Wavefront Material,0
+alma-007,Alma,0
+ibm-i-control-language,IBM i Control Language,0
+battlestar,Battlestar,0
+kai,kai,0
+toi,Toi,0
+bancstar-programming-language,BANCStar,0
+buddyscript,BuddyScript,0
+latino,latino,0
+fizz,fizz,0
+balgol,BALGOL,0
+linux-kernel-module,Linux Kernel Module,0
+lola,LOLA,0
+net-format,net-format,0
+basic-plus,BASIC-PLUS,0
+vsxu,VSXu,0
+lemon,lemon,0
+lucid-chart-app,Lucidchart,0
+information-processing-language,Information Processing Language,0
+hush,Hush,0
+co-dfns,co-dfns,0
+strongtalk,Strongtalk,0
+joule,Joule,0
+euler,Euler,0
+rubygems-pm,RubyGems,0
+mdx-lang,MultiDimensional eXpressions,0
+httplang,httplang,0
+vissim,VisSim,0
+powerisa,IBM POWER Instruction Set Architecture,0
+ldpl,ldpl,0
+pointless,pointless,0
+ld-json,JSON Lines,0
+fact-lang,FaCT,0
+mdl,MDL,0
+zenscript,zenscript,0
+godel,Gödel (Goedel),0
+parenthetic,parenthetic,0
+cor,cor,0
+oem,OEM,0
+ucg,UCG,0
+ixml,Invisible XML,0
+xidoc,Xidoc,0
+project-mentat,Project Mentat,0
+vtl-lang,Velocity Template Language,0
+conceptual,Conceptual,0
+aime,Aime,0
+gaml,GAML,0
+bro,Bro,0
+myia,myia,0
+yarv,YARV,0
+asdf,ASDF,0
+geany-editor,Geany,0
+fen-notation,Forsyth-Edwards Notation,0
+algebraic-modeling-language,Algebraic modeling language,0
+analytical-engine-machine,Analytical engine,0
+mangle,Mangle,0
+multiaddr,multiaddr,0
+mybb,MyBB,0
+rapid,RAPID,0
+fractran,FRACTRAN,0
+hp-time-shared-basic,HP Time-Shared BASIC,0
+coco-r,Coco/R,0
+neliac,NELIAC,0
+psyche-c,psyche-c,0
+rtl-2,RTL/2,0
+zope,Zope,0
+stos-basic,STOS BASIC,0
+sibilant,Sibilant,0
+function-block-diagram,Function block diagram,0
+openexr-format,OpenEXR,0
+gwion,Gwion,0
+business-process-modeling-language,BPML,0
+micro-mitten,micro-mitten,0
+lil-pl,Lil,0
+json-lambda,JSON lambda,0
+fleck,fleck,0
+trig-syntax,TriG syntax,0
+cat,cat,0
+dataweave,DataWeave,0
+easytrieve,Easytrieve,0
+lite-c,Lite-C,0
+dyvil,dyvil,0
+draco-programming-language,Draco,0
+foil,File Oriented Interpretive Language,0
+m2001,M2001,0
+zimbu,Zimbu,0
+promela,Promela,0
+z-flat,Z-flat,0
+incipit,Incipit,0
+mscgen,Mscgen,0
+picat,Picat,0
+explorer,Explorer,0
+orca-pl,orca-pl,0
+cbor,CBOR,0
+tads,Text Adventure Development System,0
+a-sharp,A#,0
+topshell,topshell,0
+textadept-editor,Textadept,0
+aimms,AIMMS,0
+linearml,LinearML,0
+cone,Cone,0
+boomerang-decompiler,Boomerang Decompiler,0
+n-triples,N-Triples,0
+comit,COMIT,0
+basic4ppc,Basic4ppc,0
+hakaru,hakaru,0
+rouge,Rouge,0
+cuneiform,cuneiform,0
+world-of-warcraft-addon-data,World of Warcraft Addon Data,0
+tao3d,tao3d,0
+cache-objectscript,Caché ObjectScript,0
+elena,elena,0
+sophia,Sophia,0
+dsd,Document Structure Description,0
+breccia,Breccia,0
+atomese,Atomese,0
+jevko,Jevko,0
+mint,mint,0
+goal,Goal,0
+manchester-syntax,Manchester syntax,0
+maude,Maude,0
+wmlscript,WMLScript,0
+april,april,0
+plam,plam,0
+poplog,POPLOG,0
+qif,Quicken Interchange Format,0
+quicklisp-pm,quicklisp-pm,0
+espol,Executive Systems Problem Oriented Language,0
+color-basic,Color BASIC,0
+qtscript,QtScript,0
+interchange-file-format,Interchange File Format,0
+bython,Bython,0
+tao-lang,Tao,0
+hujson,HuJSON,0
+kal,Kal,0
+visual-objects,Visual Objects,0
+theos-multi-user-basic,THEOS,0
+titan,titan,0
+ston,STON,0
+bamboo,bamboo,0
+wu,Wu,0
+lc-3,LC-3,0
+mirth,mirth,0
+dedukti,dedukti,0
+uniface,Uniface,0
+tangledown,tangledown,0
+pod6,Pod6,0
+fuzuli,Fuzuli,0
+topaz-lang,Topaz,0
+concurnas,concurnas,0
+pml,PML,0
+tremor-query,tremor-query,0
+austral,Austral,0
+turbo-basic-xl,Turbo-Basic XL,0
+stoneknifeforth,stoneknifeforth,0
+minikanren,minikanren,0
+ptx,PTX,0
+fl,FL,0
+jeeves,Jeeves,0
+magma,MAGMA,0
+tal,TAL,0
+asic-programming-language,ASIC,0
+zeek,Zeek,0
+infusion-framework,infusion-framework,0
+buzz,buzz,0
+pyrex,Pyrex,0
+autocoder,AUTOCODER,0
+ulisp,ulisp,0
+kuka,KUKA Robot Language,0
+sqr,Structured Query Reporter,0
+orange,orange,0
+reforth,reforth,0
+heron-lang,Heron,0
+taf,taf,0
+blacklight,Blacklight,0
+jiyu,jiyu,0
+gura,gura,0
+vtml,Visual Tool Markup Language,0
+ceemac,CEEMAC,0
+swizzle,swizzle,0
+hoon,hoon,0
+filterscript,Filterscript,0
+xtao,xTAO Modeling Language,0
+messagepack,MessagePack,0
+t2b,t2b,0
+pipelines,pipelines,0
+links-programming-language,Links,0
+multibase,multibase,0
+model-204,Model 204,0
+matrix-protocol,Matrix protocol,0
+notation3,Notation3,0
+euclid,Euclid,0
+swrl,Semantic Web Rule Language,0
+ok,OK,0
+elfe,ELFE,0
+parlog,Parlog,0
+cspydr,CSpydr,0
+ripple,Ripple,0
+maraca-lang,maraca-lang,0
+ook,Ook,0
+dcalgol,Data Communications ALGOL,0
+jcard,jcard,0
+jplace,jplace,0
+rpl-lang,Reactive Plan Language,0
+gorillascript,GorillaScript,0
+baysick,baysick,0
+balanced-ternary-notation,Balanced ternary,0
+c-al,C/AL,0
+hytime,HyTime,0
+linden-scripting-language,Linden Scripting Language,0
+plex,PLEX,0
+datafun,datafun,0
+son,son,0
+george,GEORGE,0
+coordinate-format,Matrix Market Coordinate Format,0
+praxis-lang,praxis-lang,0
+synapse,SYNAPSE,0
+optimized-systems-software,Optimized Systems Software,0
+newp,NEWP,0
+fructure-editor,fructure-editor,0
+smile,Smile data interchange format,0
+fossil-scm,Fossil,0
+siphash-hash-function,SipHash,0
+guix,GNU Guix,0
+sdf,SDF,0
+hyphy,HyPhy,0
+mimium,mimium,0
+quake,Quake,0
+ohayo,Ohayo,0
+smx-computer-language,SMX,0
+action-code-script,Action Code Script,0
+cobolscript,CobolScript,0
+edh,Đ,0
+truth,Truth,0
+dap-fortran,DAP FORTRAN,0
+macsyma,Project MAC’s SYmbolic MAnipulator,0
+bebasic,BeBasic,0
+aardvark,Aardvark,0
+lispworks,LispWorks,0
+processor-technology,Processor Technology,0
+haxelibs-pm,Haxe Library Manager,0
+ko,ko,0
+visual-paradigm-app,Visual Paradigm,0
+x-bitmap-format,X BitMap,0
+gremlin,Gremlin,0
+winbatch,Winbatch,0
+small-c,Small-C,0
+fpp,Functional PHP Preprocessor,0
+sdtm,SDTM,0
+chained-arrow-notation,Conway chained arrow notation,0
+crmsh,crmsh,0
+juvix,juvix,0
+lucid-lang,Lucid,0
+kuroko,Kuroko,0
+dependent-ml,DML,0
+parenscript,Parenscript,0
+virgil,Virgil,0
+hexagony,hexagony,0
+scaml,Scala Markup Language,0
+odrl,ODRL,0
+forte-4gl,Forte 4GL,0
+xpl0,XPL0,0
+glms,GLMS,0
+kumir,kumir,0
+isetl,ISETL,0
+p-star,P*,0
+boogie,Boogie,0
+brightscript-lang,BrightScript,0
+hspec,Hspec,0
+markdeep,Markdeep,0
+opengraph,opengraph,0
+rosette-lang,rosette-lang,0
+xsharp,xsharp,0
+linker-script,Linker Script,0
+rbs,rbs,0
+vega-editor-app,vega-editor-app,0
+short-code-computer-language,Short Code computer language,0
+simplictiy,Simplicity,0
+edinburgh-imp,Edinburgh IMP,0
+never,never,0
+expresso,expresso,0
+gist,Gist,0
+winwrap-basic,WinWrap Basic,0
+sawzall,Sawzall,0
+id,Irvine Dataflow,0
+algol-68-r,ALGOL 68-R,0
+jeebox,jeebox,0
+arm-templates,ARM Templates,0
+ccd,Continuity of Care Document,0
+cbasic,CBASIC,0
+atlas-autocode,Atlas Autocode,0
+solid,solid,0
+databus,DATABUS,0
+ognl,OGNL,0
+sublime-syntax,Sublime Syntax,0
+sporth,sporth,0
+pycket,Pycket,0
+energese-notation,Energy Systems Language,0
+flowcode,Flowcode,0
+kuin,Kuin,0
+rocky-mountain-basic,Rocky Mountain BASIC,0
+python-for-s60,Python for S60,0
+pharen,Pharen,0
+aplus,A+,0
+cda,Clinical Document Architecture,0
+axiom-computer-algebra-system,Axiom,0
+vyxal,Vyxal,0
+xxl,xxl,0
+literate-haskell,Literate Haskell,0
+rhtml,RHTML,0
+homa,Homa,0
+gellish,Gellish,0
+objectscript,ObjectScript,0
+aretext,aretext,0
+candy,Candy,0
+pnuts,Pnuts,0
+ici,Interactive C Interpreter,0
+apescript,ApeScript,0
+ssml,Speech Synthesis Markup Language,0
+ceu,Céu,0
+bla,Bla,0
+d2,D2,0
+dbml,dbml,0
+false,False,0
+lexon,Lexon,0
+lowstar,Low*,0
+sitemap,Sitemap,0
+2-pak,2-pak,0
+pbm-format,Portable Bit Map Format,0
+graphics-basic,Graphics BASIC,0
+imp,IMP,0
+lazyml,Lazy ML,0
+mortran,Mortran,0
+exec-2,EXEC 2,0
+phel,Phel,0
+micro-cpp,ΜC++,0
+instruction-list,Instruction list,0
+dda,DDA,0
+synon,Synon,0
+xcas,XCAS,0
+pl-p,PL/P,0
+categorical-query-language,categorical-query-language,0
+simons-basic,Simons' BASIC,0
+metacomco,MetaComCo,0
+jinx,jinx,0
+tabloid,Tabloid,0
+laning-and-zierler-system,Laning and Zierler system,0
+abcl-lang,Armed Bear Common Lisp,0
+redprl,redprl,0
+aaf,Advanced Authoring Format,0
+sac-programming-language,SAC,0
+idl-sl,IDL specification language,0
+yeti,yeti,0
+inko,inko,0
+tampio,tampio,0
+glyph,Glyph,0
+webdna,WebDNA,0
+scsh,Scsh,0
+kamby,Kamby,0
+nickle,Nickle,0
+sugar,Sugar,0
+ten,ten,0
+nuua,Nuua,0
+toy-lang,Toy,0
+urbiscript,Urbiscript,0
+mudlle,Mudlle,0
+blz,blz,0
+foaf,FOAF,0
+g-portugol,G-Portugol,0
+yess,YESS,0
+macchiato,Macchiato,0
+dog,The Dog Programming Language,0
+world,world,0
+ca65-assembly,ca65 Assembly,0
+ctalk-lang,ctalk-lang,0
+guide,GUIDE,0
+irc-log,IRC chat logs,0
+v8torque,v8torque,0
+zil,Zork Implementation Language,0
+mlab,MLAB,0
+g-fu,g-fu,0
+chicken,CHICKEN,0
+tahoe-lafs,Tahoe-LAFS,0
+3mf,3D Manufacturing Format,0
+little,little,0
+yabasic,Yabasic,0
+cram-format,CRAM file format,0
+beam-vm,BEAM Erlang virtual machine,0
+mheg-5,MHEG-5,0
+chinese-basic,Chinese BASIC,0
+lift,lift,0
+basic4android,Basic4android,0
+sequencel,SequenceL,0
+atari-microsoft-basic,Atari Microsoft BASIC,0
+le-lisp,Le-Lisp,0
+pl-c,PL/C,0
+gdata,Google Data Protcol,0
+frank-lang,Frank,0
+clarity,clarity,0
+pyth,Pyth,0
+tmtp,TMTP,0
+de-bruijn-index-notation,De Bruijn index,0
+pro-star-c,Pro*C,0
+sp-k,SP/k,0
+floscript,FloScript,0
+hr-code,hr-code,0
+bam-format,Binary Alignment Map,0
+atari-st-basic,Atari ST BASIC,0
+obliq,Obliq,0
+pear-pm,PEAR,0
+cycl,CYCL,0
+wing,Wing,0
+aplusplus,A++,0
+unity3d-asset,Unity3D Asset,0
+prograph,Prograph,0
+gren,Gren,0
+atlas,ATLAS Transformation Language,0
+tacl,Tandem Advanced Command Language,0
+stockholm-format,Stockholm format,0
+miva,Miva,0
+claire,CLAIRE,0
+rebeca-modeling-language,Rebeca Modeling Language,0
+clpr,CLPR,0
+probevue,ProbeVue,0
+icalendar-format,iCalendar,0
+space,Space,0
+dllup,dllup,0
+dashrep,Dashrep,0
+acme,Acme,0
+aspectcpp,AspectC++,0
+frame,frame,0
+plot-lang,Plot,0
+4th-dimension,4th Dimension,0
+fortran-90,Fortran 90,0
+pgm-format,Netpbm grayscale image format,0
+esc-p,ESC/P,0
+object-query-language,OQL,0
+coda-editor,Coda web development software,0
+hotdog,Hotdog,0
+apple-prodos,Apple ProDOS,0
+m-expressions,Meta Expressions,0
+kaffeine,Kaffeine,0
+gema,General-purpose macro processor,0
+sensetalk,SenseTalk,0
+codegear-delphi,CodeGear Delphi,0
+ruby-document-format,Ruby Document format,0
+dinkc,Dink Smallwood,0
+nadesiko,Nadesiko,0
+netlib,Netlib,0
+mai-basic-four,MAI Basic Four,0
+cif,Crystallographic Information File,0
+candor,candor,0
+dasm,Dasm,0
+arith-matic,ARITH-MATIC,0
+ibm-basica,IBM BASICA,0
+abc-80,ABC 80,0
+lawvere,Lawvere,0
+margin,Margin,0
+ecsharp,ecsharp,0
+spiderbasic,SpiderBasic,0
+rgb-format,Silicon Graphics Image,0
+schematron,Schematron,0
+metapost,METAPOST,0
+informix,IBM Informix-4GL,0
+zolang,zolang,0
+video,video,0
+wart,Wart,0
+hamdown,hamdown,0
+muddl,MUDDL,0
+dolittle,Dolittle,0
+sing-sharp,Sing Sharp,0
+leda,Leda,0
+macro-11,MACRO-11,0
+json-url,json->url,0
+makedoc,MakeDoc,0
+nvdl,Namespace-based Validation Dispatching Language,0
+chrome-programming-language,Chrome,0
+nord,Nord Programming Language,0
+funl,funl,0
+fcl,FCL,0
+ti-89-basic,TI-89 series,0
+plink-ped-format,plink-ped-format,0
+texti,texti,0
+blox,Blox,0
+blc,Binary Lambda Calculus,0
+myrddin,myrddin,0
+nimrod,nimrod,0
+omg-idl,OMG IDL,0
+stella,stella,0
+bml,bml,0
+chain-format,chain-format,0
+y,Y,0
+elymas,elymas,0
+hal-format,HAL Format,0
+chipmunk-basic,Chipmunk Basic,0
+ilbm,ILBM,0
+fxml,FXML,0
+daisy-systems,Daisy Systems,0
+preferred-executable-format,Preferred Executable Format,0
+cdf,Common Data Format,0
+scm,SCM,0
+split-c,Split-C,0
+rapidq,RapidQ,0
+tamgu,tamgu,0
+arret,arret,0
+graal,GRAAL,0
+charcoal,Charcoal,0
+ultralisp-pm,ultralisp-pm,0
+beta-basic,Beta BASIC,0
+cecil,CECIL,0
+miis,Meditech Interpretive Information System,0
+ease,Ease,0
+jean,JOSS Extended and Adapted for Nineteen-hundred,0
+elan,ELAN,0
+iptscrae,IPTSCRAE,0
+moinmoin,moinmoin,0
+csa,CodeStudAssembler,0
+run-basic,Run BASIC,0
+magik,Magik,0
+moya,moya,0
+tutor,TUTOR,0
+refer,Refer,0
+rlab,RLaB,0
+flatline,Flatline,0
+optimj,OptimJ,0
+kaleidoscope,Kaleidoscope,0
+small,Small,0
+3apl,3APL,0
+enterprise-mashup-markup-language,Enterprise Mashup Markup Language,0
+sako,System Automatycznego Kodowania Operacji,0
+mimix-stream-language,mimix-stream-language,0
+tql,TQL,0
+ambienttalk,AmbientTalk,0
+devicetree,Devicetree,0
+objective-s,Objective-S,0
+protium,protium,0
+fishlang,><>,0
+make,Make,0
+robots.txt,Robots.txt,0
+whirl,WHIRL,0
+augment,Augment,0
+ibm-basic,IBM BASIC,0
+darkbasic,DarkBASIC,0
+apple-basic,Apple BASIC,0
+camal,Cambridge Algebra System,0
+pact-i,PACT I,0
+linc-4gl,LINC 4GL,0
+spice-lisp,Spice Lisp,0
+dataflex,Dataflex,0
+wah,wah,0
+semicolon,semicolon,0
+lever,lever,0
+wonkey,Wonkey,0
+kalyn,Kalyn,0
+piet-programming-language,Piet,0
+slony,Slony,0
+obsidian,obsidian,0
+text-executive-programming-language,Text Executive Programming Language,0
+wirth-syntax-notation,Wirth syntax notation,0
+egel,egel,0
+qoir,QOIR,0
+formula,Formula language,0
+nilscript,NilScript,0
+obj-programming-language,OBJ,0
+cms-pipelines,CMS Pipelines,0
+devil,DEVIL,0
+sqrl,SQRL,0
+xpm-format,X PixMap,0
+microarchitecture-description-language,mdl,0
+jcof,JCOF,0
+intuitionistic,IPL,0
+astatine,Astatine,0
+jasper,jasper,0
+emfatic,emfatic,0
+git-config,git-config,0
+larp,LARP,0
+lazy-k,Lazy K,0
+liso,Liso,0
+cddl,CBOR data definition language,0
+hop,hop,0
+ion-schema,Ion Schema Language,0
+ppm-format,ppm-format,0
+portable-standard-lisp,Portable Standard Lisp,0
+polymorphic-programming-language,Polymorphic Programming Language,0
+stalin,Stalin,0
+cullinet,Cullinet,0
+knowledge-interchange-format,Knowledge Interchange Format,0
+nimskull,Nimskull,0
+clike,clike,0
+tynker,Tynker,0
+xbel,XBEL,0
+hp-gl,HP-GL,0
+game-oriented-assembly-lisp,Game Oriented Assembly Lisp,0
+pqq,P′′,0
+xtclang,Ecstasy,0
+steinhaus-moser-notation,Steinhaus-Moser notation,0
+man-machine-language,MML,0
+cam,Content Assembly Mechanism,0
+colorforth,ColorForth,0
+zbasic,ZBasic,0
+signal,SIGNAL,0
+mark-iv,MARK IV,0
+ttm,TTM,0
+corman-common-lisp,Corman Common Lisp,0
+quikscript,QUIKSCRIPT,0
+co2,co2,0
+ren-c,Ren-C,0
+rhine,rhine,0
+isbl,ISBL,0
+croma,Croma,0
+mobl-lang,Mobl,0
+ubjson,UBJSON,0
+cperl,cperl,0
+ttcn,Tree and Tabular Combined Notation,0
+keli,keli,0
+basic-ap,BASIC A+,0
+mallard-basic,Mallard BASIC,0
+janus-programming-language,Janus,0
+lisp-2,LISP 2,0
+ratfiv,Ratfiv,0
+mlatu,mlatu,0
+ale,a Lisp Environment,0
+sbcl,Steel Bank Common Lisp,0
+jis-x-0201,JIS X 0201,0
+jass,Just Another Scripting Syntax,0
+forml,Forml,0
+ciel,Ciel,0
+ciao-programming-language,Ciao,0
+pico,PICO,0
+slideshow,Slideshow,0
+join-java,Join Java,0
+juniper,juniper,0
+rascalmpl,RascalMPL,0
+tscript,TScript,0
+huginn,huginn,0
+alumina,Alumina,0
+tuplemarkup,tuplemarkup,0
+vlibtemplate,VlibTemplate,0
+dern,Dern,0
+yamp,YAMP,0
+hcard,HCard,0
+redshift,Amazon Redshift,0
+strat,strat,0
+fardlang,Fardlang,0
+lila-lang,lila-lang,0
+hugo,HUGO,0
+behavior-markup-language,BML,0
+coherence,coherence,0
+procfile,Procfile,0
+quorum,quorum,0
+usd,USD,0
+wescheme,wescheme,0
+worst,Worst,0
+julia-lang,Joyfully Universal Language for (Inline) Assembly,0
+life,LIFE,0
+myghty,Myghty,0
+uiml,UIML,0
+chomski,Chomski,0
+visual-test,Visual Test,0
+argus,Argus,0
+gamemonkey-script,GameMonkey Script,0
+litescript,LiteScript,0
+om,Om,0
+aadl,Avionics Architecture Design Language,0
+trellis,Trellis,0
+kawa-scheme-implementation,Kawa,0
+data-general-business-basic,Data General Business Basic,0
+snaptag,SnapTag,0
+transaction-language-1,Transaction Language 1,0
+gtf-format,Gene transfer format,0
+medusa,MEDUSA,0
+ana,ana,0
+polyglot-compiler,polyglot-compiler,0
+savi,Savi,0
+aztec-c,Aztec C,0
+lambda-prolog,ΛProlog,0
+scratchpad,Scratchpad,0
+l2,l2,0
+vilnius-basic,Vilnius BASIC,0
+jisp,Jisp,0
+mys,mys,0
+ids,Integrated Data Store,0
+dynamo,DYNAMO,0
+eurisko,Eurisko,0
+ramdascript,RamdaScript,0
+hivemind,hivemind,0
+gforth,Gforth,0
+mythryl,mythryl,0
+tablam,tablam,0
+alma-0,Alma-0,0
+chill,CHILL,0
+abbreviated-test-language-for-all-systems,Abbreviated Test Language for All Systems,0
+ante-esolang,Ante,0
+proteus-programming-language,Proteus,0
+rita,Rita,0
+json-script,JSONScript,0
+cgol,CGOL,0
+zeno,ZENO,0
+z,Z,0
+lil,Little Implementation Language,0
+daplex,Daplex,0
+nxt-g,NXT-G,0
+vcard,vCard,0
+h-lang,h,0
+blue-programming-language,Blue,0
+pinto,pinto,0
+tree-annotation-operator,TAO,0
+nydp,nydp,0
+jlang,JLang,0
+link,Link,0
+lain,lain,0
+luau,luau,0
+mtml,Marine Trading Markup Language,0
+trex,Trex,0
+z2,z2,0
+apl2,APL2,0
+bioscript,bioscript,0
+blue,blue,0
+efl,EFL,0
+emerald,Emerald,0
+qcl,QCL,0
+sora,sora,0
+specrtl,specrtl,0
+subx,SubX,0
+b32-business-basic,B32 Business Basic,0
+sun-raster-format,Sun Raster,0
+upic,UPIC,0
+mapper,MAPPER,0
+work-flow-language,WFL,0
+agentspeak,AgentSpeak,0
+bcx,BCX,0
+cornell-university-programming-language,Cornell University Programming Language,0
+macbasic,MacBASIC,0
+jet-propulsion-laboratory-display-information-system,Jet Propulsion Laboratory Display Information System,0
+fasttrack-scripting-host,FastTrack Scripting Host,0
+ps-algol,PS-algol,0
+vivaldi,vivaldi,0
+pascal-abc.net,PascalABC.NET,0
+kei,kei,0
+mages,mages,0
+basicode,BASICODE,0
+kqml,Knowledge Query and Manipulation Language,0
+harwell-boeing-format,Harwell-Boeing file format,0
+spitbol,SPITBOL,0
+ikarus,Ikarus Scheme implementation,0
+lyapas,LYaPAS,0
+objectlogo,ObjectLOGO,0
+saol,SAOL,0
+southampton-basic-system,Southampton BASIC System,0
+extended-ml,Extended ML,0
+basic-e,BASIC-E,0
+universe,UniVerse,0
+post-canonical-system,Post production,0
+6gunz,6gunz,0
+edgelisp,edgelisp,0
+jonprl,jonprl,0
+d-data-language-specification,D data language specification,0
+convert,CONVERT,0
+genexus,GeneXus,0
+unseemly,unseemly,0
+txtzyme,txtzyme,0
+typecobol,typecobol,0
+ais,Alternate Instruction Set,0
+loci,loci,0
+r4,r4,0
+lava,Lava,0
+scriptbasic,ScriptBasic,0
+fenix-project,Fenix Project,0
+basic09,BASIC09,0
+encore,Encore,0
+brain-flak,Brain-Flak,0
+rpp,R++,0
+ktexteditor-editor,ktexteditor-editor,0
+hrqr,hrqr,0
+election-markup-language,Election Markup Language,0
+renderman-shading-language,RenderMan Shading Language,0
+dragonbasic,DragonBASIC,0
+lse,Langage Sans Espoir,0
+fp3,fp,0
+flapjax,Flapjax,0
+little-b,Little b,0
+cheetah,CheetahTemplate,0
+lithe,Lithe,0
+plaid-programming-language,Plaid,0
+adamant,adamant,0
+nianiolang,nianiolang,0
+flua,flua,0
+ferite,Ferite,0
+kaml,KAML,0
+kami,Kami,0
+alan,alan,0
+avro,avro,0
+beautiful-report-language,beautiful-report-language,0
+copilot,Copilot,0
+mathlingua,MathLingua,0
+nasal,Nasal,0
+plantuml,plantuml,0
+s-lang,s-lang,0
+sweet-expressions,Sweet Expressions,0
+verve,verve,0
+cp,CP,0
+darcs-patch,Darcs Advanced Revision Control System,0
+rise,rise,0
+shift,SHIFT,0
+webql,webql,0
+ccr,Continuity of Care Record,0
+aui,AUI,0
+amiga-programming-languages,Amigas,0
+spip,SPIP,0
+hopscotch,Hopscotch,0
+nomad-software,Nomad software,0
+visual-smalltalk-enterprise,Visual Smalltalk Enterprise,0
+pv-wave,PV-Wave,0
+aplx,APLX,0
+abset,ABSET,0
+agora,Agora,0
+mapbasic,MapBasic,0
+tmg,TMG,0
+bounce-lang,Bounce,0
+pascal-script,Pascal Script,0
+ircis,ircis,0
+elliott-algol,Elliott ALGOL,0
+snoop,SNOOP,0
+concurrent-ml,Concurrent ML,0
+dml,DML,0
+think-c,THINK C,0
+openroad,OpenROAD,0
+guido-music-notation,GUIDO music notation,0
+simpl,SIMPL,0
+easylanguage,EasyLanguage,0
+dcat,Data Catalog Vocabulary,0
+meta-ii,Meta II,0
+omnis-studio,Omnis Studio,0
+v-golf,V,0
+easy,Easy Programming Language,0
+sbml,Systems Biology Markup Language,0
+itl,ITL,0
+protel,Protel,0
+keysight-vee,Agilent VEE,0
+dibol,Digital Interactive Business Oriented Language,0
+lambda-zero,lambda-zero,0
+alf,Algebraic Logic Functional,0
+onyx,Onyx,0
+d4-programming-language,D4,0
+zl,zl,0
+texy,Texy!,0
+alphard-programming-language,Alphard,0
+opencomal,OpenComal,0
+nylo,nylo,0
+clix,CLiX markup,0
+leap,LEAP,0
+orca,orca,0
+rtf,RTF,0
+rpscript,rpscript,0
+awl,awl,0
+juicy,juicy,0
+leaf,leaf,0
+rapidbatch,RapidBatch,0
+starpial,starpial,0
+kerf,kerf,0
+golfscript,GolfScript,0
+indental,Indental,0
+les,LES,0
+nhx,The New Hampshire X Format,0
+pop-pl,Patient-Oriented Prescription Programming Language,0
+promql,PromQL,0
+slim,slim,0
+srv,srv,0
+eden,Eden,0
+emoticon,emoticon,0
+kivy-lang,kivy-lang,0
+mmix,mmix,0
+red-lang,Red,0
+scl,Structured Control Language,0
+algol-n,ALGOL N,0
+galaksija-basic,Galaksija BASIC,0
+apse,APSE,0
+string-diagrams-notation,String diagram,0
+iif,Intuit Interchange Format,0
+palasm,PALASM,0
+wol,WOL,0
+framework-office-suite,Framework office suite,0
+star,Star,0
+jazz,Jazz,0
+twelf,Twelf,0
+tasm,TASM,0
+tosh,Tosh,0
+statsplorer,Statsplorer,0
+fpgac,FpgaC,0
+object-z,Object-Z,0
+sympl,SYMPL,0
+basic4gl,Basic4GL,0
+gnu-e,GNU E,0
+nested-context-language,Nested Context Language,0
+sam76,SAM76,0
+supertalk,SuperTalk,0
+commonloops,CommonLoops,0
+ca-realizer,CA-Realizer,0
+flacc,FLACC,0
+object-oberon,Object Oberon,0
+ramis-software,Ramis software,0
+batari-basic,Batari Basic,0
+bywater-basic,Bywater BASIC,0
+northstar-basic,NorthStar BASIC,0
+todotxt,Todotxt,0
+visual-dataflex,Visual DataFlex,0
+rexon,Rexon,0
+spl,Structured Product Labeling,0
+aplette,aplette,0
+ruleml,RuleML,0
+garp,GARP,0
+cs-script,CS-Script,0
+proiv,PROIV,0
+slip,SLIP,0
+demos,DEMOS,0
+flex-lang,Flex language,0
+alphabasic,AlphaBasic,0
+basic-11,BASIC-11,0
+mycroft,mycroft,0
+glush,glush,0
+taijilang,Taijilang,0
+ralph,ralph,0
+cmu-common-lisp,CMU Common Lisp,0
+clamp,Common Lisp with Arc Macros and Procedures,0
+i,I,0
+tom,TOM,0
+lis,Langage Implementation Systeme,0
+rainbow,rainbow,0
+fjs,fjs,0
+phorth,phorth,0
+z-lang,z-lang,0
+plexil,PLEXIL,0
+wcps,WCPS,0
+brown-university-interactive-language,BRUIN,0
+icarus,icarus,0
+ham,Ham,0
+diana,DIANA,0
+wsfn-programming-language,WSFN,0
+badlanguage,badlanguage,0
+rel-lang,rel-lang,0
+konsolscript,KonsolScript,0
+gintonic,gintonic,0
+jedlang,jedlang,0
+blur-markup-language,blur-markup-language,0
+formality,formality,0
+ramen,ramen,0
+asp.net,ASP.NET,0
+corescript,corescript,0
+mathml,MathML,0
+nrl,Namespace Routing Language,0
+lezer,lezer,0
+emesh,emesh,0
+flownote,flownote,0
+oopsilon,oopsilon,0
+u,U,0
+elegance,elegance,0
+albatross,albatross,0
+empirical,empirical,0
+hecl,hecl,0
+qed-lang,qed-lang,0
+slick,Slick,0
+bossam,Bossam Rule Language,0
+csl,CSL,0
+phylip,phylip,0
+public-key-file,Public Key File,0
+realbasic,REALBasic (now Xojo),0
+send-standard,Standard for Exchange of Non-clinical Data,0
+val,VAL,0
+robot-battle,Robot Battle,0
+infer,INFER,0
+s-sl,S/SL,0
+alcor,ALCOR,0
+larceny,Larceny Scheme implementation,0
+acornsoft-logo,Acornsoft Logo,0
+napier88,Napier88,0
+tymshare-superbasic,Tymshare SuperBasic,0
+eco-editor,eco-editor,0
+sham,sham,0
+dexterity,Dexterity,0
+daml,DARPA Agent Markup Language,0
+pascal-mtp,PASCAL/MT+,0
+limdep,LIMDEP,0
+sasl-programming-language,SASL,0
+atom,Atom,0
+grid-notation,grid-notation,0
+fork-lang,fork-lang,0
+mewmew,MewMew,0
+snit,Snit,0
+ncar-command-language,NCAR Command Language,0
+khepri,Khepri,0
+typographical-number-theory,Typographical Number Theory,0
+sisc,SISC,0
+scheme-2-d,Scheme 2-D,0
+secure-operations-language,Secure Operations Language,0
+uncol,UNCOL,0
+sugartex,sugartex,0
+alpha-programming-language,Alpha,0
+altran,ALTRAN,0
+powerhouse-programming-language,PowerHouse,0
+ed-editor,ed,0
+y-lang,y-lang,0
+calypso,Calypso,0
+mama-software,Mama,0
+zigzag,ZigZag,0
+actor,Actor,0
+gello,Gello Expression Language,0
+ometa,OMeta,0
+npl-lang,NPL,0
+sr-programming-language,SR,0
+ifps,IFPS,0
+matita,Matita,0
+abstract-state-machine-language,Abstract State Machine Language,0
+ca-telon,CA-Telon,0
+lynx,Lynx,0
+pikt,PIKT,0
+snowball-programming-language,Snowball,0
+whack,whack,0
+dasl,Distributed Application Specification Language,0
+preforth,preforth,0
+smalltalk-mt,Smalltalk MT,0
+minc,MINC,0
+owbasic,OWBasic,0
+phoenix-object-basic,Phoenix Object Basic,0
+occam-pi,Occam π,0
+quaint-lang,quaint-lang,0
+gauche,Gauche Scheme implementation,0
+ecological-metadata-language,Ecological Metadata Language,0
+mumath,muMath,0
+palcode,PALcode,0
+pict,PICT,0
+yap-prolog,YAP,0
+hascript,IBM HAScript,0
+pl-11,PL-11,0
+roop,ROOP,0
+zopl,ZOPL,0
+kermeta,Kermeta,0
+fx-87,FX-87,0
+jaws-scripting-language,JAWS Scripting Language,0
+macroml,MacroML,0
+remix,remix,0
+shex,ShEx,0
+business-object-notation,Business Object Notation,0
+cybil,CYBIL,0
+datapoint-dasl,Datapoint's Advanced Systems Language,0
+formac,FORMAC,0
+neutron,neutron,0
+emerald-lang,emerald-lang,0
+tibet,tibet,0
+ad-hoc,Ad-hoc,0
+polymath,polymath,0
+edina,Edina,0
+rocket,rocket,0
+jammy,Jammy,0
+nlpl,nlpl,0
+lsd,lsd,0
+calc4,Calc4,0
+eskew,eskew,0
+serious,Serious,0
+boa,boa,0
+c-talk,c-talk,0
+freefem,Freefem,0
+hilbert,hilbert,0
+lush,Lush,0
+pickle-format,Pickle,0
+pikachu,pikachu,0
+spice,Spice,0
+ttsneo,ttsneo,0
+typoscript,Typoscript,0
+algae,Algae,0
+ascii-armor,ASCII Armor,0
+homespring,Homespring,0
+plain,PLAIN,0
+post-x,Post-X,0
+prompter,prompter,0
+ssl-lang,ssl-lang,0
+squire,Squire,0
+subtext,Subtext,0
+cal,CAL Actor Language,0
+fuzzyclips,FuzzyCLIPS,0
+tektronix,Tektronix 4050,0
+ibm-1401-symbolic-programming-system,IBM 1401 Symbolic Programming System,0
+information-algebra,Information Algebra,0
+pvs,PVS,0
+real-time-cmix,Real-time Cmix,0
+strand-programming-language,Strand,0
+abcl,Actor-Based Concurrent Language,0
+sbasic,SBASIC,0
+tiger-basic,Tiger-BASIC,0
+ibm-rational-sqabasic,IBM Rational SQABasic,0
+high-tech-basic,High Tech BASIC,0
+mentat,Mentat,0
+blazex,BlazeX,0
+setlx,setlx,0
+knight,Knight,0
+hook,Hook,0
+hummingbird-quickscript,Hummingbird QuickScript,0
+stratego,Stratego/XT,0
+daml-oil,DAML+OIL,0
+simple,SIMPLE,0
+xcore,XCore Architecture,0
+advanced-continuous-simulation-language,Advanced Continuous Simulation Language,0
+averest,Averest,0
+eumel,EUMEL,0
+ssb,Secure Scuttlebutt,0
+mathtype,MathType,0
+flame-ir,flame-ir,0
+toki-sona,toki sona,0
+cokescript,CokeScript,0
+qed-editor,QED,0
+common-log-format,Common Log Format,0
+ethernet,Ethernet,0
+jpeg-format,JPEG,0
+ofx,Open Financial Exchange,0
+patch,patch,0
+ex-editor,ex,0
+mass-energy-equation,Mass Energy Equation,0
+autoconf,Autoconf,0
+interpress,Interpress,0
+xgmml,XGMML,0
+filetab,FILETAB,0
+service-modeling-language,Service Modeling Language,0
+sa-c-programming-language,SA-C,0
+beflix,BEFLIX,0
+data-access-language,Data Access Language,0
+corvision,CorVision,0
+ial,IAL,0
+joe-e,Joe-E,0
+o-matrix,O-Matrix,0
+chip-programming-language,CHIP,0
+datatrieve,DATATRIEVE,0
+aiml,AIML,0
+s2,System 2,0
+ambit,AMBIT,0
+insitux,Insitux,0
+o-xml,o:XML,0
+cane,Cane,0
+sill,sill,0
+business-application-language,Business application language,0
+iitran,IITRAN,0
+r3,r3,0
+tefkat,Tefkat,0
+compact-application-solution-language,Compact Application Solution Language,0
+fxscript,FXScript,0
+proset,ProSet,0
+minilang,Minilang,0
+runiq,runiq,0
+20-gate,20-GATE,0
+citrine,Citrine,0
+pcrap,PCrap,0
+rigc,RigC,0
+chika,Chika,0
+latte-js,latte-js,0
+duro,duro,0
+lesma,Lesma,0
+huwcode,HuwCode,0
+penguor,penguor,0
+taxa,taxa,0
+acorn-lang,acorn-lang,0
+newclay,newclay,0
+idio,Idio,0
+mewl,Mewl,0
+codeflow,codeflow,0
+storymatic,Storymatic,0
+esoteric-reaction,Esoteric Reaction,0
+horse64,Horse64,0
+passambler,passambler,0
+rockstar-rkt,rockstar-rkt,0
+workfl,Workfl,0
+gamerlanguage,GamerLanguage,0
+entropy,Entropy,0
+links,links,0
+loom,Loom,0
+o42a,o42a,0
+operon,operon,0
+planguage,Planguage,0
+runic,runic,0
+sarl,SARL,0
+suneido,Suneido,0
+whalecalf,whalecalf,0
+das,DAS,0
+g-expressions,g-expressions,0
+metaweb-query-language,Metaweb Query Language,0
+newton,Newton,0
+pandora,Pandora,0
+psi,PSI,0
+rapidgen-rpl,rapidgen-rpl,0
+rbscript,rbscript,0
+rust-hir,Rust HIR,0
+wast,WebAssembly Text Format,0
+xduce,xduce,0
+euboea,euboea,0
+wlambda,WLambda,0
+zlang,zlang,0
+nuprl,Nuprl,0
+absys,ABSYS,0
+kl0,KL0,0
+ail,AIL,0
+cql,cql,0
+nulan,nulan,0
+qute,QUTE,0
+hotcocoalisp,Hot Cocoa Lisp,0
+xdr,XDR Schema,0
+sox,Schema for Object-Oriented XML,0
+lexx-editor,LEXX,0
+coffee-cinema-4d,COFFEE Cinema 4D,0
+visual-dialogscript,Visual DialogScript,0
+bayer-expressions,Bayer Expressions,0
+edscript,ed script,0
+datomic,Datomic,0
+cytosol,cytosol,0
+iptables-rope,IpTables Rope,0
+sort-merge-generator,Sort Merge Generator,0
+clx,CLX,0
+scriptol,Scriptol,0
+adenine-programming-language,Adenine,0
+lagoona,Lagoona,0
+tacpol-programming-language,TACPOL,0
+maria-xml,MARIA XML,0
+bbj,BBj,0
+bbx,BBx,0
+yakou-lang,Yakou Lang,0
+typecastjs,Typecast.js,0
+curly,Curly,0
+rye,Rye,0
+r2ml,R2ML,0
+jsml,JSML,0
+symbolic-assembly,SYMBOLIC ASSEMBLY,0
+sheerpower4gl,SheerPower4GL,0
+flexml,FleXML,0
+grml,GRML,0
+robic,Robic,0
+thinglab,ThingLab,0
+51forth,51forth,0
+concurrent-metatem,Concurrent METATEM,0
+lispme,LispMe,0
+met-english,Met-English,0
+objectpal,ObjectPAL,0
+tlc,Tag Line Commands,579
+daonode,daonode,0
+rustscript,RustScript,0
+mawk,mawk,0
+shadama,shadama,0
+rio,rio,0
+ricscript,RicScript,0
+runrev,RunRev,0
+xmtc,XMTC,0
+ape100,APE100,0
+basicx,BasicX,0
+rasp,RASP,0
+canon-capsl,CaPSL,0
+corbascript,CorbaScript,0
+bizubee,Bizubee,0
+kavascript,KavaScript,0
+octune,Octune,0
+baby-modula-3,Baby modula-3,0
+hbasic,Hbasic,0
+mlpolyr,mlpolyr,0
+multi-user-basic,Multi-user BASIC,0
+riff,Riff,0
+geogebra,GeoGebra,0
+cotton,Cotton,0
+forthscript,ForthScript,0
+lamderp,lamderp,0
+iode,Iode,0
+pearscript,PearScript,0
+woe,woe,0
+hpp,H++,0
+jingo,Jingo,0
+hina,Hina,0
+microl,microl,0
+fern,Fern,0
+meanscriptcli,MeanscriptCLI,0
+cosh,cosh,0
+mountain,mountain,0
+lambcalc,lambcalc,0
+broccoli-1,Broccoli,0
+draconian,draconian,0
+mai,mai,0
+8th,8th,0
+arvelie-format,arvelie-format,0
+converge,converge,0
+flare,Flare,0
+michelson,michelson,0
+mool,MINI OBJECT-ORIENTED LANGUAGE,0
+plasma,plasma,0
+timpani,Timpani,0
+aarch64,AArch64,0
+class,CLASS,0
+edison,Edison,0
+electre,Electre,0
+everparse3d,EverParse3D,0
+grin,GRIN,0
+guru,guru,0
+iikuse,iikuse,0
+manticore,manticore,0
+nelua,Nelua,0
+please,PLEASE,0
+seq,Seq,0
+strudel,strudel,0
+v-visual-language,V,0
+xml-ql,XML Query Language,0
+xt3d,xt3d,0
+mathjax,MathJax,0
+nirvana,nirvana,0
+truck,truck,0
+x-basic,X-BASIC,0
+t-lang,t-lang,0
+xupdate,Xupdate,0
+language-server-protocol,LSP,0
+root-format,root-format,0
+dkim-standard,DomainKeys Identified Mail,0
+ghc,GHC,0
+jmap,JMAP,0
+psyco,PSYCO,0
+alfred,alfred,0
+boost-lib,Boost C++ libraries,0
+docker,Docker,0
+parquet,parquet,0
+linoleum,Linoleum (L.in.oleum),0
+graphql-plus-minus,GraphQL+-,0
+mockingbird-notation,mockingbird-notation,0
+kernel,kernel,0
+soulver,Soulver,0
+sourcetree,Sourcetree,0
+abacus-machine,Abacus,0
+ads-b-standard,ADS-B,0
+attic-numerals,Attic numerals,0
+bitarray,Bit array,0
+fast-fourier-transform-equation,Fast Fourier Transform Equation,0
+feynman-diagram,Feynman diagram,0
+greek-numerals,Greek numerals,0
+navier-stokes-equation,Navier-Stokes Equation,0
+pascals-calculator-machine,Pascal's calculator,0
+roman-abacus-machine,Roman abacus,0
+roman-numerals,Roman numerals,0
+sparqcode,SPARQCode,0
+spf-standard,Sender Policy Framework,0
+alohanet,ALOHAnet,0
+cuecat,CueCat,0
+etruscan-numerals,Etruscan numerals,0
+fibonacci-notation,Liber Abaci,0
+jpp,Visual J++,0
+monodevelop-editor,MonoDevelop,0
+normal-distribution-equation,Normal Distribution Equation,0
+sk8,SK8,0
+vdm-sl,Vienna Development Method Specification Language,0
+address,Address,0
+afs,AFS,0
+amperes-circuital-equation,Ampère's Circuital Equation,0
+apple-1-machine,Apple I,0
+atom-editor,Atom,0
+coulombs-equation,Coulomb's Equation,0
+cubase,Steinberg Cubase,0
+faradays-induction-equation,Faraday's Induction Equation,0
+gauss-flux-equation,Gauss Flux Formula,0
+gauss-magnetism-equation,Gauss Magnetism Formula,0
+hccb,HCCB,0
+hlasm,HLASM,0
+imac-machine,IMac,0
+ingres,Ingres database,0
+ipad-machine,IPad,0
+iphone-machine,IPhone,0
+ipv4,IPv4,0
+language-h,Language H,0
+macbook-air-machine,MacBook Air,0
+macintosh-machine,Macintosh,0
+mp3-format,MP3,0
+opendoc-protocol,OpenDoc,0
+pl-i-subset-g,PL/I,0
+price-equation,Price Equation,0
+pythagorean-equation,Pythagorean Equation,0
+set-builder-notation,Set-builder notation,0
+sprite-os,Sprite Operating System,0
+structured-storage,COM Structured Storage,0
+sybyl-notation,SYBYL line notation,0
+wiswesser-line-notation,Wiswesser line notation,0
+bayes-equation,Bayes' Equation,0
+dot-product-equation,Dot Product Equation,0
+gravity-equation,Gravity Equation,0
+information-theory-equation,Information Theory Equation,0
+ipfs,InterPlanetary File System,0
+nroff,nroff,0
+phigs,PHIGS,0
+png-format,PNG,0
+qfx,QFX file format,0
+razor,Razor,0
+schoonschip,Schoonschip,0
+setun,Setun,0
+squoze,SQUOZE,0
+stringcomp,STRINGCOMP,0
+watbol,WATBOL,0
+algol-x,ALGOL X,0
+energy-momentum-equation,Energy Momentum Equation,0
+heic,HEIC,0
+lincos,Lincos,0
+molecular-query-language,Molecular Query Language,0
+semi-thue-system,Semi-Thue,0
+shrdlu,SHRDLU,0
+superplan,Superplan,0
+advice-taker,Advice Taker,0
+bbn-lisp,BBN-LISP,0
+eqn,eqn,0
+eulers-equation,Euler's Equation,0
+genstat,GENSTAT,0
+hyperfun,HyperFun,0
+kyma,Kyma,0
+macintosh-common-lisp,Macintosh Common Lisp,0
+object-definition-language,Object Definition Language,0
+objvlisp,ObjVlisp,0
+pm2,PM2,0
+prologpp,Prolog++,0
+flang,FLANG,0
+gasp,General Activity Simulation Program,0
+integral-equation,Integral Equation,0
+iota-and-jot,Iota-and-jot,0
+little-smalltalk,Little Smalltalk,0
+optimization-programming-language,Optimization Programming Language,0
+parasolid,Parasolid,0
+sdl,Shared Dataspace Language,0
+dad,DAD,0
+gofer,Gofer,0
+plum,Programming Language for the University of Maryland,0
+interscript,Interscript,0
+iso-8601,ISO 8601,0
+nyquist,Nyquist,0
+rosetta-2,Rosetta-2,0
+definite-clause-grammar-notation,Definite clause grammar,0
+lyric,Language for Your Remote Instruction by Computer,0
+zpl,ZPL,0
+swym,Swym,0
+login,LOGIN,0
+bistro-programming-language,Bistro,0
+gfoo,gfoo,0
+smarts,SMILES arbitrary target specification,0
+moescript,Moescript,0
+tridash,tridash,0
+wats,wats,0
+weebasic,weebasic,0
+futurescript,FutureScript,0
+textframe,TextFrame,0
+broccoli,Broccoli,0
+stacklang,stacklang,0
+psyche,psyche,0
+broccoli-2,Broccoli,0
+clox,clox,0
+rlox,rlox,0
+bel-lang,Biological Expression Language,0
+datev,datev,0
+dynamo-pm,dynamo-pm,0
+eta,eta,0
+foundry,foundry,0
+grain,grain,0
+habit,habit,0
+linked-markdown,Linked Markdown,0
+liquidity,liquidity,0
+mypy,mypy,0
+numpad,NumPad,0
+package-control-pm,package-control-pm,0
+scriptease,ScriptEase,0
+tablatal,tablatal,0
+afnix,Afnix,0
+arrow,arrow,0
+axt-format,axt-format,0
+bed-format,Browser Extensible Data Format,0
+duel,DUEL,0
+eqs,EQS,0
+ez,EZ,0
+interleaved-notation,Interleaved Notation,0
+oasis,OASIS,0
+pamela,PAMELA,0
+system-v-abi,System V ABI,0
+titanium,Titanium,0
+w,w,0
+moby-programming-language,Moby,0
+algobox,algobox,0
+comsol-script,COMSOL Script,0
+nosica,Nosica,0
+beagle,beagle,0
+bitc,BitC,0
+boxx,Boxx,0
+hyper-basic,Hyper Basic,0
+metal-programming-language,MetaL,0
+monesa,Monesa,0
+scieneer-common-lisp,Scieneer Common Lisp,0
+smalltalk-yx,Smalltalk YX,0
+tibbo-basic,Tibbo BASIC,0
+touchdevelop,TouchDevelop,0
+ujml,UJML,0
+windev,WinDev,0
+wlanguage,Wlanguage,0
+xprofan,XProfan,0
+bigwig-programming-language,Bigwig Programming Language,0
+deesel,Deesel,0
+seph-programming-language,Seph,0
+simkin-programming-language,Simkin,0
+timber-programming-language,Timber,0
+micro-prolog,Micro-PROLOG,0
+superxpp,Superx++,0
+chain-programming-language,CHAIN,0
+escapade-programming-language,Escapade,0
+izibasic,Izibasic,0
+m-programming-language,M,0
+mocklisp,Mocklisp,0
+moonrock-basic-compiler,Moonrock Basic Compiler,0
+omikron-basic,Omikron BASIC,0
+proc-procedure-language,PROC procedure language,0
+bon-programming-language,Bon,0
+marmot,Marmot,0
+portal-langage,Portal langage,0
+powerlanguage,PowerLanguage,0
+http-3,HTTP/3,0
+musp,MUSP,0
+ngl-programming-language,NGL,0
+klerer-may-system,Klerer-May System,0
+lkif,Legal Knowledge Interchange Format,0
+opl-langage-informatique,OPL,0
+iscript,iScript,0
+snobol4,SNOBOL4,0
+tsar,tsar,0
+royalscript,RoyalScript,0
+dreamlisp,dreamlisp,0
+tawa,Tawa,0
+sugi,Sugi,0
+bag-format,bag-format,0
+calc,calc,0
+clojars-pm,clojars-pm,0
+cocoapods-pm,cocoapods-pm,0
+cpan-pm,cpan-pm,0
+crates-pm,crates-pm,0
+ctan-pm,ctan-pm,0
+darklang,darklang,0
+dio,dio,0
+enso-lang,enso,0
+extempore,Extempore,0
+goose,goose,0
+grunt,grunt,0
+imp-lang,imp-lang,0
+jmespath,JMESPath,0
+juttle,juttle,0
+kilo-lisp,kilo-lisp,0
+lasp,lasp,0
+leazy,Leazy,0
+melpha-pm,melpha-pm,0
+pacmanconf,PacmanConf,0
+pbt-omega,Omega,0
+pgql,pgql,0
+pickcode,PickCode,0
+pkgconfig,PkgConfig,0
+plink-bed-format,plink-bed-format,0
+plumb,plumb,0
+powershell-gallery-pm,powershell-gallery-pm,0
+pseint,PSeInt,0
+robotc,robotc,0
+rosie,rosie,0
+versioned-text-markup-language,versioned-text-markup-language,0
+abel,ABEL,0
+bolt,BOLT,0
+ccs,CCS,0
+chimera,Chimera,0
+descartes,Descartes,0
+dino,DINO,0
+dlp,DLP,0
+hscript,HScript,0
+lila,Lila,0
+lorel,Lorel,0
+methodology-description-language,MDL,0
+paisley,PAISley,0
+relational-data-file,Relational Data File,0
+rsl,RAISE Specification Language,0
+scan,SCAN,0
+stl,Statement List,0
+tl-isa,Timeless Instruction Set (TL ISA),0
+unql,UnQL,0
+watfor,WATFOR,0
+wikitax,Wikitax,0
+it,IT,0
+sqhtml,SQHTML,0
+hedy,Hedy,0
+floral,Floral,0
+unlws,unlws,0
+webstorm-editor,WebStorm,0
+rec-studio,REC Studio,0
+thune,thune,0
+biplan,BIPLAN,0
+bytecode-modeling-language,bytecode-modeling-language,0
+coi-protocol,coi-protocol,0
+datalisp,Datalisp,0
+farcaster,Farcaster,0
+iqr,iqr,0
+jedit-editor,jedit-editor,0
+lunar,lunar,0
+marten,marten,0
+nova-editor,Nova,0
+phpstorm-editor,PhpStorm,0
+plush,Plush,0
+resharper-editor,resharper-editor,0
+rider-editor,rider-editor,0
+rsharp,rsharp,0
+ruby-mine-editor,ruby-mine-editor,0
+scopes,scopes,0
+solaris-pm,solaris-pm,0
+stx,stx,0
+tetruss-app,tetruss-app,0
+unicon-adl,unicon-adl,0
+vortex,Vortex,0
+aubit-4gl,aubit-4gl,0
+aur-pm,AUR,0
+bscript-interpreter,bscript-interpreter,0
+bscript,BScript,0
+chicken-lang,chicken-lang,0
+cixl,cixl,0
+clickpath,clickpath,0
+coral-lang,Coral,0
+domino,domino,0
+frtime,frtime,0
+hac,hac,0
+hsaml-format,hsaml-format,0
+imandra,Imandra Protocol Language,0
+klisp,klisp,0
+kvsapi,kvsapi,0
+lanai,Lanai,0
+lazarus-editor,lazarus-editor,0
+listdown,listdown,0
+mascara,Mascara,0
+multihash-hash-function,Multihash,0
+paperalgo,paperalgo,0
+powerloom-knowledgebase,powerloom-knowledgeBase,0
+quicksight-app,quicksight-app,0
+rlmeta,rlmeta,0
+sepi,sepi,0
+shade,shade,0
+shml,shml,0
+smartgameformat,SmartGameFormat,0
+snbt,SNBT,0
+tab,tab,0
+tarot,tarot,0
+teal,teal,0
+underlay,underlay,0
+vim-scripts-pm,Vim Scripts,0
+visual-studio-marketplace-pm,Visual Studio Marketplace,0
+yinyang,yinyang,0
+arturo,Arturo,0
+brl,BRL,0
+business-rule-language,business-rule-language,0
+bx,bx,0
+cheri,Cheri,0
+ctalk,ctalk,0
+dec64,dec64,0
+gemini-protocol,gemini-protocol,0
+gnome-basic,Gnome Basic,0
+google-data-studio-app,google-data-studio-app,0
+gp,General purpose,0
+helium,helium,0
+holonforth,holonforth,0
+juliahub-pm,JuliaHub Packages,0
+mathworks-file-exchange-pm,MathWorks File Exchange,0
+miso-framework,miso-framework,0
+objective-modula-2,objective-modula-2,0
+qbe,qbe,0
+radish,Radish,0
+readable-lisp,readable-lisp,0
+redpanda-app,redpanda-app,0
+rhoscript,rhoscript,0
+rpython,Restricted Python,0
+sharpscript,sharpscript,0
+sierra,sierra,0
+slim-pl,slim-pl,0
+smalltalkhub-pm,smalltalkhub-pm,0
+ssc-pm,Boston College Statistical Software Components,0
+tengo,tengo,0
+tinygo-compiler,tinygo-compiler,0
+tromp-diagrams,Lambda Diagrams,0
+uml2-sp,uml2-sp,0
+wdf,Wolfram Data Framework,0
+atomo,atomo,0
+b3-ir,B3 IR,0
+blank,blank,0
+blueprints,Blueprints,0
+c-cubed,C^3,0
+c-smile,c-smile,0
+calc-var,calc_var,0
+chaos-lang,chaos-lang,0
+cobol-net,Cobol.NET,0
+coffeepp,coffeepp,0
+conan-center-pm,Conan Center,0
+dart-pm,dart-pm,0
+dfns,dfns,0
+dss,dss,0
+elm-packages-pm,Elm Packages,0
+emu,emu,0
+fmj,fmj,0
+genshi-text,Genshi Text,0
+glpk-lib,GNU Linear Programming Kit,0
+hackage-pm,hackage-pm,0
+hlvm,High-Level Virtual Machine,0
+kefir,Kefir,0
+klong,klong,0
+kogut,kogut,0
+koi,koi,0
+lllpg,lllpg,0
+maven-pm,Maven Central Repository,0
+minihaskell,minihaskell,0
+miniprolog,miniprolog,0
+mir,mir,0
+mlite,mlite,0
+orc-format,Optimized Row Columnar,0
+piccola,piccola,0
+pursuit-pm,Pursuit PureScript Package Repository,0
+pyke,pyke,0
+python-format-spec,Python Format Specification,0
+ra,ra,0
+raco-pm,raco-pm,0
+redscript,redscript,0
+retroforth,retroforth,0
+sbol,The Synthetic Biology Open Language,0
+sentient,sentient,0
+seph,seph,0
+simit,simit,0
+singular,singular,0
+skookumscript,skookumscript,0
+socialite,socialite,0
+soql,SOQL,0
+souffle,souffle,0
+soul,soul,0
+squiggle,squiggle,0
+sub,sub,0
+tern,tern,0
+terse,terse,0
+tetra,tetra,0
+texpr,texpr,0
+thorn,thorn,0
+tilton,tilton,0
+typedefs,typedefs,0
+zoem,Zoem,0
+air,AIR,0
+bush,BUSH,0
+chirp,chirp,0
+cloe,cloe,0
+comm,comm,0
+corelscript,CorelScript,0
+crack,crack,0
+cran-pm,cran-pm,0
+descript,Descript,0
+dpp,D++,0
+dragoon,DRAGOON,0
+elpa-pm,Emacs Lisp Package Archive,0
+envoy-app,envoy-app,0
+flux-lang,flux-lang,0
+forthnet-pm,forthnet-pm,0
+fox,fox,0
+gsql,GSQL,0
+hex-rays,Hex-Rays,0
+jsgf,JSGF,0
+lambda,lambda,0
+levy,levy,0
+loglo,loglo,0
+maplesoft-app-center-pm,Maplesoft Application Center,0
+miniml,miniml,0
+nawk,New AWK,0
+nimble-pm,nimble-pm,0
+oforth,oforth,0
+orca-lang,orca-lang,0
+polly,polly,0
+poly,poly,0
+popcorn-linux,popcorn-linux,0
+pypi-pm,PyPI,0
+raptor,raptor,0
+rql,RQL,0
+ru,ru,0
+shill,shill,0
+smithy,Smithy,0
+sosl,SOSL,0
+spark-pm,spark-pm,0
+stringbean,stringbean,0
+subscript,subscript,0
+taql,Table Query Language,0
+toadskin,toadskin,0
+twiki,TWiki,0
+ugnis,ugnis,0
+visual-logic,Visual Logic,0
+woofjs,woofjs,0
+xmpp-protocol,xmpp-protocol,0
+xoc-compiler,Xoc,0
+zim-format,zim-format,0
+angr,angr,0
+antha,antha,0
+arend,arend,0
+arrow-format,Apache Arrow,0
+binary-ninja,Binary Ninja,0
+bjou,bjou,0
+charly,charly,0
+circa,circa,0
+cleanlang,cleanlang,0
+cx,cx,0
+edgeql,edgeql,0
+elpi,Elpi,0
+eno,eno,0
+forgebox-pm,ForgeBox,0
+ghidra-decompiler,Ghidra,0
+glitch-editor,glitch-editor,0
+gns,GNS,0
+hdt,Header Dictionary Triples,0
+helena,helena,0
+hello,hello,0
+hilltop-lang,Hilltop,0
+joker,joker,0
+kate-editor,kate-editor,0
+kima,kima,0
+l,l,0
+min,min,0
+neovim-editor,neovim-editor,0
+neralie-format,neralie-format,0
+none,none,0
+ogdl,Ordered graph data language,0
+onex,onex,0
+openspice,OpenSpice,0
+par,par,0
+pisc,pisc,0
+plink-bim-format,plink-bim-format,0
+plink-fam-format,plink-fam-format,0
+potential,potential,0
+prodel,prodel,0
+sdf-format,sdf-format,0
+statebox,statebox,0
+syndicate,syndicate,0
+tea-pl,Tea,0
+typst,Typst,0
+urn,urn,0
+c-for-all,C∀,0
+chartio-app,chartio-app,0
+chocolatey-pm,chocolatey-pm,0
+clausal-lang,Clausal Language,0
+ctr,ctr,0
+dscript,Dimensional Script,0
+fawlty,Fawlty,0
+goby,goby,0
+hex-pm,Hex,0
+kayia,kayia,0
+ki,ki,0
+libsvm-format,libsvm-format,0
+luarocks-pm,luarocks-pm,0
+mathematica-packagedata-pm,mathematica-packagedata-pm,0
+merd,merd,0
+morfa,morfa,0
+nectar,nectar,0
+np,np,0
+nu-prolog,NU-Prolog,0
+panther-lang,panther-lang,0
+paxscript,paxScript,0
+pliant,pliant,0
+plink-map-format,plink-map-format,0
+shakti,shakti,0
+skew,skew,0
+t3x,T3X,0
+tiddler,tiddler,0
+alma,Alma,0
+alphard,AlpHard,0
+babel,BABEL,0
+cope,COPE,0
+ct,cT,0
+educe,EDUCE,0
+feel,Friendly Enough Expression Language,0
+gnu-rtl,gnu-rtl,0
+inquire,INQUIRE,0
+lighttpd-configuration-file,Lighttpd configuration file,0
+madcap-vi,MADCAP VI,0
+mcleyvier-command-language,McLeyvier Command Language,0
+midas,Modified Integration Digital Analog Simulator,0
+opp,O++,0
+order,order,0
+perfectscript,Perfectscript,0
+po,PO,0
+prosper,PROSPER,0
+sba,SBA,0
+school,School,0
+snql,SNQL: A Social Network Query and Transformation Language,0
+spill,Spill,0
+unql-lang,UnQL,0
+wgsl,WebGPU Shading Language,0
+xe,XE,0
+xql-lang,XQL,0
+cish,Cish,0
+siman,SIMAN,0
+zeta,Zeta,0
+snobol3,SNOBOL3,0
+vienna-definition-language,Vienna Definition Language,0
+cdl,CDL,0
+fortran-77,FORTRAN 77,0
+accent,ACCENT,0
+argos,Argos,0
+bridgetalk,BridgeTalk,0
+ddfcsv,DDF,0
+demeter,DEMETER,0
+dribble,Dribble,0
+etc,ETC,0
+fable,Fable,0
+gel,Generic Expression Language,0
+gloss,GLOSS,0
+herbrand,Herbrand,0
+jacl,JACL,0
+kb,KB,0
+lesk,LESK,0
+loops,Lisp Object-Oriented Programming System,0
+mendel,MENDEL,0
+nml,nML,0
+patchwork,Patchwork,0
+plan2d,PLAN2D,0
+pluk,Pluk,0
+prolog-pack-pm,Prolog Pack,0
+rlisp,RLISP,0
+scroll-lang,SCROLL,0
+sh,sh,0
+tick-c,Tick C,0
+tikiwiki,Tiki Wiki Markup,0
+topaz,topaz,0
+torchscript,torchscript,0
+tutorial-d,Tutorial D,0
+amtran,AMTRAN,0
+anna,ANNA,0
+apl-gpss,APL-GPSS,0
+aqasm,aQasm,0
+arc-assembly,Arc Assembly,0
+bawk,bawk,0
+binary-equation,Binary Equation,0
+bird,BIRD,0
+cdlpp,CDL++,0
+cmix,CMIX,0
+commen,COMMEN,0
+cooc,cooC,0
+dts,TypeScript Type Declarations,0
+explan,EXPLAN,0
+explor,EXPLOR,0
+fap,FORTRAN assembly program,0
+far,FAR,0
+flowlog,flowlog,0
+giotto,Giotto,0
+hdfs,Hadoop Distributed File System,0
+heron,Heron,0
+hoot-smalltalk,hoot-smalltalk,0
+ibex,IBEX,0
+ifo,IFO,0
+karl,Knowledge Acquisition and Representation Language,0
+l6,L6,0
+lisp-1-5,LISP 1.5,0
+lorel-1,Lorel,0
+madcap,MADCAP,0
+maps,MAPS,0
+moose,MOOSE,0
+msl,MSL,0
+nakl,NAKL,0
+nodal,NODAL,0
+o2,o2,0
+oopsp,OOPS+,0
+pactolus,PACTOLUS,0
+pascal-xsc,Pascal-XSC,0
+petr,Petr,0
+popasm,PopAsm,0
+pufft,PUFFT,0
+quexal,quexal,0
+ratsno,RATSNO,0
+rdml,Rapid Development and Maintenance Language,0
+rds-format,rds-format,0
+real-time-concurrent-c,Real-Time Concurrent C,0
+real-time-mentat,Real-Time Mentat,0
+regina,Regina,0
+regulus,REGULUS,0
+relational-production-language,RPL,0
+report-writer-language,RPT,0
+shadow,SHADOW,0
+sheep,SHEEP,0
+slang,SLANG,0
+spade,SPADE,0
+squidconf,SquidConf,0
+tao,TAO,0
+verse,Verse,0
+water,Water,0
+xs-lang,xs,0
+3d-logo,3D Logo,0
+able,ABLE,0
+adam,ADAM,0
+alpak,ALPAK,0
+apache,APACHE,0
+apl-hp,APL/HP,0
+arctic,Arctic,0
+artspeak,ARTSPEAK,0
+ashmedai,ASHMEDAI,0
+aspol,ASPOL,0
+atomos,Atomos,0
+aurora,Aurora,0
+autoloft,AUTOLOFT,0
+automator,Automator,0
+autopromt,AUTOmatic PROgramming of Machine Tools,0
+b-line,B-LINE,0
+back,BACK,0
+balinda-lisp,BaLinda Lisp,0
+baltazar,baltazar,0
+barrel,Barrel,0
+baseball,BASEBALL,0
+basel,BASEL,0
+beef-lang,BEEF,0
+berkeleydb,Berkeley DB,0
+beta-project,BETA Project,0
+biferno,Biferno,0
+bigmac,BIGMAC,0
+bigwig-format,bigWig format,0
+bigwig,BIGWIG,0
+birkbeck-assembly,Birkbeck Assembly,0
+blaze-2,BLAZE 2,0
+brouhaha,BrouHaHa,0
+c-flat,C flat,0
+cafeobj,CafeObj,0
+cajole,CAJOLE,0
+ccal,CCal,0
+circal,CIRCAL,0
+clanger,CLANGER,0
+classic,ClassiC,0
+clear,CLEAR,0
+coherent-parallel-c,Coherent Parallel C,0
+col,COL,0
+combined-log-format,Combined Log Format,0
+comfy,COMFY,0
+computest,COMPUTEST,0
+comskee,COMSKEE,0
+concurrent-cpp,Concurrent C++,0
+concurrent-prolog,Concurrent Prolog,0
+conlan,CONLAN,0
+connection-machine-lisp,Connection Machine LISP,0
+consim,CONSIM,0
+constraints,CONSTRAINTS,0
+consul,Consul,0
+cst,CST,0
+cube,CUBE,0
+cupid,CUPID,0
+damn,DAMN,0
+debl,DEBL,0
+declare,DECLARE,0
+del,DEL,0
+delirium,Delirium,0
+delta-prolog,Delta Prolog,0
+dialog,DIALOG,0
+dice,DICE,0
+diet,DIET,0
+dipe-r,Dipe-R,0
+disc,DISC,0
+dispel,DISPEL,0
+dna,DNA,0
+dollar-sign,$,0
+dopl,DOPL,0
+dual,DUAL,0
+durra,Durra,0
+elegant,Elegant,0
+ellpack,ELLPACK,0
+emma,EMMA,0
+eva,Eva,0
+exel,EXEL,0
+extended-pascal,Extended Pascal,0
+flic,FLIC,0
+flownet,FlowNet,0
+fork,FORK,0
+fortransit,FORTRANSIT,0
+frank,FRANK,0
+frenetic,Frenetic,0
+fresco,Fresco,0
+galileo,Galileo,0
+gcla-ii,GCLA II,0
+gem,GEM,0
+generic,GCC GENERIC,0
+gerald,Gerald,0
+germinal,GERMINAL,0
+glish,Glish,0
+golog,Golog,0
+goql,GOQL,0
+gospel,GOSPEL,0
+gps,GPS,0
+gpss-85,GPSS/85,0
+grapheasy,Grapheasy,0
+green,Green,0
+groove,GROOVE,0
+hancock,Hancock,0
+harvey,HARVEY,0
+helper,HELPER,0
+henk,henk,0
+hi-visual,Hi-Visual,0
+holo,Holo,0
+hybrid,Hybrid,0
+hycom,HyCom,0
+ibuki-cl,Ibuki CL,0
+icml,ICML,0
+ilu,ILU,0
+ilx,ILX,0
+image,IMAGE,0
+imf,imf,0
+ina-jo,Ina Jo,0
+inc,INC,0
+infolog,INFOLOG,0
+insight,INSIGHT,0
+interactive,INTERACTIVE,0
+isac,ISAC,0
+javaml,JavaML,0
+josie,JOSIE,0
+joyce,Joyce,0
+joycep,JOYCE+,0
+jpl,JPL,0
+jr,JR,0
+kate,KATE,0
+kiss,Keep It Short and Simple,0
+kl1,KL1,0
+klaim,Klaim,0
+kris,KRIS,0
+lamina,LAMINA,0
+language-for-class-description,Language for Class Description,0
+lap,LAP,0
+laris,LARIS,0
+lass,LASS,0
+ldl,LDL,0
+lemick,Lemick,0
+lg,LG,0
+lisptalk,Lisptalk,0
+lnf,LNF,0
+lo,LO,0
+logal,LOGAL,0
+loglisp,LOGLISP,0
+logol,LOGOL,0
+logowriter,LogoWriter,0
+lol,LOL,0
+loopnpp,LOOPN++,0
+lore,LORE,0
+lucid-representations,Lucid representations,0
+lygon,Lygon,0
+mac,MIT Algebraic Compiler,0
+mads,MADS,0
+magic-paper,Magic Paper,0
+mapquery,MAPQUERY,0
+marsyas,MARSYAS,0
+mavis,MAVIS,0
+meld,MELD,0
+meta-plus,META/PLUS,0
+metah,MetaH,0
+microsoft-equation-editor,Microsoft Equation Editor,0
+modula-2p,Modula-2+,0
+modula-3-star,Modula-3*,0
+morphe,Morphe,0
+mpsx,MPSX,0
+musys,MUSYS,0
+n-prolog,N-Prolog,0
+nail,Nail,0
+netbasic,NetBasic,0
+netscript,Netscript,0
+nil,NIL,0
+npy,npy,0
+nsl,NSL,0
+nua-prolog,NUA-Prolog,0
+nut,NUT,0
+o,O,0
+ofl,OFL,0
+oldas,OLDAS,0
+oliver,OLIVER,0
+olog,olog,0
+omar,OMAR,0
+one-man-language,One-man-language,0
+oolp,OOLP,0
+oops,OOPS,0
+openada,OpenAda,0
+orient84-k,Orient84/K,0
+osql,Object-oriented Structured Query Language,0
+p-cl,P/CL,0
+pact-ia,PACT IA,0
+paragon,Paragon,0
+pascal-fc,Pascal-FC,0
+pascal-i,PASCAL-I,0
+pascal-s,Pascal-S,0
+phocus,PHOCUS,0
+picasso,PICASSO,0
+pie,PIE,0
+pin,PIN,0
+pit,PIT,0
+pixin,PIXIN,0
+pl-i-formac,PL/I-FORMAC,0
+pl-ll,PL/LL,0
+pl4,PL4,0
+placa,PLACA,0
+pose,POSE,0
+priz,PRIZ,0
+profit,ProFIT,0
+progol,Progol,0
+prophet,PROPHET,0
+proto-gnosis,proto-GNOSIS,0
+proverif-lang,ProVerif,0
+proxy,Proxy,0
+py,Py,0
+python-cl-compiler,python-cl-compiler,0
+qas,QAS,0
+quadril,QUADRIL,0
+quanta,Quanta,0
+quick-macros,Quick Macros,0
+quilt,QUILT,0
+rack,RACK,0
+rcpp,RC++,0
+rdata-format,rdata-format,0
+real-time-euclid,Real-Time Euclid,0
+rebus,Rebus,0
+refined-c,Refined C,0
+rel-english,REL English,0
+rel,REL,0
+relix,Relix,0
+reuse-description-language,Reuse Description Language,0
+robotalk,RoboTalk,0
+ros-msg,ROS Message,0
+statemate,Statemate,0
+unicode-lang,Unicode,0
+virt,Virt,0
+appcode-editor,appcode-editor,0
+brackets-editor,brackets-editor,0
+clion-editor,clion-editor,0
+code-blocks-editor,code-blocks-editor,0
+codelite-editor,codelite-editor,0
+schrodingers-equation,Schrödinger's Equation,0
+sourcelair-editor,sourcelair-editor,0
+siri,Siri,0
+soql-lang,Socrata Query Language,0
+synergist,synergist,0
+uscript,uscript,0
+uscript2,uscript2,0
+2lisp,2lisp,0
+arbortext-command-language,arbortext-command-language,0
+argon,Argon,0
+chappe-code,chappe-code,0
+concordance,concordance,0
+csvpp,CSV++,0
+gedit-editor,gedit-editor,0
+imaginary-number-equation,Imaginary Number Equation,0
+intellijidea-editor,intellijidea-editor,0
+komodo-editor,komodo-editor,0
+linktext,LinkText,0
+pycharm-editor,pycharm-editor,0
+runescript,runescript,0
+shiv,shiv,0
+simple-stackless-lisp,Simple Stackless Lisp,0
+sqlite-storage-format,sqlite-storage-format,0
+sugarj,sugarj,0
+teasharp,TeaSharp,0
+acsi-matic,ACSI-Matic,0
+adam-standard,adam-standard,0
+aleph,ALEPH,0
+algol-68-rt,ALGOL 68-RT,0
+aljabr,ALJABR,0
+altibase,Altibase,0
+amalthea,amalthea,0
+amazon-dynamodb,Amazon DynamoDB,0
+amazon-rds,Amazon RDS,0
+amtran-70,AMTRAN 70,0
+apache-derby,Apache Derby,0
+apache-phoenix,Apache Phoenix,0
+aplo,APLO,0
+arango-db,ArangoDB,0
+arta,ARTA,0
+autocoder-ii,AUTOCODER II,0
+beam-bytecode,BEAM Bytecode,0
+beebasic,BeeBasic,0
+ber,BER,0
+bullfrog,BullFrog,0
+celsius-webscript,Celsius WebScript,0
+cigale,Cigale,0
+cogo,COGO,0
+concept-script,concept-script,0
+concurr,ConCurr,0
+couchbase-mobile,Couchbase Mobile,0
+couchbase,Couchbase,0
+cymbal,Cymbal,0
+decision-model-notation,Decision Model & Notation,0
+dinnerbell,DinnerBell,0
+eql,EqL,0
+exapt,EXAPT,0
+firebase,Firebase Realtime Database,0
+google-cloud-mysql,Google Cloud SQL,0
+greenplum,Greenplum,0
+ibm-db2,IBM DB2,0
+influxdb,InfluxDB,0
+interbase,InterBase,0
+intersystems-cache,InterSystems Caché,0
+ji,ji,0
+kernel-e,kernel-e,0
+maria-db-column-store,MariaDB ColumnStore,0
+marklogic,MarkLogic,0
+memcached,Memcached,0
+microsoft-access,Microsoft Access,0
+microsoft-azure-cosmos-db,Microsoft Azure Cosmos DB,0
+microsoft-mysql-server,Microsoft SQL Server,0
+model-k,MODEL-K,0
+mushroom,Mushroom,0
+nebula,NEBULA,0
+neo4j,Neo4j,0
+oniguruma,oniguruma,0
+oracle,Oracle,0
+orient-db,OrientDB,0
+pclos,PCLOS,0
+pearson-correlation-coefficient-equation,Pearson correlation coefficient equation,0
+pgen,PGen,0
+pl-as,IBM Programming Language/Advanced Systems,0
+roscoe,ROSCOE,0
+rosetta-smalltalk,Rosetta SMALLTALK,0
+rosette,Rosette,0
+rpg-iii,RPG III,0
+rt-aslan,RT-ASLAN,0
+rt-cdl,RT-CDL,0
+rt-z,RT-Z,0
+ruri,Ruri,0
+saal,SAAL,0
+sac-1,SAC-1,0
+sac-2,SAC-2,0
+sampletalk,Sampletalk,0
+sap-hana,SAP HANA,0
+sartex,SARTEX,0
+sassy,Sassy,0
+saustall,SAUSTALL,0
+sb-one,SB-ONE,0
+scalpel,SCALPEL,0
+scat,SCAT,0
+schemal,SCHEMAL,0
+scil-vp,SCIL-VP,0
+sclipting,Sclipting,0
+scratchpad-ii,Scratchpad II,0
+screamer,SCREAMER,0
+scrimshaw,Scrimshaw,0
+scriptx,ScriptX,0
+sdms,SDMS,0
+segras,SEGRAS,0
+semanol,SEMANOL,0
+seque,Seque,0
+sequel-2,SEQUEL 2,0
+sequential-pascal,Sequential Pascal,0
+sespath,SESPATH,0
+sespool,SESPOOL,0
+setlog,SetLog,0
+seval,SEVAL,0
+seymour,Seymour,0
+shapeup,ShapeUp,0
+shared-prolog,Shared Prolog,0
+sheerpower-4gl,SheerPower 4GL,0
+si-library,SI Library,0
+sidopsp,SIDOPS+,0
+sigma-76,SIGMA 76,0
+siman-iv,SIMAN IV,0
+simcal,SIMCAL,0
+simdis,SIMDIS,0
+simfactory,SIMFACTORY,0
+siml-i,SIML/I,0
+simnet,SIMNET,0
+simpas,SIMPAS,0
+simplescript,SimpleScript,0
+simul,SIMUL,0
+simula-67,SIMULA 67,0
+sketchpad-iii,Sketchpad III,0
+sl5,SL5,0
+slam-ii,SLAM II,0
+sleuth,SLEUTH,0
+slpl,SLPL,0
+smalgol,SMALGOL,0
+small-euclid,Small Euclid,0
+small-x,SMALL-X,0
+smalltalk-76,Smalltalk-76,0
+smalltalk-80,Smalltalk-80,0
+smallvdm,SmallVDM,0
+smolcs,SMoLCS,0
+snobat,SNOBAT,0
+soar-ml,Soar Markup Language,0
+solmar,SOLMAR,0
+sorca,SORCA,0
+specl,SPECL,0
+specol,SPECOL,0
+spil,SPIL,0
+spir-v,spir-v,0
+splaw,SPLAW,0
+sps,Symbolic Programming System,0
+sqlar-format,sqlar-format,0
+squrl,SQURL,0
+stage2,STAGE2,0
+standard-lisp,Standard Lisp,0
+staple,STAPLE,0
+star-prolog,*Prolog,0
+status-quo-script,status-quo-script,0
+stonecutter,StoneCutter,0
+strcmacs,STRCMACS,0
+strema,STREMA,0
+stress,STRESS,0
+strudl,STRUDL,0
+sw2,SW2,0
+synglish,SYNGLISH,0
+synproc,SYNPROC,0
+syntol,SYNTOL,0
+tablog,TABLOG,0
+tabsol,TABSOL,0
+tabtran,TABTRAN,0
+tac,TAC,0
+tarmac,Tarmac,0
+taxis,Taxis,0
+tcc,tcc,0
+tcoz,TCOZ,0
+tcsp,TCSP,0
+tdfl,TDFL,0
+tdms,TDMS,0
+telefile-assembly,telefile-assembly,0
+telsim,TELSIM,0
+templar,Templar,0
+temporal-prolog,Temporal Prolog,0
+teradata-aster,Teradata Aster,0
+teradata,Teradata,0
+tfl,TFL,0
+the-message-system,The Message System,0
+threaded-lists,THREADED LISTS,0
+tics,TICS,0
+tidb,TiDB,0
+timed-csp,Timed CSP,0
+tinkertoy,Tinkertoy,0
+toolbus,TOOLBUS,0
+tpdl-star,TPDL*,0
+trafola-h,Trafola-H,0
+traits,Traits,0
+tramp,TRAMP,0
+tranquil,TRANQUIL,0
+transforma,Transforma,0
+treet,TREET,0
+triroff,triroff,0
+tsl,TSL,0
+tsql2,TSQL2,0
+turing-plus,Turing Plus,0
+turnstile-plus,turnstile-plus,0
+tyco,Tyco,0
+tyruba,TyRuBa,0
+u-datalog,U-Datalog,0
+uan,UAN,0
+ubik,Ubik,0
+ufl,UFL,0
+ufo,UFO,0
+umta,UMTA,0
+unicorn,UNICORN,0
+unisim,UNISIM,0
+unravel,UNRAVEL,0
+ussa,USSA,0
+utopia-84,Utopia 84,0
+v-promela,V-Promela,0
+val-ii,VAL II,0
+varlist,VARLIST,0
+vector-pascal,Vector PASCAL,0
+venus,VENUS,0
+vienna-fortran,Vienna Fortran,0
+viptran,VIPTRAN,0
+viron,Viron,0
+visavis,VisaVis,0
+visual-eiffel,Visual Eiffel,0
+visual-occam,Visual Occam,0
+viva,VIVA,0
+viz,viz,0
+vpl,VPL,0
+vspl,VSPL,0
+vulcan,VULCAN,0
+wcl,WCL,0
+webl,WebL,0
+whirlwind,Whirlwind,0
+writeacourse,WRITEACOURSE,0
+wylbur,WYLBUR,0
+x-klaim,X-KLAIM,0
+x11-basic,X11-Basic,0
+xadl,xADL,0
+xcy,XCY,0
+xml-gl,XML-GL,0
+xml-query-algebra,The Algebra,0
+xpop,XPOP,0
+xsim,XSIM,0
+xtran,XTRAN,0
+yugabytedb,YugabyteDB,0
+zccs,ZCCS,0
+zgrass,ZGRASS,0
+1-pak,1.pak,0
+2obj,2OBJ,0
+3-lisp,3-LISP,0
+3dcomposer,3DComposer,0
+3rip,3RIP,0
+abal,ABAL,0
+abcl-cp,ABCL/c+,0
+abcl-f,ABCL/f,0
+abcpp,ABC++,0
+abstracto,Abstracto,0
+ac-toolbox,AC Toolbox,0
+acl,ACL,0
+acore,Acore,0
+acorn,ACORN,0
+acos,ACOS,0
+acsl,ACSL,0
+act-one,ACT ONE,0
+actalk,Actalk,0
+active-language-i,Active Language I,0
+active-u-datalog,Active-U-Datalog,0
+actus,Actus,0
+ada-95,Ada 95,0
+ada-9x,Ada 9X,0
+ada-tl,Ada/TL,0
+adabtpl,ADABTPL,0
+adagio,Adagio,0
+adaplex,Adaplex,0
+aditi,Aditi,0
+aed,AED,0
+aepl,AEPL,0
+aesop,AESOP,0
+agent-k,Agent-K,0
+agl,AGL,0
+aida,AIDA,0
+akl,AKL,0
+aladin,ALADIN,0
+alambik,Alambik,0
+alba,ALBA,0
+aldat,Aldat,0
+aldwych,Aldwych,0
+alec,ALEC,0
+algebraic-compiler,Algebraic Compiler,0
+algem,ALGEM,0
+algernon,ALGERNON,0
+algol-e,ALGOL-E,0
+algy,ALGY,0
+alma-o,Alma-O,0
+almir,ALMIR,0
+alonzo,Alonzo,0
+alphapop,AlphaPop,0
+altac,ALTAC,0
+amanda,Amanda,0
+ambit-g,AMBIT/G,0
+ambit-l,AMBIT/L,0
+amppl-ii,AMPPL-II,0
+andorra,Andorra,0
+arezzo-notation,arezzo-notation,0
+autocoder-iii,AUTOCODER III,0
+axcess,axcess,0
+bisonpp,Bison++,0
+blade-lang,Blade,0
+bolin,Bolin,0
+brooks-programming-language,brooks-programming-language,0
+candy-codes,Candy Codes,0
+cedar,Cedar,0
+checkout,checkout,0
+chicon,Chicon,0
+cona,CONA,0
+cosmos,Cosmos,0
+cvl,CVL,0
+dalvik-bytecode,dalvik-bytecode,0
+datapackage,Data Package,0
+distributed-smalltalk,Distributed Smalltalk,0
+dm-1,DM-1,0
+dsym,dsym,0
+ebg,ebg,0
+elastic-query-dsl,Elasticsearch Query DSL,0
+english-programming-language,english-programming-language,0
+esp,ESP,0
+extran,EXTRAN,0
+filetab-d,filetab-d,0
+floorplan,floorplan,0
+forest-database,forest-database,0
+fortran-iii,FORTRAN III,0
+fortran-iv,FORTRAN IV,0
+gaea,GAEA,0
+gaiman,Gaiman,0
+hackppl,hackppl,0
+haystaq,HAYSTAQ,0
+ibm-system-38-language,ibm-system-38-language,0
+iota,iota,0
+just,Just,0
+kaukatcr,kaukatcr,0
+konna,Konna,0
+lambda-obliv,lambda-obliv,0
+lll,Low Level Lisp,0
+local,local,0
+metalex,metalex,0
+microplanner,microPLANNER,0
+modl,modl,0
+n,N,0
+ngql,Noms GraphQL,0
+njcl,NJCL,0
+nul-lang,Navigational User's Language,0
+omnitab-ii,OMNITAB II,0
+omnitab,OMNITAB,0
+oxide,Oxide,0
+parse-tree-notation,Parse Tree Notation,0
+pegasus-autocode,Pegasus AUTOCODE,0
+peridot,Peridot,0
+pl-s-ii,PL/S-II,0
+pl-s,PL/S,0
+pl-x,PL-X,0
+plunk,Pλ⍵NK,0
+protosynthex,Protosynthex,0
+pygmalion,Pygmalion,0
+quiktran,QUIKTRAN,0
+rand-abel,RAND-ABEL,0
+rapidwrite,RAPIDWRITE,0
+rpg-ii,RPG II,0
+runcible,RUNCIBLE,0
+russell,RUSSELL,0
+ruth,RUTH,0
+sa,SA,0
+sale,SALE,0
+salem,SALEM,0
+sapphire,Sapphire,0
+sather-k,Sather-K,0
+scenic,Scenic,0
+scoop,SCOOP,0
+search,SEARCH,0
+simodula,SIMODULA,0
+simpp,Sim++,0
+siprol,Siprol,0
+skil,SKIL,0
+sky,SKY,0
+sl,SL,0
+slips,SLIPS,0
+slog,SLOG,0
+smalltalk-v,Smalltalk/V,0
+smart,SMART,0
+smdl,SMDL,0
+smoke,SMOKE,0
+smsl,SMSL,0
+snostorm,Snostorm,0
+soaplang,Symbolic Optimal Assembly Program,0
+social-networks-query-language,SoQL,0
+spec,Spec,0
+sprint,SPRINT,0
+sqlmp,SQLMP,0
+square,SQUARE,0
+sr,SR,0
+stoical,STOICAL,0
+streamit,StreamIt,0
+sue,Sue,0
+summer,SUMMER,0
+superforth,SuperForth,0
+supermac,SUPERMAC,0
+svl,SVL,0
+symbal,SYMBAL,0
+symbmath,SymbMath,0
+syntex,SYNTEX,0
+tactics,TACTICS,0
+tale,TALE,0
+tall,TALL,0
+tela,TeLa,0
+tempo,TEMPO,0
+tomal,TOMAL,0
+trace,TRACE,0
+transcode,TRANSCODE,0
+translang,TRANSLANG,0
+trio,TRIO,0
+triple,TRIPLE,0
+ts,TS,0
+two-d,TWO-D,0
+twoducks,twoducks,0
+uc,UC,0
+vex,VEX,0
+visual,Visual,0
+wizor,WIZOR,0
+xmind,Xmind Format,0
+ycp,ycp,0
+yoga,yoga,0
+zed,Zed,0
+zish,zish,0
+a51,A51 Assembly,0
+aardappel,Aardappel,0
+abc-algol,ABC ALGOL,0
+actors,Actors,0
+ades-ii,ADES II,0
+ades,ADES,0
+adlib,ADLIB,0
+aids,AIDS,0
+aldes,ALDES,0
+allo,ALLO,0
+alps,ALPS,0
+amber,Amber,0
+ambush,AMBUSH,0
+amppl-i,AMPPL-I,0
+amulet,Amulet,0
+and-or,And/Or,0
+andante,Andante,0
+andorra-i,Andorra-I,0
+ans-mumps,ANS MUMPS,0
+ansi-basic,ANSI BASIC,0
+apar,APAR,0
+aparel,APAREL,0
+apl-z80,APL/Z80,0
+aplgol-2,APLGOL-2,0
+aplgol,APLGOL,0
+apostle,APOSTLE,0
+appl-a,APPL/A,0
+applog,APPLOG,0
+aprol,APROL,0
+aql,AQL,0
+aquarius-prolog,Aquarius Prolog,0
+arablan,ARABLAN,0
+archi,ARCHI,0
+arjuna,Arjuna,0
+ark,ARK,0
+armani,Armani,0
+asf-sdf,ASF+SDF,0
+aspen,ASPEN,0
+associons,associons,0
+asspegique,Asspegique,0
+astlog,ASTLOG,0
+atol,ATOL,0
+autasim,AUTASIM,0
+autodraft,AUTODRAFT,0
+autogrp,AUTOGRP,0
+automast,AUTOMAST,0
+avalon-common-lisp,Avalon/Common LISP,0
+b4tran,B4Tran,0
+balg,BALG,0
+balm,BALM,0
+balsa,BALSA,0
+baltik,Baltík,0
+bartok,Bartok,0
+basic-pdp-1-lisp,Basic PDP-1 Lisp,0
+basil,BASIL,0
+bc-neliac,BC NELIAC,0
+bdl,BDL,0
+bedsocs,BEDSOCS,0
+besys,BESYS,0
+beta-prolog,Beta-Prolog,0
+bgraf2,BGRAF2,0
+bhsl,BHSL,0
+bigloo,Bigloo,0
+biomod,BIOMOD,0
+biossim,BIOSSIM,0
+blaze,BLAZE,0
+blooms,BLOOMS,0
+bmd,BMD,0
+bob,Bob,0
+boil,BOIL,0
+booster,Booster,0
+borneo,Borneo,0
+bounce,Bounce,0
+boxer,Boxer,0
+bpl,BPL,0
+bpn2,Basic Petri Net Programming Notation,0
+brisk,Brisk,0
+bsml,BSML,0
+bsp,BSP,0
+bugsys,BUGSYS,0
+butterfly-common-lisp,Butterfly Common LISP,0
+bytelisp,ByteLisp,0
+c-headers,C Header Files,0
+cabal,CABAL,0
+cactus,Cactus,0
+cado-systems-technical-information,cado-systems-technical-information,0
+cages,CAGES,0
+caisys,CAISYS,0
+camac,CAMAC,0
+camil,CAMIL,0
+cantor,Cantor,0
+capsl,Common Authentication Protocol Specification Language,0
+capsule,Capsule,0
+cassandre,CASSANDRE,0
+catalysis,Catalysis,0
+cayley,CAYLEY,0
+ccel,CCEL,0
+cedar-fortran,Cedar Fortran,0
+celip,CELIP,0
+cellsim,CELLSIM,0
+ceprol,Ceprol,0
+champ,CHAMP,0
+charmpp,CHARM++,0
+charrette-ada,Charrette Ada,0
+charybdis,CHARYBDIS,0
+chemtrains,ChemTrains,0
+chronolog,Chronolog,0
+chronologmc,ChronologMC,0
+chronologz,ChronologZ,0
+cimfast,cimfast,0
+cims-pl-i,CIMS PL/I,0
+cl-i,CL-I,0
+clascal,Clascal,0
+classic-ada,Classic-Ada,0
+cleo,Clear Language for Expressing Orders,0
+cleogo,CLeogo,0
+cleopatra,CLEOPATRA,0
+clover,CLOVER,0
+clp-star,CLP*,0
+cmn,CMN,0
+cobloc,COBLOC,0
+codil,CODIL,0
+cogmap,CogMap,0
+colasl,COLASL,0
+cold-k,COLD-K,0
+complex-prolog,Complex-Prolog,0
+computer-compiler,Computer Compiler,0
+comsl,COMSL,0
+conc,ConC,0
+concert-c,Concert/C,0
+concur,CONCUR,0
+concurrent-pascal,Concurrent Pascal,0
+congolog,conGolog,0
+conman,ConMan,0
+conniver,CONNIVER,0
+constraintlisp,ConstraintLisp,0
+contrans,CONTRANS,0
+copas,COPAS,0
+coral-64,CORAL 64,0
+coralpp,Coral++,0
+corc,CORC,0
+cosmicos,CosmicOS,0
+cosmo,COSMO,0
+cqlf,CQLF,0
+cqlpp,CQL++,0
+csmp,CSMP,0
+csp-oz-dc,CSP-OZ-DC,0
+csp-oz,CSP-OZ,0
+cssa,CSSA,0
+culler-fried-system,Culler-Fried System,0
+cupit-2,CuPit-2,0
+cuscus,cuscus,0
+cyphertext,CypherText,0
+d4,D4,0
+dag,DAG,0
+dap-algol,DAP-Algol,0
+dartcvl,DartCVL,0
+data-text,DATA-TEXT,0
+datan,DATAN,0
+deacon,DEACON,0
+debuma,DeBuMa,0
+dem,DEM,0
+descriptran,DESCRIPTRAN,0
+detab-65,DETAB/65,0
+detab-x,DETAB-X,0
+detap,DETAP,0
+deva,Deva,0
+dfl,DFL,0
+diamag,DIAMAG,0
+digraf,DIGRAF,0
+diplans,Diplans,0
+distributed-processes,Distributed Processes,0
+ditran,DITRAN,0
+ditroff-ffortid,DITROFF/FFORTID,0
+ditroff,DITROFF,0
+dmap,DMAP,0
+doe-macsyma,DOE Macsyma,0
+dolphin,DOLPHIN,0
+dowl,DOWL,0
+dprl,DPRL,0
+drl,DRL,0
+drol,DROL,0
+dsl-90,DSL/90,0
+dystal,DYSTAL,0
+eas-e,EAS-E,0
+easl,EASL,0
+easy-english,EASY ENGLISH,0
+eclectic-csp,Eclectic CSP,0
+ect,ECT,0
+edinburgh-lcf,Edinburgh LCF,0
+edsac-initial-orders,EDSAC Initial Orders,0
+edsim,EDSIM,0
+educe-star,EDUCE*,0
+egs4,EGS4,0
+el1,EL1,0
+ellie,Ellie,0
+elmol,ELMOL,0
+emily,Emily,0
+epilog,EPILOG,0
+eqlog,EQLog,0
+equate,EQUATE,0
+errol,ERROL,0
+ethereum-vm,Ethereum Virtual Machine,0
+etude,Etude,0
+fac,FAC,0
+fad,FAD,0
+fcpu,FCPU,0
+fickle,Fickle,0
+flengpp,FLENG++,0
+flexbuffers,flexbuffers,0
+flora,Flora,0
+foogol,foogol,0
+foral-lp,FORAL LP,0
+foral,FORAL,0
+forall,FORALL,0
+fork95,Fork95,0
+forms-3,FORMS/3,0
+fortran-8x,Fortran 8x,0
+fortran-cep,FORTRAN CEP,0
+fortran-d,Fortran D,0
+fortran-ii,FORTRAN II,0
+fortran-m,Fortran M,0
+fp2,FP2,0
+fran,FRAN,0
+g-2,g-2,0
+gargoyle,Gargoyle,0
+gasp-ii,GASP II,0
+gat,GAT,0
+gaussfit,GaussFit,0
+gcp,GCP,0
+gdpl,GDPL,0
+gedanken,Gedanken,0
+generic-haskell,Generic Haskell,0
+gentran-90,GENTRAN 90,0
+gentran,GENTRAN,0
+gimple,GCC GIMPLE,0
+gitignore,gitignore,0
+gks,GKS,0
+glide,GLIDE,0
+glu,GLU,0
+glue-nail,Glue-Nail,0
+gpds,GPDS,0
+gpgs,GPGS,0
+gpss-360,GPSS/360,0
+gpss-fortran,GPSS FORTRAN,0
+gql,GQL,0
+grad-assistant,GRAD Assistant,0
+graphlog,GraphLog,0
+graphos,GRAPHOS,0
+graqula,Graqula,0
+grouplog,GROUPLOG,0
+gsbl,GSBL,0
+gvl,GVL,0
+gxl,GXL,0
+gypsy,Gypsy,0
+hank,Hank,0
+haskell-sharp,Haskell#,0
+hasl,HASL,0
+heraklit,HERAKLIT,0
+hermes,Hermes,0
+hiq,HiQ,0
+hmsl,HMSL,0
+hol,HOL,0
+holcf,HOLCF,0
+honu,honu,0
+hp-pascal,HP-PASCAL,0
+hprl,HPRL,0
+hsl,HSL,0
+hsml,HSML,0
+htel,HTEL,0
+hypac,HYPAC,0
+hyperflow,Hyperflow,0
+hyperlisp,Hyperlisp,0
+hyperlog,Hyperlog,0
+hytran,HYTRAN,0
+iam,IAM,0
+ib-templog,IB-Templog,0
+ibm-logo,IBM Logo,0
+ices-system,Integrated Civil Engineering System,0
+icetran,ICETRAN,0
+icot,ICOT,0
+imp72,IMP72,0
+impl,Industrial Modeling and Programming Language,0
+inmagic,INMAGIC,0
+inscan,Inscan,0
+intercellas,INTERCELLAS,0
+intercons,InterCONS,0
+interlisp-vax,Interlisp-VAX,0
+ipl-v,IPL-V,0
+iqf,IQF,0
+isabelle-91,Isabelle-91,0
+isabelle-hol,Isabelle/HOL,0
+isis,ISIS,0
+ispl,ISPL,0
+ivtran,IVTRAN,0
+jacal,JACAL,0
+jbc,jBC,0
+jfugue,JFugue,0
+jmsl,JMSL,0
+joss-ii,JOSS II,0
+jsyn,JSyn,0
+juno,Juno,0
+kail,KAIL,0
+kaleidoquery,Kaleidoquery,0
+kaleidoscope90,Kaleidoscope'90,0
+kaleidoscope91,Kaleidoscope'91,0
+kee,KEE,0
+kek-nodal,KEK-NODAL,0
+kew,kew,0
+keykit,KeyKit,0
+kiev,Kiev,0
+king-kong,King Kong,0
+kl-one,KL-ONE,0
+klipa,KLIPA,0
+krl-0,KRL-0,0
+krs,KRS,0
+krypton,KRYPTON,0
+kvikkalkul,Kvikkalkul,0
+kylix,Kylix,0
+labtran,LABTRAN,0
+larch,Larch,0
+laure,LAURE,0
+lcf,LCF,0
+lcl,LCL,0
+ldl1,LDL1,0
+legol,LEGOL,0
+leogo,Leogo,0
+leopard,Leopard,0
+lgdf,LGDF,0
+libra,Libra,0
+lincoln-reckoner,Lincoln Reckoner,0
+lingua-graphica,Lingua Graphica,0
+liseb,LiSEB,0
+lisp-a,LISP A,0
+locs,LOCS,0
+logicon,Logicon,0
+logist,LOGIST,0
+logres,Logres,0
+logscheme,LogScheme,0
+lola-2,Lola-2,0
+lotis,LOTIS,0
+lotos,LOTOS,0
+lpl,LPL,0
+lrltran,LRLTRAN,0
+lucinda,Lucinda,0
+m-lisp,M-LISP,0
+macaims,MacAims,0
+mace,MACE,0
+machiavelli,Machiavelli,0
+macro-spitbol,Macro SPITBOL,0
+magma2,Magma2,0
+magritte,magritte,0
+malus,MALUS,0
+manuscript,ManuScript,0
+map,MAP,0
+marlais,Marlais,0
+mary-2,Mary/2,0
+masim,MASIM,0
+mathsy,Mathsy,0
+matrix-pascal,MATRIX PASCAL,0
+mcobol,MCOBOL,0
+mdbs-qrs,MDBS-QRS,0
+medic,MEDIC,0
+megalog,Megalog,0
+mercury-programming-system,Mercury Programming System,0
+meroon,Meroon,0
+meta-assembler,Meta-Assembler,0
+meta-lisp,META/LISP,0
+metaml,MetaML,0
+metapi,METAPI,0
+metasim,METASIM,0
+metatem,METATEM,0
+micro-flowcharts,Micro-flowcharts,0
+microdare,MICRODARE,0
+microtal,microTAL,0
+mike,MiKe,0
+mini-ml,Mini-ML,0
+minion,MINION,0
+minivital,MINIVITAL,0
+minopt,MINOPT,0
+mirager,MIRAGER,0
+miranim,Miranim,0
+mirfac,MIRFAC,0
+mizar,Mizar,0
+mlisp2,MLISP2,0
+mmsearch,mmsearch,0
+mobl,MOBL,0
+modcap,MODCAP,0
+modlisp,MODLISP,0
+modsim-iii,MODSIM III,0
+modula-p,Modula-P,0
+modula-r,Modula/R,0
+modular-prolog,Modular Prolog,0
+molog,Molog,0
+morphism,MORPHISM,0
+mouse4,MOUSE4,0
+moxie,Moxie,0
+mpgs,MPGS,0
+mrdb,MRDB,0
+ms2,MS2,0
+msg-84,MSG.84,0
+mufp,muFP,0
+mul-t,Mul-T,0
+multigame,Multigame,0
+mums,MUMS,0
+munin,MUNIN,0
+musimp,MuSimp,0
+mvl,MVL,0
+napss,NAPSS,0
+narpl,NARPL,0
+nassi-shneiderman-charts,Nassi-Shneiderman charts,0
+native-structured-storage,NSS,0
+ndl,NDL,0
+neater,NEATER 2,0
+ness,Ness,0
+netform,Netform,0
+network-control-language,Network Control Language,0
+neuronc,NeuronC,0
+nfql,NFQL,0
+nikl,NIKL,0
+noah,NOAH,0
+noodle,Noodle,0
+nop-2,NOP-2,0
+npl,NPL,0
+numerica,Numerica,0
+oaklisp,Oaklisp,0
+oasis-operating-system,oasis-operating-system,0
+obj2,OBJ2,0
+objectcharts,Objectcharts,0
+objectworld,ObjectWorld,0
+objvprolog,ObjVProlog,0
+obscure,OBSCURE,0
+occam-2,Occam 2,0
+octopus,Octopus,0
+ohaskell,O'Haskell,0
+olga,OLGA,0
+oli,OLI,0
+omnimark,OMNIMARK,0
+omnitab-80,OMNITAB 80,0
+oopal,OOPAL,0
+openmusic,OpenMusic,0
+ops-3,OPS-3,0
+ops,OPS,0
+oregano,OREGANO,0
+orlog,Orlog,0
+osiris,OSIRIS,0
+osl-2,OSL/2,0
+ottawa-euclid,Ottawa Euclid,0
+otter,Otter,0
+owl-dl,OWL DL,0
+p-prolog,P-Prolog,0
+p-tac,P-TAC,0
+p3l,P3L,0
+pacol,PACOL,0
+padl-1,PADL-1,0
+pailisp,PaiLisp,0
+palingol,Palingol,0
+pancode,PANCODE,0
+panon-1,PANON-1,0
+panon-1b,PANON-1B,0
+parallel-ellpack,Parallel ELLPACK,0
+parallel-pascal,Parallel Pascal,0
+paralog-e,ParaLog_e,0
+parmod,ParMod,0
+pascal-plus,Pascal Plus,0
+pascal-sc,Pascal-SC,0
+pasion,PASION,0
+pasro,PASRO,0
+path-pascal,Path Pascal,0
+pcn,PCN,0
+pcol,PCOL,0
+pcpp,pC++,0
+pdel,Partial Differential Equation Language,0
+pdl-ada,PDL/Ada,0
+pdl,PDL,0
+pebble,Pebble,0
+pei,PEI,0
+pep,PEP,0
+pfort,PFORT,0
+pfortran,Pfortran,0
+pgolog,pGOLOG,0
+physictran,PHYSICTRAN,0
+pi-calculus,Pi Calculus,0
+pictol,PICTOL,0
+picturebalm,PICTUREBALM,0
+pilib,PiLib,0
+pl-exus,PL/EXUS,0
+planit,PLANIT,0
+planner-73,PLANNER-73,0
+playground,Playground,0
+pocket-smalltalk,Pocket Smalltalk,0
+pogol,POGOL,0
+polac,POLAC,0
+polylith,Polylith,0
+polyp,PolyP,0
+polytoil,PolyTOIL,0
+popsy,POPSY,0
+port-alg,PORT-ALG,0
+praxis,PRAXIS,0
+presto,PRESTO,0
+principle-of-sufficient-reason,Principle of sufficient reason,0
+prism,PRISM,0
+prisma-schema-language,Prisma Schema Language,0
+procol,PROCOL,0
+progres,PROGRES,0
+prolog-d-linda,Prolog-D-Linda,0
+prolog-elf,Prolog-ELF,0
+prolog-iii,Prolog III,0
+prolog-kr,Prolog/KR,0
+prolog-linda,Prolog-Linda,0
+proplan,PROPLAN,0
+protos-l,PROTOS-L,0
+prow,PROW,0
+psather,pSather,0
+psg,PSG,0
+psl,PSL,0
+pt,PT,0
+pumpkin,PUMPKIN,0
+q-gert,Q-GERT,0
+qa4,QA4,0
+qlisp,QLISP,0
+qunity,Qunity,0
+quty,Quty,0
+rbasic,rbasic,0
+rec-sm,REC/SM,0
+recol,RECOL,0
+ref-arf,REF-ARF,0
+reflisp,RefLisp,0
+regent,REGENT,0
+relationlog,Relationlog,0
+relfun,RELFUN,0
+rf-maple,RF-Maple,0
+rhet,RHET,0
+rigal,RIGAL,0
+rol,ROL,0
+rol2,ROL2,0
+s-snobol,S-Snobol,0
+shoe,SHOE,0
+sil,SIL,0
+sina,sina,0
+ssl,SSL,0
+static-typescript,Static Typescript,0
+surge,SURGE,0
+taktentus,taktentus,0
+voxml,VoxML,0
+vtl,Very Tiny Language,0
+wizml,wizml,0
+wolontis-bell-interpreter,Wolontis-Bell Interpreter,0
+xl,xl,0
+xql,XQL,0

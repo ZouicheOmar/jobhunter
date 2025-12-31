@@ -52,11 +52,11 @@ export const useCandidsStore = create<CandidsStore & DummyAction>((set, get) => 
 
   getAll: async () => {
     try {
-      const { candids, cities, techs } = await fetchAllCandids();
+      const { candids, techs } = await fetchAllCandids();
       set({
         list: candids,
         filteredList: candids,
-        cities: cities,
+        // cities: cities,
         techs: techs
       });
       useActionsStore.getState().updatePagination(candids.length);

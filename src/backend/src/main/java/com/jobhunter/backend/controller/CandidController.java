@@ -3,6 +3,7 @@ package com.jobhunter.backend.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,13 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jobhunter.backend.dto.CandidDto;
+import com.jobhunter.backend.dto.CandidCreateDto;
+
+import com.jobhunter.backend.mapper.CandidMapper;
 import com.jobhunter.backend.model.Candid;
 import com.jobhunter.backend.model.City;
 import com.jobhunter.backend.model.Tech;
 import com.jobhunter.backend.model.Website;
 import com.jobhunter.backend.service.CandidService;
 import com.jobhunter.backend.service.CityService;
-import com.jobhunter.backend.service.LogFileHandlerService;
 import com.jobhunter.backend.service.TechService;
 import com.jobhunter.backend.service.WebsiteService;
 
@@ -29,24 +32,17 @@ import com.jobhunter.backend.service.WebsiteService;
 @CrossOrigin
 public class CandidController {
 
-  private final LogFileHandlerService logFileHandlerService;
-  private final CandidService candidService;
-  private final WebsiteService websiteService;
-  private final CityService cityService;
-  private final TechService techService;
+  @Autowired
+  private CandidService candidService;
+  @Autowired
+  private WebsiteService websiteService;
+  @Autowired
+  private CityService cityService;
+  @Autowired
+  private TechService techService;
 
-  public CandidController(
-      LogFileHandlerService logFileHandlerService,
-      CandidService candidService,
-      WebsiteService websiteService,
-      CityService cityService,
-      TechService techService) {
-    this.logFileHandlerService = logFileHandlerService;
-    this.candidService = candidService;
-    this.websiteService = websiteService;
-    this.cityService = cityService;
-    this.techService = techService;
-  }
+  @Autowired
+  private CandidMapper candidMapper;
 
   @GetMapping
   public List<CandidDto> findAll(
@@ -59,7 +55,7 @@ public class CandidController {
     else if (cityName != null && websiteName != null)
       return candidService.findAllByCityNameAndWebsiteName(cityName, websiteName);
     else
-      return candidService.findAll();
+      return candidMapper.toAllDto(candidService.findAll());
   }
 
   @DeleteMapping("/{id}")
@@ -77,7 +73,16 @@ public class CandidController {
 
   @PostMapping
   public CandidDto createNewCandid(
-      @RequestBody CandidDto dto) {
+      @RequestBody CandidCreateDto createDto) {
+
+    Candid candid = new Candid();
+
+    // set the inside fields
+    candid.setTitle(createDto.title());
+    candid.setUrl(createDto.url());
+    candid.setUnsolicited(createDto.unsolicited());
+    candid.setTechOffer(createDto.techOffer());
+    candid.setAnswer(createDto.answer());
 
     // it's on the service to create and handle domain logic
     //
@@ -86,21 +91,21 @@ public class CandidController {
     // candidDTO resultDto = candidService.save(candid); (optional)
     // return designerDTO
 
-    Candid candid = new Candid();
+    // Candid candid = new Candid();
 
-    candid.setTitle(dto.title());
-    candid.setUrl(dto.url());
+    // candid.setTitle(dto.title());
+    // candid.setUrl(dto.url());
     // FIX:
     // candid.setCompany(dto.company());
 
-    candid.setUnsolicited(dto.unsolicited());
-    candid.setAnswer(dto.answer());
-
-    City city = cityService.findOrCreateByName(dto.cityDto().name());
-    candid.setCity(city);
-
-    Website website = websiteService.findOrCreateByName(dto.websiteDto().name());
-    candid.setWebsite(website);
+    // candid.setUnsolicited(dto.unsolicited());
+    // candid.setAnswer(dto.answer());
+    //
+    // City city = cityService.findOrCreateByName(dto.cityDto().name());
+    // candid.setCity(city);
+    //
+    // Website website = websiteService.findOrCreateByName(dto.websiteDto().name());
+    // candid.setWebsite(website);
 
     // FIX:
     // dto.stack().forEach(techItem -> {
@@ -108,21 +113,15 @@ public class CandidController {
     // candid.addTech(tech);
     // });
 
-    LocalDate date = LocalDate.now();
-    candid.setDateApply(date);
-
-    candidService.save(candid);
-
-    dto.stack().forEach(techItem -> {
-      Tech tech = techService.findOrCreateByName(techItem.name());
-      tech.addCandid(candid);
-    });
-    return dto;
-  }
-
-  @GetMapping("/handleFile")
-  public String handleFile() {
-    logFileHandlerService.handleFile();
-    return "supposed to be handling file now";
+    // LocalDate date = LocalDate.now();
+    // candid.setDateApply(date);
+    //
+    // candidService.save(candid);
+    //
+    // dto.stack().forEach(techItem -> {
+    // Tech tech = techService.findOrCreateByName(techItem.name());
+    // tech.addCandid(candid);
+    // });
+    // return dto;
   }
 }

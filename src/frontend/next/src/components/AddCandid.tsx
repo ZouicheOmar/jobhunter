@@ -20,6 +20,7 @@ import {
 
 import { getTodayDate, getHostname } from "@/lib/utils";
 import { CONTRACT_TYPES } from "@/lib/consts";
+import AddCandidCityInput from "./AddCandidCityInput";
 
 export function AddCandid() {
 
@@ -27,7 +28,6 @@ export function AddCandid() {
 
   const url = useAddCandidStore(useShallow((state) => state.url));
   const title = useAddCandidStore(useShallow((state) => state.title));
-  const city = useAddCandidStore(useShallow((state) => state.city));
   const companyName = useAddCandidStore(useShallow((state) => state.companyName));
   const website = useAddCandidStore(useShallow((state) => state.website));
   const companyDesc = useAddCandidStore(useShallow((state) => state.companyDesc));
@@ -50,7 +50,6 @@ export function AddCandid() {
 
   const updateUrl = useAddCandidStore((state) => state.updateUrl);
   const updateTitle = useAddCandidStore((state) => state.updateTitle);
-  const updateCity = useAddCandidStore((state) => state.updateCity);
   const updateCompanyName = useAddCandidStore((state) => state.updateCompanyName);
   const updateWebsite = useAddCandidStore((state) => state.updateWebsite);
   const updateCompanyDesc = useAddCandidStore((state) => state.updateCompanyDesc);
@@ -65,6 +64,7 @@ export function AddCandid() {
   const addCandid = useCandidsStore((state) => state.addCandid);
 
   const reset = useAddCandidStore((state) => state.reset);
+
   return (
     <div className={`${loading && "animate-pulse"} p-4 text-sm border rounded shadow-sm flex flex-col gap-2`}>
       <div className="">
@@ -83,11 +83,12 @@ export function AddCandid() {
       </div>
 
       <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-        <div className="">
-          <input id="title"
+        <div>
+          <input
             type="text"
-            placeholder="Title"
             className="w-full p-1 px-2 block bg-gray-100 rounded"
+            id="title"
+            placeholder="Title"
             value={title}
             onChange={(e) => updateTitle(e.target.value)}
           />
@@ -103,15 +104,7 @@ export function AddCandid() {
           />
         </div>
 
-        <div className="">
-          <input id="city"
-            type="text"
-            placeholder="City, Location"
-            className="w-full p-1 px-2 block bg-gray-100 rounded"
-            value={city}
-            onChange={(e) => updateCity(e.target.value)}
-          />
-        </div>
+        <AddCandidCityInput />
 
         <div className="">
           <input id="website"
@@ -224,7 +217,7 @@ export function AddCandid() {
           </Button>
         </div>
 
-        <div className=" flex justify-end">
+        <div className="flex justify-end">
           <Button
             onClick={async () => {
               try {
@@ -234,7 +227,7 @@ export function AddCandid() {
                 console.log("error addind candid");
               }
             }}
-            disabled={city == '' || companyName == '' || title == ''}
+          // disabled={city == '' || companyName == '' || title == ''}
           >
             submit
           </Button>

@@ -1,5 +1,9 @@
 package com.jobhunter.backend.mapper;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.CandidDto;
@@ -12,6 +16,8 @@ import com.jobhunter.backend.service.WebsiteService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
+// NOTE Doesn't work when annotated as @Component
+// makes candid methods unavailable
 @Service
 public class CandidMapper {
 
@@ -39,24 +45,22 @@ public class CandidMapper {
 
   public Candid toEntity(CandidDto dto) {
     var candid = new Candid();
-
-    candid.setTitle(dto.title());
-    candid.setUrl(dto.url());
-    candid.setUnsolicited(dto.unsolicited());
-    candid.setAnswer(dto.answer());
-    candid.setStack(techMapper.toAllEntity(dto.stack()));
-
-    // City cityEntity = cityMapper.toEntity(dto.cityDto());
-
-    City city = cityService.findOrCreateByName(dto.cityDto().name());
-    candid.setCity(city);
-
-    candid.setWebsite(websiteMapper.toEntity(dto.websiteDto()));
-    // setCompany(new Company(dto.company()))
-    // candid.setCompany(dto.company());
-    candid.setDateApply(dto.dateApply());
-
     return candid;
+
+    // candid.setTitle(dto.title());
+    // candid.setUrl(dto.url());
+    // candid.setUnsolicited(dto.unsolicited());
+    // candid.setAnswer(dto.answer());
+    // candid.setStack(techMapper.toAllEntity(dto.stack()));
+    // City city = cityService.findOrCreateByName(dto.cityDto().name());
+    // candid.setCity(city);
+    // candid.setWebsite(websiteMapper.toEntity(dto.websiteDto()));
+    // candid.setDateApply(dto.dateApply());
+  }
+
+  public List<String> getTechList(Candid candid) {
+    return candid.getStack().stream()
+        .map((tech) -> tech.getName()).collect(Collectors.toList());
   }
 
   // should probably define multiple dtos according to use
@@ -64,12 +68,30 @@ public class CandidMapper {
   // getBriefCandidDto;
   // getFullCandidDto;
   // updateCandidDto;
+
   public CandidDto toDto(Candid candid) {
-    var comp = candid.getCompany() != null ? candid.getCompany().getName() : null;
-    return new CandidDto(candid.getId(), candid.getTitle(), candid.getUrl(), comp,
-        candid.getUnsolicited(), candid.getAnswer(), candid.getDateApply(),
-        websiteMapper.toDto(candid.getWebsite()),
-        techMapper.toAllDto(candid.getStack()),
-        cityMapper.toDto(candid.getCity()));
+    return new CandidDto(
+        candid.getId(),
+        candid.getTitle(),
+        candid.getUrl(),
+        candid.getCompany().getName(),
+        candid.getUnsolicited(),
+        candid.getAnswer(),
+        getTechList(candid),
+        candid.getCity().getName());
+  }
+
+  public List<CandidDto> toAllDto(List<Candid> candids) {
+    return candids.stream()
+        .map((candid) -> new CandidDto(
+            candid.getId(),
+            candid.getTitle(),
+            candid.getUrl(),
+            candid.getCompany().getName(),
+            candid.getUnsolicited(),
+            candid.getAnswer(),
+            getTechList(candid),
+            candid.getCity().getName()))
+        .collect(Collectors.toList());
   }
 }
