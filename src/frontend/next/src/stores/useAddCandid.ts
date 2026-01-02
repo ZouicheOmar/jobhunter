@@ -146,7 +146,7 @@ const techSlice = (set, get) => ({
 })
 
 const componentStateSlice = (set, get, store) => ({
-  show: true,
+  show: false,
   loading: false,
   error: false,
   reset: () => set({ ...store.getInitialState(), show: true }),

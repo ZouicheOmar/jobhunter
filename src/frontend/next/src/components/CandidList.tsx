@@ -35,7 +35,7 @@ export const CandidList = () => {
 
   return <>
     <div
-      className="flex flex-col justify-center gap-2"
+      className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2"
     >
       {
         filteredList.length > 1 ? (filteredList
