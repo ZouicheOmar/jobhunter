@@ -29,7 +29,7 @@ import com.jobhunter.backend.service.WebsiteService;
 
 @RestController
 @RequestMapping("/candid")
-@CrossOrigin
+// @CrossOrigin(originPatterns = "*")
 public class CandidController {
 
   @Autowired
@@ -83,6 +83,8 @@ public class CandidController {
     candid.setUnsolicited(createDto.unsolicited());
     candid.setTechOffer(createDto.techOffer());
     candid.setAnswer(createDto.answer());
+
+    return new CandidDto();
 
     // it's on the service to create and handle domain logic
     //

@@ -7,7 +7,7 @@ import { Toggle } from "./schadcn/Toggle";
 import { CircleSmall } from "lucide-react";
 
 function ControlsButton({ label, ...props }) {
-  return (<Button className="text-xs  px-2 py-0 rounded-bl-md" {...props} >
+  return (<Button className="p-2 rounded-bl-md" {...props} >
     {label}
   </Button>)
 }
@@ -35,7 +35,7 @@ const ControlsLayouts = () => {
         onPressedChange={(v) => toggleCompact(v)}
       >
         <CircleSmall />
-        <span className="text-xs mr-1">
+        <span className="mr-1">
           Compact
         </span>
       </Toggle>
@@ -49,7 +49,12 @@ export const Controls = () => {
 
   return <>
     <div
-      className="sticky z-50 top-4 bg-white p-4 py-2.5 text-xs border rounded rounded-bl-md shadow-sm flex justify-start gap-6" >
+      className=" sticky z-50 top-4
+      flex flex-wrap justify-start
+      p-4 py-2.5 
+      border rounded rounded-bl-md
+      shadow-sm  bg-white
+      gap-x-6 gap-y-2" >
       <div
         className="flex  gap-2 justify-start items-center" >
         {/* <span className="text-muted-foreground"> Controls </span> */}
@@ -66,9 +71,9 @@ export const Controls = () => {
           disabled
           onClick={() => handleParseFile()}
         />
+        <ControlsLayouts />
       </div>
       <Filters />
-      <ControlsLayouts />
     </div>
   </>
 

@@ -1,4 +1,4 @@
-import { CityDto, TechDto, type Candid } from "@/types/CandidType";
+import { City, TechDto, type Candid } from "@/types/CandidType";
 import { create } from "zustand";
 import { useActionsStore } from "./useActions";
 import { fetchAllCandids, postCandid } from "@/lib/api";
@@ -6,7 +6,7 @@ import { fetchAllCandids, postCandid } from "@/lib/api";
 export type CandidsStore = {
   list: Candid[]
 
-  cities: CityDto[],
+  cities: City[],
   techs: TechDto[],
 
   loading: boolean;

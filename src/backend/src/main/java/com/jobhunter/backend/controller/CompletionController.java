@@ -28,16 +28,10 @@ public class CompletionController {
   @Autowired
   private CityMapper cityMapper;
 
+  @GetMapping("/city")
   public List<CityDto> ListByCityName(@RequestParam String value) {
     // TODO test if value is string or integer (when a zipcode is sent)
     List<City> query = cityService.findAllByNameContaining(value);
     return cityMapper.toAllDto(query);
   }
-
-  // @GetMapping("/city?zipcode")
-  // public List<CityDto> ListByZipCode(@PathVariable Integer zipcode) {
-  // String zipcodeStr = zipcode.toString();
-  // List<City> query = cityService.findAllByZipcodeContaining(zipcodeStr);
-  // return cityMapper.toAllDto(query);
-  // }
 }

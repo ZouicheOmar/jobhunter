@@ -85,7 +85,7 @@ const urlSlice = (set) => ({
       set({
         title: title,
         companyName: company_name,
-        city: location,
+        cityName: location,
         contract: contract_type,
         addDate: date,
         website: hostname,
@@ -101,13 +101,13 @@ const urlSlice = (set) => ({
 
 const titleSlice = (set) => ({
   title: "",
-  updatetitle: (v: string) => set(() => ({ title: v })),
+  updateTitle: (v: string) => set(() => ({ title: v })),
 })
 
 const citySlice = (set) => ({
   cityName: "",
   completionList: [],
-  updateCompletionList: (v: string[]) => set({ completionList: v }),
+  updateCityCompletionList: (v: string[]) => set({ completionList: v }),
   updateCityName: (v: string) => set({ cityName: v }),
 })
 
@@ -146,7 +146,7 @@ const techSlice = (set, get) => ({
 })
 
 const componentStateSlice = (set, get, store) => ({
-  show: false,
+  show: true,
   loading: false,
   error: false,
   reset: () => set({ ...store.getInitialState(), show: true }),

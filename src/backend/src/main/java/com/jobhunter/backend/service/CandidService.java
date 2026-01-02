@@ -74,7 +74,8 @@ public class CandidService {
   public CandidDto save(CandidDto dto) {
     var candid = candidMapper.toEntity(dto);
 
-    City city = cityService.findOrCreateByName(dto.cityDto().name());
+    // City city = cityService.findOrCreateByName(dto.city());
+    City city = new City();
     candid.setCity(city);
 
     candidRepository.save(candid);

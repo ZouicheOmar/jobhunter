@@ -15,60 +15,47 @@ export const CandidCompactCard = (
     unsolicited,
     cityDto: city,
     company,
-    addDate
+    rejected,
+    dateApply
   } = candid;
 
   return <>
-    <div className="relative border py-1 px-2 pl-8 flex justify-between gap-2 text-sm rounded shadow-xs">
-      <div className=" flex flex-col  w-1/2">
-        {unsolicited && (
-          <span
-            className="absolute text-sideways-lr bg-[#6aa7a8] start-0 top-0 bottom-0
-          rounded-tl rounded-bl text-white text-center outline
-          outline-[#6aa7a8]"
-          >  unsol. </span>
-        )}
+    <div className={`border rounded py-2 px-3 shadow-xs ${rejected && "border-red-500/20 bg-red-500/15"}`}>
+      <p >
         {url ? (
           <span className="font-medium">
             <a href={url} target="_blank">
+              <Link size="0.9em" className="inline mb-[2px] mr-[4px]" />
               {title}
-              <Link size="0.9em" className="inline mb-[2px] ml-[6px]" />
             </a>
           </span>
         ) : (
-          <span className="font-medium">
-            {title}
-          </span>
-        )}
+          <span className="font-medium"> {title} </span>
+        )} | <span className="uppercase"> {company}</span> {` \u2015 `} <span className="text-gray-700 capitalize">{city}</span>
+      </p>
 
-        <div className="flex flex-col w-full text-gray-600 text-xs">
-          <div className="flex w-full  gap-6 text-gray-600 text-xs">
+      <div className="flex flex-col w-full text-gray-600 ">
+        <div className="flex w-full gap-3 text-gray-600">
+          <p>
             {candid.contractType && <span className="text-gray-400 "> Contract Type </span>}
             {candid.industry && <span className="text-gray-400 "> Industry </span>}
-            <span className="" >
-              {addDate}
-            </span>
-          </div>
-          <div className="max-w-full flex gap-2 wrap overflow-clip italic ">
-            {
-              stack.length > 0 && stack.map(({ name }, k) => <span key={k} className="text-gray-400 min-w-fit"> {name} </span>)
-            }
-          </div>
-        </div>
 
-      </div>
-      <div className="flex flex-col w-1/3 text-gray-700">
-        <div className=" flex gap-[4px] ">
-          <Building size="1em" className="inline mt-[3px] " />
-          <span className="capitalize italic w-full">
-            {company}
-          </span>
+            {unsolicited && <span className="text-blue-600 font-bold italic">Unsolicited</span>}
+            <span>{` \u2015 `}</span>
+            <span >
+              Applied on {dateApply}
+            </span>
+            <span>{` \u2015 `}</span>
+            <span className="text-neutral-400">
+              {answer ? "Pending" : "cf. progression"}
+            </span>
+
+          </p>
         </div>
-        <div className="h-fit">
-          <span className="capitalize ">
-            <MapPin size="1em" className="inline mb-[4px] mr-[4px]" />
-            {city}
-          </span>
+        <div className="max-w-full flex flex-wrap gap-1 wrap overflow-clip capitalize text-sm">
+          {
+            stack.length > 0 && stack.map((name, k) => <span key={k} className="border px-[4px] leading-[1.5em] bg-neutral-200 border-neutral-300 rounded"> {name} </span>)
+          }
         </div>
       </div>
     </div >

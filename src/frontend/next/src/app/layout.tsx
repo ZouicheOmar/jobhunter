@@ -11,13 +11,12 @@ export const metadata: Metadata = {
   title: "jobhunter",
   description: "next client for the jobhunter app",
 };
- 
+
 const myFont = localFont({
-  // src: '../../public/gothica1.ttf',
+  src: '../../public/gothica1.ttf',
   src: '../../public/Venus+Plomb.otf',
 })
 
-      // <body className={myFont.className} >
 export default function RootLayout({
   children,
 }: Readonly<{

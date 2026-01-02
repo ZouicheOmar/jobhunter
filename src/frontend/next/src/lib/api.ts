@@ -1,16 +1,19 @@
 
+// const api_base = "http://localhost:8080/"
+const API_BASE = "http://192.168.1.30:8080"
+
 const ROUTES = {
   SCRAPPER: {
     BASE: "http://localhost:5000/scrap/",
   },
   API: {
-    BASE: "http://localhost:8080/",
-    CANDID: "http://localhost:8080/candid",
-    CITY: 'http://localhost:8080/city',
-    TECH: 'http://localhost:8080/tech',
-    CONTRACT: 'http://localhost:8080/contract', // won't use this, maybe for configering
+    BASE: `${API_BASE}/`,
+    CANDID: `${API_BASE}/candid`,
+    CITY: `${API_BASE}/city`,
+    TECH: `${API_BASE}/tech`,
+    CONTRACT: `${API_BASE}/contract`, // won`t use this, maybe for configering
     COMPLETION: {
-      CITY: 'http://localhost:8080/completion/city'
+      CITY: (v: string) => `${API_BASE}/completion/city?value=${v}`
     }
   },
 }
@@ -27,7 +30,10 @@ export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
     const req = await fetch(ROUTES.SCRAPPER.BASE,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
         body: JSON.stringify({
           url: url
         })
@@ -55,13 +61,10 @@ export async function fetchAllCandids() {
     const [jsonCandids, jsonCities, jsonTechs] =
       await Promise.all([candids.json(), cities.json(), techs.json()]);
 
-    console.log(jsonCandids[0]);
+    console.log(jsonCandids);
+
     return {
-      // fix: should not reverse it but 
-      // set it in the right order from the backend
-      // candids: jsonCandids,
-      candids: jsonCandids.reverse(),
-      // cities: jsonCities,
+      candids: jsonCandids,
       techs: jsonTechs
     }
 
@@ -84,13 +87,14 @@ export async function postCandid(payload) {
   }
 }
 
-export async function getCityCompletion() {
+// Pormise<City[]>
+export async function getCityCompletion(v: string): Promise<string> {
   try {
-    const req = await fetch(ROUTES.API.COMPLETION.CITY, {
-      // add path here
-      // OR compose url somehow
-    })
+    //http://localhost:8080/completion/city?value=v
+    const req = await fetch(ROUTES.API.COMPLETION.CITY(v));
+    console.log("request : ", req);
     const json = await req.json();
+    console.log("json : ", json);
     return json;
   } catch (e) {
     throw e;

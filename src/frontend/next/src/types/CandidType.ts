@@ -1,4 +1,4 @@
-export type CityDto = {
+export type City = {
   name: string;
 }
 export type WebsiteDto = {
@@ -11,7 +11,7 @@ export type TechDto = {
 export type Candid = {
   addDate: string;
   answer: boolean;
-  cityDto: CityDto;
+  cityDto: City;
   company: string;
   id: number;
   stack: TechDto[];

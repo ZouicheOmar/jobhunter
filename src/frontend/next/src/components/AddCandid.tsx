@@ -25,6 +25,7 @@ import AddCandidCityInput from "./AddCandidCityInput";
 export function AddCandid() {
 
   const loading = useAddCandidStore(useShallow((state) => state.loading));
+  const toggle = useAddCandidStore((state) => state.toggle);
 
   const url = useAddCandidStore(useShallow((state) => state.url));
   const title = useAddCandidStore(useShallow((state) => state.title));
@@ -66,55 +67,47 @@ export function AddCandid() {
   const reset = useAddCandidStore((state) => state.reset);
 
   return (
-    <div className={`${loading && "animate-pulse"} p-4 text-sm border rounded shadow-sm flex flex-col gap-2`}>
-      <div className="">
-        <div className="flex items-center gap-2">
-          <input id="url"
-            type="text"
-            placeholder="url of the offer"
-            className="w-full p-1 px-2 block bg-gray-100 rounded"
-            onChange={(e) => updateUrl(e.target.value)}
-            value={url}
-          />
-          <Button onClick={() => lookupUrl()} >
-            look up offer
-          </Button>
-        </div>
+    <div className={`${loading && "animate-pulse"} p-4 border rounded shadow-sm flex flex-col gap-3`}>
+      <div className="flex items-center gap-2">
+        <input id="url"
+          type="text"
+          placeholder="url of the offer"
+          className="w-full p-1 px-2 block bg-gray-100 rounded"
+          onChange={(e) => updateUrl(e.target.value)}
+          value={url}
+        />
+        <Button onClick={() => lookupUrl()} >
+          look up offer
+        </Button>
       </div>
 
-      <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-        <div>
-          <input
-            type="text"
-            className="w-full p-1 px-2 block bg-gray-100 rounded"
-            id="title"
-            placeholder="Title"
-            value={title}
-            onChange={(e) => updateTitle(e.target.value)}
-          />
-        </div>
+      <div className="grid grid-rows-1 md:grid-rows-1 gap-3">
+        <input
+          type="text"
+          className="p-1 px-2 block bg-gray-100 rounded"
+          id="title"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => updateTitle(e.target.value)}
+        />
 
-        <div className="">
-          <input id="company"
-            type="text"
-            placeholder="Company Name"
-            className="w-full p-1 px-2 block bg-gray-100 rounded"
-            value={companyName}
-            onChange={(e) => updateCompanyName(e.target.value)}
-          />
-        </div>
+        <input id="company"
+          type="text"
+          placeholder="Company Name"
+          className="p-1 px-2 block bg-gray-100 rounded"
+          value={companyName}
+          onChange={(e) => updateCompanyName(e.target.value)}
+        />
 
         <AddCandidCityInput />
 
-        <div className="">
-          <input id="website"
-            type="text"
-            placeholder="Website"
-            className="w-full p-1 px-2 block bg-gray-100 rounded"
-            value={website}
-            onChange={(e) => updateWebsite(e.target.value)}
-          />
-        </div>
+        <input id="website"
+          type="text"
+          placeholder="Website"
+          className="p-1 px-2 block bg-gray-100 rounded"
+          value={website}
+          onChange={(e) => updateWebsite(e.target.value)}
+        />
 
         {companyDesc && (<div>
           <input id="companyDesc"
@@ -126,37 +119,40 @@ export function AddCandid() {
           />
         </div>)}
 
-        <div className="flex flex-col">
+        <div className="col-span-2 flex gap-3">
+          <div className="grow-1 flex px-2 gap-3 bg-gray-100 rounded items-center">
+            <lable className="min-w-fit leading-[2em] text-muted-foreground"> Application Date </lable>
+            <input
+              id="addDate"
+              type="date"
+              placeholder="Apply date"
+              className="w-full h-full grow-1 "
+              value={addDate}
+              onChange={(e) => updateAddDate(e.target.value)}
+            />
+          </div>
+
           <Select
             id="contract"
             defaultValue="default"
             value={contract}
             onValueChange={(v) => updateContract(v)}
           >
-            <SelectTrigger
-              className="w-full rounded max-h-7 px-2">
+            <SelectTrigger className="grow-1 rounded border-none text-base">
               <SelectValue placeholder="Contract Type" />
             </SelectTrigger>
-            <SelectContent >
-              <SelectItem className="text-xs" value="default">non specified</SelectItem>
-              {CONTRACT_TYPES.map((contract, key) => <SelectItem key={key} className="text-xs" value={contract}>{contract}</SelectItem>)}
-            </SelectContent>
-          </Select>
-        </div>
 
-        <div>
-          <input
-            id="addDate"
-            type="date"
-            className="w-full p-1 px-2 block bg-gray-100 rounded"
-            value={addDate}
-            onChange={(e) => updateAddDate(e.target.value)}
-          />
+            <SelectContent >
+              <SelectItem value="default">non specified</SelectItem>
+              {CONTRACT_TYPES.map((contract, key) => <SelectItem key={key} className="text-base" value={contract}>{contract}</SelectItem>)}
+            </SelectContent>
+
+          </Select>
         </div>
 
       </div>
 
-      <div className="pt-2">
+      <div >
         <div className="flex gap-2  items-baseline">
           <input id="tech"
             type="text"
@@ -186,8 +182,8 @@ export function AddCandid() {
         )}
       </div>
 
-      <div className="mt-1 flex">
-        <div className="flex items-center gap-2 px-2">
+      <div className="flex">
+        <div className="flex items-center gap-2 px-1">
           <input
             id="isCandidTech"
             type="checkbox"
@@ -208,17 +204,22 @@ export function AddCandid() {
       </div>
 
 
-      <div className="flex justify-end gap-2">
-        <div className="flex justify-end">
+      <div className="flex justify-between gap-2">
+        <Button
+          onClick={() => toggle()}
+          className="bg-destructive/75 hover:bg-destructive"
+        >
+          {`close \u2717`}
+        </Button>
+        <div>
           <Button
+            variant="secondary"
             onClick={() => reset()}
           >
             clear
           </Button>
-        </div>
-
-        <div className="flex justify-end">
           <Button
+            className="ml-2"
             onClick={async () => {
               try {
                 const candid = await postCandid()

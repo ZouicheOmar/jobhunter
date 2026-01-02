@@ -75,6 +75,7 @@ public class CandidMapper {
         candid.getTitle(),
         candid.getUrl(),
         candid.getCompany().getName(),
+        candid.getDateApply().toString(),
         candid.getUnsolicited(),
         candid.getAnswer(),
         getTechList(candid),
@@ -83,15 +84,17 @@ public class CandidMapper {
 
   public List<CandidDto> toAllDto(List<Candid> candids) {
     return candids.stream()
-        .map((candid) -> new CandidDto(
-            candid.getId(),
-            candid.getTitle(),
-            candid.getUrl(),
-            candid.getCompany().getName(),
-            candid.getUnsolicited(),
-            candid.getAnswer(),
-            getTechList(candid),
-            candid.getCity().getName()))
+        .map((candid) -> toDto(candid))
         .collect(Collectors.toList());
+    // .map((candid) -> new CandidDto(
+    // candid.getId(),
+    // candid.getTitle(),
+    // candid.getUrl(),
+    // candid.getCompany().getName(),
+    // candid.getUnsolicited(),
+    // candid.getAnswer(),
+    // getTechList(candid),
+    // candid.getCity().getName()))
+    // .collect(Collectors.toList());
   }
 }

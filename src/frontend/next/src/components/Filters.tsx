@@ -30,22 +30,22 @@ export const Filters = () => {
     <div className="flex gap-2">
 
       <Select defaultValue="default" value={cityFilter} onValueChange={(v) => updateCityFilter(v)}>
-        <SelectTrigger className="max-w-[120px] text-xs rounded rounded-bl-md" size="sm">
+        <SelectTrigger className="max-w-[120px]  rounded rounded-bl-md" size="sm">
           <SelectValue placeholder="city" />
         </SelectTrigger>
         <SelectContent >
-          <SelectItem className="text-xs" value="default">all cities</SelectItem>
-          {cities.map((city, key) => <SelectItem key={key} className="text-xs" value={city.name}>{city.name}</SelectItem>)}
+          <SelectItem className="" value="default">all cities</SelectItem>
+          {cities.map((city, key) => <SelectItem key={key} className="" value={city.name}>{city.name}</SelectItem>)}
         </SelectContent>
       </Select>
 
       <Select defaultValue="default" value={techFilter} onValueChange={(v) => updateTechFilter(v)}>
-        <SelectTrigger className="w-[120px] text-xs rounded rounded-bl-md" size="sm" >
+        <SelectTrigger className="w-[120px]  rounded rounded-bl-md" size="sm" >
           <SelectValue placeholder="tech" />
         </SelectTrigger>
         <SelectContent >
-          <SelectItem className="text-xs" value="default">all techs</SelectItem>
-          {techs.map((tech, key) => tech.name && <SelectItem key={key} className="text-xs" value={tech.name}>{tech.name}</SelectItem>)}
+          <SelectItem className="" value="default">all techs</SelectItem>
+          {techs.map((tech, key) => tech.name && <SelectItem key={key} className="" value={tech.name}>{tech.name}</SelectItem>)}
         </SelectContent>
       </Select>
 
