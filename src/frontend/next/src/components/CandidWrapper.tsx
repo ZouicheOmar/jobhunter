@@ -15,14 +15,15 @@ export const CandidWrapper = () => {
   // this goes to useUI
   const showAddCandid = useAddCandidStore((state) => state.show);
   return <>
-    <div className="w-full flex flex-col gap-4">
-      <Title />
-      <Controls />
-      {/* rename to stats
-      <TopInfo /> */}
-      {showAddCandid && <AddCandid />}
-      <CandidList />
-      <Paginator />
-    </div>
+    <main className="w-full">
+      <div className="w-full flex flex-col gap-4">
+        <Title />
+        <Controls />
+        {/* rename to stats <TopInfo /> */}
+        {showAddCandid && <AddCandid />}
+        <CandidList />
+        <Paginator />
+      </div>
+    </main>
   </>
 }

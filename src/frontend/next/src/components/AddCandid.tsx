@@ -121,7 +121,7 @@ export function AddCandid() {
 
         <div className="col-span-2 flex gap-3">
           <div className="grow-1 flex px-2 gap-3 bg-gray-100 rounded items-center">
-            <lable className="min-w-fit leading-[2em] text-muted-foreground"> Application Date </lable>
+            <label className="min-w-fit leading-[2em] text-muted-foreground"> Application Date </label>
             <input
               id="addDate"
               type="date"
