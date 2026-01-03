@@ -21,6 +21,7 @@ import {
 import { getTodayDate, getHostname } from "@/lib/utils";
 import { CONTRACT_TYPES } from "@/lib/consts";
 import AddCandidCityInput from "./AddCandidCityInput";
+import AddCandidWebsiteInput from "./AddCandidWebsiteInput";
 
 export function AddCandid() {
 
@@ -100,14 +101,15 @@ export function AddCandid() {
         />
 
         <AddCandidCityInput />
+        <AddCandidWebsiteInput />
 
-        <input id="website"
-          type="text"
-          placeholder="Website"
-          className="h-fit p-1 px-2 block bg-gray-100 rounded col-span-1"
-          value={website}
-          onChange={(e) => updateWebsite(e.target.value)}
-        />
+        {/* <input id="website" */}
+        {/*   type="text" */}
+        {/*   placeholder="Website" */}
+        {/*   className="h-fit p-1 px-2 block bg-gray-100 rounded col-span-1" */}
+        {/*   value={website} */}
+        {/*   onChange={(e) => updateWebsite(e.target.value)} */}
+        {/* /> */}
 
         {companyDesc && (<div>
           <input id="companyDesc"

@@ -32,7 +32,7 @@ const NoResultsSpan = () => (
 )
 
 
-const CompletionListItem = ({ item, cb }) => (
+const CompletionListItem = ({ item, formatItem, cb }) => (
   <span
     onClick={() => cb(item)}
     className=" m-0 px-2 border rounded
@@ -40,18 +40,18 @@ const CompletionListItem = ({ item, cb }) => (
                   leading-[2em] inline-block
                   cursor-pointer break-all"
   >
-    {item.name}
+    {formatItem(item)}
   </span>
 )
 
-const CompletionList = ({ list, cb }) => (
+const CompletionList = ({ list, formatItem, cb }) => (
   <div
     className="h-fit min-h-[4.5em]
     flex flex-wrap gap-x-1
     gap-y-1 md:gap-y-0"
   >
     {list.map((i: City, k: number) =>
-      <CompletionListItem item={i} key={k} cb={cb} />)
+      <CompletionListItem item={i} formatItem={formatItem} key={k} cb={cb} />)
     }
   </div>
 
@@ -66,6 +66,7 @@ export default function InputWithSelect({
   updateValue,
   updateCompletionList,
   getCompletion,
+  formatItem
   // TODO ItemFormat
 }: InputWithSelectProps) {
 
@@ -131,7 +132,7 @@ export default function InputWithSelect({
           ? error
             ? <NoResultsSpan />
             : completionList.length
-              ? <CompletionList list={completionList} cb={handleSpanClick} />
+              ? <CompletionList list={completionList} formatItem={formatItem} cb={handleSpanClick} />
               : loading
                 ? <LoadingSpan />
                 : <></>

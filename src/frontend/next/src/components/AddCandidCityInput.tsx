@@ -4,6 +4,8 @@ import { useShallow } from "zustand/shallow";
 
 import { getCityCompletion } from "@/lib/api";
 
+const formatCityCompletion = (cityDto: string) => cityDto.name;
+
 export default function AddCandidCityInput() {
 
   const cityName = useAddCandidStore(useShallow((state) => state.cityName));
@@ -27,6 +29,7 @@ export default function AddCandidCityInput() {
       // NOTE ici j'avais un bug, faut de grappe sur getCompletion
       // Comment est ce que j'aurai pû exploiter TS pour éviter ça ?
       getCompletion={getCityCompletion}
+      formatItem={formatCityCompletion}
     />
   )
 }

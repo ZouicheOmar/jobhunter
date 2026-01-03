@@ -107,8 +107,8 @@ const titleSlice = (set) => ({
 const citySlice = (set) => ({
   cityName: "",
   completionList: [],
-  updateCityCompletionList: (v: string[]) => set({ completionList: v }),
   updateCityName: (v: string) => set({ cityName: v }),
+  updateCityCompletionList: (v: string[]) => set({ completionList: v }),
 })
 
 const companyNameSlice = (set) => ({
@@ -117,8 +117,11 @@ const companyNameSlice = (set) => ({
 })
 
 const websiteSlice = (set) => ({
-  website: "",
-  updatewebsite: (v: string) => set(() => ({ website: v })),
+  // TODO verifier que le state s'appelle websiteName partout..
+  websiteName: "",
+  websiteCompletionList: [],
+  updateWebsiteName: (v: string) => set(() => ({ websiteName: v })),
+  updateWebsiteCompletionList: (v: string[]) => set({ websiteCompletionList: v }),
 })
 
 const techSlice = (set, get) => ({
@@ -154,7 +157,7 @@ const componentStateSlice = (set, get, store) => ({
 })
 
 const remainingSlice = (set) => ({
-  techOffer: false,
+  techOffer: true,
   unsolicited: false,
   answer: false,
   contract: '',
