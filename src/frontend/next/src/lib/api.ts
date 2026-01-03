@@ -102,7 +102,7 @@ export async function getCityCompletion(v: string): Promise<string> {
 }
 
 // Pormise<website[]>
-export async function getWebsiteCompletion(v: string): Promise<string> {
+export async function getWebsiteCompletion(v: string): Promise<string[]> {
   try {
     //http://localhost:8080/completion/website?value=v
     const req = await fetch(ROUTES.API.COMPLETION.WEBSITE(v));

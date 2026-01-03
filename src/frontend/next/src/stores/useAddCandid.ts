@@ -88,7 +88,7 @@ const urlSlice = (set) => ({
         cityName: location,
         contract: contract_type,
         addDate: date,
-        website: hostname,
+        websiteName: hostname,
       })
 
       set({ loading: false });
@@ -113,14 +113,14 @@ const citySlice = (set) => ({
 
 const companyNameSlice = (set) => ({
   companyName: "",
-  updateCompanyName: (v: string) => set(() => ({ companyName: v })),
+  updateCompanyName: (val: string) => set({ companyName: val }),
 })
 
 const websiteSlice = (set) => ({
   // TODO verifier que le state s'appelle websiteName partout..
   websiteName: "",
   websiteCompletionList: [],
-  updateWebsiteName: (v: string) => set(() => ({ websiteName: v })),
+  updateWebsiteName: (val: string) => set({ websiteName: val }),
   updateWebsiteCompletionList: (v: string[]) => set({ websiteCompletionList: v }),
 })
 

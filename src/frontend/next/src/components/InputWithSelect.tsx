@@ -11,7 +11,8 @@ type InputWithSelectProps = {
   updateValue: (v: string) => string;
   updateCompletionList: (v: string) => string[];
   // TODO this component should not be bound to the city type
-  getCompletion: (v: string) => Promise<City>; // should be general..
+  getCompletion: (v: string) => Promise<string[]>; // should be general..
+  formatItem: (item: any) => string;
 }
 
 const LoadingSpan = () => (
@@ -46,15 +47,21 @@ const CompletionListItem = ({ item, formatItem, cb }) => (
 
 const CompletionList = ({ list, formatItem, cb }) => (
   <div
-    className="h-fit min-h-[4.5em]
+    className="border border-red-300 h-fit min-h-[4.5em]
     flex flex-wrap gap-x-1
     gap-y-1 md:gap-y-0"
   >
-    {list.map((i: City, k: number) =>
-      <CompletionListItem item={i} formatItem={formatItem} key={k} cb={cb} />)
+    {
+      list.map((i, k) =>
+        <CompletionListItem
+          key={k}
+          item={i}
+          formatItem={formatItem}
+          cb={cb}
+        />
+      )
     }
   </div>
-
 )
 
 // TODO select suggestion item with arrows..
@@ -84,12 +91,14 @@ export default function InputWithSelect({
     if (inputRef.current) inputRef.current.blur();
   }, [value])
 
+  useEffect(() => { console.log("website completion list ?", completionList) }, [completionList])
+
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     updateValue(e.target?.value);
     clearTimeout(TID);
 
     if (!e.target.value) {
-      updateCompletionList([]);
+      // updateCompletionList([]);
       setError(false);
       setLoading(false);
       return;
@@ -100,12 +109,13 @@ export default function InputWithSelect({
         async () => {
           try {
             setLoading(true);
-            const data: Promise<City[]> = await getCompletion(e.target.value)
+            const data = await getCompletion(e.target.value)
             data.length ? setError(false) : setError(true);
             updateCompletionList(data);
           } catch (e) {
             throw new Error("could not fetch completion list")
           } finally {
+            console.log("should be setting loading to false")
             setLoading(false);
           }
         },
@@ -116,7 +126,7 @@ export default function InputWithSelect({
   }, [TID, loading]);
 
   return (
-    <div className="rounded col-span-1 flex flex-col gap-1" >
+    <div className="border rounded col-span-1 flex flex-col gap-1" >
       <input
         ref={inputRef}
         type="text"
@@ -141,3 +151,4 @@ export default function InputWithSelect({
     </div >
   )
 }
+

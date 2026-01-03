@@ -2,6 +2,7 @@ package com.jobhunter.backend.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Limit;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.model.Website;
@@ -23,6 +24,10 @@ public class WebsiteService {
 
   public List<Website> findAll() {
     return websiteRepository.findAll();
+  }
+
+  public List<Website> findAllByNameContaining(String websiteName) {
+    return websiteRepository.findAllByNameContaining(websiteName, Limit.of(4));
   }
 
   public Website findOrCreateByName(String name) {

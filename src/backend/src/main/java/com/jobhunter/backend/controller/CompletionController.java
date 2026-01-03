@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jobhunter.backend.dto.CityDto;
+import com.jobhunter.backend.dto.WebsiteDto;
 import com.jobhunter.backend.mapper.CityMapper;
+import com.jobhunter.backend.mapper.WebsiteMapper;
 import com.jobhunter.backend.model.City;
+import com.jobhunter.backend.model.Website;
 import com.jobhunter.backend.service.CityService;
+import com.jobhunter.backend.service.WebsiteService;
 
 @RestController
 @RequestMapping("/completion")
@@ -25,6 +29,12 @@ public class CompletionController {
   @Autowired
   private CityMapper cityMapper;
 
+  @Autowired
+  private WebsiteMapper websiteMapper;
+
+  @Autowired
+  private WebsiteService websiteService;
+
   @GetMapping("/city")
   public List<CityDto> ListByCityName(@RequestParam String value) {
     List<City> query;
@@ -35,5 +45,11 @@ public class CompletionController {
       query = cityService.findAllByNameContaining(value);
 
     return cityMapper.toAllDto(query);
+  }
+
+  @GetMapping("/website")
+  public List<WebsiteDto> ListByWebsiteName(@RequestParam String value) {
+    List<Website> query = websiteService.findAllByNameContaining(value);
+    return websiteMapper.toAllDto(query);
   }
 }

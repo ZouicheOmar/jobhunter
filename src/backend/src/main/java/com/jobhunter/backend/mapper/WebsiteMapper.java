@@ -1,7 +1,9 @@
 package com.jobhunter.backend.mapper;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.WebsiteDto;
 import com.jobhunter.backend.model.Website;
@@ -15,8 +17,13 @@ public class WebsiteMapper {
     return website;
   }
 
-  public WebsiteDto toDto(Website city) {
-    return new WebsiteDto(city.getName());
+  public WebsiteDto toDto(Website website) {
+    return new WebsiteDto(website.getName());
+  }
+
+  public List<WebsiteDto> toAllDto(List<Website> websites) {
+    return websites.stream().map((website) -> toDto(website))
+        .collect(Collectors.toList());
   }
 
 }
