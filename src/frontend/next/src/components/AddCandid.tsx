@@ -104,7 +104,7 @@ export function AddCandid() {
         <input id="website"
           type="text"
           placeholder="Website"
-          className="p-1 px-2 block bg-gray-100 rounded"
+          className="h-fit p-1 px-2 block bg-gray-100 rounded col-span-1"
           value={website}
           onChange={(e) => updateWebsite(e.target.value)}
         />

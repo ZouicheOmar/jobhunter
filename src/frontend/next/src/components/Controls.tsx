@@ -61,7 +61,7 @@ export const Controls = () => {
         <ControlsButton label="Add"
           onClick={() => {
             // if toggle
-            window.scrollTo({ top: 48, behavior: "smooth" })
+            // window.scrollTo({ top: 48, behavior: "smooth" })
             toggle()
           }
           }

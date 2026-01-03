@@ -72,10 +72,10 @@ public class CandidController {
   }
 
   @PostMapping
-  public CandidDto createNewCandid(
+  public void createNewCandid(
       @RequestBody CandidCreateDto createDto) {
 
-    Candid candid = new Candid();
+    // Candid candid = new Candid();
 
     // set the inside fields
     candid.setTitle(createDto.title());
@@ -84,7 +84,7 @@ public class CandidController {
     candid.setTechOffer(createDto.techOffer());
     candid.setAnswer(createDto.answer());
 
-    return new CandidDto();
+    // return new CandidDto();
 
     // it's on the service to create and handle domain logic
     //
