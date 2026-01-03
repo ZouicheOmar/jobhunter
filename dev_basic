@@ -5,11 +5,11 @@ CHECK_DB_RUNNING=$(docker ps | grep $PG_DOCKER_NAME | wc -l)
 
 JH_PATH='/home/omar/Desktop/projects/jobhunter'
 
-JH_BACK_PATH="$JH_PATH/src/backend/"
-JH_BACK_CMD="docker restart gloss_db_draft && mvn spring-boot:run"
-
 JH_FRONT_PATH="$JH_PATH/src/frontend/next/"
 JH_FRONT_CMD="bun dev"
+
+JH_BACK_PATH="$JH_PATH/src/backend/"
+JH_BACK_CMD="docker restart gloss_db_draft && mvn spring-boot:run"
 
 function verify_db() {
   if ! [ $CHECK_DB_RUNNING -gt 0 ]; then
