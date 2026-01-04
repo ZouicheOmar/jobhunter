@@ -127,11 +127,11 @@ export default function InputWithSelect({
   return (
     <div className="rounded col-span-1 flex flex-col gap-1" >
       <input
+        id={id}
         ref={inputRef}
         type="text"
         className="w-full h-fit p-1 px-2 block bg-gray-100 rounded"
         autoComplete="off"
-        id={id}
         placeholder={placeholder}
         value={value}
         onChange={handleChange}

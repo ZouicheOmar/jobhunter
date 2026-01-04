@@ -1,6 +1,7 @@
 import { Candid } from "@/types/CandidType";
 import { Link1Icon } from "@radix-ui/react-icons";
 import { Building, Link, MapPin, MoveUpRight } from "lucide-react";
+import { Badge } from "./Badge";
 
 
 export const CandidCompactCard = (
@@ -54,7 +55,7 @@ export const CandidCompactCard = (
         </div>
         <div className="max-w-full flex flex-wrap gap-1 wrap overflow-clip capitalize text-sm">
           {
-            stack.length > 0 && stack.map((name, k) => <span key={k} className="border px-[4px] leading-[1.5em] bg-neutral-200 border-neutral-300 rounded"> {name} </span>)
+            stack.length > 0 && stack.map((name, k) => <Badge key={k} >{name}</Badge>)
           }
         </div>
       </div>

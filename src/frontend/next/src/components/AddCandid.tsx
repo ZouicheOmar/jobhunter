@@ -23,6 +23,7 @@ import { CONTRACT_TYPES } from "@/lib/consts";
 import AddCandidCityInput from "./AddCandidCityInput";
 import AddCandidWebsiteInput from "./AddCandidWebsiteInput";
 import AddCandidCompanyInput from "./AddCandidCompanyInput";
+import AddCandidTechInput from "./AddCandidTechInput";
 
 export function AddCandid() {
 
@@ -31,8 +32,6 @@ export function AddCandid() {
 
   const url = useAddCandidStore(useShallow((state) => state.url));
   const title = useAddCandidStore(useShallow((state) => state.title));
-  const companyName = useAddCandidStore(useShallow((state) => state.companyName));
-  const website = useAddCandidStore(useShallow((state) => state.website));
   const companyDesc = useAddCandidStore(useShallow((state) => state.companyDesc));
   const addDate = useAddCandidStore(useShallow((state) => state.addDate));
 
@@ -140,41 +139,14 @@ export function AddCandid() {
 
       </div>
 
-      <div >
-        <div className="flex gap-2  items-baseline">
-          <input id="tech"
-            type="text"
-            placeholder="Tech stack"
-            className="w-full p-1 px-2 block bg-gray-100 rounded w-fit"
-            value={tech}
-            onChange={(e) => updateTech(e.target.value)}
-          />
-          <Button
-            onClick={(e) => {
-              updateStack();
-              e.target.previousSibling.focus();
-            }}
-            disabled={tech == ''}
-          >
-            add
-          </Button>
-        </div>
-        {stack?.length > 0 && (
-          <div className="flex gap-1 flex-wrap p-1 py-2">
-            {stack.map((item, key) => (<Badge key={key} >{item}
-              {<span
-                onClick={() => removeTech(item)}
-                className="ml-1 opacity-35 hover:opacity-100 hover:bg-orange-300 rounded border hover:border-orange-700 px-1 text-center text-orange-400"> x </span>}
-            </Badge>))}
-          </div>
-        )}
-      </div>
+      <AddCandidTechInput />
 
       <div className="flex">
         <div className="flex items-center gap-2 px-1">
           <input
             id="isCandidTech"
             type="checkbox"
+            defaultChecked={techOffer}
             value={techOffer}
             onChange={(e) => updateTechOffer(e.target.checked)}
           />
@@ -185,6 +157,8 @@ export function AddCandid() {
           <input
             id="unsolicited"
             type="checkbox"
+            defaultChecked={unsolicited}
+            value={unsolicited}
             onChange={(e) => updateUnsolicited(e.target.checked)}
           />
           <label htmlFor="unsolicited" className="text-muted-foreground" > unsolicited ? </label>

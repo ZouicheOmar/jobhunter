@@ -15,7 +15,8 @@ const ROUTES = {
     COMPLETION: {
       CITY: (v: string) => `${API_BASE}/completion/city?value=${v}`,
       WEBSITE: (v: string) => `${API_BASE}/completion/website?value=${v}`,
-      COMPANY: (v: string) => `${API_BASE}/completion/company?value=${v}`
+      COMPANY: (v: string) => `${API_BASE}/completion/company?value=${v}`,
+      TECH: (v: string) => `${API_BASE}/completion/tech?value=${v}`
     }
   },
 }
@@ -122,8 +123,20 @@ export async function getCompanyCompletion(v: string): Promise<string[]> {
     //http://localhost:8080/completion/Company?value=v
     const req = await fetch(ROUTES.API.COMPLETION.COMPANY(v));
     const json = await req.json();
-    console.log("request : ", req);
-    console.log("json : ", json);
+    return json;
+  } catch (e) {
+    throw e;
+  }
+}
+
+
+export async function getTechCompletion(v: string): Promise<string[]> {
+  try {
+    //http://localhost:8080/completion/Tech?value=v
+    const req = await fetch(ROUTES.API.COMPLETION.TECH(v));
+    const json = await req.json();
+    console.log("request (tech completion)", req);
+    console.log("json (tech completion)", json);
     return json;
   } catch (e) {
     throw e;

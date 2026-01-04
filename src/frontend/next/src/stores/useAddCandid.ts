@@ -129,15 +129,14 @@ const websiteSlice = (set) => ({
 const techSlice = (set, get) => ({
   tech: '',
   stack: [],
+  techCompletionList: [],
 
   updateTech: (tech) => set({ tech: tech }),
-
   updateStack: () => {
     const stack = get().stack;
     const tech = get().tech;
     !stack.includes(tech) && set({ stack: [...stack, tech], tech: '' });
   },
-
   removeTech: (tech: string) => {
     const index = get().stack.indexOf(tech);
     if (index > -1) {
@@ -148,10 +147,12 @@ const techSlice = (set, get) => ({
     }
   },
 
+  updateTechCompletionList: (v: string[]) => set({ techCompletionList: v }),
+
 })
 
 const componentStateSlice = (set, get, store) => ({
-  show: false,
+  show: true,
   loading: false,
   error: false,
   reset: () => set({ ...store.getInitialState(), show: true }),
