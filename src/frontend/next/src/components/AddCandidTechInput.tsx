@@ -3,6 +3,9 @@ import { useAddCandidStore } from "@/stores/useAddCandid";
 import { Button } from "./schadcn/Button";
 import { Badge } from "./Badge";
 import { getTechCompletion } from "@/lib/api";
+import { TechDto } from "@/types/CandidType";
+
+const formatTechCompletion = (techDto: TechDto) => techDto.name;
 
 const DeleteButton = ({ onClick }) => {
   return (
@@ -78,6 +81,8 @@ export default function AddCandidTechInput() {
   const handleItemClick = (i) => {
     updateTech(i.name);
     updateTechCompletionList([]);
+    updateStack();
+    updateTech("");
     if (inputRef.current) inputRef.current.blur();
   }
 
@@ -90,6 +95,7 @@ export default function AddCandidTechInput() {
         <input
           id="tech"
           type="text"
+          autoComplete="off"
           ref={inputRef}
           placeholder="Tech stack"
           className="w-full h-fit p-1 px-2 block bg-gray-100 rounded"
@@ -112,17 +118,16 @@ export default function AddCandidTechInput() {
         <div className=" w-1/2 h-fit">
           <p className="underline">Suggestions </p>
           <div>
-            <p>completion list</p>
-            {techCompletionList.length && (
+            {techCompletionList.length > 0 && (
               techCompletionList.map((i, k) =>
                 <TechListItem
                   key={k}
                   item={i}
                   cb={handleItemClick}
+                  formatItem={formatTechCompletion}
                 />
               )
-            )
-            }
+            )}
           </div>
         </div>
 
