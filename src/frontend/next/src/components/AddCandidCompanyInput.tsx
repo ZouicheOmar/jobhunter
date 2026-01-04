@@ -2,10 +2,10 @@ import InputWithSelect from "./InputWithSelect";
 import { useAddCandidStore } from "@/stores/useAddCandid";
 import { useShallow } from "zustand/shallow";
 
-// TODO
 import { getCompanyCompletion } from "@/lib/api";
+import { CompanyDto } from "@/types/CandidType";
 
-const formatCompanyCompletion = (company: string) => company;
+const formatCompanyCompletion = (company: CompanyDto) => company.name;
 
 
 export default function AddCandidCompanyInput() {

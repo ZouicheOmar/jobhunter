@@ -8,6 +8,10 @@ export type TechDto = {
   name: string;
 }
 
+export type CompanyDto = {
+  name: string;
+}
+
 export type Candid = {
   addDate: string;
   answer: boolean;
