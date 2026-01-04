@@ -4,6 +4,7 @@ package com.jobhunter.backend.model;
 // jpa (jakarta.persistence) ou de hibernate ? ou même de spring data ?
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,20 +32,30 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.ManyToMany;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
+// @Data
+//
+
+// @Builder
+// @NoArgsConstructor
+// @AllArgsConstructor
+// @NoArgsConstructor(access = AccessLevel.PROTECTED)
+
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @ToString(exclude = "stack")
 @EqualsAndHashCode(exclude = "stack")
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Candid {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -86,26 +97,40 @@ public class Candid {
   @JoinTable(name = "candid_stack", joinColumns = @JoinColumn(name = "candid_id"), inverseJoinColumns = @JoinColumn(name = "tech_id"))
   @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
   @JsonBackReference(value = "candid-stack")
-  @Builder.Default
-  private Set<Tech> stack = new HashSet<>();
+  private List<Tech> stack;
+
+  // @Builder.Default
+  // private List<Tech> stack = new ArrayList<Tech>();
 
   @CreatedDate
   @Column(columnDefinition = "DATE")
   private LocalDate dateApply;
 
   @Column
-  @Builder.Default
-  private Boolean answer = false;
+  private Boolean answer;
 
   @Column(nullable = true)
-  @Builder.Default
-  private Boolean rejected = false;
+  private Boolean rejected;
 
   @Column(updatable = false)
-  @Builder.Default
-  private Boolean unsolicited = false;
+  private Boolean unsolicited;
 
   @Column(updatable = false)
-  @Builder.Default
-  private Boolean techOffer = true;
+  private Boolean techOffer;
+
+  // @Column
+  // @Builder.Default
+  // private Boolean answer = false;
+  //
+  // @Column(nullable = true)
+  // @Builder.Default
+  // private Boolean rejected = false;
+  //
+  // @Column(updatable = false)
+  // @Builder.Default
+  // private Boolean unsolicited = false;
+  //
+  // @Column(updatable = false)
+  // @Builder.Default
+  // private Boolean techOffer = true;
 }

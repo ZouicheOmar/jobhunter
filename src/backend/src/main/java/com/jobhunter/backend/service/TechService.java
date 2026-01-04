@@ -3,6 +3,7 @@ package com.jobhunter.backend.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Limit;
 import org.springframework.stereotype.Service;
 
 import com.jobhunter.backend.dto.TechDto;
@@ -46,6 +47,10 @@ public class TechService {
 
   public void updateTech(Tech tech) {
     techRepository.save(tech);
+  }
+
+  public List<Tech> findAllByNameContaining(String websiteName) {
+    return techRepository.findAllByNameContaining(websiteName, Limit.of(4));
   }
 
 }

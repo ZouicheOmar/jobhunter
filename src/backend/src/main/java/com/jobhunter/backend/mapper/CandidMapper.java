@@ -21,27 +21,29 @@ import jakarta.persistence.PersistenceContext;
 @Component
 public class CandidMapper {
 
-  private final CityMapper cityMapper;
-  private final WebsiteMapper websiteMapper;
-  private final TechMapper techMapper;
+  // private final CityMapper cityMapper;
+  // private final WebsiteMapper websiteMapper;
+  // private final TechMapper techMapper;
+  //
+  // private final CityService cityService;
+  // private final TechService techService;
+  // private final WebsiteService websiteService;
+  //
+  // public CandidMapper(CityMapper cityMapper, WebsiteMapper websiteMapper,
+  // TechMapper techMapper,
+  // CityService cityService, TechService techService, WebsiteService
+  // websiteService, EntityManager em) {
+  // this.cityMapper = cityMapper;
+  // this.websiteMapper = websiteMapper;
+  // this.techMapper = techMapper;
+  // this.cityService = cityService;
+  // this.techService = techService;
+  // this.websiteService = websiteService;
+  // this.em = em; // pas sûr de ça
+  // }
 
-  private final CityService cityService;
-  private final TechService techService;
-  private final WebsiteService websiteService;
-
-  public CandidMapper(CityMapper cityMapper, WebsiteMapper websiteMapper, TechMapper techMapper,
-      CityService cityService, TechService techService, WebsiteService websiteService, EntityManager em) {
-    this.cityMapper = cityMapper;
-    this.websiteMapper = websiteMapper;
-    this.techMapper = techMapper;
-    this.cityService = cityService;
-    this.techService = techService;
-    this.websiteService = websiteService;
-    this.em = em; // pas sûr de ça
-  }
-
-  @PersistenceContext
-  private EntityManager em;
+  // @PersistenceContext
+  // private EntityManager em;
 
   public Candid toEntity(CandidDto dto) {
     var candid = new Candid();

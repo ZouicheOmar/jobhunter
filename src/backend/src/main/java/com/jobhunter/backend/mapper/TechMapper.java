@@ -1,6 +1,6 @@
 package com.jobhunter.backend.mapper;
 
-import java.util.Set;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
@@ -18,16 +18,16 @@ public class TechMapper {
     return tech;
   }
 
-  public Set<Tech> toAllEntity(Set<TechDto> allDto) {
-    return allDto.stream().map(dto -> toEntity(dto)).collect(Collectors.toSet());
+  public List<Tech> toAllEntity(List<TechDto> allDto) {
+    return allDto.stream().map(dto -> toEntity(dto)).collect(Collectors.toList());
   }
 
-  public TechDto toDto(Tech city) {
-    return new TechDto(city.getName());
+  public TechDto toDto(Tech tech) {
+    return new TechDto(tech.getName());
   }
 
-  public Set<TechDto> toAllDto(Set<Tech> tech) {
-    return tech.stream().map(t -> toDto(t)).collect(Collectors.toSet());
+  public List<TechDto> toAllDto(List<Tech> tech) {
+    return tech.stream().map(t -> toDto(t)).collect(Collectors.toList());
   }
 
 }
