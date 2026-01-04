@@ -47,7 +47,7 @@ const CompletionListItem = ({ item, formatItem, cb }) => (
 
 const CompletionList = ({ list, formatItem, cb }) => (
   <div
-    className="border border-red-300 h-fit min-h-[4.5em]
+    className="h-fit min-h-[4.5em]
     flex flex-wrap gap-x-1
     gap-y-1 md:gap-y-0"
   >
@@ -91,13 +91,12 @@ export default function InputWithSelect({
     if (inputRef.current) inputRef.current.blur();
   }, [value])
 
-  useEffect(() => { console.log("website completion list ?", completionList) }, [completionList])
-
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     updateValue(e.target?.value);
     clearTimeout(TID);
 
     if (!e.target.value) {
+      // TODO ???
       // updateCompletionList([]);
       setError(false);
       setLoading(false);
@@ -126,7 +125,7 @@ export default function InputWithSelect({
   }, [TID, loading]);
 
   return (
-    <div className="border rounded col-span-1 flex flex-col gap-1" >
+    <div className="rounded col-span-1 flex flex-col gap-1" >
       <input
         ref={inputRef}
         type="text"

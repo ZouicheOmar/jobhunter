@@ -71,11 +71,12 @@ public class CandidController {
     return candidService.findById(id);
   }
 
+  // When i comment this methods, app doesn't compilte right
   @PostMapping
   public void createNewCandid(
       @RequestBody CandidCreateDto createDto) {
 
-    // Candid candid = new Candid();
+    Candid candid = new Candid();
 
     // set the inside fields
     candid.setTitle(createDto.title());

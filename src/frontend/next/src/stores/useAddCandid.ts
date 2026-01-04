@@ -113,7 +113,9 @@ const citySlice = (set) => ({
 
 const companyNameSlice = (set) => ({
   companyName: "",
+  companyCompletionList: [],
   updateCompanyName: (val: string) => set({ companyName: val }),
+  updateCompanyCompletionList: (v: string[]) => set({ companyCompletionList: v }),
 })
 
 const websiteSlice = (set) => ({

@@ -22,6 +22,7 @@ import { getTodayDate, getHostname } from "@/lib/utils";
 import { CONTRACT_TYPES } from "@/lib/consts";
 import AddCandidCityInput from "./AddCandidCityInput";
 import AddCandidWebsiteInput from "./AddCandidWebsiteInput";
+import AddCandidCompanyInput from "./AddCandidCompanyInput";
 
 export function AddCandid() {
 
@@ -85,21 +86,14 @@ export function AddCandid() {
       <div className="grid grid-rows-1 md:grid-rows-1 gap-3">
         <input
           type="text"
-          className="p-1 px-2 block bg-gray-100 rounded"
+          className="h-fit p-1 px-2 block bg-gray-100 rounded"
           id="title"
           placeholder="Title"
           value={title}
           onChange={(e) => updateTitle(e.target.value)}
         />
 
-        <input id="company"
-          type="text"
-          placeholder="Company Name"
-          className="p-1 px-2 block bg-gray-100 rounded"
-          value={companyName}
-          onChange={(e) => updateCompanyName(e.target.value)}
-        />
-
+        <AddCandidCompanyInput />
         <AddCandidCityInput />
         <AddCandidWebsiteInput />
 
