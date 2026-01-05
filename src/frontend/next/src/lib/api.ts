@@ -4,7 +4,7 @@ const API_BASE = "http://192.168.1.30:8080"
 
 const ROUTES = {
   SCRAPPER: {
-    BASE: "http://localhost:5000/scrap/",
+    BASE: "http://127.0.0.1:5000/scrap/",
   },
   API: {
     BASE: `${API_BASE}/`,
@@ -34,8 +34,9 @@ export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
       {
         method: 'POST',
         headers: {
+          // CORS should be configurer on only one layer of the application
+          // ?...
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
           url: url

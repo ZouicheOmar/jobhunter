@@ -65,10 +65,11 @@ export type AddCandidActions = {
 // TODO slices pattern
 //
 
-const urlSlice = (set) => ({
-  url: "",
+const urlSlice = (set, get) => ({
+  url: "https://www.hellowork.com/fr-fr/emplois/74168933.html",
   updateUrl: (v: string) => set(() => ({ url: v })),
   lookupUrl: async () => {
+    // TODO move this to api
     try {
       set({ loading: true });
 
@@ -90,10 +91,10 @@ const urlSlice = (set) => ({
         addDate: date,
         websiteName: hostname,
       })
-
-      set({ loading: false });
     } catch (e) {
-      set({ error: true, loading: false });
+      set({ error: true });
+    } finally {
+      set({ loading: false });
     }
   },
 
@@ -152,7 +153,7 @@ const techSlice = (set, get) => ({
 })
 
 const componentStateSlice = (set, get, store) => ({
-  show: true,
+  show: false,
   loading: false,
   error: false,
   reset: () => set({ ...store.getInitialState(), show: true }),
