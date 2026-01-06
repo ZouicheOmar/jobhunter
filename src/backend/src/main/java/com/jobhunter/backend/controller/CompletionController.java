@@ -1,15 +1,5 @@
 package com.jobhunter.backend.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.jobhunter.backend.dto.CityDto;
 import com.jobhunter.backend.dto.CompanyDto;
 import com.jobhunter.backend.dto.TechDto;
@@ -26,63 +16,69 @@ import com.jobhunter.backend.service.CityService;
 import com.jobhunter.backend.service.CompanyService;
 import com.jobhunter.backend.service.TechService;
 import com.jobhunter.backend.service.WebsiteService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/completion")
 @CrossOrigin
 public class CompletionController {
-  @Autowired
-  private CityService cityService;
 
-  @Autowired
-  private CityMapper cityMapper;
+    @Autowired
+    private CityService cityService;
 
-  @Autowired
-  private WebsiteService websiteService;
+    @Autowired
+    private CityMapper cityMapper;
 
-  @Autowired
-  private WebsiteMapper websiteMapper;
+    @Autowired
+    private WebsiteService websiteService;
 
-  @Autowired
-  private CompanyService companyService;
+    @Autowired
+    private WebsiteMapper websiteMapper;
 
-  @Autowired
-  private CompanyMapper companyMapper;
+    @Autowired
+    private CompanyService companyService;
 
-  @Autowired
-  private TechService techService;
+    @Autowired
+    private CompanyMapper companyMapper;
 
-  @Autowired
-  private TechMapper techMapper;
+    @Autowired
+    private TechService techService;
 
-  @GetMapping("/city")
-  public List<CityDto> ListByCityName(@RequestParam String value) {
-    List<City> query;
+    @Autowired
+    private TechMapper techMapper;
 
-    if (value.matches("\\d+"))
-      query = cityService.findAllByZipcodeContaining(value);
-    else
-      query = cityService.findAllByNameContaining(value);
+    @GetMapping("/city")
+    public List<CityDto> ListByCityName(@RequestParam String value) {
+        List<City> query;
 
-    return cityMapper.toAllDto(query);
-  }
+        if (value.matches("\\d+")) query =
+            cityService.findAllByZipcodeContaining(value);
+        else query = cityService.findAllByNameContaining(value);
 
-  @GetMapping("/website")
-  public List<WebsiteDto> ListByWebsiteName(@RequestParam String value) {
-    List<Website> query = websiteService.findAllByNameContaining(value);
-    return websiteMapper.toAllDto(query);
-  }
+        return cityMapper.toAllDto(query);
+    }
 
-  @GetMapping("/company")
-  public List<CompanyDto> ListByCompanyName(@RequestParam String value) {
-    List<Company> query = companyService.findAllByNameContaining(value);
-    return companyMapper.toAllDto(query);
-  }
+    @GetMapping("/website")
+    public List<WebsiteDto> ListByWebsiteName(@RequestParam String value) {
+        List<Website> query = websiteService.findAllByNameContaining(value);
+        return websiteMapper.toAllDto(query);
+    }
 
-  @GetMapping("/tech")
-  public List<TechDto> ListByTechName(@RequestParam String value) {
-    List<Tech> query = techService.findAllByNameContaining(value);
-    return techMapper.toAllDto(query);
-  }
+    @GetMapping("/company")
+    public List<CompanyDto> ListByCompanyName(@RequestParam String value) {
+        List<Company> query = companyService.findAllByNameContaining(value);
+        return companyMapper.toAllDto(query);
+    }
 
+    @GetMapping("/tech")
+    public List<TechDto> ListByTechName(@RequestParam String value) {
+        List<Tech> query = techService.findAllByNameContaining(value);
+        return techMapper.toAllDto(query);
+    }
 }

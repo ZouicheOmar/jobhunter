@@ -1,38 +1,43 @@
 package com.jobhunter.backend.model;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import java.util.List;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+// @Table(uniqueConstraints = {
+//     @UniqueConstraint(name = "unique_website_name", columnNames = "name")
+// })
 
 @Entity
-@Table(uniqueConstraints = {
-    @UniqueConstraint(name = "unique_website_name", columnNames = "name")
-})
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@ToString(exclude = "candids")
+@EqualsAndHashCode(exclude = "candids")
 public class Website {
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  public Integer id;
 
-  public String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    public Integer id;
 
-  // does this reference the candid ids , ??
-  @OneToMany(mappedBy = "website")
-  @JsonManagedReference(value = "candid-website")
-  private List<Candid> candids;
+    @Column(unique = true)
+    public String name;
+
+    @OneToMany(mappedBy = "website")
+    @JsonManagedReference(value = "candid-website")
+    private List<Candid> candids;
+
+    public Website(String name) {
+        this.name = name;
+    }
 }

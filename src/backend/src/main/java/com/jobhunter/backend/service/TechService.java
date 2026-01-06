@@ -1,56 +1,36 @@
 package com.jobhunter.backend.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.data.domain.Limit;
-import org.springframework.stereotype.Service;
-
-import com.jobhunter.backend.dto.TechDto;
-import com.jobhunter.backend.mapper.TechMapper;
 import com.jobhunter.backend.model.Tech;
 import com.jobhunter.backend.repository.TechRepository;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Limit;
+import org.springframework.stereotype.Service;
 
 @Service
 public class TechService {
 
-  private final TechRepository techRepository;
-  private final TechMapper techMapper;
+    @Autowired
+    private TechRepository techRepository;
 
-  public TechService(TechRepository techRepository, TechMapper techMapper) {
-    this.techRepository = techRepository;
-    this.techMapper = techMapper;
-  }
+    public Tech save(Tech tech) {
+        return techRepository.save(tech);
+    }
 
-  public TechDto save(Tech tech) {
-    return techMapper.toDto(techRepository.save(tech));
-  }
+    public List<Tech> findAll() {
+        return techRepository.findAll();
+    }
 
-  public List<TechDto> findAll() {
-    return techRepository.findAll().stream().map(tech -> techMapper.toDto(tech)).collect(Collectors.toList());
-  }
+    public Tech findOrCreateByName(String name) {
+        return techRepository.findByName(name).orElse(save(new Tech(name)));
+    }
 
-  public List<Tech> findAllEntities() {
-    return techRepository.findAll();
-  }
+    public List<Tech> findAllByNameContaining(String websiteName) {
+        return techRepository.findAllByNameContaining(websiteName, Limit.of(4));
+    }
 
-  public Tech findOrCreateByName(String name) {
-    Tech techQuery = techRepository.findByName(name);
-
-    if (techQuery != null)
-      return techQuery;
-
-    Tech tech = new Tech();
-    tech.setName(name);
-    return techRepository.save(tech);
-  }
-
-  public void updateTech(Tech tech) {
-    techRepository.save(tech);
-  }
-
-  public List<Tech> findAllByNameContaining(String websiteName) {
-    return techRepository.findAllByNameContaining(websiteName, Limit.of(4));
-  }
-
+    // TODO correct this
+    public void updateTech(Tech tech) {
+        techRepository.save(tech);
+    }
 }

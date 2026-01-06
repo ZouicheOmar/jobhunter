@@ -1,5 +1,3 @@
 package com.jobhunter.backend.dto;
 
-public record CompanyDto(
-        String name) {
-}
+public record CompanyDto(Integer id, String name) {}

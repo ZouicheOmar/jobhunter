@@ -1,90 +1,48 @@
 import { CandidCard } from "./CandidCard";
 import { CandidCompactCard } from "./CandidCompactCard";
-import { useCandidsStore } from "@/stores/useCandidsStore";
+import { useCandidStore } from "@/stores/useCandidStore";
 import { useEffect } from "react";
-import { Button } from "./schadcn/Button";
 
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardAction,
-  CardDescription,
-  CardContent,
-} from "./schadcn/Card";
-import { useActionsStore } from "@/stores/useActions";
+import { Card, CardHeader, CardTitle } from "./schadcn/Card";
+
+import { useActionStore } from "@/stores/useAction";
 import { useControls } from "@/stores/useControls";
 
 export const CandidList = () => {
-  const list = useCandidsStore((state) => state.list);
-  const filteredList = useCandidsStore((state) => state.filteredList);
-  const getAll = useCandidsStore((state) => state.getAll);
+  const candids = useCandidStore((state) => state.candids);
+  const getCandids = useCandidStore((state) => state.getCandids);
 
-  const currentPage = useActionsStore((state) => state.currentPage);
-  const perPage = useActionsStore((state) => state.perPage);
-
-  const cityFilter = useActionsStore((state) => state.cityFilter);
-  const techFilter = useActionsStore((state) => state.techFilter);
-  const reset = useActionsStore((state) => state.reset);
+  const currentPage = useActionStore((state) => state.currentPage);
+  const perPage = 10;
 
   const compact = useControls((state) => state.compact);
 
   useEffect(() => {
-    getAll();
-  }, [])
+    getCandids();
+  }, []);
 
-  return <>
-    <div
-      className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2"
-    >
-      {
-        filteredList.length > 1 ? (filteredList
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2">
+      {candids.length > 0 ? (
+        candids
           .slice(
             currentPage * perPage,
-            Math.min((currentPage + 1) * perPage, filteredList.length))
-          .map((candid, key) => compact ? (
-            <CandidCompactCard
-              key={candid?.id || key}
-              candid={candid}
-            />) :
-            (<CandidCard
-              key={candid?.id}
-              candid={candid}
-            />)
-          ))
-          : (<Card>
-            <CardHeader >
-              <CardTitle >
-                no results ..
-              </CardTitle>
-              {
-                cityFilter != "default" && techFilter !== "default" && (
-                  <>
-                    <CardDescription>
-                      Didn't find any results for
-                      <span className="font-semibold italic">
-                        {cityFilter && ` ${cityFilter}`}
-                      </span>
-                      <span className="font-semibold italic">
-                        {techFilter && ` and ${techFilter}`}
-                      </span>
-                    </CardDescription>
-                    <CardAction>
-                      <Button
-                        onClick={() => reset()}
-                        variant="outline"
-                        size="sm"
-                      >
-                        reset filters
-                      </Button>
-                    </CardAction>
-                  </>
-                )
-              }
-            </CardHeader>
-          </Card>)
-      }
+            Math.min((currentPage + 1) * perPage, candids.length),
+          )
+          .map((candid, key) =>
+            compact ? (
+              <CandidCompactCard key={candid?.id || key} candid={candid} />
+            ) : (
+              <CandidCard key={candid?.id} candid={candid} />
+            ),
+          )
+      ) : (
+        <Card>
+          <CardHeader>
+            <CardTitle>no results ..</CardTitle>
+          </CardHeader>
+        </Card>
+      )}
     </div>
-  </>
-
-}
+  );
+};

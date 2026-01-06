@@ -1,35 +1,45 @@
 package com.jobhunter.backend.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.data.domain.Limit;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.jobhunter.backend.dto.CompanyDto;
-import com.jobhunter.backend.mapper.TechMapper;
+import com.jobhunter.backend.dto.CompanyCreateDto;
 import com.jobhunter.backend.model.Company;
-import com.jobhunter.backend.model.Tech;
 import com.jobhunter.backend.repository.CompanyRepository;
-import com.jobhunter.backend.repository.TechRepository;
+import java.util.List;
+import java.util.function.Function;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Limit;
+import org.springframework.stereotype.Service;
 
 @Service
 public class CompanyService {
 
-  private CompanyRepository companyRepository;
+    @Autowired
+    private CompanyRepository companyRepository;
 
-  public CompanyService(CompanyRepository companyRepository) {
-    this.companyRepository = companyRepository;
-  }
+    // create always calls save
 
-  // public CompanyDto save(Tech tech) {
-  // return companyMapper.toDto(companyRepository.save(tech));
-  // }
+    public Company save(Company company) {
+        return companyRepository.save(company);
+    }
 
-  public List<Company> findAllByNameContaining(String websiteName) {
-    return companyRepository.findAllByNameContaining(websiteName, Limit.of(4));
-  }
+    public Company findOrCreateByName(Company cp) {
+        return companyRepository
+            .findByName(cp.getName())
+            .orElseGet(() -> save(cp));
+    }
 
+    public List<Company> findAllByNameContaining(String companyName) {
+        return companyRepository.findAllByNameContaining(
+            companyName,
+            Limit.of(4)
+        );
+    }
+
+    // this method should not exist
+    public Company findOrCreateByDto(CompanyCreateDto cdto) {
+        return cdto
+            .id()
+            .map(companyRepository::findById)
+            .flatMap(Function.identity())
+            .orElseGet(() -> save(new Company(cdto.name())));
+    }
 }

@@ -1,45 +1,47 @@
 package com.jobhunter.backend.model;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import java.util.List;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Entity(name = "CITY")
-@Table(uniqueConstraints = {
-    @UniqueConstraint(name = "unique_city_name", columnNames = "name")
-})
-@Data
+// @Table(uniqueConstraints = {
+//     @UniqueConstraint(name = "unique_city_name", columnNames = "name")
+// })
+
+// TODO : This table should be immutable somehow
+// no routes to create cities, or some jpa config
+@Entity
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Getter
+@Setter
+@ToString(exclude = "candids")
+@EqualsAndHashCode(exclude = "candids")
 public class City {
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  private Integer id;
 
-  private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
 
-  private String label;
+    private String name;
 
-  private Integer zipcode;
+    private String label;
 
-  private String dep_id;
+    private Integer zipcode;
 
-  private Integer reg_id;
+    private String dep_id;
 
-  @OneToMany(mappedBy = "city")
-  @JsonManagedReference(value = "candid-city")
-  private List<Candid> candids;
+    private Integer reg_id;
+
+    @OneToMany(mappedBy = "city")
+    @JsonManagedReference(value = "candid-city")
+    private List<Candid> candids;
 }

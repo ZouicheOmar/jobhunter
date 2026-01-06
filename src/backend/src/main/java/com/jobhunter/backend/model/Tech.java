@@ -1,75 +1,54 @@
 package com.jobhunter.backend.model;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import java.util.Set;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
-enum TechName {
-  JAVASCRIPT,
-  TYPESCRIPT,
-  REACT,
-  DJANGO,
-  SPRINGBOOT,
-  DOCKER,
-  GIT,
-  GITHUB,
-  GITLAB,
-  KUBERNETES,
-  ANSIBLE,
-  GO,
-  RUBY,
-  RUBY_ON_RAILS,
-  CPP,
-  C,
-  PHP,
-  LARAVEL,
-  SYMPHONY,
-}
+// @Table(uniqueConstraints = {
+//     @UniqueConstraint(name = "unique_tech_name", columnNames = "name")
+// })
 
 @Entity
-@Table(uniqueConstraints = {
-    @UniqueConstraint(name = "unique_tech_name", columnNames = "name")
-})
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @ToString(exclude = "candids")
 @EqualsAndHashCode(exclude = "candids")
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Tech {
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  public Integer id;
 
-  public String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
 
-  @ManyToMany(mappedBy = "stack")
-  @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
-  @JsonManagedReference(value = "candid-stack")
-  private Set<Candid> candids;
+    @Column(unique = true)
+    @NonNull
+    private String name;
 
-  public void addCandid(Candid candid) {
-    candids.add(candid);
-  }
+    @ManyToMany(mappedBy = "stack")
+    @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
+    @JsonManagedReference(value = "candid-stack")
+    private Set<Candid> candids;
+
+    // TODO is this right ?
+    public Tech(String name) {
+        this.name = name;
+    }
+
+    // TODO ????
+    // public void addCandid(Candid candid) {
+    // candids.add(candid);
+    // }
 }

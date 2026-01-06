@@ -1,46 +1,46 @@
 package com.jobhunter.backend.model;
 
-import com.jobhunter.backend.enums.ContractType;
-
-import java.time.LocalDateTime;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import com.jobhunter.backend.enums.ContractType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import java.time.LocalDateTime;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity(name = "Contract")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Contract {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
 
-  private String occupation;
+    private String occupation;
 
-  @Enumerated(EnumType.STRING)
-  private ContractType contractType;
+    @Enumerated(EnumType.STRING)
+    private ContractType contractType;
 
-  private String duration;
-  private LocalDateTime startDate;
+    // TODO duration should be integer and meaning that
+    // it defaults to months,
+    // NOTE problem casting varchar to int
+    private String duration;
+    private LocalDateTime startDate;
 
-  @OneToOne(mappedBy = "contract")
-  private Candid candid;
+    @OneToOne(mappedBy = "contract")
+    @JsonManagedReference(value = "candid-contract")
+    private Candid candid;
+
+    public Contract(ContractType contracType, String duration) {
+        this.contractType = contracType;
+        this.duration = duration;
+    }
 }

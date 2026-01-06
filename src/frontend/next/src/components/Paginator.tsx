@@ -1,5 +1,5 @@
-import { useActionsStore } from "@/stores/useActions"
-import { Button } from "./schadcn/Button"
+import { useActionStore } from "@/stores/useAction";
+import { Button } from "./schadcn/Button";
 
 import {
   Pagination,
@@ -12,25 +12,22 @@ import {
 } from "./schadcn/Paginator";
 
 export const Paginator = () => {
-  const totalPages = useActionsStore((state) => state.totalPages);
-  const currentPage = useActionsStore((state) => state.currentPage);
-  const incrCurrentPage = useActionsStore((state) => state.incrCurrentPage)
-  const dcrCurrentPage = useActionsStore((state) => state.dcrCurrentPage)
+  const totalPages = useActionStore((state) => state.totalPages);
+  const currentPage = useActionStore((state) => state.currentPage);
 
-  const goFirstPage = useActionsStore((state) => state.goFirstPage)
-  const goLastPage = useActionsStore((state) => state.goLastPage)
+  const updateCurrentPage = useActionStore((state) => state.updateCurrentPage);
+
+  const goFirstPage = useActionStore((state) => state.goFirstPage);
+  const goLastPage = useActionStore((state) => state.goLastPage);
 
   return (
     <Pagination>
       <PaginationContent className="select-none">
-
-        <PaginationItem >
-          <span onClick={() => goFirstPage()}>
-            .. First
-          </span>
+        <PaginationItem>
+          <span onClick={() => goFirstPage()}>.. First</span>
         </PaginationItem>
 
-        <PaginationItem onClick={() => dcrCurrentPage()}>
+        <PaginationItem onClick={() => updateCurrentPage(currentPage - 1)}>
           <PaginationPrevious />
         </PaginationItem>
 
@@ -40,28 +37,23 @@ export const Paginator = () => {
           </PaginationItem>
         )}
 
-        <PaginationItem>
-          {currentPage + 1}
-        </PaginationItem>
+        <PaginationItem>{currentPage + 1}</PaginationItem>
 
         <PaginationItem>
           <PaginationEllipsis />
         </PaginationItem>
 
-        <PaginationItem onClick={() => incrCurrentPage()}>
+        <PaginationItem onClick={() => updateCurrentPage(currentPage + 1)}>
           <PaginationNext />
         </PaginationItem>
 
-        <PaginationItem >
-          <span onClick={() => goLastPage()}>
-            .. Last
-          </span>
+        <PaginationItem>
+          <span onClick={() => goLastPage()}>.. Last</span>
         </PaginationItem>
-
       </PaginationContent>
     </Pagination>
-  )
-}
+  );
+};
 
 // <div className="flex gap-2 justify-center">
 //   {

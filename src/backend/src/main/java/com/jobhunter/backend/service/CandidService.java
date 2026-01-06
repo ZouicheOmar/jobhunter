@@ -1,102 +1,107 @@
 package com.jobhunter.backend.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Service;
-
-import com.jobhunter.backend.dto.CandidDto;
-import com.jobhunter.backend.mapper.CandidMapper;
 import com.jobhunter.backend.model.Candid;
 import com.jobhunter.backend.model.City;
+import com.jobhunter.backend.model.Company;
+import com.jobhunter.backend.model.Contract;
+import com.jobhunter.backend.model.Tech;
+import com.jobhunter.backend.model.Website;
 import com.jobhunter.backend.repository.CandidRepository;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class CandidService {
 
-  private final CandidMapper candidMapper;
-  private final CandidRepository candidRepository;
+    @Autowired
+    private CandidRepository candidRepository;
 
-  private final CityService cityService;
-  private final TechService techService;
-  private final WebsiteService websiteService;
+    @Autowired
+    private CompanyService companyService;
 
-  public CandidService(CandidMapper candidMapper, CandidRepository candidRepository, CityService cityService,
-      TechService techService, WebsiteService websiteService) {
-    this.candidMapper = candidMapper;
-    this.candidRepository = candidRepository;
-    this.cityService = cityService;
-    this.techService = techService;
-    this.websiteService = websiteService;
-  }
+    @Autowired
+    private StackService stackService;
 
-  public List<Candid> findAll() {
-    return candidRepository.findAll();
-  }
+    @Autowired
+    private CityService cityService;
 
-  // public List<CandidDto> findAll() {
-  // return candidRepository.findAll()
-  // .stream()
-  // .map(candid -> candidMapper.toDto(candid))
-  // .collect(Collectors.toList());
-  // }
+    @Autowired
+    private WebsiteService websiteService;
 
-  public CandidDto findById(Integer id) {
-    Candid c = candidRepository.findById(id).get();
-    if (c == null) {
-      return null;
+    @Autowired
+    private ContractService contractService;
+
+    public List<Candid> findAll() {
+        return candidRepository.findAll();
     }
-    return candidMapper.toDto(c);
-  }
 
-  public List<CandidDto> findAllByCityName(String cityName) {
-    return candidRepository.findAllByCityName(cityName)
-        .stream()
-        .map(candid -> candidMapper.toDto(candid))
-        .collect(Collectors.toList());
-  }
+    public Candid findById(Integer id) {
+        return candidRepository.findById(id).orElseGet(() -> null);
+    }
 
-  public List<CandidDto> findAllByWebsiteName(String websiteName) {
-    return candidRepository.findAllByWebsiteName(websiteName)
-        .stream()
-        .map(candid -> candidMapper.toDto(candid))
-        .collect(Collectors.toList());
-  }
+    public List<Candid> findAllByCityName(String cityName) {
+        return candidRepository.findAllByCityName(cityName);
+    }
 
-  public List<CandidDto> findAllByCityNameAndWebsiteName(String cityName, String websiteName) {
-    return candidRepository.findAllByCityNameAndWebsiteName(cityName, websiteName)
-        .stream()
-        .map(candid -> candidMapper.toDto(candid))
-        .collect(Collectors.toList());
-  }
+    public List<Candid> findAllByWebsiteName(String websiteName) {
+        return candidRepository.findAllByWebsiteName(websiteName);
+    }
 
-  public CandidDto save(CandidDto dto) {
-    var candid = candidMapper.toEntity(dto);
+    public List<Candid> findAllByCityNameAndWebsiteName(
+        String cityName,
+        String websiteName
+    ) {
+        return candidRepository.findAllByCityNameAndWebsiteName(
+            cityName,
+            websiteName
+        );
+    }
 
-    // City city = cityService.findOrCreateByName(dto.city());
-    City city = new City();
-    candid.setCity(city);
+    public Candid save(Candid candid) {
+        return candidRepository.save(candid);
+    }
 
-    candidRepository.save(candid);
-    return dto; // pourquoi ???
-    // return candidMapper.toDto(candid);
-  }
+    public Candid create(Candid candid) {
+        Company company = companyService.findOrCreateByName(
+            candid.getCompany()
+        );
+        candid.setCompany(company);
 
-  // Because I get a candid create dto and return a cadidDto
-  // public CandidDto save(CandidCreateDto dto) {
-  public Candid save(Candid candid) {
-    return candidRepository.save(candid);
-  }
+        City city = cityService.findById(candid.getCity().getId());
+        candid.setCity(city);
 
-  public String saveAll(ArrayList<Candid> candids) {
-    candidRepository.saveAll(candids);
-    return "probably saved";
-  }
+        // si j'ai déjà l'id pas besoin de find or create by name
 
-  public void deletebyId(Integer id) {
-    candidRepository.deleteById(id);
-    return;
-  }
+        Website website = websiteService.findOrCreateByName(
+            candid.getWebsite()
+        );
+        candid.setWebsite(website);
 
+        List<Tech> stack = stackService.findAllOrCreateByName(
+            candid.getStack()
+        );
+        Contract contract = contractService.create(candid.getContract());
+
+        candid.setCompany(company);
+        candid.setCity(city);
+        candid.setWebsite(website);
+        candid.setStack(stack);
+        candid.setContract(contract);
+
+        return save(candid);
+    }
+
+    // this is not used
+    public String saveAll(ArrayList<Candid> candids) {
+        candidRepository.saveAll(candids);
+        return "probably saved";
+    }
+
+    // this is prob not used either
+    public void deleteById(Integer id) {
+        candidRepository.deleteById(id);
+        return;
+    }
 }

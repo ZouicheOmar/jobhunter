@@ -1,35 +1,34 @@
 package com.jobhunter.backend.controller;
 
+import com.jobhunter.backend.dto.WebsiteDto;
+import com.jobhunter.backend.mapper.WebsiteMapper;
+import com.jobhunter.backend.model.Website;
+import com.jobhunter.backend.service.WebsiteService;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jobhunter.backend.model.Website;
-import com.jobhunter.backend.service.WebsiteService;
-
 @RestController
 @RequestMapping("/website")
-@CrossOrigin
 public class WebsiteController {
 
-  @Autowired
-  private WebsiteService websiteService;
+    @Autowired
+    private WebsiteService websiteService;
 
-  @GetMapping
-  public List<Website> findAll() {
-    return websiteService.findAll();
-  }
+    @Autowired
+    private WebsiteMapper websiteMapper;
 
-  @PostMapping
-  public String createNewwebsite(
-      @RequestBody Website website) {
-    var r = websiteService.save(website);
-    return r;
-  }
+    @GetMapping
+    public List<Website> findAll() {
+        return websiteService.findAll();
+    }
+
+    @PostMapping
+    public WebsiteDto create(@RequestBody String name) {
+        return websiteMapper.toDto(websiteService.save(new Website(name)));
+    }
 }

@@ -3,29 +3,32 @@ import { useAddCandidStore } from "@/stores/useAddCandid";
 import { useShallow } from "zustand/shallow";
 
 import { getCompanyCompletion } from "@/lib/api";
-import { CompanyDto } from "@/types/CandidType";
-
-const formatCompanyCompletion = (company: CompanyDto) => company.name;
-
+import { formatBasicTypeEntity } from "@/lib";
+import { Company } from "@/types";
 
 export default function AddCandidCompanyInput() {
+  const company = useAddCandidStore(useShallow((state) => state.company));
+  const companyCompletionList = useAddCandidStore(
+    useShallow((state) => state.companyCompletionList),
+  );
 
-  const companyName = useAddCandidStore(useShallow((state) => state.companyName));
-  const companyCompletionList = useAddCandidStore(useShallow((state) => state.companyCompletionList));
-
-  const updateCompanyName = useAddCandidStore(useShallow((state) => state.updateCompanyName));
-  const updateCompanyCompletionList = useAddCandidStore(useShallow((state) => state.updateCompanyCompletionList));
+  const updateCompanyName = useAddCandidStore(
+    useShallow((state) => state.updateCompany),
+  );
+  const updateCompanyCompletionList = useAddCandidStore(
+    useShallow((state) => state.updateCompanyCompletionList),
+  );
 
   return (
     <InputWithSelect
       id="company"
       placeholder="Company"
-      value={companyName}
+      value={company.name}
       completionList={companyCompletionList}
       updateValue={updateCompanyName}
       updateCompletionList={updateCompanyCompletionList}
-      formatItem={formatCompanyCompletion}
+      formatItem={formatBasicTypeEntity}
       getCompletion={getCompanyCompletion}
     />
-  )
+  );
 }

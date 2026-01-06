@@ -19,7 +19,7 @@ def validate_location(value):
 
 def handle_contract_type(value):
   if isinstance(value, list):
-    return EMPLOYMENT_TYPES[value[0]] if value in EMPLOYMENT_TYPES else value[0]
+    return EMPLOYMENT_TYPES[value[0]] if value[0] in EMPLOYMENT_TYPES else value[0]
   else:
     return EMPLOYMENT_TYPES[value] if value in EMPLOYMENT_TYPES else value
 

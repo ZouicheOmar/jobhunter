@@ -1,11 +1,11 @@
 package com.jobhunter.backend.repository;
 
-import java.util.List;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.jobhunter.backend.model.Candid;
 import com.jobhunter.backend.model.Interview;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface InterviewRepository extends JpaRepository<Interview, Integer> {
     // TODO This will be translated to a query
     // So I might as well simply be making and define these according to the

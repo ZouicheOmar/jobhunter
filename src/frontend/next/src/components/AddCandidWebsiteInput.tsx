@@ -3,28 +3,33 @@ import { useAddCandidStore } from "@/stores/useAddCandid";
 import { useShallow } from "zustand/shallow";
 
 import { getWebsiteCompletion } from "@/lib/api";
-import { WebsiteDto } from "@/types/CandidType";
+import { Website } from "@/types";
 
-const formatWebsiteCompletion = (website: WebsiteDto) => website.name;
+import { formatBasicTypeEntity } from "@/lib";
 
 export default function AddCandidWebsiteInput() {
+  const website = useAddCandidStore(useShallow((state) => state.website));
+  const websiteCompletionList = useAddCandidStore(
+    useShallow((state) => state.websiteCompletionList),
+  );
 
-  const websiteName = useAddCandidStore(useShallow((state) => state.websiteName));
-  const websiteCompletionList = useAddCandidStore(useShallow((state) => state.websiteCompletionList));
-
-  const updateWebsiteCompletionList = useAddCandidStore(useShallow((state) => state.updateWebsiteCompletionList));
-  const updateWebsiteName = useAddCandidStore(useShallow((state) => state.updateWebsiteName));
+  const updateWebsiteCompletionList = useAddCandidStore(
+    useShallow((state) => state.updateWebsiteCompletionList),
+  );
+  const updateWebsite = useAddCandidStore(
+    useShallow((state) => state.updateWebsite),
+  );
 
   return (
     <InputWithSelect
       id="website"
       placeholder="Website"
-      value={websiteName}
+      value={website.name}
       completionList={websiteCompletionList}
-      updateValue={updateWebsiteName}
+      updateValue={updateWebsite}
       updateCompletionList={updateWebsiteCompletionList}
-      formatItem={formatWebsiteCompletion}
       getCompletion={getWebsiteCompletion}
+      formatItem={formatBasicTypeEntity}
     />
-  )
+  );
 }
