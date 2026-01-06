@@ -1,16 +1,8 @@
 from typing import Annotated
-from pydantic import BaseModel, Field, AliasPath, BeforeValidator
 
-EMPLOYMENT_TYPES = {
-  "FULL_TIME": "CDI TEMPS PLEIN",
-  "PART_TIME": "CDI TEMPS PARTIEL",
-  "CONTRACTOR": "INTERIMAIRE",
-  "TEMPORARY": "CDD",
-  "INTERN": "ALTERNANT",
-  "VOLUNTEER": "BÉNÉVOLE",
-  "PER_DIEM": "FREELANCE",
-  "OTHER": "AUTRE",
-}
+from pydantic import AliasPath, BaseModel, BeforeValidator, Field
+
+EMPLOYMENT_TYPES = ["FULL_TIME", "PART_TIME", "CONTRACTOR", "TEMPORARY", "INTERN", "VOLUNTEER", "PER_DIEM", "OTHER"]
 
 
 def validate_location(value):
@@ -19,9 +11,9 @@ def validate_location(value):
 
 def handle_contract_type(value):
   if isinstance(value, list):
-    return EMPLOYMENT_TYPES[value[0]] if value[0] in EMPLOYMENT_TYPES else value[0]
+    return value[0] if value[0] in EMPLOYMENT_TYPES else EMPLOYMENT_TYPES[-1]
   else:
-    return EMPLOYMENT_TYPES[value] if value in EMPLOYMENT_TYPES else value
+    return value if value in EMPLOYMENT_TYPES else EMPLOYMENT_TYPES[-1]
 
 
 class JobOffer(BaseModel):
