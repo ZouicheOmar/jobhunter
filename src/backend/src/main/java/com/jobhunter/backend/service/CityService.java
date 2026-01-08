@@ -24,6 +24,10 @@ public class CityService {
         return cityRepository.findByName(cityName);
     }
 
+    public City findByZipcode(String zipcodeStr) {
+        return cityRepository.findByZipcode(Integer.parseInt(zipcodeStr));
+    }
+
     public List<City> findAllByNameContaining(String cityName) {
         return cityRepository.findAllByNameContaining(cityName, Limit.of(4));
     }

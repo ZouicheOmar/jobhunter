@@ -21,10 +21,16 @@ public class CompanyService {
         return companyRepository.save(company);
     }
 
-    public Company findOrCreateByName(Company cp) {
+    public Company findOrCreate(Company cp) {
         return companyRepository
             .findByName(cp.getName())
             .orElseGet(() -> save(cp));
+    }
+
+    public Company findOrCreateByName(String name) {
+        return companyRepository
+            .findByName(name)
+            .orElseGet(() -> save(new Company(name)));
     }
 
     public List<Company> findAllByNameContaining(String companyName) {

@@ -10,24 +10,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class WebsiteMapper {
 
-    public Website toEntity(WebsiteDto dto) {
+    public static Website toEntity(WebsiteDto dto) {
         var website = new Website();
         website.setName(dto.name());
         return website;
     }
 
-    public Website createToEntity(WebsiteCreateDto cdto) {
+    public static Website createToEntity(WebsiteCreateDto cdto) {
         Website website = new Website();
         cdto.id().ifPresent(id -> website.setId(id));
         website.setName(cdto.name());
         return website;
     }
 
-    public WebsiteDto toDto(Website website) {
+    public static WebsiteDto toDto(Website website) {
         return new WebsiteDto(website.getId(), website.getName());
     }
 
-    public List<WebsiteDto> toAllDto(List<Website> websites) {
+    public static List<WebsiteDto> toAllDto(List<Website> websites) {
         return websites
             .stream()
             .map(website -> toDto(website))

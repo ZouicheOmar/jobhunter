@@ -32,6 +32,7 @@ const emptyCandid: CandidCreate = {
   company: { id: -1, name: "" },
   city: { id: -1, name: "" },
   website: { id: -1, name: "" },
+  contract: { type: CONTRACT_TYPES[CONTRACT_TYPES.length - 1], duration: 0 },
   stack: [{ id: -1, name: "" }],
 };
 
@@ -52,7 +53,7 @@ function Controls() {
   return (
     <div className="flex justify-between gap-2">
       <div>
-        <CloseButton onClick={() => reset()} />
+        <CloseButton onClick={toggle} />
         <Button
           className="ml-2"
           onClick={async () => {

@@ -1,8 +1,8 @@
 import { City } from "./City";
-import type { Company } from "./Company";
+import type { Company, CompanyCreate } from "./Company";
 import { Contract, ContractCreate } from "./Contract";
-import type { Tech } from "./Tech";
-import type { Website } from "./Website";
+import type { Tech, TechCreate } from "./Tech";
+import type { Website, WebsiteCreate } from "./Website";
 
 export type Candid = {
   id: number;
@@ -26,9 +26,9 @@ export type CandidCreate = {
   techOffer: boolean;
   answer: boolean;
   dateApply: string;
-  company: Company;
+  company: CompanyCreate;
   city: City;
-  website: Website;
+  website: WebsiteCreate;
   contract: ContractCreate;
-  stack: Tech[];
+  stack: TechCreate[];
 };

@@ -16,21 +16,21 @@ import org.springframework.stereotype.Component;
 public class CandidMapper {
 
     @Autowired
-    private CityMapper cityMapper;
+    private static CityMapper cityMapper;
 
     @Autowired
-    private WebsiteMapper websiteMapper;
+    private static WebsiteMapper websiteMapper;
 
     @Autowired
-    private StackMapper stackMapper;
+    private static StackMapper stackMapper;
 
     @Autowired
-    private CompanyMapper companyMapper;
+    private static CompanyMapper companyMapper;
 
     @Autowired
-    private ContractMapper contractMapper;
+    private static ContractMapper contractMapper;
 
-    public Candid createToEntity(CandidCreateDto cdto) {
+    public static Candid createToEntity(CandidCreateDto cdto) {
         Candid candid = new Candid();
 
         candid.setUrl(cdto.url());
@@ -50,13 +50,13 @@ public class CandidMapper {
         return candid;
     }
 
-    public Candid toEntity(CandidDto dto) {
+    public static Candid toEntity(CandidDto dto) {
         // unused
         var candid = new Candid();
         return candid;
     }
 
-    public List<String> getTechList(Candid candid) {
+    public static List<String> getTechList(Candid candid) {
         return candid
             .getStack()
             .stream()
@@ -64,13 +64,7 @@ public class CandidMapper {
             .collect(Collectors.toList());
     }
 
-    // should probably define multiple dtos according to use
-    // for example: CreateCandidDto
-    // getBriefCandidDto;
-    // getFullCandidDto;
-    // updateCandidDto;
-
-    public CandidDto toDto(Candid candid) {
+    public static CandidDto toDto(Candid candid) {
         return new CandidDto(
             candid.getId(),
             candid.getUrl(),
@@ -79,30 +73,18 @@ public class CandidMapper {
             candid.getTechOffer(),
             candid.getAnswer(),
             candid.getDateApply().toString(),
-            companyMapper.toDto(candid.getCompany()),
-            cityMapper.toDto(candid.getCity()),
-            websiteMapper.toDto(candid.getWebsite()),
-            contractMapper.toDto(candid.getContract()),
-            stackMapper.toDto(candid.getStack())
+            CompanyMapper.toDto(candid.getCompany()),
+            CityMapper.toDto(candid.getCity()),
+            WebsiteMapper.toDto(candid.getWebsite()),
+            ContractMapper.toDto(candid.getContract()),
+            StackMapper.toDto(candid.getStack())
         );
     }
 
-    public List<CandidDto> toAllDto(List<Candid> candids) {
+    public static List<CandidDto> toAllDto(List<Candid> candids) {
         return candids
             .stream()
             .map(candid -> toDto(candid))
             .toList();
-        // .collect(Collectors.toList());
-        //
-        // .map((candid) -> new CandidDto(
-        // candid.getId(),
-        // candid.getTitle(),
-        // candid.getUrl(),
-        // candid.getCompany().getName(),
-        // candid.getUnsolicited(),
-        // candid.getAnswer(),
-        // getTechList(candid),
-        // candid.getCity().getName()))
-        // .collect(Collectors.toList());
     }
 }

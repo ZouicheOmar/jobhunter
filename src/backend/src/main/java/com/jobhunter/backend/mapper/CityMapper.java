@@ -10,18 +10,18 @@ import org.springframework.stereotype.Component;
 public class CityMapper {
 
     // Pas besoin de to entity......
-    public City toEntity(CityDto dto) {
+    public static City toEntity(CityDto dto) {
         City city = new City();
         city.setId(dto.id());
 
         return city;
     }
 
-    public CityDto toDto(City city) {
+    public static CityDto toDto(City city) {
         return new CityDto(city.getId(), city.getName());
     }
 
-    public List<CityDto> toAllDto(List<City> cities) {
+    public static List<CityDto> toAllDto(List<City> cities) {
         return cities
             .stream()
             .map(city -> toDto(city))

@@ -16,6 +16,7 @@ export type Contract = {
 };
 
 export type ContractCreate = {
+  // TODO oneof contract_type_enum
   type: string;
   duration: number | null;
 };

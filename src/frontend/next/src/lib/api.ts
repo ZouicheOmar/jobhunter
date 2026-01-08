@@ -18,7 +18,19 @@ const ROUTES = {
   API: {
     BASE: `${API_BASE}/`,
     CANDID: `${API_BASE}/candid`,
-    CITY: `${API_BASE}/city`,
+    CITY: {
+      BASE: `${API_BASE}/city`,
+      BY_NAME: (v: string) => `${API_BASE}/city?name=${v}`,
+      BY_ZIPCODE: (v: string) => `${API_BASE}/city?zipcode=${v}`,
+    },
+    WEBSITE: {
+      BASE: `${API_BASE}/website`,
+      BY_NAME: (v: string) => `${API_BASE}/website?name=${v}`,
+    },
+    COMPANY: {
+      BASE: `${API_BASE}/company`,
+      BY_NAME: (v: string) => `${API_BASE}/company?name=${v}`,
+    },
     TECH: `${API_BASE}/tech`,
     CONTRACT: `${API_BASE}/contract`, // won`t use this, maybe for configering
     COMPLETION: {
@@ -49,6 +61,50 @@ export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
   }
 }
 
+export async function getCityByZipcode(zipcode: string): Promise<City | null> {
+  try {
+    const req = await fetch(ROUTES.API.CITY.BY_ZIPCODE(zipcode));
+    const json = await req.json();
+    console.log(json);
+    return json;
+  } catch (e) {
+    throw Error("error fetching city");
+  }
+}
+
+export async function getCityByName(name: string): Promise<City | null> {
+  try {
+    // en fait faut que je retoune un http code not found qui
+    // code 404
+    const req = await fetch(ROUTES.API.CITY.BY_NAME(name.toLowerCase()));
+    const json = await req.json();
+    console.log(json);
+    return json;
+  } catch (e) {
+    throw Error("error fetching city");
+  }
+}
+
+export async function getOrCreateCompanyByName(name: string): Promise<Company> {
+  try {
+    const req = await fetch(ROUTES.API.WEBSITE.BY_NAME(name));
+    const json = await req.json();
+    return json;
+  } catch (e) {
+    throw Error("error fetching Website");
+  }
+}
+
+export async function getOrCreateWebsiteByName(name: string): Promise<Website> {
+  try {
+    const req = await fetch(ROUTES.API.WEBSITE.BY_NAME(name));
+    const json = await req.json();
+    return json;
+  } catch (e) {
+    throw Error("error fetching Website");
+  }
+}
+
 export async function fetchAllCandids(): Promise<Candid[]> {
   try {
     const req = await fetch(ROUTES.API.CANDID);
@@ -70,7 +126,7 @@ export async function postCandid(payload: CandidCreate): Promise<Candid> {
     const json = await req.json();
     return json;
   } catch (e) {
-    throw e;
+    throw new Error("Could not create candid");
   }
 }
 

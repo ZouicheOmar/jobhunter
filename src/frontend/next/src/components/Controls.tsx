@@ -56,7 +56,7 @@ export const Controls = () => {
       gap-x-6 gap-y-2"
       >
         <div className="flex  gap-2 justify-start items-center">
-          <ControlsButton label="Add" onClick={() => toggle()} />
+          <ControlsButton label="Add" onClick={toggle} />
 
           <ControlsButton label="Parse File" disabled />
           <ControlsLayouts />

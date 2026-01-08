@@ -16,6 +16,7 @@ export const CandidCompactCard = ({ candid }: { candid: Candid }) => {
     unsolicited,
     city,
     company,
+    contract,
     dateApply,
   } = candid;
 
@@ -43,7 +44,9 @@ export const CandidCompactCard = ({ candid }: { candid: Candid }) => {
         <div className="flex flex-col w-full text-gray-600 ">
           <div className="flex w-full gap-3 text-gray-600">
             <p>
-              <span className="text-gray-400 "> Contract Type </span>
+              {contract.contractType && (
+                <span className="text-gray-400 "> {contract.contractType}</span>
+              )}
 
               {unsolicited && (
                 <span className="text-blue-600 font-bold italic">

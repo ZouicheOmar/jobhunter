@@ -2,6 +2,8 @@ dev
 dev_basic
 dump*
 data/
+*todo.*
+*todo.txt
 *todo.md
 */*/todo.md
 */*/notes.*

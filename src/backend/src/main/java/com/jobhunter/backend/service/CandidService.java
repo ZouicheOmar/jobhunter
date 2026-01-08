@@ -10,6 +10,9 @@ import com.jobhunter.backend.repository.CandidRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -34,7 +37,7 @@ public class CandidService {
     private ContractService contractService;
 
     public List<Candid> findAll() {
-        return candidRepository.findAll();
+        return candidRepository.findAll(Sort.by("dateApply"));
     }
 
     public Candid findById(Integer id) {
@@ -59,14 +62,16 @@ public class CandidService {
         );
     }
 
+    public Page<Candid> findAllPageable(Pageable paging) {
+        return candidRepository.findAll(paging);
+    }
+
     public Candid save(Candid candid) {
         return candidRepository.save(candid);
     }
 
     public Candid create(Candid candid) {
-        Company company = companyService.findOrCreateByName(
-            candid.getCompany()
-        );
+        Company company = companyService.findOrCreate(candid.getCompany());
         candid.setCompany(company);
 
         City city = cityService.findById(candid.getCity().getId());
@@ -74,9 +79,7 @@ public class CandidService {
 
         // si j'ai déjà l'id pas besoin de find or create by name
 
-        Website website = websiteService.findOrCreateByName(
-            candid.getWebsite()
-        );
+        Website website = websiteService.findOrCreate(candid.getWebsite());
         candid.setWebsite(website);
 
         List<Tech> stack = stackService.findAllOrCreateByName(

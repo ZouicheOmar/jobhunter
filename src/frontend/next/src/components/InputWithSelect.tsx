@@ -82,7 +82,7 @@ export default function InputWithSelect({
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      updateValue({ name: e.target.value, id: -1 });
+      updateValue({ name: e.target.value, id: null });
       clearTimeout(TID);
 
       if (!e.target.value) {

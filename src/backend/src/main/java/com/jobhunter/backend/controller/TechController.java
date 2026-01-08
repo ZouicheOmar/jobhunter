@@ -16,11 +16,8 @@ public class TechController {
     @Autowired
     private TechService techService;
 
-    @Autowired
-    private TechMapper techMapper;
-
     @GetMapping
     public List<TechDto> findAll() {
-        return techMapper.toAllDto(techService.findAll());
+        return TechMapper.toAllDto(techService.findAll());
     }
 }

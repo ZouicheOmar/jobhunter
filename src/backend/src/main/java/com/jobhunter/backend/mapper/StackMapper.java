@@ -13,24 +13,15 @@ public class StackMapper {
     @Autowired
     TechMapper techMapper;
 
-    public List<TechDto> toDto(List<Tech> stack) {
-        return stack
-            .stream()
-            .map(tech -> techMapper.toDto(tech))
-            .toList();
+    public static List<TechDto> toDto(List<Tech> stack) {
+        return stack.stream().map(TechMapper::toDto).toList();
     }
 
-    public List<Tech> createToEntity(List<TechCreateDto> cdto) {
-        return cdto
-            .stream()
-            .map(dto -> techMapper.createToEntity(dto))
-            .toList();
+    public static List<Tech> createToEntity(List<TechCreateDto> cdto) {
+        return cdto.stream().map(TechMapper::createToEntity).toList();
     }
 
-    public List<Tech> toEntity(List<TechDto> stackDto) {
-        return stackDto
-            .stream()
-            .map(dto -> techMapper.toEntity(dto))
-            .toList();
+    public static List<Tech> toEntity(List<TechDto> stackDto) {
+        return stackDto.stream().map(TechMapper::toEntity).toList();
     }
 }

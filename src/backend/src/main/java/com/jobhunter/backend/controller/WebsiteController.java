@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,16 +20,18 @@ public class WebsiteController {
     @Autowired
     private WebsiteService websiteService;
 
-    @Autowired
-    private WebsiteMapper websiteMapper;
-
-    @GetMapping
-    public List<Website> findAll() {
-        return websiteService.findAll();
-    }
+    // @GetMapping
+    // public List<Website> findAll() {
+    //     return websiteService.findAll();
+    // }
 
     @PostMapping
     public WebsiteDto create(@RequestBody String name) {
-        return websiteMapper.toDto(websiteService.save(new Website(name)));
+        return WebsiteMapper.toDto(websiteService.save(new Website(name)));
+    }
+
+    @GetMapping
+    public WebsiteDto findByName(@RequestParam String name) {
+        return WebsiteMapper.toDto(websiteService.findOrCreateByName(name));
     }
 }

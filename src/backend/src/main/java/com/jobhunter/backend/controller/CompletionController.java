@@ -33,25 +33,13 @@ public class CompletionController {
     private CityService cityService;
 
     @Autowired
-    private CityMapper cityMapper;
-
-    @Autowired
     private WebsiteService websiteService;
-
-    @Autowired
-    private WebsiteMapper websiteMapper;
 
     @Autowired
     private CompanyService companyService;
 
     @Autowired
-    private CompanyMapper companyMapper;
-
-    @Autowired
     private TechService techService;
-
-    @Autowired
-    private TechMapper techMapper;
 
     @GetMapping("/city")
     public List<CityDto> ListByCityName(@RequestParam String value) {
@@ -61,24 +49,24 @@ public class CompletionController {
             cityService.findAllByZipcodeContaining(value);
         else query = cityService.findAllByNameContaining(value);
 
-        return cityMapper.toAllDto(query);
+        return CityMapper.toAllDto(query);
     }
 
     @GetMapping("/website")
     public List<WebsiteDto> ListByWebsiteName(@RequestParam String value) {
         List<Website> query = websiteService.findAllByNameContaining(value);
-        return websiteMapper.toAllDto(query);
+        return WebsiteMapper.toAllDto(query);
     }
 
     @GetMapping("/company")
     public List<CompanyDto> ListByCompanyName(@RequestParam String value) {
         List<Company> query = companyService.findAllByNameContaining(value);
-        return companyMapper.toAllDto(query);
+        return CompanyMapper.toAllDto(query);
     }
 
     @GetMapping("/tech")
     public List<TechDto> ListByTechName(@RequestParam String value) {
         List<Tech> query = techService.findAllByNameContaining(value);
-        return techMapper.toAllDto(query);
+        return TechMapper.toAllDto(query);
     }
 }

@@ -30,16 +30,22 @@ public class WebsiteService {
         );
     }
 
-    public Website findOrCreateByName(Website w) {
-        // try by id if id
-        // try by name
-        // catch create ?
-        return websiteRepository
-            .findByName(w.getName())
-            .orElseGet(() -> websiteRepository.save(w));
+    public Website findOrCreate(Website w) {
+        if (w.getId() == null) {
+            return websiteRepository.save(w);
+        } else {
+            return websiteRepository
+                .findByName(w.getName())
+                .orElseGet(() -> websiteRepository.save(w));
+        }
     }
 
-    // should not exist
+    public Website findOrCreateByName(String name) {
+        return websiteRepository
+            .findByName(name)
+            .orElseGet(() -> websiteRepository.save(new Website(name)));
+    }
+
     public Website findOrCreateByDto(WebsiteCreateDto cdto) {
         return cdto
             .id()

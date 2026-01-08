@@ -1,6 +1,12 @@
 import { create, StateCreator } from "zustand";
 import { getHostname, getTodayDate } from "@/lib/utils";
-import { postCandid, scrapUrl } from "@/lib/api";
+import {
+  getCityByName,
+  getOrCreateCompanyByName,
+  getOrCreateWebsiteByName,
+  postCandid,
+  scrapUrl,
+} from "@/lib/api";
 import {
   CandidCreate,
   Tech,
@@ -9,6 +15,9 @@ import {
   City,
   Candid,
   ContractCreate,
+  TechCreate,
+  CompanyCreate,
+  WebsiteCreate,
 } from "@/types";
 import { formatDate } from "@/lib/utils";
 import { CONTRACT_TYPES } from "@/lib";
@@ -27,13 +36,13 @@ interface TitleSlice {
 }
 
 interface TechSlice {
-  tech: Tech;
-  stack: Tech[];
+  tech: TechCreate;
+  stack: TechCreate[];
   techCompletionList: Tech[];
-  updateTech: (v: Tech) => void;
+  updateTech: (v: TechCreate) => void;
   updateStack: () => void;
-  removeStackItem: (v: Tech) => void; // update this
-  updateTechCompletionList: (v: Tech[]) => void;
+  removeStackItem: (v: TechCreate) => void; // update this
+  updateTechCompletionList: (v: TechCreate[]) => void;
 }
 
 interface UrlSlice {
@@ -50,16 +59,16 @@ interface CitySlice {
 }
 
 interface CompanySlice {
-  company: Company;
+  company: CompanyCreate;
   companyCompletionList: Company[];
-  updateCompany: (v: Company) => void;
+  updateCompany: (v: CompanyCreate) => void;
   updateCompanyCompletionList: (v: Company[]) => void;
 }
 
 interface WebsiteSlice {
-  website: Website;
+  website: WebsiteCreate;
   websiteCompletionList: Website[];
-  updateWebsite: (v: Website) => void;
+  updateWebsite: (v: WebsiteCreate) => void;
   updateWebsiteCompletionList: (v: Website[]) => void;
 }
 
@@ -82,7 +91,6 @@ interface RemainingSlice {
   techOffer: boolean;
   unsolicited: boolean;
   answer: boolean;
-  // contract: string;
   dateApply: string;
 
   updateTechOffer: (v: boolean) => void;
@@ -124,24 +132,45 @@ const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (
   set,
   get,
 ) => ({
-  url: "https://www.hellowork.com/fr-fr/emplois/74168933.html",
+  url: "",
   updateUrl: (v: string) => set(() => ({ url: v })),
   lookupUrl: async () => {
     try {
       set({ loading: true });
+      const url = get().url;
+      const hostname = getHostname(url);
 
+      // TODO add zipcode
+      // TODO save a complete jsonld example for reference
       const { title, company_name, location, contract_type } = await scrapUrl(
         get().url,
       );
 
-      const hostname = getHostname(get().url);
+      console.log(
+        "from scrap api",
+        title,
+        company_name,
+        location,
+        contract_type,
+      );
+
+      const city: City | null = await getCityByName(location);
+      const cp: Company = await getOrCreateCompanyByName(company_name);
+      const website = hostname
+        ? await getOrCreateWebsiteByName(hostname)
+        : { name: "", id: null };
+
+      // throw error in a try ?..
+      if (!city) {
+        throw Error("should handle city not found from scrap");
+      }
 
       set({
         title: title,
-        company: { name: company_name, id: -1 },
-        city: { name: location, id: -1 },
-        contract: contract_type,
-        website: { name: hostname || "", id: -1 },
+        company: cp,
+        city: city,
+        website: website,
+        contract: { type: contract_type, duration: 0 },
       });
 
       // là un autre pb : city faut absolement qu'elle soit validée..
@@ -154,7 +183,7 @@ const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (
 });
 
 const citySlice: StateCreator<AddCandidStore, [], [], CitySlice> = (set) => ({
-  city: { name: "", id: -1 },
+  city: { name: "", id: null },
   cityCompletionList: [],
   updateCity: (v) => set({ city: v }),
   updateCityCompletionList: (v) => set({ cityCompletionList: v }),
@@ -163,7 +192,7 @@ const citySlice: StateCreator<AddCandidStore, [], [], CitySlice> = (set) => ({
 const companyNameSlice: StateCreator<AddCandidStore, [], [], CompanySlice> = (
   set,
 ) => ({
-  company: { name: "", id: -1 },
+  company: { name: "", id: null },
   companyCompletionList: [],
   updateCompany: (v) => set({ company: v }),
   updateCompanyCompletionList: (v) => set({ companyCompletionList: v }),
@@ -173,7 +202,7 @@ const websiteSlice: StateCreator<AddCandidStore, [], [], WebsiteSlice> = (
   set,
 ) => ({
   // TODO verifier que le state s'appelle websiteName partout..
-  website: { name: "", id: -1 },
+  website: { name: "", id: null },
   websiteCompletionList: [],
   updateWebsite: (v) => set({ website: v }),
   updateWebsiteCompletionList: (v) => set({ websiteCompletionList: v }),
@@ -183,7 +212,7 @@ const techSlice: StateCreator<AddCandidStore, [], [], TechSlice> = (
   set,
   get,
 ) => ({
-  tech: { name: "", id: -1 },
+  tech: { name: "", id: null },
   stack: [],
   techCompletionList: [],
 
@@ -193,7 +222,7 @@ const techSlice: StateCreator<AddCandidStore, [], [], TechSlice> = (
     const stack = get().stack;
     const tech = get().tech;
     !stack.includes(tech) &&
-      set({ stack: [...stack, tech], tech: { name: "", id: -1 } });
+      set({ stack: [...stack, tech], tech: { name: "", id: null } });
   },
 
   removeStackItem: (v) => {
