@@ -17,6 +17,9 @@ export const ROUTES = {
   },
   API: {
     BASE: `${API_BASE}/`,
+    CANDIDS: {
+      PAGE: (page: number) => `${API_BASE}/candid/candids?page=${page}`,
+    },
     CANDID: `${API_BASE}/candid`,
     CITY: {
       BASE: `${API_BASE}/city`,
