@@ -6,3 +6,4 @@ export * from "./Contract";
 export * from "./ScrapeApiReponse";
 export * from "./Tech";
 export * from "./Website";
+export * from "./Page";

@@ -6,6 +6,7 @@ import {
   Website,
   Candid,
   Company,
+  CandidsPage,
 } from "@/types";
 
 // const API_BASE = "http://192.168.1.30:8080";
@@ -44,6 +45,16 @@ export const ROUTES = {
     },
   },
 };
+
+// TODO how to type a function that can throw an error
+export async function getCandidsPage(page: number): Promise<CandidsPage | null> {
+  const req = await fetch(ROUTES.API.CANDIDS.PAGE(page));
+  if (req.status >= 400) return null;
+
+  const json = await req.json();
+  return json;
+}
+
 
 export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
   // handle connection refused..
