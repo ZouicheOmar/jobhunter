@@ -1,10 +1,13 @@
 import { create, StateCreator } from "zustand";
 import { getHostname, getTodayDate } from "@/lib/utils";
 import {
+  getCity,
   getCityByName,
+  getCityByZipcode,
   getOrCreateCompanyByName,
   getOrCreateWebsiteByName,
   postCandid,
+  ROUTES,
   scrapUrl,
 } from "@/lib/api";
 import {
@@ -21,6 +24,14 @@ import {
 } from "@/types";
 import { formatDate } from "@/lib/utils";
 import { CONTRACT_TYPES } from "@/lib";
+
+type DataFromScrap = {
+  city?: City;
+  company?: Company;
+  website?: Website;
+  title: string;
+  contract: ContractCreate;
+};
 
 interface ComponentStateSlice {
   show: boolean;
@@ -42,7 +53,7 @@ interface TechSlice {
   updateTech: (v: TechCreate) => void;
   updateStack: () => void;
   removeStackItem: (v: TechCreate) => void; // update this
-  updateTechCompletionList: (v: TechCreate[]) => void;
+  updateTechCompletionList: (v: Tech[]) => void;
 }
 
 interface UrlSlice {
@@ -51,7 +62,15 @@ interface UrlSlice {
   lookupUrl: () => void;
 }
 
+type CityLookup = {
+  id: number | null;
+  name: string | null;
+};
+
 interface CitySlice {
+  // valid: boolean;
+  // updateValide: (v: boolean) => void;
+  // city: CityLookup;
   city: City;
   cityCompletionList: City[];
   updateCity: (v: City) => void;
@@ -137,43 +156,36 @@ const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (
   lookupUrl: async () => {
     try {
       set({ loading: true });
+
       const url = get().url;
       const hostname = getHostname(url);
+      const { title, company_name, location, zipcode, contract_type } =
+        await scrapUrl(url);
 
-      // TODO add zipcode
-      // TODO save a complete jsonld example for reference
-      const { title, company_name, location, contract_type } = await scrapUrl(
-        get().url,
-      );
-
-      console.log(
-        "from scrap api",
-        title,
-        company_name,
-        location,
-        contract_type,
-      );
-
-      const city: City | null = await getCityByName(location);
-      const cp: Company = await getOrCreateCompanyByName(company_name);
-      const website = hostname
-        ? await getOrCreateWebsiteByName(hostname)
-        : { name: "", id: null };
-
-      // throw error in a try ?..
-      if (!city) {
-        throw Error("should handle city not found from scrap");
-      }
-
-      set({
+      let d: DataFromScrap = {
         title: title,
-        company: cp,
-        city: city,
-        website: website,
         contract: { type: contract_type, duration: 0 },
-      });
+      };
 
-      // là un autre pb : city faut absolement qu'elle soit validée..
+      let city: City | null = await getCity(location, zipcode);
+      if (city) d.city = city;
+
+      const cp: Company = await getOrCreateCompanyByName(company_name);
+      if (cp) d.company = cp;
+
+      let website: Website | null = hostname
+        ? await getOrCreateWebsiteByName(hostname)
+        : null;
+      if (website) d.website = website;
+
+      // get().updateFormFromScrappedPage(d);
+      set({
+        title: d.title,
+        company: d.company,
+        ...(d.city && { city: d.city }),
+        ...(d.website && { webiste: d.website }),
+        ...(d.contract && { webiste: d.contract }),
+      });
     } catch (e) {
       set({ error: true });
     } finally {
@@ -183,7 +195,7 @@ const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (
 });
 
 const citySlice: StateCreator<AddCandidStore, [], [], CitySlice> = (set) => ({
-  city: { name: "", id: null },
+  city: { name: "", id: -1 }, // should not be -1
   cityCompletionList: [],
   updateCity: (v) => set({ city: v }),
   updateCityCompletionList: (v) => set({ cityCompletionList: v }),

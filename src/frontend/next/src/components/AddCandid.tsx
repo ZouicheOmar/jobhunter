@@ -55,22 +55,28 @@ function Controls() {
       <div>
         <CloseButton onClick={toggle} />
         <Button
-          className="ml-2"
-          onClick={async () => {
-            try {
-              const candid = await postCandid();
-              addCandid(candid);
-              toggle();
-              console.log("candid", candid);
-            } catch (e) {
-              console.log("error addind candid");
-            }
-          }}
-          // disabled={city == '' || companyName == '' || title == ''}
+          className="ml-2 bg-secondary text-secondary-foreground"
+          onClick={reset}
         >
-          submit
+          clear
         </Button>
       </div>
+      <Button
+        className="ml-2"
+        onClick={async () => {
+          try {
+            const candid = await postCandid();
+            addCandid(candid);
+            toggle();
+            console.log("candid", candid);
+          } catch (e) {
+            console.log("error addind candid");
+          }
+        }}
+        // disabled={city == '' || companyName == '' || title == ''}
+      >
+        submit
+      </Button>
     </div>
   );
 }

@@ -11,7 +11,7 @@ import {
 // const API_BASE = "http://192.168.1.30:8080";
 const API_BASE = "http://127.0.0.1:8080";
 
-const ROUTES = {
+export const ROUTES = {
   SCRAPPER: {
     BASE: "http://127.0.0.1:5000/scrap/",
   },
@@ -43,6 +43,7 @@ const ROUTES = {
 };
 
 export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
+  // handle connection refused..
   try {
     const req = await fetch(ROUTES.SCRAPPER.BASE, {
       method: "POST",
@@ -54,35 +55,49 @@ export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
       }),
     });
     const json = await req.json();
-    console.log("DATA FROM LOOKUP", json);
+    console.log("data scrapped:");
+    console.log(json);
+    console.log("end data scrapped:");
     return json;
   } catch (e) {
     throw e;
   }
 }
 
-export async function getCityByZipcode(zipcode: string): Promise<City | null> {
-  try {
-    const req = await fetch(ROUTES.API.CITY.BY_ZIPCODE(zipcode));
-    const json = await req.json();
-    console.log(json);
-    return json;
-  } catch (e) {
-    throw Error("error fetching city");
-  }
+export async function getCityByZipcode(zipcode: string): Promise<City> {
+  const req = await fetch(ROUTES.API.CITY.BY_ZIPCODE(zipcode));
+  if (req.status == 404) throw Error("error fetching city");
+  const json = await req.json();
+  return json;
 }
 
-export async function getCityByName(name: string): Promise<City | null> {
-  try {
-    // en fait faut que je retoune un http code not found qui
-    // code 404
-    const req = await fetch(ROUTES.API.CITY.BY_NAME(name.toLowerCase()));
-    const json = await req.json();
-    console.log(json);
-    return json;
-  } catch (e) {
-    throw Error("error fetching city");
+export async function getCityByName(name: string): Promise<City> {
+  const req = await fetch(ROUTES.API.CITY.BY_NAME(name.toLowerCase()));
+  if (req.status == 404) throw Error("error fetching city");
+  const json = await req.json();
+  return json;
+}
+
+export async function getCity(
+  name: string | null,
+  zipcode: string | null,
+): Promise<City | null> {
+  let city: City | null = null;
+  if (zipcode) {
+    try {
+      city = await getCityByZipcode(zipcode);
+    } catch (e) {
+      console.log("problem fetching city by zipcode");
+    }
   }
+  if (!city && name) {
+    try {
+      city = await getCityByName(name);
+    } catch (e) {
+      console.log("problem fetching city by name");
+    }
+  }
+  return city;
 }
 
 export async function getOrCreateCompanyByName(name: string): Promise<Company> {

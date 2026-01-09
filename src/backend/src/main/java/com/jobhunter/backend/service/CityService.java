@@ -2,7 +2,9 @@ package com.jobhunter.backend.service;
 
 import com.jobhunter.backend.model.City;
 import com.jobhunter.backend.repository.CityRepository;
+import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Limit;
 import org.springframework.stereotype.Service;
@@ -24,8 +26,11 @@ public class CityService {
         return cityRepository.findByName(cityName);
     }
 
-    public City findByZipcode(String zipcodeStr) {
-        return cityRepository.findByZipcode(Integer.parseInt(zipcodeStr));
+    public City findByZipcode(Integer zipcode) {
+        // throw exception
+        Optional<City> city = cityRepository.findByZipcode(zipcode);
+        if (city.isEmpty()) throw new EntityNotFoundException("City not found");
+        else return city.get();
     }
 
     public List<City> findAllByNameContaining(String cityName) {

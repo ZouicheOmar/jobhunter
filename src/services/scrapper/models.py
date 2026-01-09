@@ -9,6 +9,10 @@ def validate_location(value):
   return value[0]["address"]["addressLocality"] if isinstance(value, list) else value["address"]["addressLocality"]
 
 
+def validate_zipcode(value):
+  return value[0]["address"]["postalCode"] if isinstance(value, list) else value["address"]["postalCode"]
+
+
 def handle_contract_type(value):
   if isinstance(value, list):
     return value[0] if value[0] in EMPLOYMENT_TYPES else EMPLOYMENT_TYPES[-1]
@@ -19,5 +23,6 @@ def handle_contract_type(value):
 class JobOffer(BaseModel):
   title: str = Field(description="Title of the offer", alias="title")
   company_name: str = Field(description="hiring organisation name", validation_alias=AliasPath("hiringOrganization", "name"))
-  location: Annotated[str, BeforeValidator(validate_location), Field(description="City name", validation_alias="jobLocation")]
+  location: Annotated[str, BeforeValidator(validate_location), Field(description="location name", validation_alias="jobLocation")]
+  zipcode: Annotated[str, BeforeValidator(validate_zipcode), Field(description="location zipcode", validation_alias="jobLocation")]
   contract_type: Annotated[str, BeforeValidator(handle_contract_type), Field(validation_alias="employmentType")]

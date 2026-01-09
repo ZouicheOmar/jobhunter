@@ -1,0 +1,18 @@
+### 
+
+@base = http://localhost:8080/city
+
+
+### city get by name
+
+GET {{base}}?name=toulouse HTTP/1.1
+
+
+### city get by zipcode
+
+GET {{base}}?zipcode=31000 HTTP/1.1
+
+
+### city labège by zipcode
+
+GET {{base}}?zipcode=31670 HTTP/1.1
