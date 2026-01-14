@@ -10,19 +10,15 @@ import { TopInfo } from "./TopInfo";
 import { useAddCandidStore } from "@/stores/useAddCandid";
 
 export const CandidWrapper = () => {
-  // this goes to useUI
-  const showAddCandid = useAddCandidStore((state) => state.show);
-  return (
-    <>
-      <main className="w-full">
-        <div className="w-full flex flex-col gap-4">
-          <Controls />
-          {/* rename to stats <TopInfo /> */}
-          {showAddCandid && <AddCandid />}
-          <CandidList />
-          <Paginator />
-        </div>
-      </main>
-    </>
-  );
+	// this goes to useUI
+	const showAddCandid = useAddCandidStore((state) => state.show);
+	return (
+		<div className="min-w-full gap-4 relative">
+			<Controls />
+			{/* rename to stats <TopInfo /> */}
+			{showAddCandid && <AddCandid />}
+			<CandidList />
+			<Paginator />
+		</div>
+	);
 };

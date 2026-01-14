@@ -9,21 +9,21 @@ import { Pagination } from "@/components/serverComponents/Pagination";
 
 
 export default async function Page(props: {
-  searchParams?: Promise<CandidsPageSearchParams>;
+	searchParams?: Promise<CandidsPageSearchParams>;
 }) {
-  const searchParams = await props.searchParams;
-  const pageNumber = Number(searchParams?.page) || 0;
+	const searchParams = await props.searchParams;
+	const pageNumber = Number(searchParams?.page) || 0;
 
-  const data = await getCandidsPage(pageNumber);
-  if (!data) return notFound();
+	const data = await getCandidsPage(pageNumber);
+	if (!data) return notFound();
 
-  const { content, page } = data;
+	const { content, page } = data;
 
-  return (
-    <div className="w-full">
-      <ServerCandidsActions />
-      <ServerCandidList candids={content} />
-      <Pagination page={page} />
-    </div >
-  );
+	return (
+		<div className="w-full">
+			<ServerCandidsActions />
+			<ServerCandidList candids={content} />
+			<Pagination page={page} />
+		</div >
+	);
 }
