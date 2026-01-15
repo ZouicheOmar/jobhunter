@@ -20,6 +20,7 @@ export type CandidsPage = {
 
 export type CompanyPageSearchParams = {
 	page?: string;
+	orderByDateApply?: boolean;
 };
 
 interface CompanyPageMetaData {

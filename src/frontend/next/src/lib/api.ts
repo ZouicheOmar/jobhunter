@@ -34,7 +34,7 @@ export const ROUTES = {
 		},
 		COMPANY: {
 			BASE: `${API_BASE}/company`,
-			PAGE: (page: number) => `${API_BASE}/company?page=${page}`,
+			PAGE: (page: number, orderByDateApply: boolean) => `${API_BASE}/company?page=${page}&orderByDateApply=${orderByDateApply}`,
 			BY_NAME: (v: string) => `${API_BASE}/company?name=${v}`,
 			BY_ID: (id: number) => `${API_BASE}/company/${id}`,
 		},
@@ -48,18 +48,6 @@ export const ROUTES = {
 		},
 	},
 };
-export async function getCompanyById(id: number): Promise<Company | null> {
-	// if state is simple, i.e entity found or not found 
-	// 	 just return null
-	// else define error and throw them
-	// check them at some point 
-
-	const req = await fetch(ROUTES.API.COMPANY.BY_ID(id));
-	if (req.status >= 400) return null;
-	const json = await req.json();
-	return json;
-}
-
 // TODO how to type a function that can throw an error
 export async function getCandidsPage(page: number): Promise<CandidsPage | null> {
 	const req = await fetch(ROUTES.API.CANDIDS.PAGE(page));
@@ -69,10 +57,18 @@ export async function getCandidsPage(page: number): Promise<CandidsPage | null> 
 	return json;
 }
 
-export async function getCompanyPage(page: number): Promise<CompanyPage | null> {
-	const req = await fetch(ROUTES.API.COMPANY.PAGE(page));
+export async function getCompanyPage(page: number, orderByDateApply: boolean = true): Promise<CompanyPage | null> {
+	const req = await fetch(ROUTES.API.COMPANY.PAGE(page, orderByDateApply));
 	if (req.status >= 400) return null;
 
+	const json = await req.json();
+	return json;
+}
+
+
+export async function getCompanyById(id: number): Promise<Company | null> {
+	const req = await fetch(ROUTES.API.COMPANY.BY_ID(id));
+	if (req.status >= 400) return null;
 	const json = await req.json();
 	return json;
 }

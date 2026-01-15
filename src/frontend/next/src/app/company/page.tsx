@@ -9,23 +9,47 @@ export default async function Page(props: {
 }) {
 
 	const searchParams = await props.searchParams;
-	const pageNumber = Number(searchParams?.page) || 0;
 
-	const data = await getCompanyPage(pageNumber);
+	const pageNumber = Number(searchParams?.page) || 0;
+	const orderByDateApply = Boolean(searchParams?.orderByDateApply) || true;
+
+	const data = await getCompanyPage(pageNumber, orderByDateApply);
 	console.log(data);
 	if (!data) return notFound();
 
 	const { content, page } = data;
 
 	return (
-		<div className="border mt-4 p-2">
-			<p>
-				Should display list of companies
-				This pages
-			</p>
+		<div className="border rounded shadow mt-4 p-2">
+
+			<div className="flex justify-between">
+				<h1 className="text-xl font-medium h-fit"> Companies  </h1>
+
+				<div className="flex gap-2">
+					<span className="block h-fit px-1 border border-teal-300 bg-teal-100 text-teal-600">Page : {page.number + 1}</span>
+					<div className="inline ">
+						<input type="checkbox" className="mr-2 mt-1" />
+						<label >
+							{orderByDateApply ? "alphabetic ?" : "by last applied ?"}
+						</label>
+					</div>
+				</div>
+			</div>
+
 			<div>
-				{content.map((item, k) => (<p key={k}>{item.name}</p>))}
+				{content.map(({ name, id }, k) => (
+					<div key={k} >
+						<span> {id} </span>
+						<span> {name} </span>
+					</div>
+				))}
 			</div>
 		</div >
 	);
 }
+
+// <span> SIZE </span>
+// <span> url </span>
+// <span> last application : five days ago (13-01-2026) </span>
+// <span> multiple applications </span>
+// <span> cities inlcude : Toulouse, Paris, Lyon ... </span>

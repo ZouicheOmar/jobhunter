@@ -24,73 +24,65 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/candid")
 public class CandidController {
 
-    @Autowired
-    private CandidService candidService;
+	@Autowired
+	private CandidService candidService;
 
-    @GetMapping
-    public List<CandidDto> findAll(
-        @RequestParam(name = "city_name", required = false) String cityName,
-        @RequestParam(
-            name = "website_name",
-            required = false
-        ) String websiteName
-    ) {
-        List<Candid> candids;
-        if (cityName != null && websiteName == null) {
-            candids = findAllByCityName(cityName);
-        } else if (cityName == null && websiteName != null) {
-            candids = findAllByWebsiteName(websiteName);
-        } else if (cityName != null && websiteName != null) {
-            candids = findAllByCityNameAndWebsiteName(cityName, websiteName);
-        } else {
-            candids = candidService.findAll();
-        }
-        return CandidMapper.toAllDto(candids);
-    }
+	@GetMapping
+	public List<CandidDto> findAll(
+			@RequestParam(name = "city_name", required = false) String cityName,
+			@RequestParam(name = "website_name", required = false) String websiteName) {
+		List<Candid> candids;
+		if (cityName != null && websiteName == null) {
+			candids = findAllByCityName(cityName);
+		} else if (cityName == null && websiteName != null) {
+			candids = findAllByWebsiteName(websiteName);
+		} else if (cityName != null && websiteName != null) {
+			candids = findAllByCityNameAndWebsiteName(cityName, websiteName);
+		} else {
+			candids = candidService.findAll();
+		}
+		return CandidMapper.toAllDto(candids);
+	}
 
-    // est ce que je peux annoter ça comme get mapping ?
-    private List<Candid> findAllByCityNameAndWebsiteName(
-        String cityName,
-        String websiteName
-    ) {
-        return candidService.findAllByCityNameAndWebsiteName(
-            cityName,
-            websiteName
-        );
-    }
+	// est ce que je peux annoter ça comme get mapping ?
+	private List<Candid> findAllByCityNameAndWebsiteName(
+			String cityName,
+			String websiteName) {
+		return candidService.findAllByCityNameAndWebsiteName(
+				cityName,
+				websiteName);
+	}
 
-    private List<Candid> findAllByCityName(String cityName) {
-        return candidService.findAllByCityName(cityName);
-    }
+	private List<Candid> findAllByCityName(String cityName) {
+		return candidService.findAllByCityName(cityName);
+	}
 
-    private List<Candid> findAllByWebsiteName(String websiteName) {
-        return candidService.findAllByWebsiteName(websiteName);
-    }
+	private List<Candid> findAllByWebsiteName(String websiteName) {
+		return candidService.findAllByWebsiteName(websiteName);
+	}
 
-    @GetMapping("/candids")
-    public PagedModel<CandidDto> findAllPaged(
-        @RequestParam(defaultValue = "0") int page, // guessing pages are 0 indexed
-        @RequestParam(defaultValue = "10") int size
-    ) {
-        Pageable paging = PageRequest.of(
-            page,
-            size,
-            Sort.by("dateApply").descending()
-        );
+	@GetMapping("/candids")
+	public PagedModel<CandidDto> findAllPaged(
+			@RequestParam(defaultValue = "0") int page, // guessing pages are 0 indexed
+			@RequestParam(defaultValue = "10") int size) {
+		Pageable paging = PageRequest.of(
+				page,
+				size,
+				Sort.by("dateApply").descending());
 
-        Page<Candid> candids = candidService.findAllPageable(paging);
-        Page<CandidDto> dtos = candids.map(CandidMapper::toDto);
-        return new PagedModel<CandidDto>(dtos);
-    }
+		Page<Candid> candids = candidService.findAllPageable(paging);
+		Page<CandidDto> dtos = candids.map(CandidMapper::toDto);
+		return new PagedModel<CandidDto>(dtos);
+	}
 
-    @GetMapping("/{id}")
-    public CandidDto findById(@PathVariable Integer id) {
-        return CandidMapper.toDto(candidService.findById(id));
-    }
+	@GetMapping("/{id}")
+	public CandidDto findById(@PathVariable Integer id) {
+		return CandidMapper.toDto(candidService.findById(id));
+	}
 
-    @PostMapping
-    public CandidDto createNewCandid(@RequestBody CandidCreateDto createDto) {
-        Candid candid = CandidMapper.createToEntity(createDto);
-        return CandidMapper.toDto(candidService.create(candid));
-    }
+	@PostMapping
+	public CandidDto createNewCandid(@RequestBody CandidCreateDto createDto) {
+		Candid candid = CandidMapper.createToEntity(createDto);
+		return CandidMapper.toDto(candidService.create(candid));
+	}
 }

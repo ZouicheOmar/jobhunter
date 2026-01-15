@@ -25,4 +25,4 @@ function spawn_term() {
 
 spawn_term $JH_FRONT_PATH "$JH_FRONT_CMD"
 spawn_term $JH_BACK_PATH "$JH_BACK_CMD"
-alacritty -e bash -i -c "chromium --app='http://localhost:3000'" &
+# alacritty -e bash -i -c "chromium --app='http://localhost:3000'" &
