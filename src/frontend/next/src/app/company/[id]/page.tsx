@@ -15,7 +15,7 @@ export default async function Page({
 	if (!company) return notFound();
 
 	return (
-		<div className="w-full p-2 border rounded shadow mt-4">
+		<div className="w-full p-2 border rounded shadow">
 			<div className="flex justify-between">
 				<div>
 					<p>

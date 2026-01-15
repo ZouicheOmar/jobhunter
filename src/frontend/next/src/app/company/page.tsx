@@ -21,7 +21,7 @@ export default async function Page(props: {
 	const { content, page } = data;
 
 	return (
-		<div className="border rounded shadow mt-4 p-2">
+		<div className="border rounded shadow p-2">
 
 			<div className="flex justify-between">
 				<h1 className="font-medium h-fit"> Companies  </h1>

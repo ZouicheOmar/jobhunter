@@ -1,4 +1,6 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+'use client'
+
+import { useState, useCallback, useRef } from "react";
 
 import { useAddCandidStore } from "@/stores/useAddCandid";
 import { Tech } from "@/types";
