@@ -29,6 +29,10 @@ public class CompanyService {
 				.orElseGet(() -> save(cp));
 	}
 
+	public Company findById(Integer id) {
+		return companyRepository.findById(id).orElseGet(() -> null);
+	}
+
 	public Company findOrCreateByName(String name) {
 		return companyRepository
 				.findByName(name)

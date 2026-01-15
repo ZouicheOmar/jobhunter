@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import Link from "next/link";
 import { CompanyPageSearchParams } from "@/types";
 import { getCompanyPage } from "@/lib";
 
@@ -23,7 +24,7 @@ export default async function Page(props: {
 		<div className="border rounded shadow mt-4 p-2">
 
 			<div className="flex justify-between">
-				<h1 className="text-xl font-medium h-fit"> Companies  </h1>
+				<h1 className="font-medium h-fit"> Companies  </h1>
 
 				<div className="flex gap-2">
 					<span className="block h-fit px-1 border border-teal-300 bg-teal-100 text-teal-600">Page : {page.number + 1}</span>
@@ -36,12 +37,15 @@ export default async function Page(props: {
 				</div>
 			</div>
 
+			<hr className="my-2" />
+
 			<div>
 				{content.map(({ name, id }, k) => (
-					<div key={k} >
+					<Link key={k} className="block border px-2 py-1 mb-2"
+						href={`/company/${id}`}>
 						<span> {id} </span>
 						<span> {name} </span>
-					</div>
+					</Link>
 				))}
 			</div>
 		</div >

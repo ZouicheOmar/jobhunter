@@ -1,10 +1,11 @@
+import { Button } from "@/components/schadcn/Button";
 import { Select, SelectItem, SelectTrigger, SelectContent, SelectValue } from
 	"@/components/schadcn/Select";
 
 export default async function Page() {
 
 	return (
-		<div className="mt-4 p-4 border rounded shadow-sm">
+		<div className="mt-4 p-4 border rounded shadow-sm & > *:mb-2">
 
 			<div className="flex items-center gap-2">
 				<input
@@ -14,7 +15,7 @@ export default async function Page() {
 					className="w-full p-1 px-2 block bg-gray-100 rounded"
 				/>
 
-				<button> look up offer</button>
+				<Button> look up offer</Button>
 			</div>
 
 			<div className="grid grid-rows-1 md:grid-rows-1 gap-3">
@@ -76,8 +77,8 @@ export default async function Page() {
 				</div>
 			</div>
 
-			<div className="mt-3">
-				<div className="flex gap-2 items-baseline">
+			<div>
+				<div className="flex gap-2 items-baseline mb-2">
 					<input
 						id="tech"
 						type="text"
@@ -91,43 +92,24 @@ export default async function Page() {
 					</button>
 				</div>
 
-				<div className="px-1 flex md:flex-col gap-2">
-					<div className=" w-1/2 h-fit">
-						<p className="underline">Suggestions </p>
-						<div>
-							<p> tech completion list </p>
-						</div>
-					</div>
-
-					<div className="w-1/2 h-fit">
-						<p className="underline">Your list </p>
-						<p> stack list </p>
-					</div>
+				<div className="border rounded p-2 flex md:flex-col gap-2">
+					<p> tech completion list </p>
+					<hr />
+					<p> stack list </p>
 				</div>
 			</div>
 
 
 			<div className="inline mr-4">
-				<input
-					id="isCandidTech"
-					type="checkbox"
-					className="mr-1"
-				/>
-				<label htmlFor="isCandidTech" className="text-muted-foreground">
-					{" "}
+				<input id="isCandidTech" type="checkbox" />
+				<label htmlFor="isCandidTech" className="ml-1 text-muted-foreground">
 					tech offer ?{" "}
 				</label>
 			</div>
 
 			<div className="inline mr-4">
-				<input
-					id="unsolicited"
-					type="checkbox"
-					className="mr-1"
-				/>
-				<label htmlFor="unsolicited">
-					{" "}
-					unsolicited ?{" "}
+				<input id="unsolicited" type="checkbox" />
+				<label htmlFor="unsolicited ml-1"> unsolicited ?
 				</label>
 			</div>
 

@@ -5,6 +5,9 @@ import com.jobhunter.backend.dto.CompanyDto;
 import com.jobhunter.backend.mapper.CompanyMapper;
 import com.jobhunter.backend.model.Company;
 import com.jobhunter.backend.service.CompanyService;
+
+import jakarta.websocket.server.PathParam;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -14,6 +17,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +28,11 @@ public class CompanyController {
 
 	@Autowired
 	private CompanyService companyService;
+
+	@GetMapping("/{id}")
+	public CompanyDto findById(@PathVariable int id) {
+		return CompanyMapper.toDto(companyService.findById(id));
+	}
 
 	@GetMapping
 	public PagedModel<CompanyDto> findAllPaged(
