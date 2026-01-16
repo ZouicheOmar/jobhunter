@@ -1,4 +1,7 @@
 from flask import Flask, request
+from scrapling.fetchers import StealthyFetcher
+
+from models import JobPosting
 from service import JobhunterUrlService
 
 app = Flask(__name__)
@@ -13,17 +16,42 @@ def add_headers(response):
   return response
 
 
+def get_ld(page):
+  els = page.find_all('script[type="application/ld+json"]')
+  for el in els:
+    d = el.json()
+    if "@type" in d and d["@type"] == "JobPosting":
+      return d
+
+
+session = StealthyFetcher(headless=True, solve_cloudflare=True, geoip=True)
+
+
 @app.route("/")
 def application():
   return "hello app\n"
+
+
+@app.get("/test/")
+def make_scrap_valid():
+  url = "https://www.hellowork.com/fr-fr/emplois/67890369.html"
+  data = jhser.handle(url)
+  return data
 
 
 @app.post("/scrap/")
 def handle_scrap_url():
   json = request.get_json()
   url = json.get("url")
-  res = jhser.handle(url)
-  return res
+  page = session.fetch(url)
+  ld = get_ld(page)
+  if not ld:
+    return "problem fetching"
+  data = JobPosting(**ld)
+  return data.model_dump_json()
+
+  # data = jhser.handle(url)
+  # return data
 
 
 if __name__ == "__main__":
