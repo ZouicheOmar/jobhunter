@@ -1,4 +1,5 @@
 from flask import Flask, request
+from pydantic import ValidationError
 from scrapling.fetchers import StealthyFetcher
 
 from models import JobPosting
@@ -47,11 +48,11 @@ def handle_scrap_url():
   ld = get_ld(page)
   if not ld:
     return "problem fetching"
-  data = JobPosting(**ld)
-  return data.model_dump_json()
-
-  # data = jhser.handle(url)
-  # return data
+  try:
+    data = JobPosting(**ld)
+    return data.model_dump_json()
+  except ValidationError as e:
+    return e.json(include_input=True, include_context=True)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,22 @@
+export type HiringOrganization = {
+  name: string;
+}
+export type PostalAddress = {
+  addressCountry?: string;
+  addressLocality?: string;
+  addressRegion?: string;
+  streetAddress?: string;
+  postalCode?: string;
+}
+
+export type Place = {
+  address: PostalAddress;
+}
+
+
 export type ScrapApiRespone = {
   title: string;
-  company_name: string;
-  location: string;
-  zipcode: string;
-  contract_type: string;
+  employmentType: string;
+  hiringOrganization: HiringOrganization;
+  jobLocation: Place | Place[];
 };

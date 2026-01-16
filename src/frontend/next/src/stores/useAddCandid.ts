@@ -159,18 +159,22 @@ const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (
 
 			const url = get().url;
 			const hostname = getHostname(url);
-			const { title, company_name, location, zipcode, contract_type } =
+			const { title, hiringOrganization, jobLocation, employmentType } =
 				await scrapUrl(url);
 
 			let d: DataFromScrap = {
 				title: title,
-				contract: { type: contract_type, duration: 0 },
+				contract: { type: employmentType, duration: 0 },
 			};
-
-			let city: City | null = await getCity(location, zipcode);
+			let city: City | null;
+			if (Array.isArray(jobLocation)) {
+				city = await getCity(jobLocation[0].address.addressLocality, jobLocation[0].address.postalCode);
+			} else {
+				city = await getCity(jobLocation.address.addressLocality, jobLocation.address.postalCode);
+			}
 			if (city) d.city = city;
 
-			const cp: Company = await getOrCreateCompanyByName(company_name);
+			const cp: Company = await getOrCreateCompanyByName(hiringOrganization.name);
 			if (cp) d.company = cp;
 
 			let website: Website | null = hostname

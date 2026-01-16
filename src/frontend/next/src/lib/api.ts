@@ -87,9 +87,6 @@ export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
 			}),
 		});
 		const json = await req.json();
-		console.log("data scrapped:");
-		console.log(json);
-		console.log("end data scrapped:");
 		return json;
 	} catch (e) {
 		throw e;
@@ -111,8 +108,8 @@ export async function getCityByName(name: string): Promise<City> {
 }
 
 export async function getCity(
-	name: string | null,
-	zipcode: string | null,
+	name: string | undefined,
+	zipcode: string | undefined,
 ): Promise<City | null> {
 	let city: City | null = null;
 	if (zipcode) {
@@ -124,7 +121,7 @@ export async function getCity(
 	}
 	if (!city && name) {
 		try {
-			city = await getCityByName(name);
+			city = await getCityByName(name.toLowerCase());
 		} catch (e) {
 			console.log("problem fetching city by name");
 		}
@@ -156,7 +153,6 @@ export async function fetchAllCandids(): Promise<Candid[]> {
 	try {
 		const req = await fetch(ROUTES.API.CANDID);
 		const json = await req.json();
-		console.log(json);
 		return json;
 	} catch (e) {
 		throw e;
@@ -218,8 +214,6 @@ export async function getTechCompletion(v: string): Promise<Tech[]> {
 		//http://localhost:8080/completion/Tech?value=v
 		const req = await fetch(ROUTES.API.COMPLETION.TECH(v));
 		const json = await req.json();
-		console.log("request (tech completion)", req);
-		console.log("json (tech completion)", json);
 		return json;
 	} catch (e) {
 		throw e;
