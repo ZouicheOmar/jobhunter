@@ -12,14 +12,13 @@ import { Button } from "./schadcn/Button";
 import { Badge } from "./Badge";
 
 const DeleteButton = ({ onClick }) => {
-	return (
-		<span
-			onClick={onClick}
-			className="ml-2 hover:text-red-500
-      cursor-pointer"
-		>
-			{`\u00D7`}
-		</span>
+	return (<span
+		onClick={onClick}
+		className="ml-2 hover:text-red-500
+	  cursor-pointer"
+	>
+		{`\u00D7`}
+	</span>
 	);
 };
 
@@ -27,9 +26,9 @@ const TechListItem = ({ item, formatItem, cb }) => (
 	<span
 		onClick={() => cb(item)}
 		className=" m-0 px-2 border rounded
-                  w-full md:w-[49%] min-h-[2em] h-[2em]
-                  leading-[2em] inline-block
-                  cursor-pointer break-all"
+  w-full md:w-[49%] min-h-[2em] h-[2em]
+  leading-[2em] inline-block
+  cursor-pointer break-all"
 	>
 		{formatItem(item)}
 	</span>
@@ -116,6 +115,11 @@ export default function AddCandidTechInput() {
 					disabled={tech.name == ""}
 				>
 					add
+				</Button>
+				<Button
+					disabled={true}
+				>
+					refetch
 				</Button>
 			</div>
 

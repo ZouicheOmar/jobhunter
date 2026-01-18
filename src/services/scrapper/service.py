@@ -8,7 +8,6 @@ from utils import pj, save_head, save_page
 
 class JobhunterUrlService:
   def __init__(self):
-    # what's this ?
     requests.get("http://localhost:11434")
 
   def _get_page(self, url):

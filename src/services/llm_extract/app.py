@@ -1,8 +1,9 @@
-from flask import Flask, request
-from service import JobhunterUrlService
+# import json
+from flask import Flask, json, request
+from service import ExtractService
 
 app = Flask(__name__)
-service = JobhunterUrlService()
+service = ExtractService()
 
 
 @app.after_request
@@ -15,16 +16,21 @@ def add_headers(response):
 
 @app.route("/")
 def application():
-  return "jobhunter scrap service is running\n"
+  return "hello app\n"
 
 
-@app.post("/scrap/")
-def handle_scrap_url():
-  json = request.get_json()
-  url = json.get("url")
-  res = service.handle(url)
-  return res
+@app.get("/test/")
+def make_scrap_valid():
+  return "check log"
+
+
+@app.post("/api/extract/")
+def extract():
+  data = request.get_json()
+  text = data.get("text")
+  res = service.handle(text)
+  return json.dumps(res)
 
 
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run(debug=True, port=5001)
