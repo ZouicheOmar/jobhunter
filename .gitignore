@@ -8,6 +8,9 @@ data/
 */*/todo.md
 */*/notes.*
 ./src/services/scrapper/reqs/
+./src/services/scrapper/__pycache__/
+./src/services/scrapper/test
+./src/services/scrapper/test/*
 ./src/services/scrapper/bak/
 ./src/services/scrapper/testing/
 ./src/services/scrapper/reqs/**
