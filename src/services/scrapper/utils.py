@@ -5,11 +5,9 @@ import re
 from bs4 import BeautifulSoup
 import json
 
-from pydantic import ValidationError
 from scrapling.engines.toolbelt.custom import Response
 from scrapling.parser import Selector
 
-from models import JobPosting
 
 TEST_DATA_DIR = "./test/"
 TEST_HEAD_DATA_DIR = "./test/heads/"
