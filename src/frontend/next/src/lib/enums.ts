@@ -1,4 +1,5 @@
 export enum CONTRACT_TYPE_ENG {
+  POEI,
   FULL_TIME,
   PART_TIME,
   CONTRACTOR,
@@ -6,7 +7,7 @@ export enum CONTRACT_TYPE_ENG {
   INTERN,
   VOLUNTEER,
   PER_DIEM,
-  OTHER
+  OTHER,
 }
 
 export enum CONTRACT_TYPE_FR {
@@ -23,5 +24,5 @@ export enum CONTRACT_TYPE_FR {
 export enum COMPANY_SIZE {
   GE,
   ETI,
-  PME
+  PME,
 }

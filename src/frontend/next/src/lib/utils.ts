@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { CONTRACT_TYPE_ENG, CONTRACT_TYPE_FR } from "./enums";
-import { BasicTypeEntityFormat, Company } from "@/types";
+import { BasicTypeEntityFormat, CandidCreate, Company } from "@/types";
+import { CONTRACT_TYPES } from "./consts";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -37,3 +37,17 @@ export const dateApplyValueAdapter = (date: Date) => date.toString();
 
 export const formatBasicTypeEntity: BasicTypeEntityFormat = (e) => e.name;
 const fb = formatBasicTypeEntity;
+
+const getEmptyCandid: () => CandidCreate = () => ({
+  title: "",
+  url: "",
+  unsolicited: false,
+  techOffer: false,
+  dateApply: "",
+  answer: false,
+  company: { id: -1, name: "" },
+  city: { id: -1, name: "" },
+  website: { id: -1, name: "" },
+  contract: { type: CONTRACT_TYPES[CONTRACT_TYPES.length - 1], duration: 0 },
+  stack: [{ id: -1, name: "" }],
+});
