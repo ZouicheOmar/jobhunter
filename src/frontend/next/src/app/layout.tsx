@@ -1,11 +1,10 @@
+import { HeadBar } from "@/components/page-elements";
+import { Footer } from "@/components/page-elements/Footer";
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { Footer } from "@/components/Footer";
-import { Title } from "@/components/Title";
-import { Nav } from "@/components/Nav";
 
-const roboto = Roboto({ subsets: ["latin"] });
+const inter = Inter();
 
 export const metadata: Metadata = {
   title: "jobhunter",
@@ -18,11 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.className} px-4 md:max-w-[784px] mx-auto my-4 min-h-screen `}
+        className={`${inter.className} md:max-w-[920] mx-auto sm:my-4 mb-4 bg-neutral-200`}
       >
-        <Title />
-        <Nav />
-        {children}
+        <HeadBar />
+        <main className="px-4 mt-8 sm:mt-2">{children}</main>
         <Footer />
       </body>
     </html>

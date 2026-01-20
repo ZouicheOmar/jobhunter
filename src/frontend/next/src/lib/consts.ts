@@ -1,15 +1,3 @@
-// TODO change this to enum, and the right one
-const CONTRACT_TYPES_FR = [
-  "CDI TEMPS PLEIN",
-  "CDI TEMPS PARTIEL",
-  "INTERIMAIRE",
-  "CDD",
-  "ALTERNANT",
-  "BÉNÉVOLE",
-  "FREELANCE",
-  "AUTRE",
-];
-
 export const CONTRACT_TYPES = [
   "FULL_TIME",
   "PART_TIME",
@@ -20,3 +8,53 @@ export const CONTRACT_TYPES = [
   "PER_DIEM",
   "OTHER",
 ];
+
+// const API_BASE = "http://192.168.1.30:8080";
+const API_BASE = "http://127.0.0.1:8080";
+
+export const ROUTES = {
+  SCRAPPER: {
+    // TODO fix to /api/scrap/v1?/
+    BASE: "http://127.0.0.1:5000/scrap/",
+  },
+
+  LLM_EXTRACT: {
+    BASE: "http://127.0.0.1:5001/api/extract/",
+  },
+
+  API: {
+    BASE: `${API_BASE}/`,
+    CANDIDS: {
+      PAGE: (page: number) => `${API_BASE}/candid/candids?page=${page}`,
+    },
+    CANDID: `${API_BASE}/candid`,
+    CITY: {
+      BASE: `${API_BASE}/city`,
+      BY_NAME: (v: string) => `${API_BASE}/city?name=${v}`,
+      BY_ZIPCODE: (v: string) => `${API_BASE}/city?zipcode=${v}`,
+    },
+    WEBSITE: {
+      BASE: `${API_BASE}/website`,
+      BY_NAME: (v: string) => `${API_BASE}/website?name=${v}`,
+    },
+    COMPANY: {
+      BASE: `${API_BASE}/company`,
+      PAGE: (page: number, orderByDateApply: boolean) =>
+        `${API_BASE}/company?page=${page}&orderByDateApply=${orderByDateApply}`,
+      BY_NAME: (v: string) => `${API_BASE}/company?name=${v}`,
+      BY_ID: (id: number) => `${API_BASE}/company/${id}`,
+    },
+    TECH: {
+      BASE: `${API_BASE}/tech`,
+      ALL_BY_NAME: (stack: string[]) =>
+        `${API_BASE}/tech?names=${stack.map((i) => i.trim()).join(",")}`,
+    },
+    CONTRACT: `${API_BASE}/contract`, // won`t use this, maybe for configering
+    COMPLETION: {
+      CITY: (v: string) => `${API_BASE}/completion/city?value=${v}`,
+      WEBSITE: (v: string) => `${API_BASE}/completion/website?value=${v}`,
+      COMPANY: (v: string) => `${API_BASE}/completion/company?value=${v}`,
+      TECH: (v: string) => `${API_BASE}/completion/tech?value=${v}`,
+    },
+  },
+};

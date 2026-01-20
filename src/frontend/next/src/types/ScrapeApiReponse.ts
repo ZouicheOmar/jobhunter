@@ -1,3 +1,8 @@
+import { City } from "./City";
+import { Company } from "./Company";
+import { ContractCreate } from "./Contract";
+import { Website } from "./Website";
+
 export type HiringOrganization = {
   name: string;
 };
@@ -19,4 +24,12 @@ export type ScrapApiRespone = {
   hiringOrganization: HiringOrganization;
   jobLocation: Place | Place[];
   description: string;
+};
+
+export type DataFromScrap = {
+  city?: City;
+  company?: Company;
+  website?: Website;
+  title: string;
+  contract: ContractCreate;
 };

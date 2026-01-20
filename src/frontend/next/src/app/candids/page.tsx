@@ -1,29 +1,31 @@
 import { notFound } from "next/navigation";
 
-import { CandidsPageSearchParams } from "@/types";
+import { CandidList, CandidsActions } from "@/components/candid-components";
+import { Pagination } from "@/components/page-elements";
 import { getCandidsPage } from "@/lib";
-
-import { ServerCandidList } from "@/components/serverComponents/ServerCandidList";
-import { ServerCandidsActions } from "@/components/serverComponents/ServerCandidsActions";
-import { Pagination } from "@/components/serverComponents/Pagination";
-
+import { CandidsPageSearchParams } from "@/types";
+import { MonoLayoutTitle } from "@/components/layout/Mono";
 
 export default async function Page(props: {
-	searchParams?: Promise<CandidsPageSearchParams>;
+  searchParams?: Promise<CandidsPageSearchParams>;
 }) {
-	const searchParams = await props.searchParams;
-	const pageNumber = Number(searchParams?.page) || 0;
+  const searchParams = await props.searchParams;
+  const pageNumber = Number(searchParams?.page) || 0;
 
-	const data = await getCandidsPage(pageNumber);
-	if (!data) return notFound();
+  const data = await getCandidsPage(pageNumber);
+  if (!data) return notFound();
 
-	const { content, page } = data;
+  const { content, page } = data;
 
-	return (
-		<div className="w-full">
-			<ServerCandidsActions />
-			<ServerCandidList candids={content} />
-			<Pagination page={page} />
-		</div >
-	);
+  return (
+    <div className="w-full">
+      <MonoLayoutTitle
+        title="Candidatures"
+        className="bg-neutral-100 p-4 py-6 border rounded-3xl"
+      />
+      <CandidsActions />
+      <CandidList candids={content} />
+      <Pagination page={page} />
+    </div>
+  );
 }

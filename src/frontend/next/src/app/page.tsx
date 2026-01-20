@@ -1,14 +1,39 @@
-import { CandidWrapper } from "@/components/CandidWrapper";
-import { Footer } from "@/components/Footer";
+import { notFound } from "next/navigation";
 
-export default function Home() {
-	return (
-		<div className="border rounded p-2 shadow ">
-			<p> number of candids <br />
-				last time applied  <br />
-				application per city <br />
-				application per position <br />
-				some other stats </p>
-		</div>
-	);
+import { MonoLayoutTitle, MonoLayoutWrapper } from "@/components/layout/Mono";
+import { Stat, StatCard } from "@/components/ui-elements";
+import { getStats } from "@/lib/api/stats";
+import { daysAgo } from "../lib/utils";
+import { TopCities } from "@/components/ui-elements/TopCities";
+
+export default async function Home() {
+  const data = await getStats();
+  if (!data) return notFound();
+
+  const {
+    numCandids: totalCandids,
+    numUnsolicited,
+    lastCandid,
+    topCities,
+  } = data;
+  const days = daysAgo(lastCandid.dateApply);
+
+  return (
+    <MonoLayoutWrapper>
+      <MonoLayoutTitle title="Overview " />
+
+      <div className="flex gap-2 mb-6 flex-wrap">
+        <StatCard label="Last applied" data={days} />
+        <StatCard label="Total Applications" data={totalCandids} />
+        <StatCard label="Unsolicited Applications" data={numUnsolicited} />
+        <StatCard
+          label="Top City"
+          data={topCities[0].city.name}
+          dataSecond={`${topCities[0].numCandids} applications`}
+        />
+      </div>
+
+      <TopCities list={topCities} total={totalCandids} />
+    </MonoLayoutWrapper>
+  );
 }

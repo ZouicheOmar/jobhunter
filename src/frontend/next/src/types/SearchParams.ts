@@ -2,36 +2,36 @@ import { Candid } from "./Candid";
 import { Company } from "./Company";
 
 export type CandidsPageSearchParams = {
-	page?: string;
+  page?: string;
+  city?: string;
+  company?: string;
 };
 
 interface CandidsPageMetaData {
-	number: number;
-	size: number;
-	totalElements: number;
-	totalPages: number;
-};
+  number: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+}
 
 export type CandidsPage = {
-	content: Candid[];
-	page: CandidsPageMetaData;
+  content: Candid[];
+  page: CandidsPageMetaData;
 };
 
-
 export type CompanyPageSearchParams = {
-	page?: string;
-	orderByDateApply?: boolean;
+  page?: string;
+  orderByDateApply?: boolean;
 };
 
 interface CompanyPageMetaData {
-	number: number;
-	size: number;
-	totalElements: number;
-	totalPages: number;
-};
+  number: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+}
 
 export type CompanyPage = {
-	content: Company[];
-	page: CompanyPageMetaData;
+  content: Company[];
+  page: CompanyPageMetaData;
 };
-

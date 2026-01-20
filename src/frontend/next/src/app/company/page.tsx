@@ -4,53 +4,68 @@ import Link from "next/link";
 import { CompanyPageSearchParams } from "@/types";
 import { getCompanyPage } from "@/lib";
 
+import { MonoLayoutTitle, MonoLayoutWrapper } from "@/components/layout/Mono";
+import { Pagination } from "@/components/page-elements";
+
+const Alphabetic = () => (
+  <div className="border rounded-md bg-neutral-100 p-2 transition-all hover:bg-white hover:shadow">
+    <label htmlFor="alphabetic" className="inline-block capitalize mr-2">
+      alphabetic ?
+    </label>
+    <input type="checkbox" name="alphabetic" className="border p-3" />
+  </div>
+);
 
 export default async function Page(props: {
-	searchParams?: Promise<CompanyPageSearchParams>;
+  searchParams?: Promise<CompanyPageSearchParams>;
 }) {
+  const searchParams = await props.searchParams;
 
-	const searchParams = await props.searchParams;
+  const pageNumber = Number(searchParams?.page) || 0;
+  const orderByDateApply = Boolean(searchParams?.orderByDateApply) || true;
 
-	const pageNumber = Number(searchParams?.page) || 0;
-	const orderByDateApply = Boolean(searchParams?.orderByDateApply) || true;
+  const data = await getCompanyPage(pageNumber, orderByDateApply);
+  console.log(data);
+  if (!data) return notFound();
 
-	const data = await getCompanyPage(pageNumber, orderByDateApply);
-	console.log(data);
-	if (!data) return notFound();
+  const { content, page } = data;
 
-	const { content, page } = data;
+  return (
+    <MonoLayoutWrapper>
+      <MonoLayoutTitle title="companies" />
 
-	return (
-		<div className="border rounded shadow p-2">
+      <div className="flex justify-end mb-4">
+        <Alphabetic />
+      </div>
 
-			<div className="flex justify-between">
-				<h1 className="font-medium h-fit"> Companies  </h1>
-
-				<div className="flex gap-2">
-					<span className="block h-fit px-1 border border-teal-300 bg-teal-100 text-teal-600">Page : {page.number + 1}</span>
-					<div className="inline ">
-						<input type="checkbox" className="mr-2 mt-1" />
-						<label >
-							{orderByDateApply ? "alphabetic ?" : "by last applied ?"}
-						</label>
-					</div>
-				</div>
-			</div>
-
-			<hr className="my-2" />
-
-			<div>
-				{content.map(({ name, id }, k) => (
-					<Link key={k} className="block border px-2 py-1 mb-2"
-						href={`/company/${id}`}>
-						<span> {id} </span>
-						<span> {name} </span>
-					</Link>
-				))}
-			</div>
-		</div >
-	);
+      <div className="grid grid-cols-2 gap-2 mb-8">
+        {content.map(({ name, id }, k) => (
+          <Link
+            key={k}
+            className="block border flex flex-col rounded-md justify-between p-2 min-h-20 shadow bg-white hover:shadow-md transition-all"
+            href={`/company/${id}`}
+          >
+            <p className="text-cyan-700 italic"> {id} </p>
+            <div className="flex justify-between items-end">
+              <p className="text-sm min-w-fit text-end leading-none font-medium text-neutral-700">
+                60 applications
+              </p>
+              <p className="text-xl text-end capitalize font-medium">{name}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <Pagination page={page} />
+    </MonoLayoutWrapper>
+  );
 }
+
+// <div className="inline ">
+//   <input type="checkbox" className="mr-2 mt-1" />
+//   <label>
+//     {orderByDateApply ? "alphabetic ?" : "by last applied ?"}
+//   </label>
+// </div>
 
 // <span> SIZE </span>
 // <span> url </span>
