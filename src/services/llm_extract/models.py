@@ -1,6 +1,7 @@
-from typing import List, Optional, Union
-from pydantic import BaseModel, Field
+from typing import List
+from pydantic import BaseModel
 
 
-class Response(BaseModel):
-  tech_stack: List[str] = Field(description="", serialization_alias="Tech Stack")
+class LLMExtractResponse(BaseModel):
+  data: List[str]
+

@@ -1,5 +1,5 @@
 # import json
-from flask import Flask, json, request
+from flask import Flask, request
 from service import ExtractService
 
 app = Flask(__name__)
@@ -19,8 +19,8 @@ def application():
   return "hello app\n"
 
 
-@app.get("/test/")
-def make_scrap_valid():
+@app.get("/api/test/")
+def test():
   return "check log"
 
 
@@ -29,8 +29,14 @@ def extract():
   data = request.get_json()
   text = data.get("text")
   res = service.handle(text)
-  return json.dumps(res)
+  return res
 
+def get_test_text():
+  path = "./test/1.txt"
+  with open(path, "r") as file:
+    return file.read()
 
 if __name__ == "__main__":
   app.run(debug=True, port=5001)
+
+

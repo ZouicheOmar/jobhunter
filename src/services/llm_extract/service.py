@@ -1,5 +1,6 @@
-import time
 from ollama import generate, GenerateResponse
+
+from utils import cleanup_response
 
 
 class ExtractService:
@@ -11,9 +12,10 @@ class ExtractService:
 
       ### Example:
 
-        { "Tech Stack": ["Javascript", "Python", "Django"] } 
+        { "Tech Stack": ["javascript", "python", "django"] } 
 
       ### Text:
+
     """
 
   def make_prompt(self, text: str):
@@ -23,8 +25,10 @@ class ExtractService:
     return "hello"
 
   def handle(self, text):
-    start = time.time()
     prompt = self.make_prompt(text)
     req: GenerateResponse = generate(model="nuextract:latest", format="json", stream=False, prompt=prompt)
-    end = time.time()
-    return {"techStack": req.response, "doneTime": end - start}
+    data = cleanup_response(req) 
+    if not data:
+      return None
+    return data.model_dump_json()
+

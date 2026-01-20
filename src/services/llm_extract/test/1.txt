@@ -1,0 +1,19 @@
+Intégré(e) au sein d'une équipe d'architectes et d'experts des technologies Java-Web, vous serez associé(e) à la conception et au développement de nouveaux composants Ametys. Vous utiliserez le meilleur des technologies Java et Web 2.0. Vous contribuerez à l'ergonomie innovante d'Ametys en utilisant des composants Javascript avancés comme par exemple ExtJs, AngularJSou JQuery. Vous participerez activement à la migration d'Ametys vers une architecture Cloud performante.
+
+- Développer de nouvelles fonctionnalités back / front / api / webservices
+- Contribuer à l'innovation technologique et la réussite de nouveaux projets de développement
+- Participer à un projet Open Source en pleine croissance
+
+Profil recherché
+
+De formation ingénieur, vous faites preuve d'implication et de réactivité.Vous avez le goût pour le travail en équipe et de la satisfaction client.Vous maîtrisez le langage Java, Javascript etl'écosystème des librairies Open Source les plus répandues.
+
+Rejoindre Ametys, c'est avant tout partager un état d'esprit !
+- Vous êtes ouvert(e) et jovial(e)
+- Vous êtes rigoureux(se) et méthodique
+- Vous êtes curieux(se) et motivé(e)
+
+Si les technos ci-dessous n'ont plus de secret pour vous, vous êtes le(la) bienvenu(e) !
+- Langages : Java/J2EE, XML, Web Services
+- Web : HTML, CSS(CCS3, SaSS), JavaScript (ExtJS, JQuery), Ajax
+- Bases de données: JCR, NoSQL
