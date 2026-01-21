@@ -7,7 +7,7 @@ import {
   Company,
   Website,
 } from "@/types";
-import { ChangeEventHandler, RefObject } from "react";
+import { ChangeEvent, ChangeEventHandler, RefObject } from "react";
 
 export type UpdateValueFn<T> = (v: T) => void;
 export type UpdateCompletionListFn<T> = (v: T[]) => void;
@@ -21,8 +21,8 @@ export type UseInputWithSelectProps = (
   loading: boolean;
   error: boolean;
   inputRef: RefObject<HTMLInputElement | null>;
-  handleChange: ChangeEventHandler;
-  handleSpanClick: ChangeEventHandler;
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSpanClick: (item: BasicEntity) => void;
 };
 
 export interface InputWithSelectProps {

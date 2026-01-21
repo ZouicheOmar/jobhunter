@@ -12,7 +12,7 @@ export const AddCandidBooleans = () => {
   const upTo = useAddCandidStore(useShallow((state) => state.updateTechOffer));
 
   return (
-    <div>
+    <div className="p-1">
       <div className="inline mr-4">
         <input
           id="isCandidTech"

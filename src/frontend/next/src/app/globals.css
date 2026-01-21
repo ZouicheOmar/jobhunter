@@ -7,14 +7,8 @@
 }
 
 :root {
-<<<<<<< HEAD
-=======
-  font-size: 13.7px;
-  -webkit-text-size-adjust: 100%;
+  font-size: 14px;
 
-  /* font-size: 14px; */
-
->>>>>>> b67191e ((frontend) ui improvements)
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -49,15 +43,16 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-<<<<<<< HEAD
-@media (max-width: 600px) {
-  :root {
-    font-size: 13px;
-  }
+input[type="text"],
+textarea {
+  font-size: 1em;
 }
 
-=======
->>>>>>> b67191e ((frontend) ui improvements)
+input::-webkit-datetime-edit {
+  line-height: 1;
+  -webkit-appearance: none;
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -135,10 +130,6 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-  }
-
-  input {
-    font-size: 1em !important;
   }
 
   body {

@@ -7,9 +7,17 @@ export const InputWithSelectCompletionListItem = ({
 }: InputWithSelectCompletionListItemProps) => (
   <span
     onClick={() => cb(item)}
-    className="m-0 px-2 border
-    rounded w-full md:w-[49%] min-h-[2em] h-[2em]
-    leading-[2em] inline-block cursor-pointer break-all"
+    className="mr-1 my-1 px-2 border
+    rounded leading-[2em] inline-block 
+    cursor-pointer break-all
+    hover:bg-blue-100
+    hover:text-blue-900
+    hover:border-blue-300
+    hover:shadow-sm
+    transition-colors
+    transition-shadow
+    capitalize
+    "
   >
     {formatBasicEntity(item)}
   </span>
