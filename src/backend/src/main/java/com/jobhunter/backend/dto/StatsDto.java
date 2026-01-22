@@ -5,7 +5,8 @@ import com.jobhunter.backend.interfaces.ICityCount;
 import java.util.List;
 
 public record StatsDto(
-                Long nCandids,
+                Long numCandids,
+                Long numUnsolicited,
                 CandidDto lastCandid,
                 List<CandidPerCityDto> topCities) {
 }

@@ -1,6 +1,7 @@
 import { formatTwoDigits } from "../utils";
 
-export const daysAgo = (date: Date) => {
+export const daysAgo = (datestr: string) => {
+  const date = new Date(datestr);
   const today = new Date();
   const days = Math.floor((today - date) / (1000 * 60 * 60 * 24));
   return days == 0 ? "today" : `${days} ${days > 1 ? "days" : "day"}`;

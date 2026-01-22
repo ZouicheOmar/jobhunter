@@ -56,6 +56,9 @@ public class StatsService {
         Long numCandids = candidRepository.count();
         s.setNumCandids(numCandids);
 
+        Long numUnsolicited = candidRepository.countCandidByUnsolicited();
+        s.setNumUnsolicited(numUnsolicited);
+
         Candid lastCandid = candidRepository.findFirstByOrderByDateApplyDesc();
         s.setLastCandid(lastCandid);
 

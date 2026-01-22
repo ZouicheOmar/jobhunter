@@ -34,7 +34,8 @@ public class StatsController {
 		Stats stats = StatsService.get();
 		return new StatsDto(
 				stats.getNumCandids(),
-				CandidMapper.toDto(stats.getLastCandid()), // map
+				stats.getNumUnsolicited(),
+				CandidMapper.toDto(stats.getLastCandid()),
 				stats.getTopCities()
 				);
 	}

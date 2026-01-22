@@ -19,6 +19,9 @@ public interface CandidRepository extends JpaRepository<Candid, Integer> {
 
   Candid findFirstByOrderByDateApplyDesc();
 
-  @Query(value="SELECT c. city_id AS cityCandidId, COUNT(c.*) AS totalCandid FROM candid AS c GROUP BY c.city_id ORDER BY totalCandid DESC limit 5;", nativeQuery = true)
+  @Query(value = "SELECT c. city_id AS cityCandidId, COUNT(c.*) AS totalCandid FROM candid AS c GROUP BY c.city_id ORDER BY totalCandid DESC limit 5;", nativeQuery = true)
   List<ICityCount> countCandidByCityNative();
+
+  @Query(value = "SELECT count(*) from candid where unsolicited = true;", nativeQuery = true)
+  Long countCandidByUnsolicited();
 }

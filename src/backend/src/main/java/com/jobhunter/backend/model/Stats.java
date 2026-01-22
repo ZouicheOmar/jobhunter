@@ -13,6 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Stats {
     private Long numCandids;
+    private Long numUnsolicited;
     private Candid lastCandid;
     private List<CandidPerCityDto> TopCities;
     // private List<Tech> TopTechs;
