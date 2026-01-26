@@ -16,7 +16,7 @@ import { getTechCompletion } from "@/lib/api";
 import { Button } from "../../schadcn/Button";
 import { AddCandidInputStackItems } from "./AddCandidTechInputStackItems";
 import { AddCandidTechInputCompletionList } from "./AddCandidTechInputSuggestionItems";
-import { HLine } from "@/components/ui-elements";
+import { HLine, InputLabel } from "@/components/ui-elements";
 
 const AddButton = ({
   cb,

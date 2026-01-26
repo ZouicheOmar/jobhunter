@@ -16,11 +16,11 @@ const Title = () => (
   <p className="block text-2xl mb-6">Add a new application</p>
 );
 
-const Title = () => (
-  <p className="block text-[#2f5af3] text-xl underline font-medium mb-6">
-    Add a new application
-  </p>
-);
+// const Title = () => (
+//   <p className="block text-[#2f5af3] text-xl underline font-medium mb-6">
+//     Add a new application
+//   </p>
+// );
 
 export function AddCandid() {
   // animate-pulse

@@ -13,7 +13,6 @@ export const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (
 
   lookupUrl: async () => {
     try {
-<<<<<<< HEAD
       set({
         scrapPending: true,
       });
