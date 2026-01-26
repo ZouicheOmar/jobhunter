@@ -7,8 +7,16 @@ notes.*
 
 data/
 reqs/
-__pycache__/
-test/
+
+*.pyc
+**/__pycache__/**
+
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+instance/
+scripts/
+
 bak/
 reqs/
-bak/
