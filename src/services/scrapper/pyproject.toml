@@ -1,0 +1,18 @@
+[project]
+name = "scrap"
+version = "0.0.1"
+description = "Job posting page scrapper for jobhunter"
+readme = "readme.md"
+dependencies = [
+    "pydantic",
+    "flask",
+    "scrapling",
+    "bs4",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

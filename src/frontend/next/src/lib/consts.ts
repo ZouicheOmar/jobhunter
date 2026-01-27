@@ -16,6 +16,7 @@ export const ROUTES = {
   SCRAPPER: {
     // TODO fix to /api/scrap/v1?/
     BASE: "http://127.0.0.1:5000/scrap/",
+    JOB_POSTING: "http://127.0.0.1:5000/scrap/job_posting",
   },
 
   LLM_EXTRACT: {

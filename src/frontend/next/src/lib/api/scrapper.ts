@@ -4,7 +4,7 @@ import { ROUTES } from "../consts";
 export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
   // handle connection refused..
   try {
-    const req = await fetch(ROUTES.SCRAPPER.BASE, {
+    const req = await fetch(ROUTES.SCRAPPER.JOB_POSTING, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

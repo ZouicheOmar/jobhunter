@@ -9,8 +9,8 @@ from scrapling.engines.toolbelt.custom import Response
 from scrapling.parser import Selector
 
 
-TEST_DATA_DIR = "./test/"
-TEST_HEAD_DATA_DIR = "./test/heads/"
+TEST_DATA_DIR = "../tests/data/html/no_ld/"
+TEST_DATA_DIR = "../tests/data/heads/"
 
 
 def write_to_file(data, path: str):
