@@ -2,7 +2,8 @@ import json
 import re
 from typing import List
 from ollama import GenerateResponse
-from models import LLMExtractResponse
+
+from extract.models import LLMExtractResponse
 
 def normalize(s: str) -> str:
   s = s.strip()

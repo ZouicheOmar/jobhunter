@@ -1,6 +1,6 @@
 from ollama import generate, GenerateResponse
 
-from utils import cleanup_response
+from extract.utils import cleanup_response
 
 
 class ExtractService:
@@ -28,7 +28,7 @@ class ExtractService:
     prompt = self.make_prompt(text)
     req: GenerateResponse = generate(model="nuextract:latest", format="json", stream=False, prompt=prompt)
     data = cleanup_response(req) 
-    if not data:
+    if not data: # en fait là j'ai besoin de savoir si Tech stack est empty or not
       return None
-    return data.model_dump_json()
+    return data.model_dump()
 

@@ -1,0 +1,7 @@
+[project]
+name = "extract"
+version = "0.0.1"
+description = "Information extraction service for jobhunter"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
