@@ -1,5 +1,6 @@
 import { Candid as CandidType } from '@/types';
 import { Button } from '../schadcn';
+import Link from 'next/link';
 
 const Bdiv = ({ children }) => <div className="border p-2 rounded-lg"> {children} </div>;
 
@@ -12,7 +13,7 @@ export const Candid = ({
     <div className="flex flex-col gap-2">
       <p className="px-1 text-lg font-medium"> {title} </p>
       <div className="self-end">
-        <Button> Update </Button>
+        <Link href={`/candid/${id}/update`}> Update </Link>
       </div>
       <Bdiv>
         <p> status </p>

@@ -1,9 +1,10 @@
 import { ROUTES } from '../consts';
-import { Candid, CandidCreate, CandidsPage } from '@/types';
+import { Candid, CandidCreate, CandidsPage, CandidUpdate, CandidUpdateRestricted } from '@/types';
 
 export type GetCandidsPageFn = (page: number) => Promise<CandidsPage>;
 export type GetAllCandidsFn = () => Promise<Candid[]>;
 export type PostCandidFn = (candid: CandidCreate) => Promise<Candid>;
+export type UpdateCandidFn = (candid: CandidUpdateRestricted) => Promise<Candid>;
 
 // should have city and page as params too
 // filter input will redirect on click
@@ -32,6 +33,17 @@ export const getCandidById = async (id: number) => {
   const req = await fetch(ROUTES.API.CANDID.ID(id));
   if (req.status >= 400) return null;
   const json = await req.json();
-  console.log('candid by id ?', json);
+  return json;
+};
+
+export const udpateCandid: UpdateCandidFn = async (candid) => {
+  const req = await fetch(ROUTES.API.CANDID.ID(candid.id), {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(candid),
+  });
+  if (req.status >= 400) return null;
+  const json = await req.json();
+  console.log('res from patch ', json);
   return json;
 };

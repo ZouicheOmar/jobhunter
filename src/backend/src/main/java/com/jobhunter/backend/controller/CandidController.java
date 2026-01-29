@@ -50,8 +50,11 @@ public class CandidController {
         return CandidMapper.toAllDto(candids);
     }
 
-    @PatchMapping
-    public CandidDto updateCandid(@RequestBody CandidUpdateDto udto) {
+    @PatchMapping("/{id}")
+    public CandidDto updateCandid(
+        @PathVariable Integer id,
+        @RequestBody CandidUpdateDto udto
+    ) {
         Candid candid = candidService.findById(udto.id());
         udto.title().ifPresent(title -> candid.setTitle(title));
         udto.url().ifPresent(url -> candid.setUrl(url));
