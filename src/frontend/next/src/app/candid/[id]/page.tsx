@@ -1,16 +1,9 @@
-import { AddCandid } from "@/components/add-candid";
-import { MonoLayoutTitle, MonoLayoutWrapper } from "@/components/layout/Mono";
-import { notFound } from "next/navigation";
+import { Candid } from '@/components/candid-components';
+import { MonoLayoutTitle, MonoLayoutWrapper } from '@/components/layout/Mono';
+import { getCandidById } from '@/lib';
+import { notFound } from 'next/navigation';
 
-const getCandidById = async (id: number) => {
-  return "add or get candid by id route" + id;
-};
-
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ id: number }>;
-}) {
+export default async function Page({ params }: { params: Promise<{ id: number }> }) {
   const { id } = await params;
   const candid = await getCandidById(id);
 
@@ -19,7 +12,7 @@ export default async function Page({
   return (
     <MonoLayoutWrapper>
       <MonoLayoutTitle title="Single Candidature Details" />
-      <AddCandid />
+      <Candid data={candid} />
     </MonoLayoutWrapper>
   );
 }
