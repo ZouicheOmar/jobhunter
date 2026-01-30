@@ -25,13 +25,14 @@ export interface RemainingSlice {
   techOffer: boolean;
   unsolicited: boolean;
   answer: boolean;
+  rejected: boolean;
   dateApply: string;
 
   updateTechOffer: (v: boolean) => void;
   updateUnsolicited: (v: boolean) => void;
   updateAnswer: (v: boolean) => void;
+  updateRejected: (v: boolean) => void;
   updateDateApply: (v: string) => void;
-  // updateCandid: () => Promise<Candid>;
   updateCandid: (id: number) => void;
 }
 

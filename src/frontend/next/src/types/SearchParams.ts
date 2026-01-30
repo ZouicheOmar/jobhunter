@@ -1,11 +1,18 @@
-import { Candid } from "./Candid";
-import { Company } from "./Company";
+import { Candid } from './Candid';
+import { Company } from './Company';
 
 export type CandidsPageSearchParams = {
   page?: string;
   city?: string;
   company?: string;
 };
+
+export interface PageMetaData {
+  number: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+}
 
 interface CandidsPageMetaData {
   number: number;

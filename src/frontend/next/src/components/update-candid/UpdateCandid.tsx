@@ -2,6 +2,7 @@
 import { useUpdateCandidStore } from '@/stores/use-update-candid';
 import { CandidUpdateRestricted } from '@/types';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 const UpdateBoolean = ({
   label,
@@ -51,10 +52,12 @@ const UpdateBooleans = ({
   unsolicited = false,
   techOffer = false,
   answer = false,
+  rejected = false,
 }: {
   unsolicited?: boolean;
   techOffer?: boolean;
   answer?: boolean;
+  rejected: boolean;
 }) => {
   const techOfferState = useUpdateCandidStore((s) => s.techOffer);
   const updateTechOffer = useUpdateCandidStore((s) => s.updateTechOffer);
@@ -62,14 +65,26 @@ const UpdateBooleans = ({
   const answerState = useUpdateCandidStore((s) => s.answer);
   const updateAnswer = useUpdateCandidStore((s) => s.updateAnswer);
 
+  const rejectedState = useUpdateCandidStore((s) => s.rejected);
+  const updateRejected = useUpdateCandidStore((s) => s.updateRejected);
+
   const unsoState = useUpdateCandidStore((s) => s.unsolicited);
   const updateUnso = useUpdateCandidStore((s) => s.updateUnsolicited);
 
+  useEffect(() => {
+    // this should just be an initial state
+    updateTechOffer(techOffer);
+    updateAnswer(answer);
+    updateRejected(rejected);
+    updateUnso(unsolicited);
+  }, []);
+
   return (
     <div className="flex flex-wrap gap-2">
-      <UpdateBoolean label="rejected" val={answerState} updateVal={updateAnswer} defaultC={answer} />
+      <UpdateBoolean label="Answer" val={answerState} updateVal={updateAnswer} defaultC={answer} />
       <UpdateBoolean label="tech offer" val={techOfferState} updateVal={updateTechOffer} defaultC={techOffer} />
       <UpdateBoolean label="Unsolicited" val={unsoState} updateVal={updateUnso} defaultC={unsolicited} />
+      <UpdateBoolean label="Rejected" val={rejectedState} updateVal={updateRejected} defaultC={rejected} />
     </div>
   );
 };
@@ -79,7 +94,7 @@ const Title = ({ title, id }: { title?: string; id: number }) => (
 );
 
 export const UpdateCandid = ({
-  data: { id, url, title, unsolicited, techOffer, answer },
+  data: { id, url, title, unsolicited, techOffer, answer, rejected },
 }: {
   data: CandidUpdateRestricted;
 }) => {
@@ -118,7 +133,7 @@ export const UpdateCandid = ({
             </div>
           </div>
         </div>
-        <UpdateBooleans unsolicited={unsolicited} techOffer={techOffer} answer={answer} />
+        <UpdateBooleans unsolicited={unsolicited} techOffer={techOffer} answer={answer} rejected={rejected} />
       </div>
       <Controls id={id} />
     </div>

@@ -1,11 +1,24 @@
 import { Candid as CandidType } from '@/types';
-import { Button } from '../schadcn';
 import Link from 'next/link';
 
 const Bdiv = ({ children }) => <div className="border p-2 rounded-lg"> {children} </div>;
 
 export const Candid = ({
-  data: { id, title, url, unsolicited, techOffer, dateApply, answer, company, city, website, contract, stack },
+  data: {
+    id,
+    title,
+    url,
+    unsolicited,
+    techOffer,
+    dateApply,
+    answer,
+    rejected,
+    company,
+    city,
+    website,
+    contract,
+    stack,
+  },
 }: {
   data: CandidType;
 }) => (
@@ -16,7 +29,9 @@ export const Candid = ({
         <Link href={`/candid/${id}/update`}> Update </Link>
       </div>
       <Bdiv>
-        <p> status </p>
+        <p> Status </p>
+        <p> {answer ? 'No answer' : 'Check answer'} </p>
+        <p> {rejected && 'Rejected'} </p>
       </Bdiv>
       <Bdiv>
         <p> ID {id} </p>
@@ -25,6 +40,7 @@ export const Candid = ({
         <p> {city?.name} </p>
         <p> {website.name} </p>
         <p> {contract.type} </p>
+        <p> {unsolicited && 'Unsolicited application'} </p>
         <div>
           {stack.map(({ name }, k) => (
             <span key={k}> {name} </span>

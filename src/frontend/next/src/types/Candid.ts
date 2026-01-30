@@ -11,6 +11,7 @@ export type Candid = {
   unsolicited: boolean;
   techOffer: boolean;
   answer: boolean;
+  rejected: boolean;
   dateApply: string;
   company: Company;
   city: City;
@@ -40,6 +41,7 @@ export type CandidUpdateRestricted = {
   unsolicited?: boolean;
   techOffer?: boolean;
   answer?: boolean;
+  rejected?: boolean;
 };
 
 export type CandidUpdate = {

@@ -1,19 +1,20 @@
-import { CandidCreate, CandidUpdateRestricted } from '@/types';
+import { CandidUpdateRestricted } from '@/types';
 import { StateCreator } from 'zustand';
 import { UpdateCandidStore, RemainingSlice } from '../types';
 import { formatDate } from '@/lib/utils';
-import { UpdateCandid } from '@/components/update-candid';
 import { udpateCandid } from '@/lib';
 
 export const remainingSlice: StateCreator<UpdateCandidStore, [], [], RemainingSlice> = (set, get, store) => ({
   techOffer: true,
   unsolicited: false,
   answer: false,
+  rejected: false,
   dateApply: formatDate(new Date()),
 
   updateTechOffer: (value: boolean) => set({ techOffer: value }),
   updateUnsolicited: (value: boolean) => set({ unsolicited: value }),
   updateAnswer: (value: boolean) => set({ answer: value }),
+  updateRejected: (value: boolean) => set({ rejected: value }),
   updateDateApply: (date: string) => set({ dateApply: date }),
 
   updateCandid: async (id) => {
