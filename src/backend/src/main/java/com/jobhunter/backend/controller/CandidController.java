@@ -6,6 +6,8 @@ import com.jobhunter.backend.dto.CandidUpdateDto;
 import com.jobhunter.backend.mapper.CandidMapper;
 import com.jobhunter.backend.model.Candid;
 import com.jobhunter.backend.service.CandidService;
+import com.jobhunter.backend.util.CandidPagination;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -98,15 +100,9 @@ public class CandidController {
         @RequestParam(defaultValue = "0") int page, // guessing pages are 0 indexed
         @RequestParam(defaultValue = "10") int size
     ) {
-        Pageable paging = PageRequest.of(
-            page,
-            size,
-            Sort.by("dateApply").descending()
-        );
-
-        Page<Candid> candids = candidService.findAllPageable(paging);
+        Pageable pageable = CandidPagination.pageByDateApply(page, size);
+        Page<Candid> candids = candidService.findAllPageable(pageable);
         Page<CandidDto> dtos = candids.map(CandidMapper::toDto);
-        // List<CandidDto> dtos = candids.map(CandidMapper::toDto).toList();
         return new PagedModel<CandidDto>(dtos);
     }
 

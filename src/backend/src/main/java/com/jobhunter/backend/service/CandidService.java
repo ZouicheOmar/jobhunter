@@ -1,11 +1,14 @@
 package com.jobhunter.backend.service;
 
+import com.jobhunter.backend.dto.CandidDto;
+import com.jobhunter.backend.mapper.CandidMapper;
 import com.jobhunter.backend.model.Candid;
 import com.jobhunter.backend.model.City;
 import com.jobhunter.backend.model.Company;
 import com.jobhunter.backend.model.Contract;
 import com.jobhunter.backend.model.Tech;
 import com.jobhunter.backend.model.Website;
+import com.jobhunter.backend.repository.CandidPagingAndSortingRepository;
 import com.jobhunter.backend.repository.CandidRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CandidService {
+
+    @Autowired
+    private CandidPagingAndSortingRepository candidpagingandsortingrepository;
 
     @Autowired
     private CandidRepository candidRepository;
@@ -63,7 +69,7 @@ public class CandidService {
     }
 
     public Page<Candid> findAllPageable(Pageable paging) {
-        return candidRepository.findAll(paging);
+        return candidpagingandsortingrepository.findAll(paging);
     }
 
     public Candid save(Candid candid) {
@@ -76,8 +82,6 @@ public class CandidService {
 
         City city = cityService.findById(candid.getCity().getId());
         candid.setCity(city);
-
-        // si j'ai déjà l'id pas besoin de find or create by name
 
         Website website = websiteService.findOrCreate(candid.getWebsite());
         candid.setWebsite(website);

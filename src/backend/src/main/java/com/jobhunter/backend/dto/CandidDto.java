@@ -9,6 +9,7 @@ public record CandidDto(
     Boolean unsolicited,
     Boolean techOffer,
     Boolean answer,
+    Boolean rejected,
     String dateApply,
     CompanyDto company,
     CityDto city,

@@ -15,6 +15,13 @@ public class ContractMapper {
         return c;
     }
 
+    public static Contract toEntity(ContractDto dto) {
+        Contract c = new Contract();
+        c.setContractType(dto.contractType());
+        c.setDuration(dto.duration());
+        return c;
+    }
+
     public static ContractDto toDto(Contract contract) {
         return new ContractDto(
             contract.getContractType(),
