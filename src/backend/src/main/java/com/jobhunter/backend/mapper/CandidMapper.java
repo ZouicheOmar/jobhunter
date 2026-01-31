@@ -2,6 +2,7 @@ package com.jobhunter.backend.mapper;
 
 import com.jobhunter.backend.dto.CandidCreateDto;
 import com.jobhunter.backend.dto.CandidDto;
+import com.jobhunter.backend.dto.CandidUpdateDto;
 import com.jobhunter.backend.model.Candid;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -15,6 +15,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PagedModel;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,12 +34,8 @@ public class CandidController {
 
     @GetMapping
     public List<CandidDto> findAll(
-        @RequestParam(name = "city_name", required = false) String cityName,
-        @RequestParam(
-            name = "website_name",
-            required = false
-        ) String websiteName
-    ) {
+            @RequestParam(name = "city_name", required = false) String cityName,
+            @RequestParam(name = "website_name", required = false) String websiteName) {
         List<Candid> candids;
         if (cityName != null && websiteName == null) {
             candids = findAllByCityName(cityName);
@@ -53,38 +50,20 @@ public class CandidController {
     }
 
     @PatchMapping("/{id}")
-    public CandidDto updateCandid(
-        @PathVariable Integer id,
-        @RequestBody CandidUpdateDto udto
-    ) {
-        Candid candid = candidService.findById(udto.id());
-        udto.title().ifPresent(title -> candid.setTitle(title));
-        udto.url().ifPresent(url -> candid.setUrl(url));
-        udto
-            .unsolicited()
-            .ifPresent(unsolicited -> candid.setUnsolicited(unsolicited));
-        udto.techOffer().ifPresent(techOffer -> candid.setTechOffer(techOffer));
-        udto.answer().ifPresent(answer -> candid.setAnswer(answer));
+    public ResponseEntity<Integer> updateCandid(
+            @PathVariable Integer id,
+            @RequestBody CandidUpdateDto udto) {
 
-        // udto.dateApply().ifPresent(dateApply -> candid.setDateApply(dateApply));
-        // udto.city().ifPresent(city -> candid.setCity(city));
-        // udto.company().ifPresent(company -> candid.setCompany(company));
-        // udto.website().ifPresent(website -> candid.setWebsite(website));
-        // udto.contract().ifPresent(contract -> candid.setContract(contract));
-        // udto.stack().ifPresent(stack -> candid.setStack(stack));
-
-        Candid resCandid = candidService.save(candid);
-        return CandidMapper.toDto(resCandid);
+        Integer recordsUpdated = candidService.update(udto);
+        return ResponseEntity.ok(recordsUpdated);
     }
 
     private List<Candid> findAllByCityNameAndWebsiteName(
-        String cityName,
-        String websiteName
-    ) {
+            String cityName,
+            String websiteName) {
         return candidService.findAllByCityNameAndWebsiteName(
-            cityName,
-            websiteName
-        );
+                cityName,
+                websiteName);
     }
 
     private List<Candid> findAllByCityName(String cityName) {
@@ -97,9 +76,8 @@ public class CandidController {
 
     @GetMapping("/candids")
     public PagedModel<CandidDto> findAllPaged(
-        @RequestParam(defaultValue = "0") int page, // guessing pages are 0 indexed
-        @RequestParam(defaultValue = "10") int size
-    ) {
+            @RequestParam(defaultValue = "0") int page, // guessing pages are 0 indexed
+            @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = CandidPagination.pageByDateApply(page, size);
         Page<Candid> candids = candidService.findAllPageable(pageable);
         Page<CandidDto> dtos = candids.map(CandidMapper::toDto);

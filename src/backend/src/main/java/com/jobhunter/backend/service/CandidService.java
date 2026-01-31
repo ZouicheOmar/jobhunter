@@ -1,6 +1,7 @@
 package com.jobhunter.backend.service;
 
 import com.jobhunter.backend.dto.CandidDto;
+import com.jobhunter.backend.dto.CandidUpdateDto;
 import com.jobhunter.backend.mapper.CandidMapper;
 import com.jobhunter.backend.model.Candid;
 import com.jobhunter.backend.model.City;
@@ -10,16 +11,28 @@ import com.jobhunter.backend.model.Tech;
 import com.jobhunter.backend.model.Website;
 import com.jobhunter.backend.repository.CandidPagingAndSortingRepository;
 import com.jobhunter.backend.repository.CandidRepository;
+import com.jobhunter.backend.repository.CandidUpdateRepository;
+import com.jobhunter.backend.repository.CandidUpdateRepositoryImpl;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CandidService {
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
     private CandidPagingAndSortingRepository candidpagingandsortingrepository;
@@ -59,17 +72,26 @@ public class CandidService {
     }
 
     public List<Candid> findAllByCityNameAndWebsiteName(
-        String cityName,
-        String websiteName
-    ) {
+            String cityName,
+            String websiteName) {
         return candidRepository.findAllByCityNameAndWebsiteName(
-            cityName,
-            websiteName
-        );
+                cityName,
+                websiteName);
     }
 
     public Page<Candid> findAllPageable(Pageable paging) {
         return candidpagingandsortingrepository.findAll(paging);
+    }
+
+    @Transactional
+    public Integer update(CandidUpdateDto udto) {
+        Integer id = udto.id();
+        return candidRepository.update(
+                udto.answer(),
+                udto.rejected(),
+                udto.techOffer(),
+                udto.unsolicited(),
+                id);
     }
 
     public Candid save(Candid candid) {
@@ -87,8 +109,7 @@ public class CandidService {
         candid.setWebsite(website);
 
         List<Tech> stack = stackService.findAllOrCreateByName(
-            candid.getStack()
-        );
+                candid.getStack());
         Contract contract = contractService.create(candid.getContract());
 
         candid.setCompany(company);
