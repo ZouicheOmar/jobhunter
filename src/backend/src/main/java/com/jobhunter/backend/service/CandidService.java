@@ -1,8 +1,6 @@
 package com.jobhunter.backend.service;
 
-import com.jobhunter.backend.dto.CandidDto;
 import com.jobhunter.backend.dto.CandidUpdateDto;
-import com.jobhunter.backend.mapper.CandidMapper;
 import com.jobhunter.backend.model.Candid;
 import com.jobhunter.backend.model.City;
 import com.jobhunter.backend.model.Company;
@@ -11,15 +9,12 @@ import com.jobhunter.backend.model.Tech;
 import com.jobhunter.backend.model.Website;
 import com.jobhunter.backend.repository.CandidPagingAndSortingRepository;
 import com.jobhunter.backend.repository.CandidRepository;
-import com.jobhunter.backend.repository.CandidUpdateRepository;
-import com.jobhunter.backend.repository.CandidUpdateRepositoryImpl;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -81,6 +76,11 @@ public class CandidService {
 
     public Page<Candid> findAllPageable(Pageable paging) {
         return candidpagingandsortingrepository.findAll(paging);
+    }
+
+    @Transactional
+    public Integer setRejected(Integer id){
+        return candidRepository.setRejected(id);
     }
 
     @Transactional

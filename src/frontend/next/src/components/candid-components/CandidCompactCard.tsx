@@ -1,18 +1,20 @@
 import { Candid } from '@/types';
-import { ExternalLink, Eye, Link as LinkIcon } from 'lucide-react';
+import { ExternalLink, Eye, Link as LinkIcon, Trash } from 'lucide-react';
 
 import { formatBasicEntity as fb } from '@/lib/utils';
 import Link from 'next/link';
+import { setCandidRejected } from '@/lib';
+import { SetRejected } from './SetRejected';
 
 const DetailedApplicationLink = ({ applicationId }: { applicationId: number }) => (
   <Link
     href={`/candid/${applicationId}`}
     id="link"
     className="inline-block rounded-md p-2 py-1
-          transition-all bg-neutral-200 hover:bg-neutral-300 h-fit
+          transition-all bg-neutral-200 hover:bg-neutral-300 hover:text-black h-fit
           dalay-500 w-fit self-end"
   >
-    <Eye size="1em" className="inline mr-[4px]" />
+    <Eye size="1em" className="inline mr-[4px] mb-[2px]" />
     <span className="inline-block">Detailed</span>
   </Link>
 );
@@ -23,30 +25,42 @@ const JobOfferingPageLink = ({ jobOfferingUrl }: { jobOfferingUrl: string }) => 
     id="link"
     className="inline-block rounded-md p-2 py-1 
           transition-all bg-neutral-200 hover:bg-neutral-300 h-fit
-          dalay-500
-          w-fit self-end
-          "
+          dalay-500 hover:text-black
+          w-fit self-end"
   >
-    <ExternalLink size="1em" className="inline mr-[4px]" />
+    <ExternalLink size="1em" className="inline mr-[4px] mb-[2px]" />
     <span className="inline-block">Job offering page</span>
   </Link>
 );
 
-const Links = ({ applicationId, jobOfferingUrl }: { applicationId: number; jobOfferingUrl: string }) => (
+const Links = ({
+  applicationId,
+  jobOfferingUrl,
+  rejected,
+}: {
+  applicationId: number;
+  jobOfferingUrl: string;
+  rejected: boolean;
+}) => (
   <div className="flex justify-end md:flex-col gap-2 md:gap-1" id="links">
-    <DetailedApplicationLink applicationId={applicationId} />
+    <div className="flex justify-end gap-2 md:gap-1" id="links">
+      {!rejected && <SetRejected applicationId={applicationId} />}
+      <DetailedApplicationLink applicationId={applicationId} />
+    </div>
     <JobOfferingPageLink jobOfferingUrl={jobOfferingUrl} />
   </div>
 );
 
 export const CandidCompactCard = ({ candid }: { candid: Candid }) => {
-  const { id, title, answer, stack, url, website, unsolicited, city, company, contract, dateApply } = candid;
+  const { id, title, answer, stack, url, website, rejected, unsolicited, city, company, contract, dateApply } = candid;
 
   return (
     <>
       <div
-        className="border bg-neutral-100 flex flex-col gap-2 md:gap-1
-        md:flex-row justify-between rounded-lg py-2 px-4 transition-height"
+        className={`border 
+          ${rejected ? 'bg-neutral-100/50 text-neutral-600 border-red-200' : 'bg-neutral-100'} 
+          flex flex-col gap-2 md:gap-1
+        md:flex-row justify-between rounded-lg py-2 px-4 transition-height`}
       >
         <div>
           <div>
@@ -68,7 +82,7 @@ export const CandidCompactCard = ({ candid }: { candid: Candid }) => {
             <span>Applied on {dateApply}</span>
           </div>
         </div>
-        <Links jobOfferingUrl={url} applicationId={id} />
+        <Links jobOfferingUrl={url} applicationId={id} rejected={rejected} />
       </div>
     </>
   );

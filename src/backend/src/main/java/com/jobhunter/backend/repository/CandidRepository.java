@@ -40,4 +40,8 @@ public interface CandidRepository extends JpaRepository<Candid, Integer> {
       Boolean unsolicited,
       Integer id);
 
+
+  @Modifying
+  @Query("update Candid c set c.rejected = true where c.id = ?1")
+  Integer setRejected(Integer id);
 }

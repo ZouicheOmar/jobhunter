@@ -31,6 +31,7 @@ export const ROUTES = {
     CANDID: {
       BASE: `${API_BASE}/candid`,
       ID: (id: number) => `${API_BASE}/candid/${id}`,
+      REJECTED: (id: number) => `${API_BASE}/candid/rejected/${id}`,
     },
     CITY: {
       BASE: `${API_BASE}/city`,

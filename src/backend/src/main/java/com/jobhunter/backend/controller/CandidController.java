@@ -58,6 +58,14 @@ public class CandidController {
         return ResponseEntity.ok(recordsUpdated);
     }
 
+    @PatchMapping("/rejected/{id}")
+    public ResponseEntity<Integer> setCandidRejected(
+            @PathVariable Integer id) {
+
+        Integer updated = candidService.setRejected(id);
+        return ResponseEntity.ok(updated);
+    }
+
     private List<Candid> findAllByCityNameAndWebsiteName(
             String cityName,
             String websiteName) {

@@ -47,3 +47,15 @@ export const udpateCandid: UpdateCandidFn = async (candid) => {
   console.log('res from patch ', json);
   return json;
 };
+
+export const setCandidRejected = async (id: number) => {
+  const req = await fetch(ROUTES.API.CANDID.REJECTED(id), {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: id }),
+  });
+  if (req.status >= 400) return null;
+  const json = await req.json();
+  console.log('res from patch set rejected ', json);
+  return json;
+};
