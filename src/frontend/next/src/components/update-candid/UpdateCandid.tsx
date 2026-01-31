@@ -1,8 +1,10 @@
 'use client';
 import { useUpdateCandidStore } from '@/stores/use-update-candid';
 import { CandidUpdateRestricted } from '@/types';
+import { LoaderCircle } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { redirect } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const UpdateBoolean = ({
   label,
@@ -29,17 +31,40 @@ const UpdateBoolean = ({
 };
 
 const Controls = ({ id }: { id: number }) => {
+  const [pending, setPending] = useState(false);
+  const [willRedirect, setWillRedirect] = useState(false);
   const updateCandid = useUpdateCandidStore((s) => s.updateCandid);
   return (
     <div className="flex justify-end gap-2">
-      <Link className="p-2 rounded-lg bg-neutral-200 hover:bg-neutral-300 transition-colors" href={`/candid/${id}`}>
-        Cancel
-      </Link>
+      {pending && (
+        <p className="p-2 px-6 border rounded-lg text-neutral-500 ">
+          Updating
+          <LoaderCircle width="1.1em" className="animate-spin inline ml-2" />
+        </p>
+      )}
+      {willRedirect && (
+        <p className="p-2 px-6 border rounded-lg text-green-500 bg-green-100 border-green-200">
+          Redirecting
+          <LoaderCircle width="1.1em" className="animate-spin inline ml-2" />
+        </p>
+      )}
+      <button className="p-2 rounded-lg bg-neutral-200 hover:bg-neutral-300 transition-colors">
+        <Link href={`/candid/${id}`}>Cancel</Link>
+      </button>
       <button className="p-2 rounded-lg bg-orange-300 cursor-pointer text-black hover:bg-orange-500 transition-colors">
         Clear
       </button>
       <button
-        onClick={() => updateCandid(id)}
+        onClick={async () => {
+          setPending(true);
+          await updateCandid(id);
+          setPending(false);
+          setWillRedirect(true);
+
+          setTimeout(() => {
+            redirect('/candids/');
+          }, 500);
+        }}
         className="p-2 rounded-lg bg-teal-700 text-white cursor-pointer hover:bg-teal-600 transition-colors"
       >
         Update
@@ -105,6 +130,8 @@ export const UpdateCandid = ({
     <div className="flex flex-col gap-4">
       <Title title={titleState || title} id={id} />
 
+      <UpdateBooleans unsolicited={unsolicited} techOffer={techOffer} answer={answer} rejected={rejected} />
+
       <div className="flex flex-col flex-wrap gap-2">
         <div className="border rounded-xl  p-4 overflow-hidden">
           <p className="text-xl font-medium"> URL </p>
@@ -133,7 +160,6 @@ export const UpdateCandid = ({
             </div>
           </div>
         </div>
-        <UpdateBooleans unsolicited={unsolicited} techOffer={techOffer} answer={answer} rejected={rejected} />
       </div>
       <Controls id={id} />
     </div>

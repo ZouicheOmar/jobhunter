@@ -26,12 +26,13 @@ export const Candid = ({
     <div className="flex flex-col gap-2">
       <p className="px-1 text-lg font-medium"> {title} </p>
       <div className="self-end">
-        <Link href={`/candid/${id}/update`}> Update </Link>
+        <button className="p-2 rounded-lg bg-neutral-200 hover:bg-neutral-300 transition-colors">
+          <Link href={`/candid/${id}/update`}> Update </Link>
+        </button>
       </div>
       <Bdiv>
         <p> Status </p>
-        <p> {answer ? 'No answer' : 'Check answer'} </p>
-        <p> {rejected && 'Rejected'} </p>
+        <p> {answer ? 'Pending' : rejected ? 'Rejected' : 'Developing'} </p>
       </Bdiv>
       <Bdiv>
         <p> ID {id} </p>

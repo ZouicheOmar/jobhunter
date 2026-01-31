@@ -33,7 +33,7 @@ export interface RemainingSlice {
   updateAnswer: (v: boolean) => void;
   updateRejected: (v: boolean) => void;
   updateDateApply: (v: string) => void;
-  updateCandid: (id: number) => void;
+  updateCandid: (id: number) => Promise<void>;
 }
 
 export type UpdateCandidStore = ComponentStateSlice & UrlSlice & TitleSlice & RemainingSlice;

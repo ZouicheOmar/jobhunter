@@ -20,14 +20,16 @@ export const remainingSlice: StateCreator<UpdateCandidStore, [], [], RemainingSl
   updateCandid: async (id) => {
     const payload: CandidUpdateRestricted = {
       id: id,
-      ...(get().url && { url: get().url }),
       ...(get().title && { title: get().title }),
-      ...(get().unsolicited && { unsolicited: get().unsolicited }),
-      ...(get().techOffer && { techOffer: get().techOffer }),
-      ...(get().answer && { answer: get().answer }),
+      ...(get().url && { url: get().url }),
+
+      unsolicited: get().unsolicited,
+      techOffer: get().techOffer,
+      answer: get().answer,
+      rejected: get().rejected,
     };
 
-    console.log(payload);
+    console.log('PAYLAOD', payload);
 
     try {
       const candid = await udpateCandid(payload);
