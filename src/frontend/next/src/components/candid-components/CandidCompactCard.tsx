@@ -1,21 +1,19 @@
 import { Candid } from '@/types';
-import { ExternalLink, Eye, Link as LinkIcon, Trash } from 'lucide-react';
+import { ArrowBigRight, ArrowRight, ExternalLink, Eye, Link as LinkIcon, Trash } from 'lucide-react';
 
 import { formatBasicEntity as fb } from '@/lib/utils';
 import Link from 'next/link';
-import { setCandidRejected } from '@/lib';
 import { SetRejected } from './SetRejected';
 
 const DetailedApplicationLink = ({ applicationId }: { applicationId: number }) => (
   <Link
     href={`/candid/${applicationId}`}
     id="link"
-    className="inline-block rounded-md p-2 py-1
+    className="inline-block rounded-full p-2
           transition-all bg-neutral-200 hover:bg-neutral-300 hover:text-black h-fit
           dalay-500 w-fit self-end"
   >
-    <Eye size="1em" className="inline mr-[4px] mb-[2px]" />
-    <span className="inline-block">Detailed</span>
+    <ArrowRight size="1.2em" strokeWidth={2} />
   </Link>
 );
 

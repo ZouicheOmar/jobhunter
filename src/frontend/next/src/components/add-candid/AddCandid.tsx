@@ -1,31 +1,21 @@
-"use client";
+'use client';
 
-import { AddCandidTitleInput } from "./AddCandidTitleInput";
-import { AddCandidUrlInput } from "./AddCandidUrlInput";
-import { AddCandidCityInput } from "./AddCandidCityInput";
-import { AddCandidControls } from "./AddCandidControls";
-import { AddCandidWebsiteInput } from "./AddCandidWebsiteInput";
-import { AddCandidCompanyInput } from "./AddCandidCompanyInput";
-import { AddCandidBooleans } from "./AddCandidBooleans";
-import { AddCandidTechInput } from "./add-candid-tech-input";
-import { AddCandidDateApplyInput } from "./AddCandidDateApplyInput";
-import { AddCandidContractInput } from "./AddCandidContractInput";
-import { AddCandidStatus } from "./AddCandidStatus";
-
-const Title = () => (
-  <p className="block text-2xl mb-6">Add a new application</p>
-);
-
-// const Title = () => (
-//   <p className="block text-[#2f5af3] text-xl underline font-medium mb-6">
-//     Add a new application
-//   </p>
-// );
+import { MonoLayoutContent } from '../layout/Mono';
+import { AddCandidTechInput } from './add-candid-tech-input';
+import { AddCandidBooleans } from './AddCandidBooleans';
+import { AddCandidCityInput } from './AddCandidCityInput';
+import { AddCandidCompanyInput } from './AddCandidCompanyInput';
+import { AddCandidContractInput } from './AddCandidContractInput';
+import { AddCandidControls } from './AddCandidControls';
+import { AddCandidDateApplyInput } from './AddCandidDateApplyInput';
+import { AddCandidStatus } from './AddCandidStatus';
+import { AddCandidTitleInput } from './AddCandidTitleInput';
+import { AddCandidUrlInput } from './AddCandidUrlInput';
+import { AddCandidWebsiteInput } from './AddCandidWebsiteInput';
 
 export function AddCandid() {
-  // animate-pulse
   return (
-    <div className="rounded-3xl [&>div]:mb-2">
+    <MonoLayoutContent className="rounded-3xl [&>div]:mb-2">
       <AddCandidStatus />
       <AddCandidUrlInput />
       <AddCandidTitleInput />
@@ -37,6 +27,6 @@ export function AddCandid() {
       <AddCandidContractInput />
       <AddCandidBooleans />
       <AddCandidControls />
-    </div>
+    </MonoLayoutContent>
   );
 }

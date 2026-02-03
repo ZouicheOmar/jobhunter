@@ -7,7 +7,8 @@ export type PostCandidFn = (candid: CandidCreate) => Promise<Candid>;
 export type UpdateCandidFn = (candid: CandidUpdateRestricted) => Promise<Candid>;
 
 export const getCandidsPageFiltered = async (filters: string) => {
-  const req = await fetch(ROUTES.API.CANDIDS.FILTERED(filters));
+  const url = ROUTES.API.CANDIDS.FILTERED(filters);
+  const req = await fetch(url);
   if (req.status >= 400) return null;
   const json = await req.json();
   return json;
@@ -49,7 +50,6 @@ export const udpateCandid: UpdateCandidFn = async (candid) => {
   });
   if (req.status >= 400) return null;
   const json = await req.json();
-  console.log('res from patch ', json);
   return json;
 };
 
@@ -61,6 +61,5 @@ export const setCandidRejected = async (id: number) => {
   });
   if (req.status >= 400) return null;
   const json = await req.json();
-  console.log('res from patch set rejected ', json);
   return json;
 };

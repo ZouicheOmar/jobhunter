@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const NavAlt = ({ label, href }: { label: string; href: string }) => {
   const pathname = usePathname();
@@ -60,7 +60,6 @@ const Pages = () => {
       <NavAlt label="Home" href="/" />
       <NavAlt label="Candids" href="/candids" />
       <NavAlt label="Companies" href="/company" />
-      <NavAlt label="Dashboard" href="/dashboard" />
     </div>
   );
 };

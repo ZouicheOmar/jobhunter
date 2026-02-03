@@ -5,6 +5,7 @@ import com.jobhunter.backend.dto.CompanyDto;
 import com.jobhunter.backend.mapper.CompanyMapper;
 import com.jobhunter.backend.model.Company;
 import com.jobhunter.backend.service.CompanyService;
+import com.jobhunter.backend.util.CompanyPagination;
 
 import jakarta.websocket.server.PathParam;
 
@@ -35,19 +36,26 @@ public class CompanyController {
 	}
 
 	@GetMapping
+	public PagedModel<CompanyDto> findAllFiltered(
+			@RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "10") int size,
+			@RequestParam(name = "by_date_apply", required = false) Boolean byDateApply) {
+		Pageable paging = CompanyPagination.pageByName(page, size);
+		Page<Company> companies = companyService.findAllPageable(paging);
+		Page<CompanyDto> dtos = companies.map(CompanyMapper::toDto);
+		return new PagedModel<CompanyDto>(dtos);
+	}
+
+	@GetMapping("/filtered")
 	public PagedModel<CompanyDto> findAllPaged(
 			@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "20") int size,
 			@RequestParam(defaultValue = "true") Boolean orderByDateApply) {
-		// if filter return proper controller..
+
+		Pageable paging = CompanyPagination.pageByName(page, size);
 
 		if (orderByDateApply)
 			return findAllOrderByDateApplyPage(page, size);
-
-		Pageable paging = PageRequest.of(
-				page,
-				size,
-				Sort.by("name").ascending());
 
 		Page<Company> companies = companyService.findAllPageable(paging);
 		Page<CompanyDto> dtos = companies.map(CompanyMapper::toDto);

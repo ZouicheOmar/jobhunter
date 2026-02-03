@@ -80,10 +80,23 @@ export const makeCandidsPageFilters: (searchParams: CandidsPageSearchParams | un
   const techId = Number(searchParams?.tech_id) || undefined;
   const cityId = Number(searchParams?.city_id) || undefined;
 
-  let u = ROUTES.API.CANDIDS.PAGE(pageNumber);
+  let u = `page=${pageNumber}`;
 
-  cityId && (u = u + `&city_id=${cityId}`);
-  techId && (u = u + `&tech_id=${techId}`);
-  console.log(u);
+  if (cityId) u += `&city_id=${cityId}`;
+  if (techId) u += `&tech_id=${techId}`;
   return u;
 };
+
+export const urlFromSearchParams = (searchParams: Record<string, string>, n: number) =>
+  Object.keys(searchParams).length
+    ? Object.keys(searchParams).reduce((p, c, i) => {
+        let r = p;
+        if (p == 'page') r = `?page=${n}`;
+        return r + `&${c}=${searchParams[c]}`;
+      })
+    : '';
+
+export const goTo = (searchParams: Record<string, string>, n: number) =>
+  `/candids${urlFromSearchParams(searchParams, n)}`;
+
+export const getUrl = (up: any) => `/${up.path}?${urlFromSearchParams(up.searchParams, 1)}`;

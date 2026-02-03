@@ -93,3 +93,8 @@ export type CompanyPage = {
   content: Company[];
   page: CompanyPageMetaData;
 };
+
+export type UrlParams = {
+  path: string;
+  searchParams: Record<string, string>;
+};

@@ -1,29 +1,34 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 
 import { CandidList, CandidsActions } from '@/components/candid-components';
 import { Pagination } from '@/components/page-elements';
-import { getCandidsPageFiltered, ROUTES } from '@/lib';
-import { CandidsPageSearchParams } from '@/types';
-import { MonoLayoutTitle } from '@/components/layout/Mono';
+import { getCandidsPageFiltered } from '@/lib';
 import { extractPaginationData, makeCandidsPageFilters } from '@/lib/utils';
+import { UrlParams } from '@/types';
+import { MonoLayoutTitle } from '@/components/layout/Mono';
 
-export default async function Page(props: { searchParams?: Promise<CandidsPageSearchParams> }) {
+export default async function Page(props: { searchParams?: Promise<Record<string, string>> }) {
   const searchParams = await props.searchParams;
-  const filters = makeCandidsPageFilters(searchParams);
+  if (searchParams == undefined || Object.keys(searchParams).length == 0) redirect('/candids?page=0', 'replace');
 
+  const filters = makeCandidsPageFilters(searchParams);
   const data = await getCandidsPageFiltered(filters);
   if (!data) return notFound();
 
   const { content, ...pageableData } = data;
   const paginationProps = extractPaginationData(pageableData);
 
-  // TODO: variant="detached" on monolayouttitle
+  const urlParams: UrlParams = {
+    path: '/candids',
+    searchParams: searchParams,
+  };
+
   return (
-    <div className="w-full">
-      <MonoLayoutTitle title="Candidatures" className="bg-neutral-100 p-4 py-6 border rounded-3xl" />
+    <>
+      <MonoLayoutTitle title="Candidatures" />
       <CandidsActions />
       <CandidList candids={content} />
-      <Pagination page={paginationProps} />
-    </div>
+      <Pagination page={paginationProps} urlParams={urlParams} />
+    </>
   );
 }

@@ -1,20 +1,12 @@
-import Link from "next/link";
-import { Pirata_One } from "next/font/google";
+import Link from 'next/link';
+import { Pirata_One } from 'next/font/google';
 
-import {
-  Button,
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "../schadcn";
-import { Nav } from "./Nav";
+import { Drawer, DrawerClose, DrawerContent, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '../schadcn';
+import { Nav } from './Nav';
+import React from 'react';
+import { WrapperProps } from '../types';
 
-const pone = Pirata_One({ weight: "400" });
+const pone = Pirata_One({ weight: '400' });
 
 const BG = () => (
   <div className="z-0 w-full h-full absolute top-0 left-0 bg-[url(/shibuya.jpg)] bg-center mask-l-from-10% mask-l-to-70%"></div>
@@ -52,52 +44,38 @@ export const MobileNav = () => (
         <div className="flex flex-col p-2 rounded text-xl font-medium capitalize my-2 & > *:p-2">
           <nav className="mb-6 mt-8 flex flex-col gap-3 justify-between">
             <DrawerClose asChild>
-              <Link
-                className="border rounded-xl text-center p-2 shadow-sm"
-                href="/"
-              >
-                {" "}
-                home{" "}
+              <Link className="border rounded-xl text-center p-2 shadow-sm" href="/">
+                {' '}
+                home{' '}
               </Link>
             </DrawerClose>
 
             <DrawerClose asChild>
-              <Link
-                className="border rounded-xl text-center p-2 shadow-sm"
-                href="/candids/"
-              >
+              <Link className="border rounded-xl text-center p-2 shadow-sm" href="/candids/">
                 candidatures
               </Link>
             </DrawerClose>
 
             <DrawerClose asChild>
-              <Link
-                className="border rounded-xl text-center p-2 shadow-sm"
-                href="/company/"
-              >
+              <Link className="border rounded-xl text-center p-2 shadow-sm" href="/company/">
                 Companies
               </Link>
             </DrawerClose>
 
             <DrawerClose asChild>
-              <Link
-                className="border rounded-xl text-center p-2 shadow-sm"
-                href="/candid/add/"
-              >
+              <Link className="border rounded-xl text-center p-2 shadow-sm" href="/candid/add/">
                 Add +
               </Link>
             </DrawerClose>
           </nav>
         </div>
-        <DrawerFooter className="text-center text-neutral-300 text-md">
-          Jobhunter | ozdocs.fr
-        </DrawerFooter>
+        <DrawerFooter className="text-center text-neutral-300 text-md">Jobhunter | ozdocs.fr</DrawerFooter>
       </DrawerContent>
     </Drawer>
   </div>
 );
 
-const Wrapper = ({ children }) => (
+const Wrapper = ({ children }: WrapperProps) => (
   <div
     className="
     relative p-8 px-2 md:border md:rounded-3xl overflow-hidden

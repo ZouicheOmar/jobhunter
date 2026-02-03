@@ -19,7 +19,7 @@ export interface CandidsPageFilters {
   resetCompletions: () => void;
 }
 
-export const useCandidsPageFilters = create<CandidsPageFilters>((set) => ({
+export const useCandidsPageFilters = create<CandidsPageFilters>((set, get, store) => ({
   tech: { name: '', id: null },
   city: { name: '', id: null },
   techCompletion: [],
@@ -29,4 +29,5 @@ export const useCandidsPageFilters = create<CandidsPageFilters>((set) => ({
   updateTechCompletion: (v) => set({ techCompletion: v }),
   updateCityCompletion: (v) => set({ cityCompletion: v }),
   resetCompletions: () => set({ techCompletion: [], cityCompletion: [] }),
+  reset: () => set(store.getInitialState()),
 }));

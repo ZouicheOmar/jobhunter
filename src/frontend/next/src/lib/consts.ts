@@ -30,7 +30,7 @@ export const ROUTES = {
       PAGE: (page: number) => `${API_BASE}/candids?page=${page}`,
       FILTERED: (filters: string) => `${API_BASE}/candids?${filters}`,
       ID: (id: number) => `${API_BASE}/candids/${id}`,
-      REJECTED: (id: number) => `${API_BASE}/candid/${id}/rejected`,
+      REJECTED: (id: number) => `${API_BASE}/candids/${id}/rejected`,
     },
     CITY: {
       BASE: `${API_BASE}/city`,

@@ -2,6 +2,7 @@ package com.jobhunter.backend.service;
 
 import com.jobhunter.backend.dto.CompanyCreateDto;
 import com.jobhunter.backend.model.Company;
+import com.jobhunter.backend.repository.CompanyPagingAndSortingRepository;
 import com.jobhunter.backend.repository.CompanyRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +18,12 @@ public class CompanyService {
 	@Autowired
 	private CompanyRepository companyRepository;
 
-	// create always calls save
+	@Autowired
+	private CompanyPagingAndSortingRepository companyPagingAndSortingRepository;
+
+	public Page<Company> findAllPageable(Pageable paging) {
+		return companyPagingAndSortingRepository.findAll(paging);
+	}
 
 	public Company save(Company company) {
 		return companyRepository.save(company);
@@ -43,10 +49,6 @@ public class CompanyService {
 		return companyRepository.findAllByNameContaining(
 				companyName,
 				Limit.of(4));
-	}
-
-	public Page<Company> findAllPageable(Pageable paging) {
-		return companyRepository.findAll(paging);
 	}
 
 	public List<Company> findAllCompaniesByDateApply() {

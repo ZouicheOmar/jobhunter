@@ -1,5 +1,6 @@
 import { Candid as CandidType } from '@/types';
 import Link from 'next/link';
+import { MonoLayoutContent } from '../layout/Mono';
 
 const Bdiv = ({ children }) => <div className="border p-2 rounded-lg"> {children} </div>;
 
@@ -23,7 +24,7 @@ export const Candid = ({
   data: CandidType;
 }) => (
   <>
-    <div className="flex flex-col gap-2">
+    <MonoLayoutContent className="flex flex-col gap-2">
       <p className="px-1 text-lg font-medium"> {title} </p>
       <div className="self-end">
         <button className="p-2 rounded-lg bg-neutral-200 hover:bg-neutral-300 transition-colors">
@@ -57,6 +58,6 @@ export const Candid = ({
         <p> linkedin message if any </p>
         <p> cover letter if any </p>
       </Bdiv>
-    </div>
+    </MonoLayoutContent>
   </>
 );
