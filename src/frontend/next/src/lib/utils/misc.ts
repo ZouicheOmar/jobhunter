@@ -1,8 +1,8 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-import { Candid, CandidCreate, PaginationProps, ResourcePageData, Tech, TechCreate } from '@/types';
-import { CONTRACT_TYPES } from '../consts';
+import { Candid, CandidsPageSearchParams, PaginationProps, ResourcePageData, Tech, TechCreate } from '@/types';
+import { CONTRACT_TYPES, ROUTES } from '../consts';
 
 export const getEmptyCandid: () => Candid = () => ({
   id: 113,
@@ -12,6 +12,7 @@ export const getEmptyCandid: () => Candid = () => ({
   techOffer: true,
   dateApply: '2026-01-10',
   answer: false,
+  rejected: false,
   company: { id: 1, name: 'capgemini' },
   city: { id: 5, name: 'toulouse' },
   website: { id: 1, name: 'indeed' },
@@ -73,3 +74,16 @@ export const extractPaginationData: extractPaginationDataFn = ({ empty, first, l
   number: number,
   totalPages: totalPages,
 });
+
+export const makeCandidsPageFilters: (searchParams: CandidsPageSearchParams | undefined) => string = (searchParams) => {
+  const pageNumber = Number(searchParams?.page) || 0;
+  const techId = Number(searchParams?.tech_id) || undefined;
+  const cityId = Number(searchParams?.city_id) || undefined;
+
+  let u = ROUTES.API.CANDIDS.PAGE(pageNumber);
+
+  cityId && (u = u + `&city_id=${cityId}`);
+  techId && (u = u + `&tech_id=${techId}`);
+  console.log(u);
+  return u;
+};

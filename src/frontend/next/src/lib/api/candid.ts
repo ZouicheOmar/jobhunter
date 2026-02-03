@@ -6,6 +6,13 @@ export type GetAllCandidsFn = () => Promise<Candid[]>;
 export type PostCandidFn = (candid: CandidCreate) => Promise<Candid>;
 export type UpdateCandidFn = (candid: CandidUpdateRestricted) => Promise<Candid>;
 
+export const getCandidsPageFiltered = async (filters: string) => {
+  const req = await fetch(ROUTES.API.CANDIDS.FILTERED(filters));
+  if (req.status >= 400) return null;
+  const json = await req.json();
+  return json;
+};
+
 export const getCandidsPage: GetCandidsPageFn = async (page) => {
   const req = await fetch(ROUTES.API.CANDIDS.PAGE(page));
   if (req.status >= 400) return null;

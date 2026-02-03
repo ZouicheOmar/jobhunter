@@ -28,6 +28,7 @@ export const ROUTES = {
     CANDIDS: {
       BASE: `${API_BASE}/candids/`,
       PAGE: (page: number) => `${API_BASE}/candids?page=${page}`,
+      FILTERED: (filters: string) => `${API_BASE}/candids?${filters}`,
       ID: (id: number) => `${API_BASE}/candids/${id}`,
       REJECTED: (id: number) => `${API_BASE}/candid/${id}/rejected`,
     },
@@ -60,3 +61,5 @@ export const ROUTES = {
     },
   },
 };
+
+export const COMPLETION_DELAY = 500;

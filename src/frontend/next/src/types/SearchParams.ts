@@ -4,7 +4,8 @@ import { Company } from './Company';
 
 export type CandidsPageSearchParams = {
   page?: string;
-  city?: string;
+  tech_id?: number;
+  city_id?: number;
   company?: string;
 };
 
