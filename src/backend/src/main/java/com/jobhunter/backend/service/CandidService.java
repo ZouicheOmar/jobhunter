@@ -9,9 +9,8 @@ import com.jobhunter.backend.model.Tech;
 import com.jobhunter.backend.model.Website;
 import com.jobhunter.backend.repository.CandidPagingAndSortingRepository;
 import com.jobhunter.backend.repository.CandidRepository;
-
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import com.jobhunter.backend.repository.CandidSpecRepository;
+import com.jobhunter.backend.specification.CandidFilterSpecification;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,20 +19,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CandidService {
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
     @Autowired
     private CandidPagingAndSortingRepository candidpagingandsortingrepository;
 
     @Autowired
     private CandidRepository candidRepository;
+
+    @Autowired
+    private CandidSpecRepository candidSpecRepository;
 
     @Autowired
     private CompanyService companyService;
@@ -62,6 +62,27 @@ public class CandidService {
         return candidRepository.findAllByCityName(cityName);
     }
 
+    public Page<Candid> findFiltered(
+            Integer techId,
+            Integer cityId,
+            Integer companyId,
+            Pageable pageable) {
+        Specification<Candid> spec = Specification
+                .where(CandidFilterSpecification.techIs(techId))
+                .and(CandidFilterSpecification.cityIs(cityId))
+                .and(CandidFilterSpecification.companyIs(companyId));
+
+        return candidSpecRepository.findAll(spec, pageable);
+    }
+
+    public List<Candid> findAllByTechId(Integer techId) {
+        return candidRepository.findByStack_Id(techId);
+    }
+
+    public List<Candid> findAllByTechIdAndCity(Integer techId, Integer cityId) {
+        return candidRepository.findByStack_IdAndCity_Id(techId, cityId);
+    }
+
     public List<Candid> findAllByWebsiteName(String websiteName) {
         return candidRepository.findAllByWebsiteName(websiteName);
     }
@@ -79,7 +100,7 @@ public class CandidService {
     }
 
     @Transactional
-    public Integer setRejected(Integer id){
+    public Integer setRejected(Integer id) {
         return candidRepository.setRejected(id);
     }
 
