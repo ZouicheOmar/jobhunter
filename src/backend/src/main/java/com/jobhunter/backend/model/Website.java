@@ -14,10 +14,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-// @Table(uniqueConstraints = {
-//     @UniqueConstraint(name = "unique_website_name", columnNames = "name")
-// })
-
 @Entity
 @Getter
 @Setter
@@ -38,6 +34,11 @@ public class Website {
     private List<Candid> candids;
 
     public Website(String name) {
+        this.name = name;
+    }
+
+    public Website(Integer id, String name) {
+        this.id = id;
         this.name = name;
     }
 }
