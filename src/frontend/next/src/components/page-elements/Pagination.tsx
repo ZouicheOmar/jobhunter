@@ -1,4 +1,4 @@
-import { PageMetaData } from '@/types';
+import { PageMetaData, PaginationProps, PagnisationProps } from '@/types';
 import Link from 'next/link';
 
 const PaginationItem = ({ page, active }: { page: number; active?: boolean; href?: string }) => (
@@ -24,40 +24,42 @@ const PaginationElipsis = () => (
   </li>
 );
 
-const PaginationPrevious = ({ current }: { current: number }) => (
+const PaginationPrevious = ({ isFirst, number }: { isFirst: boolean; number: number }) => (
   <Link
-    data-disabled={current == 0}
+    data-disabled={isFirst}
     className="border p-4 rounded-full 
       data-[disabled=true]:text-neutral-400
       data-[disabled=true]:cursor-default
       hover:data-[disabled=false]:bg-neutral-100
     "
-    href={`/candids?page=${current - 1}`}
+    href={`/candids?page=${number - 1}`}
   >
     Previous
   </Link>
 );
 
-const PaginationNext = ({ current, max }: { current: number; max: number }) => (
+const PaginationNext = ({ isLast, number }: { isLast: boolean; number: number }) => (
   <Link
-    data-disabled={current == max - 1}
+    data-disabled={isLast}
     className="border p-4 rounded-full 
       data-[disabled=true]:text-neutral-400
       data-[disabled=true]:cursor-default
-      hover:data-[disabled=false]:bg-neutral-100
-    "
-    href={`/candids?page=${current + 1}`}
+      hover:data-[disabled=false]:bg-neutral-100"
+    href={`/candids?page=${number + 1}`}
   >
     Next
   </Link>
 );
 
-export const Pagination = ({ page }: { page: PageMetaData }) => {
-  const { number, totalPages } = page;
+export const Pagination = ({ page }: { page: PaginationProps }) => {
+  const { number, totalPages, first, last, empty } = page;
+
+  if (empty) return null;
+
   return (
     <nav className="my-12 h-fit flex gap-2 justify-center items-center">
-      <PaginationPrevious current={number} />
-      <ul className="flex w-[18em] justify-center items-center gap-x-2">
+      <ul className="flex w-fit min-w-[18em] justify-center items-center gap-x-2">
+        <PaginationPrevious isFirst={first} number={number} />
         {number > 0 && <PaginationItem page={0} />}
         {number > 1 && <PaginationElipsis />}
         {number > 1 && <PaginationItem page={number - 1} />}
@@ -70,7 +72,7 @@ export const Pagination = ({ page }: { page: PageMetaData }) => {
           </>
         )}
       </ul>
-      <PaginationNext current={number} max={totalPages} />
+      <PaginationNext isLast={last} number={number} />
     </nav>
   );
 };

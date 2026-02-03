@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-import { Candid, CandidCreate, Tech, TechCreate } from '@/types';
+import { Candid, CandidCreate, PaginationProps, ResourcePageData, Tech, TechCreate } from '@/types';
 import { CONTRACT_TYPES } from '../consts';
 
 export const getEmptyCandid: () => Candid = () => ({
@@ -64,3 +64,12 @@ export const indexInList = (item: Tech | TechCreate, list: Tech[] | TechCreate[]
   for (let i = 0; i < list.length; i++) if (item.name == list[i].name) return i;
   return -1;
 };
+
+type extractPaginationDataFn = (v: ResourcePageData) => PaginationProps;
+export const extractPaginationData: extractPaginationDataFn = ({ empty, first, last, number, totalPages }) => ({
+  empty: empty,
+  first: first,
+  last: last,
+  number: number,
+  totalPages: totalPages,
+});

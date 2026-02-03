@@ -26,12 +26,10 @@ export const ROUTES = {
   API: {
     BASE: `${API_BASE}/`,
     CANDIDS: {
-      PAGE: (page: number) => `${API_BASE}/candid/candids?page=${page}`,
-    },
-    CANDID: {
-      BASE: `${API_BASE}/candid`,
-      ID: (id: number) => `${API_BASE}/candid/${id}`,
-      REJECTED: (id: number) => `${API_BASE}/candid/rejected/${id}`,
+      BASE: `${API_BASE}/candids/`,
+      PAGE: (page: number) => `${API_BASE}/candids?page=${page}`,
+      ID: (id: number) => `${API_BASE}/candids/${id}`,
+      REJECTED: (id: number) => `${API_BASE}/candid/${id}/rejected`,
     },
     CITY: {
       BASE: `${API_BASE}/city`,
