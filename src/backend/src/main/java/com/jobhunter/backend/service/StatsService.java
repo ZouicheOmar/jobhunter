@@ -17,6 +17,8 @@ import com.jobhunter.backend.repository.TechRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -50,10 +52,13 @@ public class StatsService {
     @Autowired
     TechRepository techRepository;
 
-    public Stats get(){
+    public Optional<Stats> get() {
         Stats s = new Stats();
 
         Long numCandids = candidRepository.count();
+        if (numCandids == 0)
+            return Optional.empty();
+
         s.setNumCandids(numCandids);
 
         Long numUnsolicited = candidRepository.countCandidByUnsolicited();
@@ -62,19 +67,15 @@ public class StatsService {
         Candid lastCandid = candidRepository.findFirstByOrderByDateApplyDesc();
         s.setLastCandid(lastCandid);
 
-
         List<ICityCount> topCities = candidRepository.countCandidByCityNative();
         List<CandidPerCityDto> cities = new ArrayList<CandidPerCityDto>();
-        topCities.forEach( tc -> { 
+        topCities.forEach(tc -> {
             City c = cityService.findById(tc.getCityCandidId());
             cities.add(new CandidPerCityDto(tc.getTotalCandid(), CityMapper.toDto(c)));
         });
 
         s.setTopCities(cities);
 
-
-        // List<Tech> topTech = techRepository.findAll();
-        // build object 
-        return s;
+        return Optional.of(s);
     }
 }

@@ -1,0 +1,32 @@
+services:
+  jh-frontend:
+    build:
+      target: dev
+    environment:
+      API_ORIGIN: "http://localhost:8000"
+      SERVICES_ORIGIN: "http://localhost:8001"
+    develop:
+      watch:
+        - path: ./src/frontend/next/
+          action: sync
+          target: /app
+
+  jh-backend:
+    build:
+      target: dev
+    # environment:
+    #   DB_ORIGIN: "http://localhost:5432"
+    develop:
+      watch:
+        - path: ./src/backend
+          action: sync
+          target: /app
+
+  jh-services:
+    build:
+      target: dev
+    develop:
+      watch:
+        - path: ./src/services/combined
+          action: sync
+          target: /app

@@ -9,8 +9,7 @@ export const CONTRACT_TYPES = [
   'OTHER',
 ];
 
-// const API_BASE = "http://192.168.1.30:8080";
-const API_BASE = 'http://127.0.0.1:8080';
+export const API_BASE = 'http://jh-backend:8080';
 
 export const ROUTES = {
   SCRAPPER: {
@@ -20,7 +19,7 @@ export const ROUTES = {
   },
 
   LLM_EXTRACT: {
-    BASE: 'http://127.0.0.1:5001/api/extract/',
+    BASE: 'http://127.0.0.1:5001/api/extract',
   },
 
   API: {

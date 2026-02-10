@@ -1,4 +1,6 @@
 debug: true
+# server:
+#   port: 8000
 management:
   endpoints:
     web:
@@ -8,7 +10,9 @@ spring:
   application:
     name: backend
   datasource:
-    url: jdbc:postgresql://localhost:5439/mydatabase
+    # url: jdbc:postgresql://localhost:5439/mydatabase
+    url: jdbc:postgresql://jh-postgresql:5432/mydatabase
+    # url: jdbc:postgresql://jh-network:5432/mydatabase
     username: admin
     password: pass
     driver-class-name: org.postgresql.Driver

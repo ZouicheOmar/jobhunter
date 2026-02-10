@@ -1,4 +1,5 @@
-import { Candid, City } from "@/types";
+import { Candid, City } from '@/types';
+import { API_BASE } from '../consts';
 
 export type CandidPerCity = {
   numCandids: number;
@@ -15,12 +16,9 @@ export type GetStatsResponse = {
 export type GetStatsFn = () => Promise<GetStatsResponse>;
 
 export const getStats: GetStatsFn = async () => {
-  try {
-    const url = "http://localhost:8080/stats";
-    const req = await fetch(url);
-    const json = await req.json();
-    return json;
-  } catch (e) {
-    console.log(e);
-  }
+  const url = `${API_BASE}/stats`;
+  const req = await fetch(url);
+  if (req.status == 404) return null;
+  const json = await req.json();
+  return json;
 };

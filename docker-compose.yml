@@ -1,0 +1,54 @@
+services:
+  jh-frontend:
+    container_name: jh-frontend
+    build:
+      context: ./src/frontend/next
+      dockerfile: dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - jh-network
+
+  jh-backend:
+    container_name: jh-backend
+    build:
+      context: ./src/backend
+      dockerfile: dockerfile
+    ports:
+      - "8000:8080"
+    networks:
+      - jh-network
+    depends_on:
+      - jh-postgresql
+
+  jh-services:
+    container_name: jh-services
+    build:
+      context: ./src/services/combined
+      dockerfile: dockerfile
+    ports:
+      - "8001:8000"
+    networks:
+      - jh-network
+
+  jh-postgresql:
+    container_name: jh-postgresql
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - jh-data:/var/lib/postgresql/data
+    networks:
+      - jh-network
+
+volumes:
+  jh-data:
+
+networks:
+  jh-network:
+    driver: bridge

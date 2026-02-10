@@ -15,7 +15,6 @@ export default async function Home() {
   return (
     <MonoLayoutWrapper>
       <MonoLayoutTitle title="Overview" />
-
       <div className="flex gap-2 mb-6 flex-wrap">
         <StatCard label="Last applied" data={days} />
         <StatCard label="Total Applications" data={totalCandids} />
