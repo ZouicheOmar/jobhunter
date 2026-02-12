@@ -1,6 +1,8 @@
 package com.jobhunter.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,8 +14,6 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-// TODO les annotation concernant la définition de tables provient de
-// jpa (jakarta.persistence) ou de hibernate ? ou même de spring data ?
 
 import java.time.LocalDate;
 import java.util.List;
@@ -41,6 +41,11 @@ public class Candid {
     private Integer id;
 
     private String title;
+
+    @ManyToMany(mappedBy = "candids")
+    @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
+    @JsonManagedReference(value = "dbuser-candid")
+    private Set<DBUser> user;
 
     @ManyToOne
     @JoinColumn(name = "city_id")
@@ -97,4 +102,5 @@ public class Candid {
 
     @Column(updatable = false)
     private Boolean techOffer;
+
 }

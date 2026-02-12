@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 3001
 app:
   jwt:
     secret: dev-env-jwt-secret
@@ -29,8 +29,18 @@ spring:
         format-sql: true;
     show-sql: true
     database: postgresql
+  security:
+    user:
+      name: admin
+      password: pass
   flyway:
     enabled: false
     baseline-on-migrate: true
     validate-on-migrate: true
     # default-schema: "public"
+logging:
+  level:
+    root: INFO
+    com:
+      jobhunter:
+        backend: TRACE
