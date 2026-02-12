@@ -1,6 +1,11 @@
+server:
+  port: 8000
+app:
+  jwt:
+    secret: dev-env-jwt-secret
+    expiration:
+      ms: 900000
 debug: true
-# server:
-#   port: 8000
 management:
   endpoints:
     web:
@@ -10,8 +15,8 @@ spring:
   application:
     name: backend
   datasource:
-    # url: jdbc:postgresql://localhost:5439/mydatabase
-    url: jdbc:postgresql://jh-postgresql:5432/mydatabase
+    # url: jdbc:postgresql://jh-postgresql:5432/mydatabase
+    url: jdbc:postgresql://localhost:5432/mydatabase
     # url: jdbc:postgresql://jh-network:5432/mydatabase
     username: admin
     password: pass
