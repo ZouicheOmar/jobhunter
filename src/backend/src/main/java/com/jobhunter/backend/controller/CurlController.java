@@ -32,7 +32,13 @@ public class CurlController {
     @GetMapping("/protected")
     public ResponseEntity<String> handleProtected(HttpServletRequest req) {
         logReq(req);
-        return ResponseEntity.ok("Si tu lis ça c'est que t'es authentifié.\nLes données de ta session actuelle :");
+        return ResponseEntity.ok("Si tu lis ça c'est que t'es authentifié.\nLes données de ta session actuelle :\n");
+    }
+
+    @GetMapping("/foo")
+    public String handleFoo(HttpServletRequest req) {
+        logReq(req);
+        return "okey connecté et dans foo";
     }
 
 }

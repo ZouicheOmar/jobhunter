@@ -1,5 +1,6 @@
 server:
-  port: ${BACK_PORT}
+  port: 8000
+  # port: ${BACK_PORT}
 app:
   jwt:
     secret: dev-env-jwt-secret
@@ -15,8 +16,8 @@ spring:
   application:
     name: backend
   datasource:
-    url: jdbc:postgresql://jh-postgresql:5432/mydatabase
-    # url: jdbc:postgresql://localhost:5432/mydatabase
+    # url: jdbc:postgresql://jh-postgresql:5432/mydatabase
+    url: jdbc:postgresql://localhost:5432/mydatabase
     # url: jdbc:postgresql://jh-network:5432/mydatabase
     username: admin
     password: pass
