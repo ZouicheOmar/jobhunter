@@ -2,8 +2,8 @@ dev
 dev_basic
 dump*
 
-todo.*
-notes.*
+**/todo.*
+**/notes.*
 
 data/
 reqs/
@@ -22,3 +22,7 @@ bak/
 reqs/
 
 .prettierrc
+
+.env
+
+basic
