@@ -1,26 +1,18 @@
-import { notFound } from 'next/navigation';
-
-import { MonoLayoutTitle, MonoLayoutWrapper } from '@/components/layout/Mono';
-import { StatCard, StatTopCities } from '@/components/ui-elements';
-import { getStats } from '@/lib/api/stats';
-import { daysAgo } from '../lib/utils';
+import { Login } from '@/components/auth';
+import { MonoLayoutContent, MonoLayoutWrapper } from '@/components/layout/Mono';
 
 export default async function Home() {
-  const data = await getStats();
-  if (!data) return notFound();
-
-  const { numCandids: totalCandids, numUnsolicited, lastCandid, topCities } = data;
-  const days = daysAgo(lastCandid.dateApply);
-
   return (
-    <MonoLayoutWrapper>
-      <MonoLayoutTitle title="Overview" />
-      <div className="flex gap-2 mb-6 flex-wrap">
-        <StatCard label="Last applied" data={days} />
-        <StatCard label="Total Applications" data={totalCandids} />
-        <StatCard label="Unsolicited Applications" data={numUnsolicited} />
-        <StatTopCities list={topCities} total={totalCandids} />
-      </div>
-    </MonoLayoutWrapper>
+    <main className="mt-8 sm:mt-2">
+      <MonoLayoutWrapper>
+        <MonoLayoutContent>
+          <ul>
+            <li> should login here </li>
+            <li> every request to me/** should be intercepted by proxy to check valid session token </li>
+          </ul>
+          <Login />
+        </MonoLayoutContent>
+      </MonoLayoutWrapper>
+    </main>
   );
 }
