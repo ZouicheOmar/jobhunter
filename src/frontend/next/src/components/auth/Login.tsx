@@ -1,7 +1,19 @@
+import { loginAction } from '@/lib/auth';
+
 export const Login = () => {
   return (
     <div>
-      <p>login component</p>
+      <form action={loginAction}>
+        <div className="">
+          <label htmlFor="username"> Username </label>
+          <input type="text" id="username" name="username" placeholder="Username" />
+        </div>
+        <div className="">
+          <label htmlFor="password"> Password </label>
+          <input type="password" id="password" name="password" placeholder="Password" />
+        </div>
+        <button type="submit">login</button>
+      </form>
     </div>
   );
 };

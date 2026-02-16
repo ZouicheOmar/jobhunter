@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Logout } from '../auth';
 
 const NavAlt = ({ label, href }: { label: string; href: string }) => {
   const pathname = usePathname();
@@ -67,6 +68,7 @@ const Pages = () => {
 export const Nav = () => (
   <nav className="hidden my-3 sm:flex justify-between items-center">
     <Pages />
+    <Logout />
     <NavAdd label="Add +" href="/candid/new" />
   </nav>
 );
