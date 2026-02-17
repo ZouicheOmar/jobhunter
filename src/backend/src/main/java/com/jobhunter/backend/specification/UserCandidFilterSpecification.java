@@ -8,9 +8,13 @@ import com.jobhunter.backend.model.Tech;
 
 import jakarta.persistence.criteria.Join;
 
-public class CandidFilterSpecification {
+public class UserCandidFilterSpecification {
 
-  // not supposed to be null
+  Specification<Candid> specWithUserId;
+
+  public UserCandidFilterSpecification(Integer userId) {
+    this.specWithUserId = Specification.where(CandidFilterSpecification.userIdIs(userId));
+  }
 
   public static Specification<Candid> userIdIs(Integer userId) {
     return (root, query, cb) -> userId == null ? null : cb.equal(root.get("user").get("id"), userId);

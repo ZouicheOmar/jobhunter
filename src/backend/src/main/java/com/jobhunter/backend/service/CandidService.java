@@ -10,6 +10,7 @@ import com.jobhunter.backend.model.Website;
 import com.jobhunter.backend.repository.CandidPagingAndSortingRepository;
 import com.jobhunter.backend.repository.CandidRepository;
 import com.jobhunter.backend.repository.CandidSpecRepository;
+import com.jobhunter.backend.repository.DBUserRepository;
 import com.jobhunter.backend.specification.CandidFilterSpecification;
 
 import java.util.ArrayList;
@@ -34,6 +35,9 @@ public class CandidService {
 
     @Autowired
     private CandidSpecRepository candidSpecRepository;
+
+    @Autowired
+    private DBUserRepository dbuserRepository;
 
     @Autowired
     private CompanyService companyService;
@@ -62,13 +66,34 @@ public class CandidService {
         return candidRepository.findAllByCityName(cityName);
     }
 
-    public Page<Candid> findFiltered(
+    public Page<Candid> findFilteredUserCandids(
+            Integer userId,
             Integer techId,
             Integer cityId,
             Integer companyId,
             Pageable pageable) {
         Specification<Candid> spec = Specification
-                .where(CandidFilterSpecification.techIs(techId))
+                .where(CandidFilterSpecification.userIdIs(userId))
+                .and(CandidFilterSpecification.techIs(techId))
+                .and(CandidFilterSpecification.cityIs(cityId))
+                .and(CandidFilterSpecification.companyIs(companyId));
+        return candidSpecRepository.findAll(spec, pageable);
+    }
+
+    public Page<Candid> findFiltered(
+            Integer techId,
+            Integer cityId,
+            Integer companyId,
+            Pageable pageable) {
+
+        // Specification<Candid> spec = Specification
+        // .where(CandidFilterSpecification.techIs(techId))
+        // .and(CandidFilterSpecification.cityIs(cityId))
+        // .and(CandidFilterSpecification.companyIs(companyId));
+
+        Specification<Candid> spec = Specification
+                .where(CandidFilterSpecification.userIdIs(1))
+                .and(CandidFilterSpecification.techIs(techId))
                 .and(CandidFilterSpecification.cityIs(cityId))
                 .and(CandidFilterSpecification.companyIs(companyId));
 
@@ -123,6 +148,8 @@ public class CandidService {
         Company company = companyService.findOrCreate(candid.getCompany());
         candid.setCompany(company);
 
+        // company.getCandids().add(candid);
+
         City city = cityService.findById(candid.getCity().getId());
         candid.setCity(city);
 
@@ -133,7 +160,6 @@ public class CandidService {
                 candid.getStack());
         Contract contract = contractService.create(candid.getContract());
 
-        candid.setCompany(company);
         candid.setCity(city);
         candid.setWebsite(website);
         candid.setStack(stack);

@@ -42,10 +42,14 @@ public class Candid {
 
     private String title;
 
-    // @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
-    @ManyToMany(mappedBy = "candids")
-    @JsonManagedReference(value = "dbuser-candid")
-    private Set<DBUser> user;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
+    private DBUser user;
+
+    // @ManyToMany(mappedBy = "candids")
+    // @JsonManagedReference(value = "dbuser-candid")
+    // private Set<DBUser> user;
 
     @ManyToOne
     @JoinColumn(name = "city_id")
@@ -78,11 +82,7 @@ public class Candid {
 
     @ManyToMany
     @Column(nullable = true)
-    @JoinTable(
-        name = "candid_stack",
-        joinColumns = @JoinColumn(name = "candid_id"),
-        inverseJoinColumns = @JoinColumn(name = "tech_id")
-    )
+    @JoinTable(name = "candid_stack", joinColumns = @JoinColumn(name = "candid_id"), inverseJoinColumns = @JoinColumn(name = "tech_id"))
     @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
     @JsonBackReference(value = "candid-stack")
     private List<Tech> stack;

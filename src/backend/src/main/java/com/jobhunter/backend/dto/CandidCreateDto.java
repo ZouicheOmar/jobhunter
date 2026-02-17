@@ -10,7 +10,7 @@ public record CandidCreateDto(
     Boolean answer,
     String dateApply,
     CompanyCreateDto company,
-    CityDto city,
+    Integer cityId,
     WebsiteCreateDto website,
     ContractCreateDto contract,
     List<TechCreateDto> stack

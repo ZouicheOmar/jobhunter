@@ -43,8 +43,8 @@ import com.jobhunter.backend.security.DBUserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
-@RequestMapping("/candid")
-public class CandidController {
+@RequestMapping("/candids")
+public class CandidsController {
 
     @Autowired
     private DBUserRepository userRepo;
@@ -61,17 +61,12 @@ public class CandidController {
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
 
-        Optional<DBUser> userQuery = userRepo.findById(principal.getId());
-        if (userQuery.isEmpty())
+        Integer userId = principal.getId();
+        if (userId == null)
             return ResponseEntity.notFound().build();
 
         Pageable pageable = CandidPagination.pageByDateApply(page, size);
-        Page<Candid> candids = candidService.findFilteredUserCandids(
-                userQuery.get().getId(),
-                techId,
-                cityId,
-                companyId,
-                pageable);
+        Page<Candid> candids = candidService.findFilteredUserCandids(userId, techId, cityId, companyId, pageable);
 
         return ResponseEntity.ok(candids.map(CandidMapper::toDto));
     }
@@ -91,12 +86,13 @@ public class CandidController {
             return ResponseEntity.notFound().build();
 
         DBUser user = userQuery.get();
-        Candid candid = CandidMapper.createToEntity(user, createDto);
-
-        Candid candidToAdd = candidService.create(candid);
-        user.getCandids().add(candidToAdd);
-
+        Candid candid = CandidMapper.createToEntity(createDto);
+        user.getCandids().add(candid);
         userRepo.save(user);
+
+        // Candid createdCandid = candidService.create(candid);
+        // candid.getUser{}.add(user)
+        // return CandidMapper.toDto(candidService.create(candid));
 
         return ResponseEntity.ok(CandidMapper.toDto(candid));
     }

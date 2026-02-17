@@ -1,12 +1,14 @@
 package com.jobhunter.backend.service;
 
 import com.jobhunter.backend.dto.CompanyCreateDto;
+import com.jobhunter.backend.model.City;
 import com.jobhunter.backend.model.Company;
 import com.jobhunter.backend.repository.CompanyPagingAndSortingRepository;
 import com.jobhunter.backend.repository.CompanyRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Limit;
@@ -30,10 +32,27 @@ public class CompanyService {
 	}
 
 	public Company findOrCreate(Company cp) {
-		return companyRepository
-				.findByName(cp.getName())
-				.orElseGet(() -> save(cp));
+		if (cp.getId() == null) {
+			Optional<Company> company = companyRepository.findByName(cp.getName());
+			if (company.isPresent())
+				return company.get();
+			Company newComp = new Company();
+			newComp.setName(cp.getName());
+			return companyRepository.save(newComp);
+		}
+		Optional<Company> company = companyRepository.findById(cp.getId());
+		if (company.isPresent())
+			return company.get();
+		Company newComp = new Company();
+		newComp.setName("non_définie");
+		return companyRepository.save(newComp);
 	}
+
+	// public Company findOrCreate(Company cp) {
+	// return companyRepository
+	// .findByName(cp.getName())
+	// .orElseGet(() -> save(cp));
+	// }
 
 	public Company findById(Integer id) {
 		return companyRepository.findById(id).orElseGet(() -> null);

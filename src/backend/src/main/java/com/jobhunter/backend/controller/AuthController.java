@@ -69,7 +69,7 @@ public class AuthController {
     @GetMapping("/me")
     public String debug(Authentication authentication) {
         if (authentication == null)
-            return "NOT AUTHENTICATED: ";
+            return "NOT AUTHENTICATED\n";
 
         String username = authentication.getName();
         DBUser user = dbUserDetailsService.getByUsername(username);

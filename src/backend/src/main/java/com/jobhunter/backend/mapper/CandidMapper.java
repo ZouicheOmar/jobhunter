@@ -4,6 +4,9 @@ import com.jobhunter.backend.dto.CandidCreateDto;
 import com.jobhunter.backend.dto.CandidDto;
 import com.jobhunter.backend.dto.CandidUpdateDto;
 import com.jobhunter.backend.model.Candid;
+import com.jobhunter.backend.model.City;
+import com.jobhunter.backend.model.DBUser;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -13,8 +16,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class CandidMapper {
 
-    public static Candid createToEntity(CandidCreateDto cdto) {
+    public static Candid createToEntity(DBUser user, CandidCreateDto cdto) {
         Candid candid = new Candid();
+
+        candid.setUser(user);
+        City city = new City();
+        city.setId(cdto.cityId());
 
         candid.setUrl(cdto.url());
         candid.setTitle(cdto.title());
@@ -24,7 +31,7 @@ public class CandidMapper {
         candid.setDateApply(
                 LocalDate.parse(cdto.dateApply(), DateTimeFormatter.ISO_DATE_TIME));
         candid.setCompany(CompanyMapper.createToEntity(cdto.company()));
-        candid.setCity(CityMapper.toEntity(cdto.city()));
+        candid.setCity(city);
         candid.setWebsite(WebsiteMapper.createToEntity(cdto.website()));
         candid.setContract(ContractMapper.createToEntity(cdto.contract()));
         candid.setStack(StackMapper.createToEntity(cdto.stack()));

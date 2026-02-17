@@ -11,7 +11,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,11 +28,9 @@ import lombok.ToString;
 // @EqualsAndHashCode(exclude = "stack")
 
 @Entity
-@Table(
-    uniqueConstraints = {
+@Table(uniqueConstraints = {
         @UniqueConstraint(name = "unique_company_name", columnNames = "name"),
-    }
-)
+})
 @Getter
 @Setter
 @NoArgsConstructor
@@ -47,7 +51,7 @@ public class Company {
 
     @OneToMany(mappedBy = "company")
     @JsonManagedReference(value = "candid-company")
-    private List<Candid> candids;
+    private List<Candid> candids = new ArrayList<>();
 
     public Company(String name) {
         this.name = name;
