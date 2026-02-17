@@ -42,8 +42,8 @@ public class Candid {
 
     private String title;
 
+    // @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
     @ManyToMany(mappedBy = "candids")
-    @Cascade({ CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST })
     @JsonManagedReference(value = "dbuser-candid")
     private Set<DBUser> user;
 

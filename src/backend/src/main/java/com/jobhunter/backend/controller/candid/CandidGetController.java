@@ -16,6 +16,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PagedModel;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +28,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CandidGetController extends CandidBaseController  {
+public class CandidGetController extends CandidBaseController {
+
+    // @GetMapping
+    // public Page<CandidDto> findAllByUserIdPage(
+    //         @AuthenticationPrincipal UserDetails user,
+    //         @RequestParam(defaultValue = "0") Integer page,
+    //         @RequestParam(defaultValue = "10") Integer size) {
+    //     Pageable pageable = CandidPagination.pageByDateApply(page, size);
+    //     Page<Candid> candids = candidService.findFiltered(techId, cityId, companyId, pageable);
+    //     return candids.map(CandidMapper::toDto);
+    // }
 
     @GetMapping
     public Page<CandidDto> findAllFiltered(
@@ -39,7 +51,6 @@ public class CandidGetController extends CandidBaseController  {
         Page<Candid> candids = candidService.findFiltered(techId, cityId, companyId, pageable);
         return candids.map(CandidMapper::toDto);
     }
-
 
     @GetMapping("/{id}")
     public CandidDto findById(@PathVariable Integer id) {

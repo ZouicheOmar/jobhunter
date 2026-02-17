@@ -15,6 +15,7 @@ public class CandidCreateController extends CandidBaseController {
     @PostMapping
     public CandidDto createNewCandid(@RequestBody CandidCreateDto createDto) {
         Candid candid = CandidMapper.createToEntity(createDto);
+        // candid.setId(principal.getId())
         return CandidMapper.toDto(candidService.create(candid));
     }
 }

@@ -1,4 +1,4 @@
-package com.jobhunter.backend.config.jwt;
+package com.jobhunter.backend.security.jwt;
 
 import java.io.IOException;
 

@@ -16,6 +16,7 @@ import org.springframework.security.core.userdetails.User;
 import com.jobhunter.backend.enums.AuthorityType;
 import com.jobhunter.backend.model.DBUser;
 import com.jobhunter.backend.repository.DBUserRepository;
+import com.jobhunter.backend.security.DBUserDetails;
 
 @Service
 public class DBUserDetailsService implements UserDetailsService {
@@ -26,7 +27,35 @@ public class DBUserDetailsService implements UserDetailsService {
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     DBUser user = dbUserRepository.findByUsername(username);
-    return new User(user.getUsername(), user.getPassword(), getGrantedAuthorities(user.getAuthority()));
+    // return new User(user.getUsername(), user.getPassword(),
+    // getGrantedAuthorities(user.getAuthority()));
+    // return new User(user.getUsername(), user.getPassword(),
+    // getGrantedAuthorities(user.getAuthority()));
+
+    return new DBUserDetails(user);
+  }
+
+  public DBUser getByUsername(String username) {
+    DBUser user = dbUserRepository.findByUsername(username);
+    return user;
+  }
+
+  public DBUser createUser(String username, String password) {
+
+    DBUser user = dbUserRepository.findByUsername(username);
+    if (user != null)
+      return user;
+
+    DBUser u = new DBUser();
+
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    u.setUsername(username);
+    u.setPassword(encoder.encode(password));
+
+    dbUserRepository.save(u);
+
+    return u;
   }
 
   private List<GrantedAuthority> getGrantedAuthorities(AuthorityType role) {
