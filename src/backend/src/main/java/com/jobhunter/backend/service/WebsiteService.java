@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Limit;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,19 @@ public class WebsiteService {
     private WebsiteRepository websiteRepository;
 
     public Website save(Website website) {
-        return websiteRepository.save(website);
+        try {
+            return websiteRepository.save(website);
+        } catch (DataIntegrityViolationException e) {
+            return null;
+        }
+    }
+
+    public List<Website> saveAll(List<Website> websites) {
+        try {
+            return websiteRepository.saveAll(websites);
+        } catch (DataIntegrityViolationException e) {
+            return null;
+        }
     }
 
     public List<Website> findAll() {

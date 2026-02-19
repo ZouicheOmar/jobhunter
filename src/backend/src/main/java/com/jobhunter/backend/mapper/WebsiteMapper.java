@@ -3,6 +3,8 @@ package com.jobhunter.backend.mapper;
 import com.jobhunter.backend.dto.WebsiteCreateDto;
 import com.jobhunter.backend.dto.WebsiteDto;
 import com.jobhunter.backend.model.Website;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
@@ -14,6 +16,12 @@ public class WebsiteMapper {
         var website = new Website();
         website.setName(dto.name());
         return website;
+    }
+
+    public static List<Website> createToAllDto(List<WebsiteCreateDto> dtos) {
+        List<Website> websites = new ArrayList<Website>();
+        dtos.forEach(dto -> websites.add(createToEntity(dto)));
+        return websites;
     }
 
     public static Website createToEntity(WebsiteCreateDto cdto) {
@@ -29,8 +37,8 @@ public class WebsiteMapper {
 
     public static List<WebsiteDto> toAllDto(List<Website> websites) {
         return websites
-            .stream()
-            .map(website -> toDto(website))
-            .collect(Collectors.toList());
+                .stream()
+                .map(website -> toDto(website))
+                .collect(Collectors.toList());
     }
 }

@@ -6,9 +6,11 @@ import com.jobhunter.backend.security.DBUserDetails;
 import com.jobhunter.backend.service.DBUserDetailsService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -67,14 +69,9 @@ public class AuthController {
     }
 
     @GetMapping("/me")
-    public String debug(Authentication authentication) {
+    public void debug(Authentication authentication, HttpServletResponse response) {
         if (authentication == null)
-            return "NOT AUTHENTICATED\n";
-
-        String username = authentication.getName();
-        DBUser user = dbUserDetailsService.getByUsername(username);
-        Integer id = user.getId();
-
-        return "AUTHENTICATED: " + user.getUsername() + ", id : " + id.toString() + "\n";
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 }

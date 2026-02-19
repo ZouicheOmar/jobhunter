@@ -3,6 +3,8 @@ package com.jobhunter.backend.mapper;
 import com.jobhunter.backend.dto.TechCreateDto;
 import com.jobhunter.backend.dto.TechDto;
 import com.jobhunter.backend.model.Tech;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,13 @@ public class TechMapper {
         tech.setName(dto.name());
         dto.id().ifPresent(id -> tech.setId(id));
         return tech;
+    }
+
+    public static List<Tech> createToAllDto(
+            List<TechCreateDto> dtos) {
+        List<Tech> res = new ArrayList<Tech>();
+        dtos.forEach(dto -> res.add(createToEntity(dto)));
+        return res;
     }
 
     public static Tech toEntity(TechDto dto) {
@@ -30,8 +39,8 @@ public class TechMapper {
 
     public static List<TechDto> toAllDto(List<Tech> tech) {
         return tech
-            .stream()
-            .map(t -> toDto(t))
-            .collect(Collectors.toList());
+                .stream()
+                .map(t -> toDto(t))
+                .collect(Collectors.toList());
     }
 }
