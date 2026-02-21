@@ -1,16 +1,11 @@
 package com.jobhunter.backend.service;
 
 import com.jobhunter.backend.dto.CandidPerCityDto;
-import com.jobhunter.backend.dto.CityDto;
 import com.jobhunter.backend.interfaces.ICityCount;
 import com.jobhunter.backend.mapper.CityMapper;
 import com.jobhunter.backend.model.Candid;
 import com.jobhunter.backend.model.Stats;
 import com.jobhunter.backend.model.City;
-import com.jobhunter.backend.model.Company;
-import com.jobhunter.backend.model.Contract;
-import com.jobhunter.backend.model.Tech;
-import com.jobhunter.backend.model.Website;
 import com.jobhunter.backend.repository.CandidRepository;
 import com.jobhunter.backend.repository.CityRepository;
 import com.jobhunter.backend.repository.TechRepository;
@@ -20,9 +15,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service

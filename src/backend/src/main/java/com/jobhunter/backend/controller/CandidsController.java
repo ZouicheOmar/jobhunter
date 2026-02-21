@@ -86,7 +86,8 @@ public class CandidsController {
             return ResponseEntity.notFound().build();
 
         DBUser user = userQuery.get();
-        Candid candid = CandidMapper.createToEntity(createDto);
+        // Candid candid = CandidMapper.createToEntity(createDto);
+        Candid candid = CandidMapper.createToEntity(user, createDto);
         user.getCandids().add(candid);
         userRepo.save(user);
 

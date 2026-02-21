@@ -34,7 +34,7 @@ public class CandidMapper {
         candid.setCity(city);
         candid.setWebsite(WebsiteMapper.createToEntity(cdto.website()));
         candid.setContract(ContractMapper.createToEntity(cdto.contract()));
-        candid.setStack(StackMapper.createToEntity(cdto.stack()));
+        cdto.stack().ifPresent(stack -> candid.setStack(StackMapper.createToEntity(stack)));
 
         return candid;
     }
@@ -59,7 +59,6 @@ public class CandidMapper {
         return candid;
     }
 
-    // ça n'a rien à faire ici
     public static List<String> getTechList(Candid candid) {
         return candid
                 .getStack()

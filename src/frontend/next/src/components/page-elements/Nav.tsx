@@ -58,9 +58,9 @@ const NavAdd = ({ label, href }: { label: string; href: string }) => {
 const Pages = () => {
   return (
     <div className="p-1 rounded-xl border border-2 border-neutral-300">
-      <NavAlt label="Home" href="/" />
-      <NavAlt label="Candids" href="/candids" />
-      <NavAlt label="Companies" href="/company" />
+      <NavAlt label="Profile" href="/me" />
+      <NavAlt label="Candids" href="/me/candids" />
+      <NavAlt label="Companies" href="/me/company" />
     </div>
   );
 };

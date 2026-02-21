@@ -1,6 +1,7 @@
 package com.jobhunter.backend.dto;
 
 import java.util.List;
+import java.util.Optional;
 
 public record CandidCreateDto(
     String url,
@@ -13,5 +14,5 @@ public record CandidCreateDto(
     Integer cityId,
     WebsiteCreateDto website,
     ContractCreateDto contract,
-    List<TechCreateDto> stack
+    Optional<List<TechCreateDto>> stack
 ) {}

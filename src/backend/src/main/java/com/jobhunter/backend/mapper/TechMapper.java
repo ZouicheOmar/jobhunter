@@ -14,9 +14,14 @@ public class TechMapper {
 
     public static Tech createToEntity(TechCreateDto dto) {
         Tech tech = new Tech();
-        tech.setName(dto.name());
-        dto.id().ifPresent(id -> tech.setId(id));
-        return tech;
+        if (dto.name().isEmpty()) {
+            tech.setId(dto.id().get());
+            return tech;
+        } else if (dto.id().isEmpty()) {
+            tech.setName(dto.name().get());
+            return tech;
+        }
+        return null;
     }
 
     public static List<Tech> createToAllDto(

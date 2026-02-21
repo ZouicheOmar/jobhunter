@@ -8,7 +8,7 @@ export type UpdateCandidFn = (candid: CandidUpdateRestricted) => Promise<Candid>
 
 export const getCandidsPageFiltered = async (filters: string) => {
   const url = ROUTES.API.CANDIDS.FILTERED(filters);
-  const req = await fetch(url);
+  const req = await fetch(url, { credentials: 'include' });
   if (req.status >= 400) return null;
   const json = await req.json();
   return json;

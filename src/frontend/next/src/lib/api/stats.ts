@@ -1,5 +1,6 @@
 import { Candid, City } from '@/types';
 import { API_BASE } from '../consts';
+import { cookies } from 'next/headers';
 
 export type CandidPerCity = {
   numCandids: number;
@@ -17,21 +18,20 @@ export type GetStatsFn = () => Promise<GetStatsResponse>;
 
 export const getStats: GetStatsFn = async () => {
   const url = `${API_BASE}/stats`;
-  const req = await fetch(url);
 
-  // faut faire en sorte de gérer chaque status possible
-  // et ça ça dépend de l'api
-  if (req.status == 404) return null;
-  if (!req.ok) {
-    console.log('could not fetch server for stats');
-    return null;
-  }
+  const cookieStore = await cookies();
+  const sessCookie = cookieStore.get('jhsession');
 
-  const data = await req?.text();
-  console.log('data from server', data);
+  const cookeheader = 'JSESSIONID=' + sessCookie?.value;
 
-  // let data = await req?.json();
-  // if (!data) data = await req?.text();
-  // if (!data) return null;
-  return data;
+  const req = await fetch(url, {
+    headers: {
+      Cookie: cookeheader,
+    },
+    credentials: 'include',
+  });
+
+  console.log('stats request status', req.status);
+  const data = await req?.json();
+  return data || null;
 };
