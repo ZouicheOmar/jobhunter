@@ -28,7 +28,7 @@ export type CandidCreate = {
   answer: boolean;
   dateApply: string;
   company: CompanyCreate;
-  city: City;
+  cityId: number;
   website: WebsiteCreate;
   contract: ContractCreate;
   stack: TechCreate[];

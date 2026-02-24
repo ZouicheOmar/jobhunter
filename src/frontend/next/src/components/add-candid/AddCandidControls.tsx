@@ -1,9 +1,15 @@
-import { Button } from "../schadcn/Button";
-import { useAddCandidStore } from "@/stores/use-add-candid/useAddCandid";
+import { redirect, RedirectType } from 'next/navigation';
+import { Button } from '../schadcn/Button';
+import { useAddCandidStore } from '@/stores/use-add-candid/useAddCandid';
 
 export const AddCandidControls = () => {
   const postCandid = useAddCandidStore((state) => state.postCandid);
   const reset = useAddCandidStore((state) => state.reset);
+
+  const handleSubmit = async () => {
+    await postCandid();
+    redirect('/me/candids?page=0', RedirectType.replace);
+  };
 
   return (
     <div className="flex justify-between gap-2">
@@ -42,7 +48,7 @@ export const AddCandidControls = () => {
           focus-visible:ring-teal-400
           focus-visible:ring-[4px]
         ml-2"
-        onClick={postCandid}
+        onClick={handleSubmit}
         disabled={false}
       >
         submit

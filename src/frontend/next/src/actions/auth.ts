@@ -4,10 +4,15 @@ import { SESSION_COOKIE_NAME } from '@/lib';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { NextResponse } from 'next/server';
+import { fetchClient } from './fetchClient';
 
-export const loginInAction = async () => {
+export const login = async (fd: FormData) => {
   const cookieStore = await cookies();
-  console.log('current cookies', cookieStore.getAll());
+
+  const creds = JSON.stringify({
+    username: fd.get('username'),
+    password: fd.get('password'),
+  });
 
   const authurl = 'http://localhost:8000/auth/login';
   const req = await fetch(authurl, {
@@ -15,11 +20,7 @@ export const loginInAction = async () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    // body: JSON.stringify(creds),
-    body: JSON.stringify({
-      username: 'omar',
-      password: 'pass',
-    }),
+    body: creds,
   });
 
   if (!req.ok) {
@@ -31,4 +32,19 @@ export const loginInAction = async () => {
 
   cookieStore.set(SESSION_COOKIE_NAME, jsession);
   redirect('http://localhost:3000/me');
+};
+
+export const logout = async () => {
+  const cookieStore = await cookies();
+
+  const logoutUrl = 'http://localhost:8000/auth/logout';
+  const req = await fetchClient(logoutUrl);
+
+  if (!req.ok) {
+    console.log('could not log out:', req.status);
+    return NextResponse.json({ message: 'problem logging out' });
+  }
+
+  cookieStore.delete(SESSION_COOKIE_NAME);
+  redirect('http://localhost:3000/');
 };

@@ -7,7 +7,7 @@ export const CompanyCard = ({ cp }: { cp: Company }) => {
     <Link
       className="block border flex flex-col rounded-md justify-between p-2
       min-h-20 bg-neutral-100 hover:bg-neutral-50 transition-colors"
-      href={`/company/${id}`}
+      href={`/me/companies/${id}`}
     >
       <p className="text-cyan-600 italic"> {id} </p>
       <div className="flex justify-between items-end">

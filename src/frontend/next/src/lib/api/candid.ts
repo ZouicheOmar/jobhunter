@@ -32,7 +32,7 @@ export const getCandidsPageFiltered = async (filters: string) => {
 };
 
 export const ggetCandidsPageFiltered = async (filters: string) => {
-  const url = ROUTES.API.CANDIDS.FILTERED(filters);
+  const url = ROUTES.API.CANDID.FILTERED(filters);
   const req = await fetch(url, { credentials: 'include' });
   if (req.status >= 400) return null;
   const json = await req.json();
@@ -40,7 +40,7 @@ export const ggetCandidsPageFiltered = async (filters: string) => {
 };
 
 export const getCandidsPage: GetCandidsPageFn = async (page) => {
-  const req = await fetch(ROUTES.API.CANDIDS.PAGE(page));
+  const req = await fetch(ROUTES.API.CANDID.PAGE(page));
   if (req.status >= 400) return null;
   const json = await req.json();
   return json;
@@ -48,7 +48,7 @@ export const getCandidsPage: GetCandidsPageFn = async (page) => {
 
 export const postCandid: PostCandidFn = async (candid) => {
   try {
-    const req = await fetch(ROUTES.API.CANDIDS.BASE, {
+    const req = await fetchClient(ROUTES.API.CANDID.BASE, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(candid),
@@ -79,7 +79,7 @@ export const udpateCandid: UpdateCandidFn = async (candid) => {
 };
 
 export const setCandidRejected = async (id: number) => {
-  const req = await fetch(ROUTES.API.CANDIDS.REJECTED(id), {
+  const req = await fetch(ROUTES.API.CANDID.REJECTED(id), {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ id: id }),

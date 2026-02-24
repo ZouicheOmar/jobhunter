@@ -1,23 +1,16 @@
-import { useAddCandidStore } from "@/stores/use-add-candid/useAddCandid";
-import { useShallow } from "zustand/shallow";
-import { InputWithSelect } from "../ui-elements/input-with-select";
+import { useAddCandidStore } from '@/stores/use-add-candid/useAddCandid';
+import { useShallow } from 'zustand/shallow';
+import { InputWithSelect } from '../ui-elements/input-with-select';
 
-import { getCompanyCompletion } from "@/lib/api";
-
-import { InputLabel } from "../ui-elements";
+import { getCompanyCompletion } from '@/lib/api';
+import { getCompletion } from '@/actions';
 
 export const AddCandidCompanyInput = () => {
   const company = useAddCandidStore(useShallow((state) => state.company));
-  const companyCompletionList = useAddCandidStore(
-    useShallow((state) => state.companyCompletionList)
-  );
+  const companyCompletionList = useAddCandidStore(useShallow((state) => state.companyCompletionList));
 
-  const updateCompanyName = useAddCandidStore(
-    useShallow((state) => state.updateCompany)
-  );
-  const updateCompanyCompletionList = useAddCandidStore(
-    useShallow((state) => state.updateCompanyCompletionList)
-  );
+  const updateCompanyName = useAddCandidStore(useShallow((state) => state.updateCompany));
+  const updateCompanyCompletionList = useAddCandidStore(useShallow((state) => state.updateCompanyCompletionList));
 
   return (
     <InputWithSelect
@@ -28,7 +21,7 @@ export const AddCandidCompanyInput = () => {
       completionList={companyCompletionList}
       updateValue={updateCompanyName}
       updateCompletionList={updateCompanyCompletionList}
-      getCompletion={getCompanyCompletion}
+      getCompletion={getCompletion.bind(null, 'company')}
     />
   );
 };

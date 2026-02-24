@@ -1,30 +1,19 @@
-"use client";
+'use client';
 
-import {
-  useState,
-  useCallback,
-  useRef,
-  ChangeEventHandler,
-  MouseEventHandler,
-} from "react";
+import { useState, useCallback, useRef, ChangeEventHandler, MouseEventHandler } from 'react';
 
-import { useAddCandidStore } from "@/stores/use-add-candid/useAddCandid";
-import { Tech } from "@/types";
+import { useAddCandidStore } from '@/stores/use-add-candid/useAddCandid';
+import { Tech } from '@/types';
 
-import { getTechCompletion } from "@/lib/api";
+import { Button } from '../../schadcn/Button';
+import { AddCandidInputStackItems } from './AddCandidTechInputStackItems';
+import { AddCandidTechInputCompletionList } from './AddCandidTechInputSuggestionItems';
+import { HLine, InputLabel } from '@/components/ui-elements';
+import { getCompletion } from '@/actions';
 
-import { Button } from "../../schadcn/Button";
-import { AddCandidInputStackItems } from "./AddCandidTechInputStackItems";
-import { AddCandidTechInputCompletionList } from "./AddCandidTechInputSuggestionItems";
-import { HLine, InputLabel } from "@/components/ui-elements";
+const getTechCompletion = getCompletion.bind(null, 'tech');
 
-const AddButton = ({
-  cb,
-  disabled,
-}: {
-  cb: MouseEventHandler;
-  disabled: boolean;
-}) => (
+const AddButton = ({ cb, disabled }: { cb: MouseEventHandler; disabled: boolean }) => (
   <Button onClick={cb} disabled={disabled}>
     add
   </Button>
@@ -38,41 +27,31 @@ export const useAddCandidTechInput = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [TID, setTID] = useState<NodeJS.Timeout>();
 
-  const alreadyInStackError = useAddCandidStore(
-    (state) => state.alreadyInStackError
-  );
+  const alreadyInStackError = useAddCandidStore((state) => state.alreadyInStackError);
 
   const tech = useAddCandidStore((state) => state.tech);
   const stack = useAddCandidStore((state) => state.stack);
-  const techCompletionList = useAddCandidStore(
-    (state) => state.techCompletionList
-  );
+  const techCompletionList = useAddCandidStore((state) => state.techCompletionList);
 
   const updateTech = useAddCandidStore((state) => state.updateTech);
   const updateStack = useAddCandidStore((state) => state.updateStack);
 
-  const updateTechCompletionList = useAddCandidStore(
-    (state) => state.updateTechCompletionList
-  );
+  const updateTechCompletionList = useAddCandidStore((state) => state.updateTechCompletionList);
 
-  const updateAlreadyInStackError = useAddCandidStore(
-    (state) => state.updateAlreadyInStackError
-  );
+  const updateAlreadyInStackError = useAddCandidStore((state) => state.updateAlreadyInStackError);
 
   const handleAddButton: MouseEventHandler = (e) => {
     updateStack();
-    (
-      (e.target as HTMLButtonElement)?.previousSibling as HTMLInputElement
-    )?.focus();
+    ((e.target as HTMLButtonElement)?.previousSibling as HTMLInputElement)?.focus();
   };
 
   const handleChange = useCallback<ChangeEventHandler>(
     (e) => {
-      const value = (e.target as HTMLInputElement)?.value || "";
+      const value = (e.target as HTMLInputElement)?.value || '';
       updateAlreadyInStackError();
 
       if (!value) {
-        console.log("HANDLE : value is empty");
+        console.log('HANDLE : value is empty');
         // return;
       }
 
@@ -87,7 +66,7 @@ export const useAddCandidTechInput = () => {
             data.length ? setError(false) : setError(true);
             updateTechCompletionList(data);
           } catch (e) {
-            throw new Error("could not fetch tech completion list");
+            throw new Error('could not fetch tech completion list');
           } finally {
             setLoading(false);
           }
@@ -102,7 +81,7 @@ export const useAddCandidTechInput = () => {
     updateTech(tech);
     updateTechCompletionList([]);
     updateStack();
-    updateTech({ name: "", id: null });
+    updateTech({ name: '', id: null });
     if (inputRef.current) inputRef.current.blur();
   };
 
@@ -125,8 +104,7 @@ const ErrorMessage = ({ show, name }: { show: boolean; name: string }) =>
   ) : null;
 
 export const AddCandidTechInput = () => {
-  const { tech, handleAddButton, handleChange, alreadyInStackError } =
-    useAddCandidTechInput();
+  const { tech, handleAddButton, handleChange, alreadyInStackError } = useAddCandidTechInput();
 
   return (
     <>
@@ -145,7 +123,7 @@ export const AddCandidTechInput = () => {
             />
             <ErrorMessage show={alreadyInStackError} name={tech.name} />
           </div>
-          <AddButton cb={handleAddButton} disabled={tech.name == ""} />
+          <AddButton cb={handleAddButton} disabled={tech.name == ''} />
           <Button disabled={true}>refetch</Button>
         </div>
         <AddCandidTechInputCompletionList />

@@ -23,14 +23,12 @@ export default async function Home() {
   return (
     <>
       <MonoLayoutTitle title="Dashboard" />
-      <MonoLayoutContent>
-        <div className="flex gap-2 mb-6 flex-wrap">
-          <StatCard label="Last applied" data={days} />
-          <StatCard label="Total Applications" data={totalCandids} />
-          <StatCard label="Unsolicited Applications" data={numUnsolicited} />
-          <StatTopCities list={topCities} total={totalCandids} />
-        </div>
-      </MonoLayoutContent>
+      <div className="flex gap-2 mb-6 flex-wrap">
+        <StatCard label="Last applied" data={days} />
+        <StatCard label="Total Applications" data={totalCandids} />
+        <StatCard label="Unsolicited Applications" data={numUnsolicited} />
+        <StatTopCities list={topCities} total={totalCandids} />
+      </div>
     </>
   );
 }

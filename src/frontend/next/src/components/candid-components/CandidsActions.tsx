@@ -2,11 +2,15 @@
 import { ChangeEventHandler, useCallback, useEffect, useState } from 'react';
 import { Button } from '../schadcn/Button';
 import { setTimeout } from 'timers';
-import { getCityCompletion, getTechCompletion, ROUTES } from '@/lib';
+import { ROUTES } from '@/lib';
 import { useCandidsPageFilters } from '@/stores/use-candids-page-filters';
 import { redirect, useParams, usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { COMPLETION_DELAY } from '@/lib';
 import { City, Tech, TechCreate } from '@/types';
+import { getCompletion } from '@/actions';
+
+const getCityCompletion = getCompletion.bind(null, 'city');
+const getTechCompletion = getCompletion.bind(null, 'tech');
 
 const FilterButton = () => {
   const { id: techId } = useCandidsPageFilters((s) => s.tech);

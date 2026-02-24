@@ -4,6 +4,7 @@ import com.jobhunter.backend.service.CandidService;
 import com.jobhunter.backend.util.CandidPagination;
 
 import io.micrometer.core.ipc.http.HttpSender.Response;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,6 +45,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/candid")
+@Slf4j
 public class CandidController {
 
     @Autowired
@@ -85,6 +87,10 @@ public class CandidController {
     public ResponseEntity<?> createNewCandid(
             @AuthenticationPrincipal DBUserDetails principal,
             @RequestBody CandidCreateDto createDto) {
+
+
+        log.info("==================================================");
+        log.info("handling a request to add candid of title : " + createDto.title());
 
         Optional<DBUser> userQuery = userRepo.findById(principal.getId());
         if (userQuery.isEmpty())

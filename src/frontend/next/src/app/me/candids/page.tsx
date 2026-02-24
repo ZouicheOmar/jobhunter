@@ -2,10 +2,10 @@ import { redirect, RedirectType } from 'next/navigation';
 
 import { CandidList, CandidsActions } from '@/components/candid-components';
 import { Pagination } from '@/components/page-elements';
-import { getCandidsPageFiltered } from '@/lib';
 import { extractPaginationData, makeCandidsPageFilters } from '@/lib/utils';
 import { UrlParams } from '@/types';
 import { MonoLayoutTitle } from '@/components/layout/Mono';
+import { getCandidsPageFiltered } from '@/actions';
 
 export default async function Page(props: { searchParams?: Promise<Record<string, string>> }) {
   const searchParams = await props.searchParams;

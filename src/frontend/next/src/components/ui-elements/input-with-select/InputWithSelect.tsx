@@ -1,9 +1,9 @@
-"use client";
-import { ChangeEvent, useCallback, useRef, useState } from "react";
-import { InputWithSelectProps, UseInputWithSelectProps } from "./types";
-import { BasicEntity } from "@/types";
-import { InputWithSelecCompletionList } from "./InputWithSelectCompletionList";
-import { InputLabel } from "../InputLabel";
+'use client';
+import { ChangeEvent, useCallback, useRef, useState } from 'react';
+import { InputWithSelectProps, UseInputWithSelectProps } from './types';
+import { BasicEntity } from '@/types';
+import { InputWithSelecCompletionList } from './InputWithSelectCompletionList';
+import { InputLabel } from '../InputLabel';
 
 const LoadingSpan = () => (
   <span
@@ -64,9 +64,9 @@ export const useInputWithSelect: UseInputWithSelectProps = (
             data.length ? setError(false) : setError(true);
             updateCompletionList(data);
           } catch (e) {
-            throw new Error("could not fetch completion list");
+            throw new Error('could not fetch completion list');
           } finally {
-            console.log("should be setting loading to false");
+            console.log('should be setting loading to false');
             setLoading(false);
           }
         }, delay)
@@ -95,8 +95,12 @@ export const InputWithSelect = ({
   updateCompletionList,
   getCompletion,
 }: InputWithSelectProps) => {
-  const { loading, error, inputRef, handleChange, handleSpanClick } =
-    useInputWithSelect(value, updateValue, updateCompletionList, getCompletion);
+  const { loading, error, inputRef, handleChange, handleSpanClick } = useInputWithSelect(
+    value,
+    updateValue,
+    updateCompletionList,
+    getCompletion
+  );
 
   return (
     <div>
@@ -116,10 +120,7 @@ export const InputWithSelect = ({
           error ? (
             <NoResultsSpan />
           ) : completionList.length ? (
-            <InputWithSelecCompletionList
-              list={completionList}
-              cb={handleSpanClick}
-            />
+            <InputWithSelecCompletionList list={completionList} cb={handleSpanClick} />
           ) : loading ? (
             <LoadingSpan />
           ) : (

@@ -6,9 +6,7 @@ export default async function Home() {
     <main className="mt-8 sm:mt-2">
       <MonoLayoutWrapper>
         <MonoLayoutTitle title="Sign in" />
-        <MonoLayoutContent>
-          <Login />
-        </MonoLayoutContent>
+        <Login />
       </MonoLayoutWrapper>
     </main>
   );

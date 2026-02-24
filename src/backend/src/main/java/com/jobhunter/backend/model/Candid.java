@@ -1,7 +1,6 @@
 package com.jobhunter.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +22,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-// import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.springframework.data.annotation.CreatedDate;
@@ -46,10 +44,6 @@ public class Candid {
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private DBUser user;
-
-    // @ManyToMany(mappedBy = "candids")
-    // @JsonManagedReference(value = "dbuser-candid")
-    // private Set<DBUser> user;
 
     @ManyToOne
     @JoinColumn(name = "city_id")

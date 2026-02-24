@@ -1,19 +1,49 @@
-import { loginInAction } from '@/actions';
+import { login } from '@/actions';
+
+const InputClass = `
+border border-1
+border-neutral-500/20
+bg-neutral-100/80
+rounded-xl shadow
+w-fit p-2
+outline-blue-500/50
+outline-offset-4
+focus:bg-neutral-100
+transition-all`;
 
 export const Login = () => {
   return (
-    <div>
-      <form action={loginInAction}>
-        <div className="">
-          <label htmlFor="username"> Username </label>
-          <input type="text" id="username" name="username" placeholder="Username" />
-        </div>
-        <div className="">
-          <label htmlFor="password"> Password </label>
-          <input type="password" id="password" name="password" placeholder="Password" />
-        </div>
-        <button type="submit">login</button>
-      </form>
-    </div>
+    <form action={login} className=" flex flex-col gap-2 justify-center items-center my-10 ">
+      <input
+        autoComplete="off"
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Username"
+        className={InputClass}
+      />
+      <input
+        autoComplete="off"
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        className={InputClass}
+      />
+      <button
+        type="submit"
+        className="
+        border border-blue-300/40
+        mt-5
+        rounded-lg px-6 py-1
+        bg-blue-200/40 
+        hover:bg-blue-300
+        hover:border-blue-400
+        transition-colors
+        shadow"
+      >
+        login
+      </button>
+    </form>
   );
 };

@@ -1,21 +1,15 @@
-import { useAddCandidStore } from "@/stores/use-add-candid/useAddCandid";
-import { useShallow } from "zustand/shallow";
-import { InputWithSelect } from "../ui-elements/input-with-select";
+import { useAddCandidStore } from '@/stores/use-add-candid/useAddCandid';
+import { useShallow } from 'zustand/shallow';
+import { InputWithSelect } from '../ui-elements/input-with-select';
 
-import { getWebsiteCompletion } from "@/lib/api";
+import { getCompletion } from '@/actions';
 
 export const AddCandidWebsiteInput = () => {
   const website = useAddCandidStore(useShallow((state) => state.website));
-  const websiteCompletionList = useAddCandidStore(
-    useShallow((state) => state.websiteCompletionList)
-  );
+  const websiteCompletionList = useAddCandidStore(useShallow((state) => state.websiteCompletionList));
 
-  const updateWebsiteCompletionList = useAddCandidStore(
-    useShallow((state) => state.updateWebsiteCompletionList)
-  );
-  const updateWebsite = useAddCandidStore(
-    useShallow((state) => state.updateWebsite)
-  );
+  const updateWebsiteCompletionList = useAddCandidStore(useShallow((state) => state.updateWebsiteCompletionList));
+  const updateWebsite = useAddCandidStore(useShallow((state) => state.updateWebsite));
 
   return (
     <InputWithSelect
@@ -26,7 +20,7 @@ export const AddCandidWebsiteInput = () => {
       completionList={websiteCompletionList}
       updateValue={updateWebsite}
       updateCompletionList={updateWebsiteCompletionList}
-      getCompletion={getWebsiteCompletion}
+      getCompletion={getCompletion.bind(null, 'website')}
     />
   );
 };

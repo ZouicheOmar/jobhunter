@@ -1,6 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-/* @custom-variant dark (&:is(.dark *)); */
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @utility text-sideways-lr {
   writing-mode: sideways-lr;
@@ -43,7 +42,11 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-input[type="text"],
+body {
+  scrollbar-gutter: stable;
+}
+
+input[type='text'],
 textarea {
   font-size: 1em;
 }

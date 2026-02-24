@@ -2,26 +2,19 @@ import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 import { Candid, CandidsPageSearchParams, PaginationProps, ResourcePageData, Tech, TechCreate } from '@/types';
-import { CONTRACT_TYPES, ROUTES } from '../consts';
 
 export const getEmptyCandid: () => Candid = () => ({
-  id: 113,
-  title: 'Développeur fullstack',
   url: 'http://www.wttj.com/12345AZE',
+  title: 'à supprimer',
   unsolicited: true,
   techOffer: true,
-  dateApply: '2026-01-10',
   answer: false,
-  rejected: false,
-  company: { id: 1, name: 'capgemini' },
-  city: { id: 5, name: 'toulouse' },
-  website: { id: 1, name: 'indeed' },
-  contract: { id: 1, type: CONTRACT_TYPES[CONTRACT_TYPES.length - 1], duration: 0 },
-  stack: [
-    { id: 1, name: 'typescript' },
-    { id: 1, name: 'react' },
-    { id: 1, name: 'java' },
-  ],
+  dateApply: new Date().toISOString(),
+  cityId: 590001,
+  website: { id: 1 },
+  company: { id: 1 },
+  contract: { type: 'INTERN' },
+  stack: [{ id: 402 }, { id: 403 }],
 });
 
 export function getHostname(url: string): string | null {
