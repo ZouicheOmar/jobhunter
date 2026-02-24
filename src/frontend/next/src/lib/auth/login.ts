@@ -5,7 +5,9 @@ import { SESSION_COOKIE_NAME } from '../consts';
 import { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 
 const AUTH_ENDPOINT = 'http://localhost:8000/auth';
-const LOGIN_ENDPOINT = AUTH_ENDPOINT + '/login';
+// const LOGIN_ENDPOINT = AUTH_ENDPOINT + '/login';
+
+const LOGIN_ENDPOINT = 'http://localhost:3000/api/auth';
 
 const postReqInit: RequestInit = {
   method: 'POST',
@@ -25,13 +27,17 @@ const makeSesionCookie: (heads: Headers) => RequestCookie = (heads) => {
 };
 
 export const loginAction: (fd: FormData) => Promise<void> = async (fd) => {
+  console.log('login server action');
+
   const creds = JSON.stringify({ username: fd.get('username'), password: fd.get('password') });
   const req = await fetch(LOGIN_ENDPOINT, {
     body: creds,
     ...postReqInit,
   });
+
   if (!req.ok) throw new Error('problem logging in');
-  const cookiesStore = await cookies();
-  cookiesStore.set(makeSesionCookie(req.headers));
-  redirect('/me');
+  else {
+    const t = req.text();
+    console.log('returned from api', t);
+  }
 };

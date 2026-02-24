@@ -1,25 +1,28 @@
-import { cookies } from 'next/headers';
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import { SESSION_COOKIE_NAME } from './lib';
+import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { SESSION_COOKIE_NAME } from "./next/src/lib";
 
-const AUTH_ME_ENDPOINT = 'http://localhost:8000/auth/me';
+const AUTH_ME_ENDPOINT = "http://localhost:8000/auth/me";
 
-export const isSessionValid: (cookie: string) => Promise<Boolean> = async (cookie) => {
+export const isSessionValid: (cookie: string) => Promise<Boolean> = async (
+  cookie,
+) => {
   const req = await fetch(AUTH_ME_ENDPOINT, {
-    headers: { Cookie: 'JSESSIONID=' + cookie },
+    headers: { Cookie: "JSESSIONID=" + cookie },
   });
   if (req.status == 200) return true;
   else return false;
 };
 
 export async function proxy(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith('/me')) {
+  if (request.nextUrl.pathname.startsWith("/me")) {
     const cookieStore = await cookies();
     const sessionCookie = cookieStore.get(SESSION_COOKIE_NAME);
 
-    if (!sessionCookie) return NextResponse.redirect(new URL('/', request.url));
-    else if (!isSessionValid(sessionCookie.value)) return NextResponse.redirect(new URL('/', request.url));
+    if (!sessionCookie) return NextResponse.redirect(new URL("/", request.url));
+    else if (!isSessionValid(sessionCookie.value))
+      return NextResponse.redirect(new URL("/", request.url));
     else {
       return NextResponse.next();
     }
@@ -38,5 +41,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/me/:path*', '/api/:path*'],
+  matcher: ["/me/:path*", "/api/:path*"],
 };

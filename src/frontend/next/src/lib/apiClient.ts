@@ -1,9 +1,5 @@
 'use server';
 
-// use server permet au composant client d'appeler
-// une fonction async à partir du navigateur, qui
-// sera executée sur le server
-
 import { cookies } from 'next/headers';
 import { SESSION_COOKIE_NAME } from './consts';
 

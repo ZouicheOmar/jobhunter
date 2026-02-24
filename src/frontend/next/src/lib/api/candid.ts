@@ -1,4 +1,7 @@
-import { ROUTES } from '../consts';
+'use server';
+
+import { cookies } from 'next/headers';
+import { ROUTES, SESSION_COOKIE_NAME } from '../consts';
 import { Candid, CandidCreate, CandidUpdateRestricted, ResourcePage } from '@/types';
 
 export type GetCandidsPageFn = (page: number) => Promise<ResourcePage<Candid>>;
@@ -6,7 +9,29 @@ export type GetAllCandidsFn = () => Promise<Candid[]>;
 export type PostCandidFn = (candid: CandidCreate) => Promise<Candid>;
 export type UpdateCandidFn = (candid: CandidUpdateRestricted) => Promise<Candid>;
 
+const fetchClient = async (url: string, postData: any = undefined) => {
+  const cookieStore = await cookies();
+  const sess = cookieStore.get(SESSION_COOKIE_NAME);
+  return fetch(url, {
+    headers: {
+      Cookie: 'JSESSIONID=' + sess?.value,
+    },
+    ...(postData && { ...postData }),
+  });
+};
+
 export const getCandidsPageFiltered = async (filters: string) => {
+  const url = 'http://localhost:8000/candid?' + filters;
+  const req = await fetchClient(url, { method: 'GET' });
+
+  if (!req.ok) return null;
+
+  const json = await req.json();
+  console.log('json from : http://localhost:8000/candid', json);
+  return json;
+};
+
+export const ggetCandidsPageFiltered = async (filters: string) => {
   const url = ROUTES.API.CANDIDS.FILTERED(filters);
   const req = await fetch(url, { credentials: 'include' });
   if (req.status >= 400) return null;

@@ -9,7 +9,7 @@ JH_FRONT_PATH="$JH_PATH/src/frontend/next/"
 JH_FRONT_CMD="bun dev"
 
 JH_BACK_PATH="$JH_PATH/src/backend/"
-JH_BACK_CMD="docker restart gloss_db_draft && mvn spring-boot:run"
+JH_BACK_CMD="mvn spring-boot:run"
 
 function verify_db() {
   if ! [ $CHECK_DB_RUNNING -gt 0 ]; then
@@ -19,7 +19,7 @@ function verify_db() {
 }
 
 function spawn_term() {
-  if test $1 = $JH_BACK_PATH; then verify_db $1; fi
+  # if test $1 = $JH_BACK_PATH; then verify_db $1; fi
   alacritty --working-directory $1 -e bash -i -c "$2" &
 }
 
