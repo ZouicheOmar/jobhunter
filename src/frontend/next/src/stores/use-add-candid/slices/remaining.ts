@@ -3,8 +3,6 @@ import { StateCreator } from 'zustand';
 import { AddCandidStore, RemainingSlice } from '../types';
 import { formatDate } from '@/lib/utils';
 import { postCandid } from '@/actions';
-import { redirect } from 'next/navigation';
-// import { postCandid } from "@/lib";
 
 export const remainingSlice: StateCreator<AddCandidStore, [], [], RemainingSlice> = (set, get, store) => ({
   techOffer: true,
@@ -18,6 +16,11 @@ export const remainingSlice: StateCreator<AddCandidStore, [], [], RemainingSlice
   updateDateApply: (date: string) => set({ dateApply: date }),
 
   postCandid: async () => {
+    let stack = get().stack.map((item) => {
+      if (item.id) return { id: item.id };
+      return { name: item.name };
+    });
+
     const payload: CandidCreate = {
       url: get().url,
       title: get().title,
@@ -29,10 +32,11 @@ export const remainingSlice: StateCreator<AddCandidStore, [], [], RemainingSlice
       website: get().website,
       company: get().company,
       contract: get().contract,
-      stack: get().stack,
+      stack: stack,
     };
 
     try {
+      console.log('payload', payload);
       const candid = await postCandid(payload);
       set(store.getInitialState());
       return candid;

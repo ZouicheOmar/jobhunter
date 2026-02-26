@@ -50,10 +50,7 @@ export const useAddCandidTechInput = () => {
       const value = (e.target as HTMLInputElement)?.value || '';
       updateAlreadyInStackError();
 
-      if (!value) {
-        console.log('HANDLE : value is empty');
-        // return;
-      }
+      if (!value) console.log('HANDLE : value is empty');
 
       updateTech({ name: value, id: 0 });
       clearTimeout(TID);

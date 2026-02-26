@@ -1,5 +1,5 @@
 'use client';
-import { setCandidRejected } from '@/lib';
+import { setCandidRejected } from '@/actions';
 import { Trash } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
