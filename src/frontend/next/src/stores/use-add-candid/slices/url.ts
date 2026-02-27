@@ -1,8 +1,10 @@
-import { scrapUrl, extractFromDesc, getTechsFromScrapper } from '@/lib';
+import { scrapUrl, extractFromDesc, getTechsFromScrapper, ScrapJobOfferingError } from '@/lib';
 import { filterFoundStack, getHostname } from '@/lib/utils/misc';
 import { StateCreator } from 'zustand';
 import { AddCandidStore, UrlSlice } from '../types';
 import { postCandidResolveData, PostCandidResolveDataArg } from '@/actions';
+import { ExtractDataFromDescriptionError, PostDataResolveError } from '@/actions/errors';
+import { error } from 'console';
 
 export const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (set, get) => ({
   url: '',
@@ -15,6 +17,9 @@ export const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (set, ge
       const jobOfferUrl = get().url;
       const { description, ...scrappedData } = await scrapUrl(jobOfferUrl);
 
+      console.log('lookup:==========');
+      console.log(scrappedData);
+
       set({
         scrapPending: false,
         checkExistingDataPending: true,
@@ -24,6 +29,9 @@ export const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (set, ge
         applicationHostname: getHostname(jobOfferUrl),
         scrapped: scrappedData,
       };
+
+      console.log('lookup postcandiddata:==========');
+      console.log(postCandidData);
 
       const resolvedData = await postCandidResolveData(postCandidData);
       console.log('====================RESOLVED DATA====================');
@@ -54,15 +62,21 @@ export const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (set, ge
         llmExtractPending: false,
       });
     } catch (e) {
+      console.log(e);
       set({
         scrapPending: false,
         checkExistingDataPending: false,
         llmExtractPending: false,
-
-        scrapError: true,
-        llmExtractError: true,
-        checkExistingDataError: true,
       });
+
+      if (e instanceof ExtractDataFromDescriptionError) {
+        console.log('ON EST ICI FRÉROT');
+        set({ llmExtractError: true });
+      } else if (e instanceof PostDataResolveError) {
+        set({ checkExistingDataError: true });
+      } else if (e instanceof ScrapJobOfferingError) {
+        set({ scrapError: true });
+      }
     }
   },
 });

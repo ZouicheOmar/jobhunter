@@ -1,7 +1,8 @@
 'use server';
 import { LLMExtractApiRequest, LLMExtractApiResponse } from '@/types/LLMExtractApiReponse';
 import { ROUTES } from '../consts';
-import { fetchClient } from '@/actions';
+import { ExtractDataFromDescriptionError } from '@/actions/errors';
+import { NextResponse } from 'next/server';
 
 export async function extractFromDesc(data: LLMExtractApiRequest): Promise<LLMExtractApiResponse> {
   try {
@@ -12,10 +13,9 @@ export async function extractFromDesc(data: LLMExtractApiRequest): Promise<LLMEx
       },
       body: JSON.stringify(data),
     });
-    const json = await req.json();
-    console.log('json', json);
-    return json;
+    const d = await req.json();
+    return d;
   } catch (e) {
-    throw e;
+    throw new ExtractDataFromDescriptionError('Could not data from the provided description', 407);
   }
 }

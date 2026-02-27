@@ -25,7 +25,7 @@ public class CityService {
     }
 
     public City findByName(String cityName) {
-        return cityRepository.findByName(cityName);
+        return cityRepository.findByName(cityName).get();
     }
 
     public City findByZipcode(Integer zipcode) {

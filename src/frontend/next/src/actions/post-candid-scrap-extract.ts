@@ -2,6 +2,7 @@
 import { ROUTES } from '@/lib';
 import { HiringOrganization, Place, DataFromScrap, City, Company, Website } from '@/types';
 import { fetchClient } from './fetchClient';
+import { PostDataResolveError } from './errors';
 
 export type ContractLooseDto = {
   contractType: string;
@@ -27,15 +28,19 @@ export type PostCandidResolveDataResult = {
 };
 
 export const postCandidResolveData: PostCandidResolveDataFn = async (data) => {
-  console.log('CALL: postCandidResolveData');
-  const res = await fetchClient(ROUTES.API.RESOLVE_POST_DATA, {
-    method: 'POST',
-    body: JSON.stringify(data),
-  });
+  console.log('call: postCandidResolveData');
+  try {
+    // let dataToSend = data;
+    if (Array.isArray(data.scrapped.jobLocation)) data.scrapped.jobLocation = data.scrapped.jobLocation[0];
 
-  if (!res.ok) throw new Error('problem resolving data');
-
-  const resolvedData: Promise<DataFromScrap> = await res.json();
-  console.log('resolved data', resolvedData);
-  return resolvedData;
+    const res = await fetchClient(ROUTES.API.RESOLVE_POST_DATA, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    const resolvedData = await res.json();
+    return resolvedData;
+  } catch (e) {
+    console.log(e);
+    throw new PostDataResolveError();
+  }
 };

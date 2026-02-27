@@ -1,12 +1,16 @@
 import { ScrapApiRespone } from '@/types';
-import { ROUTES } from '../consts';
+
+export class ScrapJobOfferingError extends Error {
+  constructor(message = 'Could not job offering page') {
+    super(message);
+    this.name = 'ScrapJobOfferingError';
+    Object.setPrototypeOf(this, ScrapJobOfferingError.prototype);
+  }
+}
 
 export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
-  console.log('calling scrap url');
-  console.log('CALL SCRAP URL WITH URL', url);
-  // handle connection refused..
+  console.log('call: scrapUrl');
   try {
-    // const req = await fetch(ROUTES.SCRAPPER.JOB_POSTING, {
     const req = await fetch('http://localhost:8001/scrap/job_posting', {
       method: 'POST',
       headers: {
@@ -16,14 +20,12 @@ export async function scrapUrl(url: string): Promise<ScrapApiRespone> {
         url: url,
       }),
     });
-    const json = await req.json();
-    let data = json;
-    if (Array.isArray(data['jobLocation'])) data['jobLocation'] = data['jobLocation'][0];
-    console.log('====================DATA FROM SCRAP====================');
+    const data = await req.json();
+    console.log('==========JSON==========');
     console.log(data);
     return data;
   } catch (e) {
     console.log(e);
-    throw e;
+    throw new ScrapJobOfferingError();
   }
 }

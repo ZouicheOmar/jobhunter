@@ -2,7 +2,7 @@
 
 import { Candid, CandidCreate, CandidUpdateRestricted, ResourcePage } from '@/types';
 import { fetchClient } from './fetchClient';
-import { ROUTES } from '@/lib';
+import { API_BASE, ROUTES } from '@/lib';
 import { getEmptyCandid } from '@/lib/utils';
 
 export type GetCandidsPageFn = (page: number) => Promise<ResourcePage<Candid>>;
@@ -22,12 +22,17 @@ export const getCandidsPageFiltered = async (filters: string) => {
 
 export const postCandid: PostCandidFn = async (candid) => {
   console.log('data to post', candid);
-  const res = await fetchClient('http://localhost:8000/candid', {
-    method: 'POST',
-    body: JSON.stringify(candid),
-  });
-  if (!res.ok) throw new PostCandidError();
-  return await res.json();
+  try {
+    // const res = await fetchClient('http://localhost:8000/candid', {
+    const res = await fetchClient(ROUTES.API.CANDID.BASE, {
+      method: 'POST',
+      body: JSON.stringify(candid),
+    });
+    const data = await res.json();
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export const setCandidRejected = async (id: number) => {
