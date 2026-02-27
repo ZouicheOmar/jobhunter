@@ -30,12 +30,17 @@ public class CompanyController {
 	@Autowired
 	private CompanyService companyService;
 
+	@GetMapping
+	public CompanyDto findById(@RequestParam String name ) {
+		return CompanyMapper.toDto(companyService.findOrCreateByName(name));
+	}
+
 	@GetMapping("/{id}")
 	public CompanyDto findById(@PathVariable int id) {
 		return CompanyMapper.toDto(companyService.findById(id));
 	}
 
-	@GetMapping
+	@GetMapping("/page")
 	public PagedModel<CompanyDto> findAllFiltered(
 			@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "10") int size,

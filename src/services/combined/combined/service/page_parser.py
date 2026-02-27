@@ -19,16 +19,25 @@ class PageParser:
 
   def extract_ld(self, page: ScrapResponse) -> dict | None:
     nodes = page.find_all('script[type="application/ld+json"]')
+    print("============NODES===============")
+    print(nodes)
     if not len(nodes):
       return None
     for node in nodes:
       node_json = node.json()
+      print("============JSON.NODES===============")
+      print(nodes)
       if "@type" in node_json and node_json["@type"] == "JobPosting":
-        return self.make_dict(node_json)
+        d = self.make_dict(node_json)
+        print("============LDJSON===============")
+        print("ld json", d)
+        return d
       continue
     return None
 
   def process(self, page: ScrapResponse) -> dict | None:
+    print("============CALL--PageParser.process===============")
+
     ldjson_node = self.extract_ld(page)
     if not ldjson_node:
       return None

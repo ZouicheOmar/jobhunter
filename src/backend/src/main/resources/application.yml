@@ -1,6 +1,10 @@
 server:
-  port: 8000
+  address: 0.0.0.0
+  port: 8080
   # port: ${BACK_PORT}
+app-services:
+  # scrap-service-url: http://jh-services:8001
+  scrap-service-url: ${SERVICES_ORIGIN}
 app:
   jwt:
     secret: dev-env-jwt-secret
@@ -16,8 +20,8 @@ spring:
   application:
     name: backend
   datasource:
-    # url: jdbc:postgresql://jh-postgresql:5432/mydatabase
-    url: jdbc:postgresql://localhost:5432/mydatabase
+    url: jdbc:postgresql://jh-postgresql:5432/mydatabase
+    # url: jdbc:postgresql://localhost:5432/mydatabase
     # url: jdbc:postgresql://jh-network:5432/mydatabase
     username: admin
     password: pass
@@ -45,3 +49,7 @@ logging:
     com:
       jobhunter:
         backend: TRACE
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR

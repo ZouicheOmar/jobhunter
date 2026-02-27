@@ -1,6 +1,6 @@
 from flask import Flask
 
-from combined.routes import extract_bp, scrapper_bp
+from combined.routes import extract_bp, scrapper_bp, debug_bp
 from combined.config_cors import config_cors
 
 
@@ -13,5 +13,6 @@ def create_app(config_name='dev'):
     app.after_request(config_cors)
     app.register_blueprint(extract_bp, url_prefix="/extract")
     app.register_blueprint(scrapper_bp, url_prefix="/scrap")
+    app.register_blueprint(debug_bp, url_prefix="/debug")
 
     return app

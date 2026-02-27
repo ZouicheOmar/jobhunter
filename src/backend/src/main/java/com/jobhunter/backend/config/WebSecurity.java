@@ -50,6 +50,7 @@ public class WebSecurity {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/auth/login").permitAll()
                         .requestMatchers("/auth/me").permitAll()
+                        .requestMatchers("/debug/*").permitAll()
                         .anyRequest().authenticated())
 
                 .logout(logout -> logout

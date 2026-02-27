@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CityRepository extends JpaRepository<City, Integer> {
-    public City findByName(String name);
+    public Optional<City> findByName(String name);
     public Optional<City> findByZipcode(Integer zipcode);
 
     public List<City> findAllByNameContaining(String name, Limit limit);

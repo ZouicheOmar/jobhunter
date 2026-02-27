@@ -1,5 +1,7 @@
 package com.jobhunter.backend.service;
 
+import com.jobhunter.backend.dto.JobLocationDto;
+import com.jobhunter.backend.dto.PostalAddressDto;
 import com.jobhunter.backend.model.City;
 import com.jobhunter.backend.repository.CityRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -17,9 +19,9 @@ public class CityService {
 
     public City findById(Integer id) {
         return cityRepository
-            .findById(id)
-            // SMELLY
-            .orElseGet(() -> findByName("remote"));
+                .findById(id)
+                // SMELLY
+                .orElseGet(() -> findByName("remote"));
     }
 
     public City findByName(String cityName) {
@@ -29,8 +31,10 @@ public class CityService {
     public City findByZipcode(Integer zipcode) {
         // throw exception
         Optional<City> city = cityRepository.findByZipcode(zipcode);
-        if (city.isEmpty()) throw new EntityNotFoundException("City not found");
-        else return city.get();
+        if (city.isEmpty())
+            throw new EntityNotFoundException("City not found");
+        else
+            return city.get();
     }
 
     public List<City> findAllByNameContaining(String cityName) {
@@ -39,5 +43,21 @@ public class CityService {
 
     public List<City> findAllByZipcodeContaining(String zipcodeStr) {
         return cityRepository.findAllByZipcodeContaining(zipcodeStr);
+    }
+
+    public City findFromJobLocation(JobLocationDto dto) {
+        PostalAddressDto addressDto = dto.address();
+        Optional<String> zipcode = addressDto.postalCode();
+        Optional<String> name = addressDto.addressLocality();
+
+        Optional<City> res = Optional.empty();
+
+        if (zipcode.isPresent())
+            res = cityRepository.findByZipcode(Integer.parseInt(zipcode.get()));
+        if (res.isEmpty() && name.isPresent())
+            res = cityRepository.findByName(name.get().toLowerCase());
+
+        return res.get();
+
     }
 }

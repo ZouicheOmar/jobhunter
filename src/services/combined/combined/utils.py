@@ -16,6 +16,7 @@ from scrapling.parser import Selector
 def normalize(s: str) -> str:
   s = s.strip()
   s = s.replace(' ', '_')
+  s = s.replace('/', '_')
   s = s.lower()
   return s
 
