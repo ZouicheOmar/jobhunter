@@ -3,8 +3,8 @@ services:
     build:
       target: dev
     environment:
-      API_ORIGIN: "http://localhost:8000"
-      SERVICES_ORIGIN: "http://localhost:8001"
+      API_ORIGIN: http://jh-backend:8080
+      SCRAP_ORIGIN: http://jh-services:8000
     develop:
       watch:
         - path: ./src/frontend/next/
@@ -16,7 +16,7 @@ services:
       target: dev
     environment:
       BACK_PORT: 8080
-      # DB_ORIGIN: "http://localhost:5432"
+      SERVICES_ORIGIN: http://jh-services:8000
     develop:
       watch:
         - path: ./src/backend

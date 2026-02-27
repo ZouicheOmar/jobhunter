@@ -23,6 +23,10 @@ services:
 
   jh-services:
     container_name: jh-services
+    environment:
+      OLLAMA_HOST: host.docker.internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     build:
       context: ./src/services/combined
       dockerfile: dockerfile
