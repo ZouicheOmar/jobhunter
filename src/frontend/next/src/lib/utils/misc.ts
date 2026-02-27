@@ -17,13 +17,13 @@ export const getEmptyCandid: () => Candid = () => ({
   stack: [{ id: 402 }, { id: 403 }],
 });
 
-export function getHostname(url: string): string | null {
+export function getHostname(url: string) {
   let parsed = URL.parse(url);
   if (parsed?.host) {
     let v = parsed.host.split('.');
     return v.length == 3 ? v[1] : v[0];
   }
-  return null;
+  return undefined;
 }
 
 export function cn(...inputs: ClassValue[]) {

@@ -11,19 +11,37 @@ export const CONTRACT_TYPES = [
 
 export const SESSION_COOKIE_NAME = 'jhsession';
 export const FRONT_BASE = process.env.JH_FRONT_URL || 'http://localhost:3000';
-export const API_BASE = 'http://localhost:8000';
+export const API_BASE = process.env.API_ORIGIN || 'http://localhost:8000';
+
+export const SCRAP_ORIGIN = process.env.SCRAP_ORIGIN || 'http://localhost:8000';
 
 export const ROUTES = {
+  // SCRAPPER: {
+  //   BASE: 'http://127.0.0.1:5000/scrap/',
+  //   JOB_POSTING: 'http://127.0.0.1:5000/scrap/job_posting',
+  // },
+  //
+  // LLM_EXTRACT: {
+  //   BASE: 'http://127.0.0.1:5001/api/extract',
+  // },
+
   SCRAPPER: {
-    BASE: 'http://127.0.0.1:5000/scrap/',
-    JOB_POSTING: 'http://127.0.0.1:5000/scrap/job_posting',
+    DEBUG: `${SCRAP_ORIGIN}/debug`,
+    BASE: `${SCRAP_ORIGIN}/scrap`,
+    JOB_POSTING: `${SCRAP_ORIGIN}/scrap/job_posting`,
   },
 
   LLM_EXTRACT: {
-    BASE: 'http://127.0.0.1:5001/api/extract',
+    BASE: `${SCRAP_ORIGIN}/extract/job-application`,
+    DEBUG: `${SCRAP_ORIGIN}/extract/test`,
   },
 
   API: {
+    AUTH: {
+      LOGIN: `${API_BASE}/auth/login`,
+      LOGOUT: `${API_BASE}/auth/logout`,
+      ME: `${API_BASE}/auth/me`,
+    },
     BASE: `${API_BASE}/`,
     CANDID: {
       BASE: `${API_BASE}/candid`,
@@ -44,7 +62,7 @@ export const ROUTES = {
     COMPANY: {
       BASE: `${API_BASE}/company`,
       PAGE: (page: number, orderByDateApply: boolean) =>
-        `${API_BASE}/company?page=${page}&orderByDateApply=${orderByDateApply}`,
+        `${API_BASE}/company/page?page=${page}&orderByDateApply=${orderByDateApply}`,
       BY_NAME: (v: string) => `${API_BASE}/company?name=${v}`,
       BY_ID: (id: number) => `${API_BASE}/company/${id}`,
     },
@@ -60,6 +78,7 @@ export const ROUTES = {
       COMPANY: (v: string) => `${API_BASE}/completion/company?value=${v}`,
       TECH: (v: string) => `${API_BASE}/completion/tech?value=${v}`,
     },
+    RESOLVE_POST_DATA: `${API_BASE}/resolve/post-candid-data`,
   },
 };
 

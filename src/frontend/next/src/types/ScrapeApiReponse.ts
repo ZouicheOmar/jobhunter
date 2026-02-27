@@ -1,7 +1,8 @@
-import { City } from "./City";
-import { Company } from "./Company";
-import { ContractCreate } from "./Contract";
-import { Website } from "./Website";
+import { ContractLooseDto } from '@/actions';
+import { City } from './City';
+import { Company } from './Company';
+import { ContractCreate } from './Contract';
+import { Website } from './Website';
 
 export type HiringOrganization = {
   name: string;
@@ -31,5 +32,5 @@ export type DataFromScrap = {
   company?: Company;
   website?: Website;
   title: string;
-  contract: ContractCreate;
+  contract: ContractLooseDto;
 };

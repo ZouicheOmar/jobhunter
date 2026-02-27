@@ -1,7 +1,7 @@
-import { useAddCandidStore } from "@/stores/use-add-candid/useAddCandid";
-import { useShallow } from "zustand/shallow";
+import { useAddCandidStore } from '@/stores/use-add-candid/useAddCandid';
+import { useShallow } from 'zustand/shallow';
 
-import { Button } from "../schadcn/Button";
+import { Button } from '../schadcn/Button';
 
 export default function AddCandidLookupUrl() {
   const url = useAddCandidStore(useShallow((state) => state.url));
@@ -18,7 +18,7 @@ export default function AddCandidLookupUrl() {
         onChange={(e) => updateUrl(e.target.value)}
         value={url}
       />
-      <Button onClick={() => lookupUrl()}>look up offer</Button>
+      <Button onClick={() => lookupUrl()}>lookup offer</Button>
     </>
   );
 }

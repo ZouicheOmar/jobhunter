@@ -1,13 +1,11 @@
-import { useShallow } from "zustand/shallow";
-import { useAddCandidStore } from "@/stores/use-add-candid/useAddCandid";
-import { CONTRACT_TYPES } from "@/lib";
-import { HLine } from "../ui-elements";
+import { useShallow } from 'zustand/shallow';
+import { useAddCandidStore } from '@/stores/use-add-candid/useAddCandid';
+import { CONTRACT_TYPES } from '@/lib';
+import { HLine } from '../ui-elements';
 
 export const AddCandidContractInput = () => {
   const contract = useAddCandidStore(useShallow((state) => state.contract));
-  const updateContract = useAddCandidStore(
-    useShallow((state) => state.updateContract)
-  );
+  const updateContract = useAddCandidStore(useShallow((state) => state.updateContract));
 
   return (
     <>
@@ -27,11 +25,12 @@ export const AddCandidContractInput = () => {
                 name="contractType"
                 id={c}
                 value={contract.type}
-                onChange={(e) => updateContract({ type: c, duration: 0 })}
+                onChange={() => updateContract({ ...contract, type: c })}
+                checked={contract.type == c}
                 className="mr-1"
               />
               <label htmlFor={c} className="capitalize">
-                {c.replace("_", " ").toLowerCase()}
+                {c.replace('_', ' ').toLowerCase()}
               </label>
             </div>
           ))}
@@ -45,18 +44,13 @@ export const AddCandidContractInput = () => {
         <input
           id="contractDuration"
           type="number"
-          value={contract.duration}
+          value={contract.duration || 0}
           min="0"
           max="36"
           className="rounded align-top mt-[1px] border rounded px-2"
-          onChange={(e) =>
-            updateContract({ ...contract, duration: e.target.value })
-          }
+          onChange={(e) => updateContract({ ...contract, duration: Number(e.target.value) })}
         />
-        <span className="text-neutral-500 align-text-top italic">
-          {" "}
-          (months){" "}
-        </span>
+        <span className="text-neutral-500 align-text-top italic"> (months) </span>
       </div>
       <HLine />
     </>

@@ -1,12 +1,12 @@
 enum CONTRACT_TYPES_ENUM {
-  "CDI TEMPS PLEIN",
-  "CDI TEMPS PARTIEL",
-  "INTERIMAIRE",
-  "CDD",
-  "ALTERNANT",
-  "BÉNÉVOLE",
-  "FREELANCE",
-  "AUTRE",
+  'CDI TEMPS PLEIN',
+  'CDI TEMPS PARTIEL',
+  'INTERIMAIRE',
+  'CDD',
+  'ALTERNANT',
+  'BÉNÉVOLE',
+  'FREELANCE',
+  'AUTRE',
 }
 
 export type Contract = {

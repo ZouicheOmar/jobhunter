@@ -1,6 +1,6 @@
 'use server';
 
-import { SESSION_COOKIE_NAME } from '@/lib';
+import { ROUTES, SESSION_COOKIE_NAME } from '@/lib';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { NextResponse } from 'next/server';
@@ -14,8 +14,7 @@ export const login = async (fd: FormData) => {
     password: fd.get('password'),
   });
 
-  const authurl = 'http://localhost:8000/auth/login';
-  const req = await fetch(authurl, {
+  const req = await fetch(ROUTES.API.AUTH.LOGIN, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -37,8 +36,7 @@ export const login = async (fd: FormData) => {
 export const logout = async () => {
   const cookieStore = await cookies();
 
-  const logoutUrl = 'http://localhost:8000/auth/logout';
-  const req = await fetchClient(logoutUrl);
+  const req = await fetchClient(ROUTES.API.AUTH.LOGOUT);
 
   if (!req.ok) {
     console.log('could not log out:', req.status);

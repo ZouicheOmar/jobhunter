@@ -1,7 +1,4 @@
-import {
-  UpdateCompletionListFn,
-  UpdateValueFn,
-} from "@/components/ui-elements/input-with-select";
+import { UpdateCompletionListFn, UpdateValueFn } from '@/components/ui-elements/input-with-select';
 import {
   CandidCreate,
   Tech,
@@ -13,7 +10,7 @@ import {
   TechCreate,
   CompanyCreate,
   WebsiteCreate,
-} from "@/types";
+} from '@/types';
 
 export interface ComponentStateSlice {
   scrapPending: boolean;

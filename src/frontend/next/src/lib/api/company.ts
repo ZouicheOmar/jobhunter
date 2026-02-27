@@ -1,3 +1,4 @@
+'use server';
 import { CompanyPage, Company } from '@/types';
 import { ROUTES } from '../consts';
 import { fetchClient } from '@/actions';
@@ -19,8 +20,10 @@ export const getCompanyById = async (id: number): Promise<Company | null> => {
 
 export const getOrCreateCompanyByName = async (name: string): Promise<Company> => {
   try {
-    const req = await fetchClient(ROUTES.API.WEBSITE.BY_NAME(name));
+    console.log('fetching company from url', ROUTES.API.COMPANY.BY_NAME(name));
+    const req = await fetchClient(ROUTES.API.COMPANY.BY_NAME(name));
     const json = await req.json();
+    console.log('company json', json);
     return json;
   } catch (e) {
     throw Error('error fetchClienting Website');

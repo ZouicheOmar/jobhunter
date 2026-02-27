@@ -1,14 +1,11 @@
-import { scrapUrl, extractFromDesc, getTechsFromScrapper } from "@/lib";
-import { fetchExistingData } from "@/lib/api/fetch";
-import { filterFoundStack } from "@/lib/utils/misc";
-import { StateCreator } from "zustand";
-import { AddCandidStore, UrlSlice } from "../types";
+import { scrapUrl, extractFromDesc, getTechsFromScrapper } from '@/lib';
+import { fetchExistingData } from '@/lib/api/fetch';
+import { filterFoundStack } from '@/lib/utils/misc';
+import { StateCreator } from 'zustand';
+import { AddCandidStore, UrlSlice } from '../types';
 
-export const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (
-  set,
-  get
-) => ({
-  url: "",
+export const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (set, get) => ({
+  url: '',
   updateUrl: (v: string) => set(() => ({ url: v })),
 
   lookupUrl: async () => {
@@ -27,6 +24,7 @@ export const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (
       });
 
       const existingData = await fetchExistingData(url, scrappedData);
+      console.log('from store, finished executing fetch data');
 
       set({
         title: existingData.title,
@@ -35,6 +33,7 @@ export const urlSlice: StateCreator<AddCandidStore, [], [], UrlSlice> = (
         ...(existingData.website && { website: existingData.website }),
         ...(existingData.contract && { contract: existingData.contract }),
 
+        checkExistingDataPending: false,
         scrapPending: false,
       });
 
